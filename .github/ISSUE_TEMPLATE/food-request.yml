@@ -1,0 +1,28 @@
+name: Add a food
+description: Something wasn't in the cookbook. Tell Ryan what to add.
+title: "Please add: "
+labels: ["food-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        No wrong answers here. If you searched for something and got
+        "not in my cookbook yet", this is the form.
+  - type: input
+    id: food
+    attributes:
+      label: What did you search for?
+      placeholder: bocconcini
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where did you see it?
+      description: Handy for working out how it was served, which usually decides the verdict.
+      placeholder: On a pub menu, in a salad
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      placeholder: It was on a share board with some cured meats.
