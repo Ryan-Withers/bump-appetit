@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121A15" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Bump Appetit">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<title>Bump Appetit</title>
+<meta name="description" content="Pregnancy food safety, answered straight. Type a food, get a verdict, with the source and the date it was checked.">
+
+<!-- Both faces are variable woff2, latin subset, and both are used above the
+     fold (greeting in Bricolage, everything else in Nunito Sans). -->
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="assets/styles.css">
+<script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+
+<a class="sr-only" href="#main" data-string="a11y.skipToContent">Skip to content</a>
+
+<noscript>
+  <div class="empty">
+    <p class="empty__title">Bump Appetit needs JavaScript</p>
+    <p>Turn JavaScript on in Safari settings and reload, and the whole cookbook comes back. Until then: freshly cooked, steaming hot, from a clean kitchen is the safest bet.</p>
+  </div>
+</noscript>
+
+<main class="app" id="main" tabindex="-1">
+  <section class="view is-active" id="view-search" role="tabpanel" aria-labelledby="tab-search">
+    <div class="view__inner"></div>
+  </section>
+  <section class="view" id="view-scan" role="tabpanel" aria-labelledby="tab-scan">
+    <div class="view__inner"></div>
+  </section>
+  <section class="view" id="view-bites" role="tabpanel" aria-labelledby="tab-bites">
+    <div class="view__inner"></div>
+  </section>
+  <section class="view" id="view-more" role="tabpanel" aria-labelledby="tab-more">
+    <div class="view__inner"></div>
+  </section>
+</main>
+
+<!-- Tab labels carry a data-string hook so app.js can swap them for STRINGS
+     values, but they ship with real text so the spine of the app is never
+     blank on a slow or failed module load. -->
+<div class="tabbar" role="tablist" aria-label="Bump Appetit sections">
+  <button class="tab is-active" type="button" id="tab-search" role="tab" aria-selected="true" aria-controls="view-search">
+    <span class="tab__icon" data-icon="search"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+    <span class="tab__label" data-string="tabs.search">Search</span>
+  </button>
+  <button class="tab" type="button" id="tab-scan" role="tab" aria-selected="false" aria-controls="view-scan">
+    <span class="tab__icon" data-icon="camera"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span>
+    <span class="tab__label" data-string="tabs.scan">Scan</span>
+  </button>
+  <button class="tab" type="button" id="tab-bites" role="tab" aria-selected="false" aria-controls="view-bites">
+    <span class="tab__icon" data-icon="cookie"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg></span>
+    <span class="tab__label" data-string="tabs.bites">Bites</span>
+  </button>
+  <button class="tab" type="button" id="tab-more" role="tab" aria-selected="false" aria-controls="view-more">
+    <span class="tab__icon" data-icon="menu"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></span>
+    <span class="tab__label" data-string="tabs.more">More</span>
+  </button>
+</div>
+
+<div class="sheet-backdrop" hidden></div>
+
+<section class="sheet" role="dialog" aria-modal="true" hidden>
+  <div class="sheet__handle"></div>
+  <button class="sheet__close" type="button" aria-label="Close" data-string-attr="aria-label:a11y.close">
+    <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <div class="sheet__body"></div>
+</section>
+
+<div class="toast" role="status" aria-live="polite" hidden></div>
+
+<div class="install-hint" hidden></div>
+
+</body>
+</html>

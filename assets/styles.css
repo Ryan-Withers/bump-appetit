@@ -1,0 +1,1359 @@
+/* Bump Appetit - the whole design system, one file.
+   Order: fonts, tokens, base, shell, shared, sticker, screens, keyframes,
+   reduced motion. Nothing here animates anything but transform and opacity. */
+
+/* ---------------------------------------------------------------- 1. Fonts */
+/* Variable woff2, latin subset, self-hosted so the typography survives
+   flight mode. Weight ranges, not single weights: one file per family. */
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('fonts/bricolage-grotesque-latin.woff2') format('woff2');
+  font-weight: 600 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('fonts/nunito-sans-latin.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------- 2. Tokens */
+/* Copied verbatim from build spec section 2. The pairs are contrast-checked;
+   do not tweak a hex without re-checking both schemes. */
+
+:root {
+  /* Base: fresh green-white, like a clean kitchen in morning light */
+  --bg: #F5F7F2;
+  --surface: #FFFFFF;
+  --surface-2: #EDF1EA;        /* recessed areas, chips at rest */
+  --ink: #1E2B24;              /* primary text, ~13:1 on --bg */
+  --ink-2: #5A6B60;            /* secondary text, ~5:1 on --bg */
+  --line: #E2E7DF;             /* hairlines, borders */
+  --brand: #256C47;            /* garden green: links, active tab, focus */
+  --butter: #F6C445;           /* delight only: confetti, heart burst, sun */
+
+  /* Tier: GO (green) */
+  --go-bg: #DFF0E3;  --go-line: #B9DCC4;  --go-ink: #1D6A41;
+  /* Tier: EASY (amber / limit) */
+  --easy-bg: #FBF0D3; --easy-line: #EDD79E; --easy-ink: #7A5800;
+  /* Tier: HOLD (rose / not now) */
+  --hold-bg: #FAE3E1; --hold-line: #EFC2BD; --hold-ink: #A33F35;
+
+  /* Radius */
+  --r-chip: 12px; --r-btn: 16px; --r-card: 20px; --r-sheet: 28px; --r-pill: 999px;
+
+  /* Space: 4px grid. Use multiples only. */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px; --s10: 40px;
+
+  /* Shadow: ink-tinted, never grey-on-grey */
+  --shadow-sm: 0 1px 2px rgba(20,32,25,.06);
+  --shadow-md: 0 6px 24px rgba(20,32,25,.10);
+  --shadow-sheet: 0 -8px 40px rgba(20,32,25,.16);
+
+  /* Motion */
+  --dur-1: 140ms;  /* taps, hovers */
+  --dur-2: 240ms;  /* fades, small moves */
+  --dur-3: 400ms;  /* sheets, stamps */
+  --ease-out: cubic-bezier(.22,1,.36,1);
+  --spring: cubic-bezier(.34,1.56,.64,1);   /* playful overshoot */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* "3am club" mode: deep kitchen at night, easy on tired eyes */
+    --bg: #121A15; --surface: #1A241E; --surface-2: #202B24;
+    --ink: #E8EFE9; --ink-2: #9BAEA1; --line: #2A362F;
+    --brand: #58B380; --butter: #E3B63E;
+    --go-bg: #17301F;  --go-line: #295C3D;  --go-ink: #7FD3A0;
+    --easy-bg: #322A12; --easy-line: #5D4E1E; --easy-ink: #E4BC5A;
+    --hold-bg: #331D1B; --hold-line: #5E3531; --hold-ink: #EE9C8F;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+    --shadow-md: 0 6px 24px rgba(0,0,0,.5);
+  }
+}
+
+/* Type and layout tokens. Separate block so the spec block above stays a
+   straight copy. Sizes are rem on a 16px root, so 120% text still works. */
+:root {
+  color-scheme: light dark;
+
+  --font-display: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-display: 1.875rem;   /* 30 / 1.15 / 800 Bricolage */
+  --fs-title: 1.5rem;       /* 24 / 1.2  / 800 Bricolage */
+  --fs-heading: 1.25rem;    /* 20 / 1.3  / 700 Nunito */
+  --fs-body: 1.0625rem;     /* 17 / 1.55 / 400 Nunito, the paragraph floor */
+  --fs-label: 0.9375rem;    /* 15 / 1.4  / 600 Nunito */
+  --fs-caption: 0.8125rem;  /* 13 / 1.4  / 600 Nunito */
+  --fs-tab: 0.6875rem;      /* 11, tab labels only */
+
+  --max-w: 640px;
+  --tabbar-h: 60px;
+  --pad-side: max(var(--s4), env(safe-area-inset-left), env(safe-area-inset-right));
+  --focus-ring: 2px solid var(--brand);
+}
+
+/* ----------------------------------------------------------------- 3. Base */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  /* Rubber-band overscroll paints this, so it must not be white. */
+  background-color: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.55;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, p, ul, ol, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+img, svg { max-width: 100%; }
+svg { display: block; }
+.icon { flex: none; }
+
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+button { cursor: pointer; }
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Screen-reader-only, except the skip link, which surfaces on keyboard focus. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus-visible {
+  position: fixed;
+  top: max(var(--s3), env(safe-area-inset-top));
+  left: var(--s3);
+  z-index: 100;
+  width: auto; height: auto;
+  margin: 0;
+  padding: var(--s3) var(--s4);
+  overflow: visible;
+  clip-path: none;
+  border-radius: var(--r-btn);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-md);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Every tappable thing presses in. Cheaper and calmer than a tap highlight. */
+.btn, .tab, .chip, .result, .tile, .row, .callbtn, .bite, .variant,
+.ingredient, .dot, .searchbar__clear, .sheet__close, .sheet__fav,
+.scan__button, .source-chip, .swap-row, .toast {
+  transition: transform var(--dur-1) var(--ease-out);
+}
+
+.btn:active, .tab:active, .chip:active, .result:active, .tile:active,
+.row:active, .callbtn:active, .bite:active, .variant:active,
+.ingredient:active, .dot:active, .searchbar__clear:active,
+.sheet__close:active, .sheet__fav:active, .scan__button:active,
+.source-chip:active, .swap-row:active, .toast:active {
+  transform: scale(.97);
+}
+
+/* ---------------------------------------------------------------- 4. Shell */
+
+.app {
+  display: block;
+  min-height: 100dvh;
+}
+
+.app:focus { outline: none; }
+
+/* Views stack by swapping display, so the document only ever scrolls the
+   height of the visible screen. The incoming view drifts up 6px as it fades. */
+.view { display: none; }
+
+.view.is-active {
+  display: block;
+  animation: view-in 200ms var(--ease-out) 60ms both;
+}
+
+.view__inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad-side);
+  padding-top: max(var(--s4), env(safe-area-inset-top));
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+}
+
+/* The spine. Fixed, blurred, and it never hides on scroll. */
+.tabbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: max(env(safe-area-inset-left), calc((100% - var(--max-w)) / 2));
+  padding-right: max(env(safe-area-inset-right), calc((100% - var(--max-w)) / 2));
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: var(--tabbar-h);
+  min-width: 44px;
+  padding: var(--s2) var(--s1);
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.tab__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.tab__label {
+  font-size: var(--fs-tab);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+
+.tab.is-active { color: var(--brand); }
+.tab.is-active .tab__icon { animation: tab-pop 260ms var(--spring); }
+.tab:focus-visible { outline-offset: -4px; }
+
+/* --------------------------------------------------------------- 5. Shared */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, var(--s5));
+}
+
+.card {
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  min-height: 52px;
+  padding: var(--s2) var(--s5);
+  border: 1px solid transparent;
+  border-radius: var(--r-btn);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* --bg on --brand clears 5.9:1 in light and 6.6:1 in dark. White would fail
+   the dark scheme, which is why the text colour is a token, not #fff. */
+.btn--primary { background: var(--brand); color: var(--bg); border-color: var(--brand); }
+.btn--ghost { background: transparent; color: var(--brand); border-color: var(--line); }
+
+.caption {
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.disclaimer {
+  font-size: var(--fs-caption);
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* Toast and install hint share one show/hide pattern: they are always laid
+   out, and they open when the hidden attribute comes off or .is-open goes on,
+   so it does not matter which lever the JS pulls. */
+.toast, .install-hint {
+  position: fixed;
+  left: max(var(--s4), env(safe-area-inset-left));
+  right: max(var(--s4), env(safe-area-inset-right));
+  bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom) + var(--s3));
+  max-width: 608px;
+  margin-inline: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity var(--dur-2) var(--ease-out),
+    transform var(--dur-2) var(--ease-out),
+    visibility 0s linear var(--dur-2);
+}
+
+.toast[hidden] { display: flex; }
+.install-hint[hidden] { display: flex; }
+
+.toast:not([hidden]), .toast.is-open,
+.install-hint:not([hidden]), .install-hint.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.toast {
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 52px;
+  padding: var(--s3) var(--s4);
+  border-radius: var(--r-btn);
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: var(--shadow-md);
+  font-size: var(--fs-label);
+  font-weight: 600;
+}
+
+.toast a, .toast button { color: inherit; }
+
+.install-hint {
+  z-index: 65;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  font-size: var(--fs-label);
+  line-height: 1.5;
+}
+
+/* Already installed: the hint has nothing left to say. */
+.is-standalone .install-hint { display: none !important; }
+
+/* ------------------------------------------------------- 6. The sticker */
+/* Signature element: a fruit sticker, pressed on by hand. Tint background,
+   tier ink text, 1px tier line. Never a solid fill with white text. */
+
+.sticker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  height: 44px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-2deg);   /* resting tilt: hand-applied charm */
+  white-space: nowrap;
+}
+
+/* The shine. This is what stops it reading as a status chip. */
+.sticker::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 24% 14%, rgba(255,255,255,.18), rgba(255,255,255,0) 62%);
+  pointer-events: none;
+}
+
+.sticker__word {
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.sticker .icon { width: 20px; height: 20px; }
+
+.sticker--go { background: var(--go-bg); border-color: var(--go-line); color: var(--go-ink); }
+.sticker--easy { background: var(--easy-bg); border-color: var(--easy-line); color: var(--easy-ink); }
+.sticker--hold { background: var(--hold-bg); border-color: var(--hold-line); color: var(--hold-ink); }
+
+/* Neutral on purpose: a dashed edge reads as "not decided yet". */
+.sticker--depends {
+  background: var(--surface-2);
+  border: 1px dashed var(--ink-2);
+  color: var(--ink);
+}
+
+.sticker--mini {
+  height: 28px;
+  padding: 0 var(--s3);
+  gap: var(--s1);
+  box-shadow: none;
+}
+
+.sticker--mini .sticker__word { font-size: var(--fs-caption); }
+.sticker--mini .icon { width: 16px; height: 16px; }
+
+@keyframes stamp {
+  0%   { transform: scale(1.4) rotate(-6deg); opacity: 0; }
+  55%  { opacity: 1; }
+  100% { transform: scale(1) rotate(-2deg); }
+}
+
+.sticker.reveal { animation: stamp 320ms var(--spring) 120ms backwards; }
+
+/* Confetti: green verdicts only, thrown from the sticker's centre. */
+.confetti {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.confetti__bit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  animation: confetti-fly 600ms var(--ease-out) forwards;
+}
+
+/* Colours are set here so a bit without inline styles still looks right. */
+.confetti__bit:nth-child(3n+1) { background: var(--go-ink); }
+.confetti__bit:nth-child(3n+2) { background: var(--butter); }
+.confetti__bit:nth-child(3n)   { background: var(--surface); box-shadow: 0 0 0 1px var(--go-line); }
+
+@keyframes confetti-fly {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform:
+      translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -44px)))
+      rotate(var(--rot, 200deg));
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------- 7. Search */
+
+.greeting {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+
+.greeting__sub {
+  margin-top: var(--s1);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.searchbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  height: 56px;
+  padding-inline: var(--s4) var(--s1);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  transition: border-color var(--dur-1) var(--ease-out), box-shadow var(--dur-1) var(--ease-out);
+}
+
+.searchbar:focus-within {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 15%, transparent);
+}
+
+.searchbar__icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--ink-2);
+}
+
+/* 17px hard floor: anything under 16 makes iOS zoom the page on focus, which
+   looks like the app broke. */
+.searchbar__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: max(1.0625rem, 17px);
+  font-weight: 600;
+  color: var(--ink);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.searchbar__input::placeholder { color: var(--ink-2); font-weight: 400; opacity: 1; }
+.searchbar__input:focus { outline: none; }   /* the wrapper carries the ring */
+.searchbar__input::-webkit-search-cancel-button { display: none; }
+
+.searchbar__clear {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--ink-2);
+}
+
+.chips {
+  display: flex;
+  gap: var(--s2);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  /* Bleed to the screen edges so the row reads as scrollable. */
+  margin-inline: calc(var(--pad-side) * -1);
+  padding-inline: var(--pad-side);
+  padding-block: var(--s1);
+}
+
+.chips::-webkit-scrollbar { display: none; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  flex: none;
+  scroll-snap-align: start;
+  min-height: 44px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chip.is-on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+/* Stagger the first six rows only. Row seven onward appears instantly, which
+   is faster to read and cheaper to paint. */
+.results > * { animation: row-in var(--dur-2) var(--ease-out) both; }
+.results > :nth-child(1) { animation-delay: 0ms; }
+.results > :nth-child(2) { animation-delay: 24ms; }
+.results > :nth-child(3) { animation-delay: 48ms; }
+.results > :nth-child(4) { animation-delay: 72ms; }
+.results > :nth-child(5) { animation-delay: 96ms; }
+.results > :nth-child(6) { animation-delay: 120ms; }
+.results > :nth-child(n+7) { animation: none; }
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  min-height: 64px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.result__emoji {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.result__name {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.result__sticker { flex: none; display: flex; align-items: center; }
+
+.soft-label {
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.recents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s8) var(--s4);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.empty__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s1);
+  min-height: 96px;
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.tile__emoji { font-size: 28px; line-height: 1; }
+.tile__name { font-size: var(--fs-label); font-weight: 700; line-height: 1.25; }
+.tile__count { font-size: var(--fs-caption); font-weight: 600; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------- 8. Sheet */
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(30,43,36,.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
+}
+
+/* Laid out even while closed, so the fade has something to animate from. */
+.sheet-backdrop[hidden] { display: block; }
+
+.sheet-backdrop:not([hidden]),
+.sheet-backdrop.is-open,
+body:has(.sheet.is-open) .sheet-backdrop {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.sheet {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-w);
+  max-height: min(88dvh, 100dvh - 24px);
+  margin-inline: auto;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-radius: var(--r-sheet) var(--r-sheet) 0 0;
+  background: var(--surface);
+  box-shadow: var(--shadow-sheet);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
+}
+
+.sheet[hidden] { display: flex; }
+
+.sheet:not([hidden]), .sheet.is-open {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform 380ms var(--spring);
+}
+
+.sheet__handle {
+  position: relative;
+  flex: none;
+  width: 36px;
+  height: 4px;
+  margin: 12px auto var(--s2);
+  border-radius: var(--r-pill);
+  background: var(--line);
+  touch-action: none;
+}
+
+/* A 4px bar is an unfair drag target, so the grab area is invisible and fat. */
+.sheet__handle::after {
+  content: '';
+  position: absolute;
+  inset: -20px -90px;
+}
+
+.sheet__close {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s3);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--ink-2);
+}
+
+.sheet__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 var(--s5) var(--s6);
+}
+
+.sheet__fav {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink-2);
+}
+
+.sheet__fav[aria-pressed='true'] {
+  border-color: var(--hold-line);
+  background: var(--hold-bg);
+  color: var(--hold-ink);
+}
+
+.sheet__fav[aria-pressed='true'] .icon { fill: currentColor; animation: heart-pop 500ms var(--spring); }
+
+/* -------------------------------------------------------------- 9. Verdict */
+
+.verdict__emoji { font-size: 44px; line-height: 1.1; }
+
+.verdict__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+
+.verdict__why {
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-btn);
+  background: var(--surface-2);
+  font-size: var(--fs-label);
+  line-height: 1.5;
+}
+
+.callout--green {
+  border-color: var(--go-line);
+  background: var(--go-bg);
+  color: var(--go-ink);
+  /* Kindness arrives a beat after the verdict, never at the same time. */
+  animation: fade-in var(--dur-2) var(--ease-out) 100ms backwards;
+}
+
+.callout__icon { flex: none; width: 20px; height: 20px; margin-top: 2px; }
+
+.swap { font-size: var(--fs-label); line-height: 1.5; color: var(--ink-2); }
+.swap strong { color: var(--ink); font-weight: 700; }
+
+.variants { display: flex; flex-direction: column; gap: var(--s2); }
+
+/* Wraps so the why can drop to its own line when expanded, whatever element
+   the verdict builds it from. */
+.variant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s3);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-btn);
+  background: var(--surface);
+  color: inherit;
+  text-align: left;
+}
+
+.variant__label { flex: 1; min-width: 0; font-size: var(--fs-label); font-weight: 700; }
+
+.variant__why {
+  flex-basis: 100%;
+  font-size: var(--fs-label);
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.sources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.source-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  min-height: 34px;
+  padding: 0 var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Visually 34px, tappably 44px. */
+.source-chip::after { content: ''; position: absolute; inset: -5px 0; }
+.source-chip .icon { width: 14px; height: 14px; }
+
+.checked { font-size: var(--fs-caption); font-weight: 600; color: var(--ink-2); }
+
+/* --------------------------------------------------------------- 10. Scan */
+
+.scan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s4);
+  text-align: center;
+}
+
+.scan__button {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--brand);
+  color: var(--bg);
+  box-shadow: var(--shadow-md);
+}
+
+.scan__button .icon { width: 32px; height: 32px; }
+
+.scan__preview {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface-2);
+}
+
+.scan__preview img { display: block; width: 100%; height: auto; }
+
+/* A soft band sweeping the photo. Transform only, so it costs nothing. */
+.scan__line {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.10), rgba(255,255,255,0));
+  background-size: 100% 56px;
+  background-repeat: no-repeat;
+  background-position: top;
+  animation: scan-sweep 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .scan__line {
+    background-image: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.08), rgba(255,255,255,0));
+  }
+}
+
+.scan__status {
+  min-height: 1.5em;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.group-title {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-family: var(--font-display);
+  font-size: var(--fs-heading);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.dish {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s3);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.dish:last-child { border-bottom: 0; }
+.dish__name { flex: 1; min-width: 0; font-size: var(--fs-body); font-weight: 700; }
+
+.dish__why {
+  flex-basis: 100%;
+  font-size: var(--fs-label);
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.asks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface-2);
+  font-size: var(--fs-label);
+  line-height: 1.5;
+}
+
+.asks li { padding-left: var(--s5); text-indent: calc(var(--s5) * -1); }
+.asks li::before { content: '\201C'; }
+.asks li::after { content: '\201D'; }
+
+/* -------------------------------------------------------------- 11. Bites */
+
+.bite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  align-items: flex-start;
+  width: 100%;
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  text-align: left;
+}
+
+.bite__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-heading);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.bite__pun { font-size: var(--fs-label); line-height: 1.5; color: var(--ink-2); }
+
+.tags { display: flex; flex-wrap: wrap; gap: var(--s2); }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--s1) var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ingredient {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  min-height: 44px;
+  padding: var(--s2) 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  color: var(--ink);
+  font-size: var(--fs-body);
+  text-align: left;
+}
+
+.ingredient::before {
+  content: '';
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface);
+}
+
+/* Ticked is signalled three ways: fill, strike-through and aria-pressed. */
+.ingredient.is-done { color: var(--ink-2); text-decoration: line-through; }
+.ingredient.is-done::before { border-color: var(--go-ink); background: var(--go-ink); }
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  counter-reset: step;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+}
+
+.steps li {
+  display: flex;
+  gap: var(--s3);
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+}
+
+.swaps { display: flex; flex-direction: column; gap: var(--s2); }
+
+.swap-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-btn);
+  background: var(--surface);
+  font-size: var(--fs-label);
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------------------- 12. More */
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--s3) var(--s4);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  color: inherit;
+  font-size: var(--fs-body);
+  text-align: left;
+  text-decoration: none;
+}
+
+.row:last-child { border-bottom: 0; }
+.row__label { flex: 1; min-width: 0; font-weight: 600; }
+.row__chev { flex: none; width: 20px; height: 20px; color: var(--ink-2); }
+
+/* The calmest screen in the app. Bigger text, more air, no rose surfaces. */
+.calm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.calm__step {
+  display: flex;
+  gap: var(--s3);
+  align-items: flex-start;
+}
+
+.callbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--go-line);
+  border-radius: var(--r-btn);
+  background: var(--go-bg);
+  color: var(--go-ink);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bar {
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+}
+
+/* Fill is scaleX from the left, never a width animation. */
+.bar__fill {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-3) var(--spring);
+}
+
+.bar__seg {
+  flex: 1 1 auto;
+  min-width: 2px;
+  background: var(--easy-line);
+  box-shadow: inset -1px 0 0 var(--surface);
+}
+
+.bar.is-full { animation: wobble 450ms var(--ease-out) 1; }
+.bar.is-full .bar__seg { background: var(--easy-ink); }
+
+.dots { display: flex; flex-wrap: wrap; gap: var(--s1); }
+
+.dot {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.dot::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.dot.is-on::before { border-color: var(--brand); background: var(--brand); }
+
+/* ----------------------------------------------------------- 13. Keyframes */
+
+@keyframes view-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes row-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes tab-pop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heart-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes wobble {
+  0%   { transform: rotate(0deg); }
+  30%  { transform: rotate(-1.5deg); }
+  65%  { transform: rotate(1.5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes scan-sweep {
+  0%   { transform: translateY(-56px); }
+  100% { transform: translateY(100%); }
+}
+
+/* ----------------------------------------------- 14. Reduced motion */
+/* Everything becomes an opacity fade of 150ms or less. Confetti, the wobble,
+   the scan line and the press-in scale are switched off entirely. */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 150ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn:active, .tab:active, .chip:active, .result:active, .tile:active,
+  .row:active, .callbtn:active, .bite:active, .variant:active,
+  .ingredient:active, .dot:active, .searchbar__clear:active,
+  .sheet__close:active, .sheet__fav:active, .scan__button:active,
+  .source-chip:active, .swap-row:active, .toast:active {
+    transform: none;
+  }
+
+  .view.is-active { animation: fade-in 150ms linear both; }
+
+  .results > *,
+  .results > :nth-child(n+7) {
+    animation: fade-in 150ms linear both !important;
+  }
+
+  .sticker { transform: none; }
+  .sticker.reveal { animation: fade-in 150ms linear both; }
+  .confetti { display: none !important; }
+
+  .tab.is-active .tab__icon,
+  .sheet__fav[aria-pressed='true'] .icon,
+  .bar.is-full { animation: none !important; }
+
+  .scan__line { animation: none !important; transform: none; opacity: .6; }
+
+  .bar__fill { transition: none; }
+
+  .sheet {
+    transform: none;
+    opacity: 0;
+    transition: opacity 150ms linear, visibility 0s linear 150ms;
+  }
+
+  .sheet:not([hidden]), .sheet.is-open {
+    transform: none;
+    opacity: 1;
+    transition: opacity 150ms linear;
+  }
+
+  .toast, .install-hint { transform: none; }
+}
