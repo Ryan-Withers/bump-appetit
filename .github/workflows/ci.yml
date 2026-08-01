@@ -1,0 +1,81 @@
+name: CI
+
+# The quality gate and the deploy, in one file. Ryan edits data/foods.json from
+# his phone, so this workflow is what lets him do that safely: nothing reaches
+# Pages unless the validator and the golden search tests both pass.
+
+on:
+  push:
+  pull_request:
+
+# Read-only by default. The deploy job opts into exactly what it needs.
+permissions:
+  contents: read
+
+# Supersede an in-flight run on the same branch when a new commit lands, but
+# never cancel a push run: the deploy job hangs off it.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    name: Validate data and search
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      # No cache and no npm install on purpose: there is no package.json and no
+      # dependency to install. The only vendored library is committed.
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate the data
+        run: node scripts/validate.js
+
+      - name: Run the golden search queries
+        run: node scripts/test-search.js
+
+  deploy:
+    name: Deploy to GitHub Pages
+    # Push to the default branch only. Pull requests get the checks above and
+    # nothing else, so a fork PR can never publish to the live site.
+    if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    needs: check
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    # One deploy at a time, and never cancel one mid-flight: a half-published
+    # site is worse than a slightly stale one.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # The repo root IS the site. No build step, no bundler, nothing compiled.
+      # The action already leaves out .git and .github.
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
