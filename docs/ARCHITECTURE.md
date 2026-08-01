@@ -324,8 +324,8 @@ Shell: `.app`, `.view`, `.view.is-active`, `.view__inner`, `.tabbar`, `.tab`,
 Search: `.greeting`, `.greeting__sub`, `.searchbar`, `.searchbar__input`,
 `.searchbar__icon`, `.searchbar__clear`, `.chips`, `.chip`, `.chip.is-on`,
 `.results`, `.result`, `.result__emoji`, `.result__name`, `.result__sticker`,
-`.empty`, `.empty__title`, `.tiles`, `.tile`, `.tile__emoji`, `.tile__name`,
-`.tile__count`, `.recents`, `.soft-label`.
+`.empty`, `.empty__emoji`, `.empty__title`, `.tiles`, `.tile`, `.tile__emoji`,
+`.tile__name`, `.tile__count`, `.recents`, `.soft-label`.
 
 Sticker: `.sticker`, `.sticker--go|--easy|--hold|--depends`, `.sticker--mini`,
 `.sticker__word`, `.sticker.reveal`, `.confetti`, `.confetti__bit`.
@@ -340,14 +340,15 @@ Verdict: `.verdict__emoji`, `.verdict__name`, `.verdict__why`, `.callout`,
 Scan: `.scan`, `.scan__button`, `.scan__preview`, `.scan__line`, `.scan__status`,
 `.dish`, `.dish__name`, `.dish__why`, `.group-title`, `.asks`.
 
-Bites: `.bite`, `.bite__name`, `.bite__pun`, `.tags`, `.tag`, `.ingredient`,
+Bites: `.bite`, `.bite__emoji`, `.bite__name`, `.bite__pun`, `.tags`, `.tag`, `.ingredient`,
 `.ingredient.is-done`, `.steps`, `.swaps`, `.swap-row`.
 
 More: `.rows`, `.row`, `.row__label`, `.row__chev`, `.calm`, `.calm__step`,
 `.callbtn`, `.bar`, `.bar__fill`, `.bar__seg`, `.dots`, `.dot`, `.dot.is-on`.
 
 Shared: `.btn`, `.btn--primary`, `.btn--ghost`, `.card`, `.caption`, `.disclaimer`,
-`.toast`, `.install-hint`, `.sr-only`, `.stack` (vertical rhythm helper).
+`.toast`, `.install-hint`, `.sr-only`, `.stack` (vertical rhythm helper), and
+`.icon`, which `icons.js` stamps on every SVG it returns.
 
 ## 5. Bootstrap order (app.js)
 

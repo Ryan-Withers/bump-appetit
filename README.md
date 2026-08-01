@@ -198,6 +198,10 @@ CI runs the validator and the tests, and only if both are green does it upload
 the repo root to GitHub Pages and publish. There is no build step because the
 repo root already **is** the site.
 
+One-time setup, if Pages has never been switched on: go to Settings > Pages and
+set **Source** to **GitHub Actions**. Without that, the deploy job fails with a
+permissions error and the checks still pass, which is confusing the first time.
+
 ### Bump the service worker version, every single time
 
 `sw.js` starts with a line like:

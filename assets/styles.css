@@ -683,6 +683,8 @@ button { cursor: pointer; }
   text-wrap: pretty;
 }
 
+.empty__emoji { font-size: 44px; line-height: 1; }
+
 .empty__title {
   font-family: var(--font-display);
   font-size: var(--fs-title);
@@ -1056,6 +1058,9 @@ body:has(.sheet.is-open) .sheet-backdrop {
   text-align: left;
 }
 
+/* Emoji are content, not chrome: 32px on a recipe card, per the type spec. */
+.bite__emoji { font-size: 32px; line-height: 1.1; }
+
 .bite__name {
   font-family: var(--font-display);
   font-size: var(--fs-heading);
@@ -1243,8 +1248,11 @@ body:has(.sheet.is-open) .sheet-backdrop {
   box-shadow: inset -1px 0 0 var(--surface);
 }
 
-.bar.is-full { animation: wobble 450ms var(--ease-out) 1; }
-.bar.is-full .bar__seg { background: var(--easy-ink); }
+/* The at-limit state (segments to --easy-ink, one 3 degree wobble) is owned by
+   trackers.js, which paints the segments inline and runs the wobble through the
+   Web Animations API so it can fire exactly once, on the crossing, rather than
+   on every repaint. It checks prefers-reduced-motion itself, since a scripted
+   animation does not inherit the CSS media query below. */
 
 .dots { display: flex; flex-wrap: wrap; gap: var(--s1); }
 
@@ -1343,8 +1351,7 @@ body:has(.sheet.is-open) .sheet-backdrop {
   .confetti { display: none !important; }
 
   .tab.is-active .tab__icon,
-  .sheet__fav[aria-pressed='true'] .icon,
-  .bar.is-full { animation: none !important; }
+  .sheet__fav[aria-pressed='true'] .icon { animation: none !important; }
 
   .scan__line { animation: none !important; transform: none; opacity: .6; }
 
