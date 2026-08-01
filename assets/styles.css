@@ -805,7 +805,13 @@ body:has(.sheet.is-open) .sheet-backdrop {
   padding: 0 var(--s5) var(--s6);
 }
 
+/* The heart lives in the sheet's top-right cluster, immediately left of the
+   close button, so the verdict anatomy underneath it starts at the emoji. */
 .sheet__fav {
+  position: absolute;
+  top: var(--s2);
+  right: calc(var(--s3) + 44px + var(--s1));
+  z-index: 2;
   display: inline-grid;
   place-items: center;
   flex: none;
@@ -827,7 +833,8 @@ body:has(.sheet.is-open) .sheet-backdrop {
 
 /* -------------------------------------------------------------- 9. Verdict */
 
-.verdict__emoji { font-size: 44px; line-height: 1.1; }
+/* Clears the handle and the top-right button cluster above it. */
+.verdict__emoji { font-size: 44px; line-height: 1.1; margin-top: var(--s3); }
 
 .verdict__name {
   font-family: var(--font-display);

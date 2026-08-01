@@ -328,7 +328,9 @@ function registerServiceWorker() {
       .catch(() => {});
   });
 
-  navigator.serviceWorker.register(url).then((reg) => {
+  // Scope is left to default to the worker's own directory, which is the
+  // project root wherever Pages happens to serve it from.
+  navigator.serviceWorker.register(url.href).then((reg) => {
     if (!reg) return;
 
     // A worker already waiting from a previous visit still deserves the toast,
@@ -543,4 +545,9 @@ try {
   // No matchMedia change events here, which only costs a class until reload.
 }
 
-boot();
+boot().catch((error) => {
+  // A blank screen is the one failure she can do nothing about, so even an
+  // unexpected one ends in a sentence and a button rather than in nothing.
+  console.error('[app] bootstrap failed', error);
+  showLoadError(loadingHost(), () => window.location.reload());
+});

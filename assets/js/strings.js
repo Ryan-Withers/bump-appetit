@@ -435,7 +435,7 @@ export const STRINGS = Object.freeze({
     // One-time, dismissible, stored in localStorage.
     installHint: {
       title: 'Make me an app',
-      text: "Make me an app: tap the Share button, then 'Add to Home Screen'.",
+      text: "Tap the Share button, then 'Add to Home Screen'.",
       dismiss: 'Maybe later',
     },
 
