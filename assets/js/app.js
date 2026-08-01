@@ -266,8 +266,19 @@ function showToast(message, { actionLabel = '', onAction = null, duration = TOAS
 
 /* --------------------------------------------------- service worker (4) */
 
+/** Runs a post-render enhancement, keeping any failure to itself. */
+function enhance(name, fn) {
+  try {
+    fn();
+  } catch (error) {
+    console.error(`[app] ${name} failed`, error);
+  }
+}
+
 function registerServiceWorker() {
-  if (!('serviceWorker' in navigator)) return;
+  // Truthiness, not an `in` check: some contexts expose the property with an
+  // undefined value rather than leaving it off navigator entirely.
+  if (!navigator.serviceWorker) return;
 
   // Resolved against this module, so the registration is right whether the site
   // is served from a domain root or from a /bump-appetit/ project subpath.
@@ -581,15 +592,20 @@ async function boot() {
   // instant rather than waiting on a fetch she is watching.
   warmWhenIdle(lazies);
 
-  registerServiceWorker();
+  // The app is usable from here. Everything below is enhancement, so each piece
+  // fails on its own rather than taking the screen down with it: boot's catch
+  // replaces the page with an error card, and doing that to an app that has
+  // already rendered a verdict would be a far worse bug than a missing footer.
+  enhance('service worker', registerServiceWorker);
 
-  footerNode = buildFooter();
-  const active = $('.view.is-active') || (views[0] && views[0].el);
-  placeFooter(active);
+  enhance('footer', () => {
+    footerNode = buildFooter();
+    placeFooter($('.view.is-active') || (views[0] && views[0].el));
+  });
 
-  maybeShowInstallHint(isStandalone());
+  enhance('install hint', () => maybeShowInstallHint(isStandalone()));
 
-  wireKeyboard();
+  enhance('keyboard', wireKeyboard);
 }
 
 /* Standalone detection first, so the very first paint already knows whether it
