@@ -35,6 +35,8 @@ export const STRINGS = Object.freeze({
      The name and the one-liner. Used in the About sheet and the first-load
      screen, and nowhere near a verdict. */
   app: {
+    loadErrorTitle: 'The cookbook did not open',
+    loadErrorBody: 'Something got in the way of loading the food list. Have another go, and if this is the very first visit, it needs one moment of signal to save itself for later.',
     name: 'Bump Appetit',
     tagline: 'You grow the human, we check the menu.',
     loading: 'Getting the cookbook out...',
@@ -72,6 +74,7 @@ export const STRINGS = Object.freeze({
      Row headings, the live-region count, the honesty label for a weak match,
      and the browse tiles below the fold. Button labels live in `ui`. */
   search: {
+    chipsLabel: 'Try one of these',
     recentsTitle: 'Recent',
     resultsNone: 'No matches',
     resultsOne: '1 match',
@@ -208,7 +211,21 @@ export const STRINGS = Object.freeze({
      The scanner screen, start to finish: idle, the rotating lines while it
      reads, the results groups, the questions to ask staff, and the errors.
      Errors get no jokes at all, ever. */
+
+  /* The Scan view's own labels. The scanning group above carries the copy the
+     build spec authored; these are the smaller working labels the view grew. */
+  scan: {
+    tipsLabel: 'Tips for a good shot',
+    choose: 'Choose from Photos',
+    groupCount: '{title} ({n})',
+    basicCaption: 'Basic mode: caught keywords only, so double-check.',
+    basicNote: 'Basic reading happens on your phone and catches keywords only. It downloads its reader the first time, so it needs a little internet too.',
+    found: '{n} dishes read',
+  },
+
   scanning: {
+    cookedWhy: 'Cooked through and served hot is the safe way, and nothing on my risk list showed up here.',
+    unsureWhy: 'Nothing on my list turned up in this line, so it is worth an ask.',
     idleTitle: 'Snap the menu',
     idleCaption: "Point at any menu. I'll sort it into Yes, Limit and Not now.",
     tips: 'Best shots: flat menu, good light, fill the frame',
@@ -295,6 +312,10 @@ export const STRINGS = Object.freeze({
      A budget, not a scoreboard. The bar never turns red and the copy never
      tells her off. Values live in data/caffeine.json. */
   caffeine: {
+    mg: 'mg',
+    add: 'Add {name}, {mg}{unit}',
+    chipsLabel: 'Add a drink',
+    energy: { name: 'Energy drink' },
     title: 'Caffeine today',
     intro: 'The daily budget is 200mg. That is about 1 to 2 espresso coffees, or 3 instants, or 4 to 5 cups of tea.',
     empty: 'Nothing counted yet today. Tap what you drank and the bar does the maths.',
@@ -313,6 +334,8 @@ export const STRINGS = Object.freeze({
      The flake explainer is the whole reason it exists: nobody remembers that
      flake is shark, and the fish and chip shop will not mention it. */
   fish: {
+    high: { window: 'This fortnight' },
+    other: { window: 'This week' },
     title: 'Fish tracker',
     intro: 'Fish is encouraged: 1 to 3 serves a week, and a serve is about 150g.',
     weekLabel: 'Other fish serves, this week',
@@ -466,6 +489,11 @@ export const STRINGS = Object.freeze({
      Recipe names carry the puns and they live in data/meals.json. Everything
      in here is the furniture around them. */
   bites: {
+    swapWord: 'swap for',
+    clearFilters: 'Clear filters',
+    emptyTitle: 'Nothing matches that combination yet.',
+    count: '{n} bites',
+    filterLabel: 'Filter bites',
     title: 'Bump Bites',
     sub: 'Every one of these is green, or yellow inside its limit.',
     filters: [
@@ -491,6 +519,7 @@ export const STRINGS = Object.freeze({
      One screen per outing, for when the menu is in her hand and the waiter is
      hovering. Content lives in data/cheatsheets.json. */
   cheatsheets: {
+    empty: 'The cheat sheets have not loaded yet. Try again in a moment.',
     title: 'Cheat sheets',
     sub: 'One screen per outing, for reading under the table.',
     asksTitle: 'Handy things to ask',
@@ -500,6 +529,7 @@ export const STRINGS = Object.freeze({
      The About & sources sheet. Honest about what leaves the phone, because
      that is the sort of thing worth being honest about. */
   about: {
+    approved: 'Approved {date}',
     title: 'About & sources',
     intro: 'Bump Appetit is a small app built for one person by someone who loves her. It answers one question fast: can I eat this?',
     sourcesTitle: 'Where the answers come from',

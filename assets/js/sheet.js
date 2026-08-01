@@ -536,7 +536,10 @@ export function closeSheet({ fromHistory = false } = {}) {
     fill: 'forwards',
   });
 
+  let settled = false;
   const settle = () => {
+    if (settled) return;
+    settled = true;
     if (token !== generation) return;   // a new sheet opened mid-close
     // Park the inline values on the closed state BEFORE releasing the
     // animations. Otherwise the browser can see the underlying open values
@@ -556,6 +559,10 @@ export function closeSheet({ fromHistory = false } = {}) {
   };
   if (anim) anim.addEventListener('finish', settle);
   else settle();
+  // The finish event can arrive late when the page is busy animating, and
+  // until settle runs the invisible backdrop is still eating taps. The timer
+  // puts a hard ceiling on that window; settle itself only ever runs once.
+  setTimeout(settle, (reduced ? REDUCED_MS : CLOSE_MS) + 80);
 
   unlockScroll();
   restoreFocus();

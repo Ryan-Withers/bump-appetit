@@ -321,7 +321,7 @@ export function createBitesView(ctx = {}) {
       });
       list.replaceChildren(el('div', { class: 'empty' }, [
         el('p', { class: 'empty__title' }, str('bites.emptyTitle', 'Nothing matches that combination yet.')),
-        el('p', {}, str('bites.emptyBody', 'Drop a filter or two and the cookbook opens back up.')),
+        el('p', {}, str('bites.empty', 'Nothing matches those filters. Take one off and have another look.')),
         clear,
       ]));
       count.textContent = fill(str('bites.count', '{n} bites'), { n: 0 });
@@ -362,7 +362,7 @@ export function createBitesView(ctx = {}) {
   const render = (animateRows) => {
     inner.replaceChildren(
       el('h1', { class: 'group-title' }, str('bites.title', 'Bump Bites')),
-      el('p', { class: 'caption' }, str('bites.intro', 'Snacks and meals that are already a yes.')),
+      el('p', { class: 'caption' }, str('bites.sub', 'Every one of these is green, or yellow inside its limit.')),
       chips,
       count,
       list,

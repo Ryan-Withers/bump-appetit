@@ -21,7 +21,7 @@ const ROW_LABELS = Object.freeze({
   cheatsheets: 'Cheat sheets',
   caffeine: 'Caffeine today',
   fish: 'Fish tracker',
-  oops: 'Oops, I ate it',
+  oops: 'Oops I ate it',
   howWeDecide: 'How we decide',
   about: 'About & sources',
 });

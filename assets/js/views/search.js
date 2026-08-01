@@ -205,7 +205,7 @@ export function createSearchView(ctx = {}) {
   const greeting = el('h1', { class: 'greeting' });
   const greetingSub = el('p', {
     class: 'greeting__sub',
-    text: str(['search.sub', 'greetings.sub'], 'Type a food. Get a straight answer.'),
+    text: str('searchSub', 'Type a food. Get a straight answer.'),
   });
 
   const clearLabel = str(['search.clear', 'a11y.clearSearch'], 'Clear search');
@@ -222,7 +222,7 @@ export function createSearchView(ctx = {}) {
     autocorrect: 'off',
     spellcheck: 'false',
     placeholder: str('searchPlaceholder', 'brie, sushi, flat white...'),
-    aria: { label: str(['search.label', 'a11y.searchLabel'], 'Search foods') },
+    aria: { label: str('a11y.searchField', 'Search foods') },
   });
 
   const clearBtn = el('button', {
@@ -331,7 +331,7 @@ export function createSearchView(ctx = {}) {
     }
 
     return [
-      el('h2', { class: 'caption', text: str('search.recentTitle', 'Recent') }),
+      el('h2', { class: 'caption', text: str('search.recentsTitle', 'Recent') }),
       list,
     ];
   }
@@ -376,7 +376,7 @@ export function createSearchView(ctx = {}) {
         el('span', { class: 'tile__name', text: entry.group }),
         el('span', {
           class: 'tile__count',
-          text: fill(str('search.tileCount', '{n} foods'), { n: entry.count }),
+          text: fill(str('search.browseCount', '{n} foods'), { n: entry.count }),
         }),
       ]);
       tile.addEventListener('click', () => openGroupSheet(entry, tile));
@@ -408,18 +408,18 @@ export function createSearchView(ctx = {}) {
         // Inline so the size is right even before the stylesheet knows this
         // class: the spec pins it at 44px.
         style: { fontSize: `${EMPTY_EMOJI_PX}px`, lineHeight: '1' },
-        text: str('search.emptyEmoji', '🤔'),
+        text: str('empty.emoji', '🤔'),
       }),
       el('p', {
         class: 'empty__title',
         text: fill(
-          str('search.emptyTitle', 'Hmm, \'{query}\' isn\'t in my cookbook yet.'),
+          str('empty.title', 'Hmm, \'{query}\' isn\'t in my cookbook yet.'),
           { query }
         ),
       }),
       el('p', {
         text: str(
-          ['search.goldenRule', 'search.emptyBody'],
+          'empty.body',
           'When in doubt: freshly cooked, steaming hot, from a clean kitchen is the safest bet.'
         ),
       }),
@@ -435,8 +435,8 @@ export function createSearchView(ctx = {}) {
         target: '_blank',
         rel: 'noopener',
       }, [
-        str('search.suggest', 'Ask Ryan to add it'),
-        el('span', { class: 'sr-only', text: ` ${str('a11y.newTab', 'Opens in a new tab')}` }),
+        str('ui.buttons.suggest', 'Ask Ryan to add it'),
+        el('span', { class: 'sr-only', text: ` ${str('a11y.externalLink', 'Opens in Safari')}` }),
       ]));
     }
 
@@ -478,9 +478,9 @@ export function createSearchView(ctx = {}) {
 
   function countText(n, soft) {
     let base;
-    if (n === 0) base = str('search.noMatches', 'No matches');
-    else if (n === 1) base = str('search.matchOne', '1 match');
-    else base = fill(str('search.matches', '{n} matches'), { n });
+    if (n === 0) base = str('search.resultsNone', 'No matches');
+    else if (n === 1) base = str('search.resultsOne', '1 match');
+    else base = fill(str('search.resultsMany', '{n} matches'), { n });
     return soft ? `${softLabel()}: ${base}` : base;
   }
 

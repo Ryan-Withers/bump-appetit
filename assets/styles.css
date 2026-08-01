@@ -340,8 +340,16 @@ button { cursor: pointer; }
     visibility 0s linear var(--dur-2);
 }
 
-.toast[hidden] { display: flex; }
-.install-hint[hidden] { display: flex; }
+/* Laid out while closed so the entrance can animate, but closed means closed:
+   visibility flips at once and pointer events die with it. An invisible card
+   that still hit-tests for the length of a transition delay eats the next tap,
+   which is exactly how the install hint once swallowed real search results. */
+.toast[hidden], .install-hint[hidden] {
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
+  transition: none;
+}
 
 .toast:not([hidden]), .toast.is-open,
 .install-hint:not([hidden]), .install-hint.is-open {
@@ -730,17 +738,29 @@ button { cursor: pointer; }
   background: rgba(30,43,36,.35);
   opacity: 0;
   visibility: hidden;
+  /* Inert unless open. The delayed visibility flip below means a closing
+     backdrop lingers for a beat, and a full-screen invisible layer that still
+     hit-tests eats the very next tap. Pointer events are the state that must
+     never lag. */
+  pointer-events: none;
   transition: opacity var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
 }
 
-/* Laid out even while closed, so the fade has something to animate from. */
-.sheet-backdrop[hidden] { display: block; }
+/* Laid out even while closed, so the fade has something to animate from, but
+   the closed state itself takes effect immediately: the closing fade is
+   carried by the script's animation, not by this transition. */
+.sheet-backdrop[hidden] {
+  display: block;
+  visibility: hidden;
+  transition: none;
+}
 
 .sheet-backdrop:not([hidden]),
 .sheet-backdrop.is-open,
 body:has(.sheet.is-open) .sheet-backdrop {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transition-delay: 0s;
 }
 
@@ -1374,5 +1394,10 @@ body:has(.sheet.is-open) .sheet-backdrop {
     transition: opacity 150ms linear;
   }
 
-  .toast, .install-hint { transform: none; }
+  .toast, .install-hint {
+    transform: none;
+    /* The motion spec's ceiling: reduced motion means opacity-only fades of
+       150ms or less, and that includes these two on their way in and out. */
+    transition: opacity 150ms linear;
+  }
 }
