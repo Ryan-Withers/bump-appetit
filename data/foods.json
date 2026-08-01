@@ -89,6 +89,11 @@
           "swap": "A cheddar, parmesan and cherry tomato board scratches exactly the same itch."
         },
         {
+          "label": "Cream cheese and cottage cheese",
+          "tier": "green",
+          "why": "Pasteurised and sealed, so these two are fine. Keep them in the fridge and eat within two days of opening."
+        },
+        {
           "label": "Soft cheese in a hot cooked dish",
           "tier": "green",
           "why": "Heat sorts it out. Melted mozzarella on pizza, ricotta baked into a lasagne, feta in a hot spanakopita: all back on the menu, served steaming."
@@ -3994,7 +3999,7 @@
       "makeItGreen": null,
       "swap": null,
       "sources": [
-        "rwh-2026"
+        "eatforhealth"
       ],
       "flags": [],
       "popularity": 3,

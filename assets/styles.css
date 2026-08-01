@@ -831,7 +831,10 @@ body:has(.sheet.is-open) .sheet-backdrop {
   color: var(--hold-ink);
 }
 
-.sheet__fav[aria-pressed='true'] .icon { fill: currentColor; animation: heart-pop 500ms var(--spring); }
+/* Fill only. The pop belongs to the moment she taps the heart, so verdict.js
+   runs it on the toggle. Animating it from the pressed state instead would
+   replay the celebration every time she reopened a food she already saved. */
+.sheet__fav[aria-pressed='true'] .icon { fill: currentColor; }
 
 /* -------------------------------------------------------------- 9. Verdict */
 
@@ -1350,8 +1353,7 @@ body:has(.sheet.is-open) .sheet-backdrop {
   .sticker.reveal { animation: fade-in 150ms linear both; }
   .confetti { display: none !important; }
 
-  .tab.is-active .tab__icon,
-  .sheet__fav[aria-pressed='true'] .icon { animation: none !important; }
+  .tab.is-active .tab__icon { animation: none !important; }
 
   .scan__line { animation: none !important; transform: none; opacity: .6; }
 

@@ -443,22 +443,33 @@ function onPopState(event) {
 export function go(viewId, { push = true } = {}) {
   if (!byId.has(viewId)) return;
 
+  // Closing without history.back(): we are about to write a view entry, and two
+  // navigations racing each other is how double-backs get born.
+  let sheetEntryFree = false;
   if (isSheetOpen()) {
-    // Closing without history.back(): we are about to push a view entry, and
-    // two navigations racing each other is how double-backs get born.
     closeSheet({ fromHistory: true });
-    replaceStateForSheetClose();
+    // The sheet's own entry is now spare, so the view we are heading to takes
+    // it over instead of pushing a third one. Replacing the sheet entry with
+    // the view we came FROM and then pushing would leave a duplicate behind,
+    // and that duplicate is a back-swipe that visibly does nothing.
+    sheetEntryFree = (history.state || {}).sheet != null;
+    if (!sheetEntryFree) replaceStateForSheetClose();
   }
 
   if (viewId === activeId) {
     // Tapping the tab you are already on scrolls to the top, the way a native
     // app does. A back gesture landing on the same view must not, or every
     // sheet close would throw her results list back to the start.
+    if (sheetEntryFree) replaceStateForSheetClose();
     if (push) scrollToTop(byId.get(viewId));
     return;
   }
 
-  if (push) history.pushState({ view: viewId }, '', `#${viewId}`);
+  if (push || sheetEntryFree) {
+    const state = { view: viewId };
+    if (sheetEntryFree) history.replaceState(state, '', `#${viewId}`);
+    else history.pushState(state, '', `#${viewId}`);
+  }
   activate(viewId, { animate: true });
 }
 

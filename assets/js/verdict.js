@@ -18,8 +18,10 @@ const SWAP_SETTLE_MS = 160;
 
 const CALLOUT_MS = 240;
 // Just behind the stamp, so the fix arrives as a second beat rather than
-// leaving the kindest line on the screen invisible for a full second.
-const CALLOUT_DELAY_MS = 240;
+// competing with it. The motion spec pins this at 100ms after the stamp lands:
+// on a "not now" verdict this callout is the kindness, and it needs to arrive
+// while she is still reading the answer.
+const CALLOUT_DELAY_MS = 100;
 
 const VARIANT_FADE_MS = 140;
 const HEART_MS = 500;

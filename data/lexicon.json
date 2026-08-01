@@ -54,7 +54,13 @@
       "makeItGreen": "Ask whether it comes from a jar or a commercial bottle, because that lot is pasteurised and fine."
     },
     {
-      "match": ["chicken caesar salad", "caesar dressing", "chicken caesar", "caesar salad", "caesar"],
+      "match": [
+        "chicken caesar salad",
+        "caesar dressing",
+        "chicken caesar",
+        "caesar salad",
+        "caesar"
+      ],
       "tier": "red",
       "why": "The traditional caesar dressing is raw egg, and the meat on top is usually cold cured.",
       "makeItGreen": "Ask for a bottled dressing and hot grilled chicken, or pick a different salad."
@@ -248,25 +254,47 @@
       "makeItGreen": "A white bean or beetroot dip scoops just as well, with no raw sesame in it."
     },
     {
-      "match": ["enoki mushrooms", "enoki mushroom", "enokitake", "enoki"],
+      "match": [
+        "enoki mushrooms",
+        "enoki mushroom",
+        "enokitake",
+        "enoki"
+      ],
       "tier": "red",
       "why": "Enoki mushrooms have a listeria history unless they are cooked right through.",
       "makeItGreen": "Simmered in a hot soup or fried off properly in a stir fry, enoki is fine."
     },
     {
-      "match": ["rockmelon", "rock melon", "cantaloupe"],
+      "match": [
+        "rockmelon",
+        "rock melon",
+        "cantaloupe"
+      ],
       "tier": "red",
       "why": "The rough rind traps bacteria, so the NSW Food Authority benches rockmelon entirely for now.",
       "makeItGreen": "Watermelon, berries or any fruit cut fresh at home is a happy stand-in."
     },
     {
-      "match": ["chocolate mousse", "zabaglione", "semifreddo", "tiramisu", "eggnog", "mousse"],
+      "match": [
+        "chocolate mousse",
+        "zabaglione",
+        "semifreddo",
+        "tiramisu",
+        "eggnog",
+        "mousse"
+      ],
       "tier": "red",
       "why": "These desserts are set with raw egg.",
       "makeItGreen": "Baked desserts are all clear, so pav, a crumble or a hot sticky date has your back."
     },
     {
-      "match": ["ginger beer", "water kefir", "kombucha", "kefir", "kvass"],
+      "match": [
+        "ginger beer",
+        "water kefir",
+        "kombucha",
+        "kefir",
+        "kvass"
+      ],
       "tier": "red",
       "why": "Fermented drinks carry a contamination risk plus a little residual alcohol.",
       "makeItGreen": "Sparkling water with lime, or a bottled pasteurised juice, hits the same spot."
@@ -290,19 +318,37 @@
       "makeItGreen": "Sparkling water, lime and frozen berries in the good glass, or a zero-alcohol mocktail."
     },
     {
-      "match": ["gummy shark", "swordfish", "broadbill", "marlin", "flake", "shark"],
+      "match": [
+        "gummy shark",
+        "swordfish",
+        "broadbill",
+        "marlin",
+        "flake",
+        "shark"
+      ],
       "tier": "yellow",
       "why": "Heads up, flake is shark. High-mercury fish is one serve a fortnight, with no other fish that fortnight.",
       "makeItGreen": "Ask for snapper, whiting or flathead instead: same batter, same chips, no mercury cap."
     },
     {
-      "match": ["deep sea perch", "orange roughy", "sea perch", "catfish"],
+      "match": [
+        "deep sea perch",
+        "orange roughy",
+        "sea perch",
+        "catfish"
+      ],
       "tier": "yellow",
       "why": "Mercury rule for this one: a single serve a week, and no other fish that week.",
       "makeItGreen": "Snapper, barra, salmon or tinned tuna comes with no weekly cap."
     },
     {
-      "match": ["chicken livers", "chicken liver", "lambs fry", "liver", "offal"],
+      "match": [
+        "chicken livers",
+        "chicken liver",
+        "lambs fry",
+        "liver",
+        "offal"
+      ],
       "tier": "yellow",
       "why": "Liver is a vitamin A heavyweight, so the cap is 50g a week.",
       "makeItGreen": "Keep it to one small slice a week, cooked right through."
@@ -325,6 +371,57 @@
       "tier": "yellow",
       "why": "Caffeine has a daily cap of 200mg from everything combined, which is about 1 to 2 espresso coffees.",
       "makeItGreen": "Keep the whole day under 200mg, and decaf is a free hug after that."
+    },
+    {
+      "match": [
+        "ham and cheese toastie",
+        "ham cheese toastie",
+        "toasted ham and cheese",
+        "toasted ham cheese",
+        "ham and cheese jaffle",
+        "ham cheese jaffle",
+        "ham and cheese croissant",
+        "ham cheese croissant",
+        "ham and cheese melt",
+        "ham cheese melt",
+        "grilled ham and cheese",
+        "grilled ham cheese",
+        "ham and pineapple pizza",
+        "ham pineapple pizza",
+        "hawaiian pizza",
+        "meat lovers pizza",
+        "meatlovers pizza",
+        "pepperoni pizza",
+        "salami pizza",
+        "supreme pizza",
+        "ham pizza"
+      ],
+      "tier": "green",
+      "why": "Cooked hot right through, and heat is exactly what makes deli meat fine.",
+      "makeItGreen": ""
+    },
+    {
+      "match": [
+        "beer battered",
+        "beer batter"
+      ],
+      "tier": "green",
+      "why": "Beer batter is fried hot, so the question here is the fish: ask whether it is flake, which is shark.",
+      "makeItGreen": ""
+    },
+    {
+      "match": [
+        "chicken parmigiana",
+        "chicken parmesan",
+        "veal parmigiana",
+        "parmigiana",
+        "parmi",
+        "parmy",
+        "parma"
+      ],
+      "tier": "green",
+      "why": "A parmy comes out of the oven hot, ham and all. Pub classic, back on the menu.",
+      "makeItGreen": ""
     }
   ],
   "cookedSignals": [
