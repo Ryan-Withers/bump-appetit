@@ -16,9 +16,10 @@ import { initRouter, go } from './router.js';
 import { openSheet } from './sheet.js';
 import { openFoodSheet, openHowWeDecideSheet } from './verdict.js';
 import { createSearchView } from './views/search.js';
-import { createScanView } from './views/scan.js';
-import { createBitesView, openMealSheet } from './views/bites.js';
-import { createMoreView } from './views/more.js';
+// Scan, Bites and More are imported on demand further down. Search is the only
+// view that has to exist to paint the first screen, and dragging the scanner
+// and the trackers into that first paint costs about a third of the app's
+// JavaScript for screens she has not asked for yet.
 
 // The only loading indicator in the app, and it is on a delay: a warm open
 // resolves from the service worker cache in well under this, so on almost every
@@ -400,6 +401,16 @@ function buildFooter() {
 }
 
 /** Moved rather than duplicated: one footer, always inside the visible view. */
+/**
+ * Pulls the deferred views in during idle time. requestIdleCallback is not on
+ * iOS Safari yet, so a timeout stands in for it there.
+ */
+function warmWhenIdle(views) {
+  const warm = () => views.forEach((view) => { view.ensure().catch(() => {}); });
+  if (typeof requestIdleCallback === 'function') requestIdleCallback(warm, { timeout: 3000 });
+  else setTimeout(warm, 1200);
+}
+
 function placeFooter(viewEl) {
   if (!footerNode || !viewEl) return;
   const inner = $('.view__inner', viewEl) || viewEl;
@@ -504,20 +515,71 @@ async function boot() {
     go,
     openSheet,
     openFoodSheet,
-    openMealSheet,
   };
 
-  const views = [
-    createSearchView(ctx),
-    createScanView(ctx),
-    createBitesView(ctx),
-    createMoreView(ctx),
+  /**
+   * A stand-in for a view whose module has not loaded yet. It hands the router
+   * the empty shell index.html already ships, then fills that same shell in
+   * once the real module arrives, so the router never knows the difference.
+   *
+   * The service worker precaches every module, so this stays a local read and
+   * keeps working in flight mode.
+   */
+  function lazyView(id, load) {
+    const el = $(`#view-${id}`);
+    if (!el) return null;
+
+    let real = null;
+    let pending = null;
+
+    const ensure = () => {
+      if (real) return Promise.resolve(real);
+      if (!pending) {
+        pending = load()
+          .then((make) => {
+            // The factories reuse the shell by id, so this populates the very
+            // element the router is already showing.
+            real = (typeof make === 'function' ? make(ctx) : null) || null;
+            placeFooter(el); // back to the bottom, under the new content
+            return real;
+          })
+          .catch((err) => {
+            pending = null; // a later tap gets a fresh go rather than a dead tab
+            throw err;
+          });
+      }
+      return pending;
+    };
+
+    return {
+      id,
+      el,
+      ensure,
+      onEnter() {
+        ensure().then((view) => { if (view && view.onEnter) view.onEnter(); }, () => {});
+      },
+      onLeave() {
+        if (real && real.onLeave) real.onLeave();
+      },
+    };
+  }
+
+  const lazies = [
+    lazyView('scan', () => import('./views/scan.js').then((m) => m.createScanView)),
+    lazyView('bites', () => import('./views/bites.js').then((m) => m.createBitesView)),
+    lazyView('more', () => import('./views/more.js').then((m) => m.createMoreView)),
   ].filter(Boolean);
+
+  const views = [createSearchView(ctx), ...lazies].filter(Boolean);
 
   initRouter({
     views,
     onEnter: (id, view) => placeFooter(view.el),
   });
+
+  // Warm the other three once the first screen is done, so tapping a tab is
+  // instant rather than waiting on a fetch she is watching.
+  warmWhenIdle(lazies);
 
   registerServiceWorker();
 
