@@ -1,0 +1,53 @@
+# Bump Appetit menu scanner Worker.
+#
+# Deployed by CI, never from a laptop: .github/workflows/deploy-worker.yml runs
+# cloudflare/wrangler-action on every push that touches worker/. All Ryan needs
+# on the Cloudflare side is a KV namespace and two secrets, both of which can be
+# done from a phone browser.
+#
+# ---------------------------------------------------------------------------
+# SET THESE TWO SECRETS ONCE, IN THE CLOUDFLARE DASHBOARD
+#
+#   dash.cloudflare.com > Compute (Workers) > bump-scan > Settings >
+#   Variables and Secrets > Add > type: Secret
+#
+#   1. PASS       a passphrase you invent. It must match CONFIG.scanner.pass in
+#                 assets/js/config.js exactly. Not a security boundary: it just
+#                 stops a stranger who finds the URL burning the daily quota.
+#   2. MODEL_KEY  the vision model API key. Gemini by default, from
+#                 aistudio.google.com > Get API key. Swap to an Anthropic key if
+#                 you switch callVisionModel over to Claude.
+#
+# Never put either of them in this file. This file is public in the repo.
+# ---------------------------------------------------------------------------
+
+name = "bump-scan"
+main = "scan-worker.js"
+compatibility_date = "2026-07-01"
+
+# Gives the Worker a https://bump-scan.<your-subdomain>.workers.dev URL. Paste
+# that into CONFIG.scanner.endpoint in assets/js/config.js.
+workers_dev = true
+
+[vars]
+# The one origin allowed to call this Worker from a browser. Set it to the
+# GitHub Pages origin (scheme and host only, no path, no trailing slash).
+# Leave it wrong or empty and every browser request is refused: this Worker
+# defaults to denying rather than to "*".
+# Comma-separate if you ever need a second origin, for example a custom domain.
+ALLOWED_ORIGIN = "https://ryan-withers.github.io"
+
+# Optional. Overrides the default model id in callVisionModel.
+# MODEL = "gemini-2.0-flash"
+
+# The daily scan counter lives here, one key per day, self-expiring.
+# Create the namespace first:
+#   dash.cloudflare.com > Storage & Databases > KV > Create namespace
+#   call it "bump-scan-counter", then paste its ID below.
+# Without this binding the Worker still answers scans, but the daily cap is off.
+[[kv_namespaces]]
+binding = "KV"
+id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+
+[observability]
+enabled = true
