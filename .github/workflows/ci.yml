@@ -7,6 +7,10 @@ name: CI
 on:
   push:
   pull_request:
+  # So the site can be republished from the Actions tab without inventing a
+  # commit to do it, which matters when a deploy failed for a reason outside
+  # the code, such as Pages not being switched on yet.
+  workflow_dispatch:
 
 # Read-only by default. The deploy job opts into exactly what it needs.
 permissions:
@@ -43,7 +47,9 @@ jobs:
     name: Deploy to GitHub Pages
     # Push to the default branch only. Pull requests get the checks above and
     # nothing else, so a fork PR can never publish to the live site.
-    if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    if: >-
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+      && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     needs: check
     runs-on: ubuntu-latest
 
