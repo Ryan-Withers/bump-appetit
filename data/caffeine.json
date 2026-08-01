@@ -1,0 +1,20 @@
+{
+  "limitMg": 200,
+  "drinks": [
+    { "id": "espresso", "name": "Espresso coffee", "emoji": "☕", "mg": 90 },
+    { "id": "instant", "name": "Instant coffee", "emoji": "🥄", "mg": 80 },
+    { "id": "black-tea", "name": "Black tea", "emoji": "🫖", "mg": 40 },
+    { "id": "green-tea", "name": "Green tea", "emoji": "🍵", "mg": 30 },
+    { "id": "cola", "name": "Cola can", "emoji": "🥤", "mg": 45 },
+    { "id": "hot-chocolate", "name": "Hot chocolate", "emoji": "🍫", "mg": 10 },
+    { "id": "dark-chocolate", "name": "Dark choc row", "emoji": "🟫", "mg": 25 }
+  ],
+  "excluded": [
+    {
+      "name": "Energy drink",
+      "emoji": "⚡",
+      "note": "Energy drinks sit outside the tally: caffeine plus guarana is a NOT NOW rather than something to budget for."
+    }
+  ],
+  "note": "Values are averages. Brew strength varies, so treat the bar as a guide rather than a scoreboard."
+}

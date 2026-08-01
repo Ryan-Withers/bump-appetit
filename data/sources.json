@@ -1,0 +1,52 @@
+{
+  "sources": {
+    "rwh-2026": {
+      "label": "Royal Women's",
+      "name": "Royal Women's Hospital, Food safety in pregnancy",
+      "url": "https://www.thewomens.org.au/health-information/pregnancy-and-birth/a-healthy-pregnancy/food-safety-in-pregnancy",
+      "approved": "2026-07-31"
+    },
+    "monash-ivf": {
+      "label": "Monash IVF",
+      "name": "Monash IVF, Food Safety in Pregnancy",
+      "url": "https://www.monashivf.com/",
+      "approved": "2026-07-31"
+    },
+    "nswfa": {
+      "label": "NSW Food Authority",
+      "name": "NSW Food Authority, foods to eat or avoid in pregnancy",
+      "url": "https://www.foodauthority.nsw.gov.au/",
+      "approved": "2026-07-31"
+    },
+    "fsanz": {
+      "label": "FSANZ",
+      "name": "Food Standards Australia New Zealand",
+      "url": "https://www.foodstandards.gov.au/",
+      "approved": "2026-07-31"
+    },
+    "pbb": {
+      "label": "Pregnancy Birth & Baby",
+      "name": "Pregnancy, Birth and Baby, healthdirect Australia",
+      "url": "https://www.pregnancybirthbaby.org.au/",
+      "approved": "2026-07-31"
+    },
+    "betterhealth": {
+      "label": "Better Health",
+      "name": "Better Health Channel, Victoria State Government",
+      "url": "https://www.betterhealth.vic.gov.au/",
+      "approved": "2026-07-31"
+    },
+    "eatforhealth": {
+      "label": "Eat for Health",
+      "name": "Eat for Health, Australian Dietary Guidelines (NHMRC)",
+      "url": "https://www.eatforhealth.gov.au/",
+      "approved": "2026-07-31"
+    },
+    "fsic": {
+      "label": "Food Safety Info Council",
+      "name": "Food Safety Information Council",
+      "url": "https://foodsafety.asn.au/",
+      "approved": "2026-07-31"
+    }
+  }
+}

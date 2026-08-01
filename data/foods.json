@@ -1,0 +1,4389 @@
+{
+  "schema": 2,
+  "foods": [
+    {
+      "id": "blue-cheese",
+      "name": "Blue cheese",
+      "emoji": "🧀",
+      "aliases": [
+        "gorgonzola",
+        "roquefort",
+        "stilton",
+        "blue vein",
+        "blue vein cheese",
+        "danish blue",
+        "king island blue",
+        "blue cheese sauce"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "Blue cheese is a soft, moist cheese, which is exactly the room listeria likes. Cold on a cheese board it is a no for now.",
+      "makeItGreen": "Melted into a sauce or cooked in a dish and served properly hot, blue cheese is fine.",
+      "swap": "A sharp aged cheddar or a shave of pecorino gives you the same salty hit.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "brie",
+      "name": "Brie and camembert",
+      "emoji": "🧀",
+      "aliases": [
+        "brie",
+        "camembert",
+        "cambembert",
+        "camenbert",
+        "double brie",
+        "triple cream brie",
+        "baked brie",
+        "brie cheese",
+        "camembert cheese",
+        "white mould cheese"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "Brie careful: soft white-mould cheeses hold moisture, and listeria likes that. Cold from the board they are benched for now.",
+      "makeItGreen": "Cooked right through and served bubbling hot, baked brie and camembert are back on the menu.",
+      "swap": "Build the board from hard cheeses instead: cheddar, gouda, parmesan, a bit of quince paste.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "emoji": "🧀",
+      "aliases": [
+        "cheese",
+        "cheeses",
+        "cheeseboard",
+        "cheese board",
+        "cheese platter",
+        "cheese plate",
+        "cheese and crackers",
+        "grazing board",
+        "chese",
+        "cheeze"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "depends",
+      "why": "Depends which cheese, and whether it's hot:",
+      "variants": [
+        {
+          "label": "Hard cheese",
+          "tier": "green",
+          "why": "Cheddar, tasty, parmesan, gouda, edam, Swiss and pecorino are too dry and salty for listeria to throw a party in. Grate news."
+        },
+        {
+          "label": "Soft cheese, uncooked",
+          "tier": "red",
+          "why": "Brie, camembert, blue, feta, ricotta, burrata, bocconcini and soft goat cheese are moist and low-acid, which is listeria's favourite postcode.",
+          "makeItGreen": "Cook it right through and eat it while it is still bubbling hot: baked brie, lasagne, spanakopita.",
+          "swap": "A cheddar, parmesan and cherry tomato board scratches exactly the same itch."
+        },
+        {
+          "label": "Soft cheese in a hot cooked dish",
+          "tier": "green",
+          "why": "Heat sorts it out. Melted mozzarella on pizza, ricotta baked into a lasagne, feta in a hot spanakopita: all back on the menu, served steaming."
+        },
+        {
+          "label": "Unpasteurised or raw-milk cheese",
+          "tier": "red",
+          "why": "Raw-milk cheese skips pasteurisation, the step that deals with listeria and salmonella in the first place.",
+          "swap": "Any pasteurised hard cheese, which is very nearly everything in the supermarket fridge."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cheese-spread",
+      "name": "Cheese spread",
+      "emoji": "🧀",
+      "aliases": [
+        "spreadable cheese",
+        "cheese in a jar",
+        "jarred cheese spread",
+        "laughing cow",
+        "cheese paste",
+        "spreadable cheese wedge"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Pasteurised and shelf stable until you open it, so spread it on thick. Into the fridge after opening and follow the label.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cottage-cheese",
+      "name": "Cottage cheese",
+      "emoji": "🧀",
+      "aliases": [
+        "cottage cheeses",
+        "cottage chesse",
+        "curd cheese",
+        "low fat cottage cheese",
+        "creamed cottage cheese",
+        "cottage cheese tub"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Pasteurised and fine, protein and all. Keep it in the fridge with the lid on and finish it within a couple of days of opening.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cream-and-butter",
+      "name": "Cream and butter",
+      "emoji": "🧈",
+      "aliases": [
+        "thickened cream",
+        "whipped cream",
+        "pure cream",
+        "double cream",
+        "sour cream",
+        "creme fraiche",
+        "clotted cream",
+        "salted butter",
+        "unsalted butter",
+        "ghee"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Pasteurised cream and butter are a straight yes: whipped, thickened, soured or spread thick on hot toast. Normal fridge rules apply.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cream-cheese",
+      "name": "Cream cheese",
+      "emoji": "🥯",
+      "aliases": [
+        "philadelphia",
+        "philly cream cheese",
+        "creamcheese",
+        "spreadable cream cheese",
+        "cream cheese frosting",
+        "cream cheese icing",
+        "bagel and cream cheese"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Pasteurised, so it is a yes on your bagel. Keep it cold and finish it within about 2 days of opening, same as any fresh dairy.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "custard",
+      "name": "Custard",
+      "emoji": "🍮",
+      "aliases": [
+        "store bought custard",
+        "vanilla custard",
+        "pouring custard",
+        "custard carton",
+        "thick custard",
+        "custard tub",
+        "custard powder"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Shop-bought custard is pasteurised and ready to pour. Eat it freshly opened, keep it in the fridge and use it within a day.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "feta-and-ricotta",
+      "name": "Feta and ricotta",
+      "emoji": "🧀",
+      "aliases": [
+        "feta",
+        "fetta",
+        "ricotta",
+        "feta cheese",
+        "fetta cheese",
+        "ricotta cheese",
+        "ricota",
+        "danish feta",
+        "persian feta",
+        "marinated feta"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "Soft cheeses can carry listeria when they are eaten cold. Baked into something hot, they are completely back on the menu.",
+      "makeItGreen": "Baked through a hot dish: spanakopita, lasagne, a ricotta pasta bake, served steaming.",
+      "swap": "Crumble hard cheese over the salad, or go for cottage cheese or cream cheese from the fridge.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "fresh-mozzarella",
+      "name": "Fresh mozzarella, burrata and bocconcini",
+      "emoji": "🧀",
+      "aliases": [
+        "mozzarella",
+        "mozarella",
+        "motzarella",
+        "burrata",
+        "bocconcini",
+        "boconcini",
+        "buffalo mozzarella",
+        "fresh mozzarella",
+        "cherry bocconcini",
+        "caprese"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "These fresh cheeses are soft and full of moisture, and that is where listeria settles. Eaten cold and uncooked they are out for now.",
+      "makeItGreen": "Cooked right through to 75 degrees and eaten hot, on a pizza or baked in a dish, it is a yes.",
+      "swap": "Melted mozzarella on a hot pizza, or shaved hard cheese over the tomatoes and basil.",
+      "sources": [
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "fried-ice-cream",
+      "name": "Fried ice cream",
+      "emoji": "🔥",
+      "aliases": [
+        "fried icecream",
+        "deep fried ice cream",
+        "tempura ice cream",
+        "battered ice cream",
+        "fried ice cream ball"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "The batter is usually egg based and the fry is quick on purpose, to keep the middle frozen. That means the egg may never cook through.",
+      "makeItGreen": null,
+      "swap": "Tub ice cream under a hot chocolate sauce, or a warm baked pudding with a scoop on the side.",
+      "sources": [
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "haloumi",
+      "name": "Haloumi",
+      "emoji": "🧀",
+      "aliases": [
+        "halloumi",
+        "halumi",
+        "hallumi",
+        "grilled haloumi",
+        "fried haloumi",
+        "haloumi fries",
+        "squeaky cheese",
+        "haloumi burger",
+        "haloumi salad"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Cooked until it squeaks and served hot is exactly the safe way with haloumi. Grill it or pan fry it rather than eating it cold from the pack.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "hard-cheeses",
+      "name": "Hard cheeses",
+      "emoji": "🧀",
+      "aliases": [
+        "cheddar",
+        "tasty cheese",
+        "hard cheese",
+        "parmesan",
+        "parmigiano",
+        "grana padano",
+        "gouda",
+        "edam",
+        "swiss cheese",
+        "pecorino",
+        "gruyere",
+        "colby"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Hard cheese is too dry and salty for listeria to throw a party in. Cheddar, parmesan and the whole firm crew are a straight yes.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "ice-cream-tub",
+      "name": "Ice cream from a tub",
+      "emoji": "🍨",
+      "aliases": [
+        "ice cream",
+        "icecream",
+        "ice creams",
+        "tub ice cream",
+        "supermarket ice cream",
+        "scoop of ice cream",
+        "choc top",
+        "magnum ice cream",
+        "paddle pop",
+        "cornetto"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Tub and packaged ice cream is pasteurised and sealed, so it is a yes. The tub is the trick: it is soft serve from a machine that is the problem.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "melted-mozzarella",
+      "name": "Melted mozzarella",
+      "emoji": "🍕",
+      "aliases": [
+        "mozzarella on pizza",
+        "melted cheese",
+        "pizza cheese",
+        "cooked mozzarella",
+        "baked mozzarella",
+        "mozzarella sticks",
+        "stringy cheese",
+        "mozzarella bake"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Bubbling on a pizza or baked right through a dish, the heat has done the work for you. Melted mozzarella is a green light.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "emoji": "🥛",
+      "aliases": [
+        "milk",
+        "milks",
+        "glass of milk",
+        "cows milk",
+        "goats milk",
+        "lactose free milk",
+        "oat milk",
+        "almond milk",
+        "plant milk",
+        "milk on cereal"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "depends",
+      "why": "Depends whether it's pasteurised:",
+      "variants": [
+        {
+          "label": "Pasteurised, including UHT",
+          "tier": "green",
+          "why": "Everything in the supermarket fridge and on the long-life shelf is pasteurised, and that is the step that sorts out the bacteria. Buttermilk counts too."
+        },
+        {
+          "label": "Raw or unpasteurised, including bath milk",
+          "tier": "red",
+          "why": "Raw milk skips pasteurisation, so listeria, salmonella and E. coli can survive in it. Bath milk is raw milk with a label workaround.",
+          "swap": "Any regular supermarket milk, dairy or plant based. Same white, none of the worry."
+        },
+        {
+          "label": "Soy, oat, almond and other plant milks",
+          "tier": "green",
+          "why": "Commercially made plant milks are heat treated in the carton, so the whole aisle is yours. Soy products in general are a yes."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "homemade-milkshake",
+      "name": "Milkshake made at home",
+      "emoji": "🥤",
+      "aliases": [
+        "home milkshake",
+        "homemade milkshake",
+        "milkshake at home",
+        "banana milkshake",
+        "chocolate milkshake",
+        "malted milkshake",
+        "blender milkshake"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Pasteurised milk, tub ice cream and your own clean blender: you control the hygiene end to end, so blend away.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "paneer",
+      "name": "Paneer",
+      "emoji": "🍛",
+      "aliases": [
+        "panner",
+        "paneer cheese",
+        "palak paneer",
+        "saag paneer",
+        "matar paneer",
+        "paneer tikka",
+        "indian cheese",
+        "paneer curry"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Paneer is made from pasteurised milk and it almost always turns up cooked and hot. Two ticks in the one curry.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pasteurised-milk",
+      "name": "Pasteurised milk",
+      "emoji": "🥛",
+      "aliases": [
+        "uht milk",
+        "long life milk",
+        "full cream milk",
+        "skim milk",
+        "lite milk",
+        "light milk",
+        "buttermilk",
+        "a2 milk",
+        "homogenised milk",
+        "milk from the fridge"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Pasteurisation is the whole point: it has already been heat treated for you. Fridge milk or long life off the shelf, both a yes.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "processed-cheese-slices",
+      "name": "Processed cheese slices",
+      "emoji": "🧀",
+      "aliases": [
+        "cheese slices",
+        "cheese slice",
+        "processed cheese",
+        "burger cheese",
+        "kraft singles",
+        "cheese singles",
+        "plastic cheese"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Pasteurised and sealed, so slices are good to go. Once the pack is open, keep it in the fridge and eat it within a couple of days.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "gelato-scooped",
+      "name": "Scooped gelato",
+      "emoji": "🍧",
+      "aliases": [
+        "gelato",
+        "gelati",
+        "gelateria",
+        "gelato shop",
+        "gelato cone",
+        "italian ice cream",
+        "sorbet",
+        "gelato scoop"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "yellow",
+      "why": "Gelato is scooped from tubs, so the risk sits well below soft serve. The unknown is the shared scoop and the bench it rests on.",
+      "makeItGreen": "Ask for a fresh scoop from a covered tub, or take a sealed tub home from the freezer aisle.",
+      "swap": "Tub ice cream at home, or a frozen-banana nice cream.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [
+        "confirm"
+      ],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "goat-cheese",
+      "name": "Soft goat cheese",
+      "emoji": "🐐",
+      "aliases": [
+        "goats cheese",
+        "goat cheese",
+        "chevre",
+        "goats curd",
+        "soft goats cheese",
+        "goat cheese log",
+        "marinated goats cheese"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "Soft goat cheese is moist and mould ripened, so it sits with brie and feta on the not-right-now list while it is cold.",
+      "makeItGreen": "Baked or grilled until it is hot right through, like a warm goat cheese tart, and it is back on.",
+      "swap": "A hard goat gouda, or aged cheddar crumbled over the beetroot salad.",
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "soft-serve",
+      "name": "Soft serve ice cream",
+      "emoji": "🍦",
+      "aliases": [
+        "soft serve",
+        "softserve",
+        "soft serve cone",
+        "maccas soft serve",
+        "mr whippy",
+        "whippy",
+        "sundae",
+        "soft serve machine",
+        "twist cone"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "It is not the ice cream, it is the machine. Soft serve dispensers are fiddly to clean and listeria can settle inside them.",
+      "makeItGreen": null,
+      "swap": "A scoop from a sealed tub at home, or frozen-banana nice cream in a cone.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "thickshake-mcflurry",
+      "name": "Thickshakes and McFlurry",
+      "emoji": "🥤",
+      "aliases": [
+        "thickshake",
+        "thick shake",
+        "mcflurry",
+        "mc flurry",
+        "machine frozen yoghurt",
+        "frozen yoghurt machine",
+        "froyo",
+        "shop thickshake",
+        "frozen yoghurt swirl"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "Same story as soft serve: these all come out of a dispensing machine that is tricky to clean, and listeria can hide in the works.",
+      "makeItGreen": null,
+      "swap": "Blend your own thick shake at home with tub ice cream and cold milk.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "raw-milk-and-cheese",
+      "name": "Unpasteurised milk and raw-milk cheese",
+      "emoji": "🐄",
+      "aliases": [
+        "raw milk",
+        "unpasteurised milk",
+        "raw milk cheese",
+        "unpasteurised cheese",
+        "bath milk",
+        "farm milk",
+        "raw dairy",
+        "unpasteurised dairy",
+        "raw goats milk"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "red",
+      "why": "With no pasteurisation there is nothing standing between you and listeria, salmonella or E. coli. This one is a firm no for now.",
+      "makeItGreen": "The pasteurised version of the very same thing is a green light.",
+      "swap": "Pasteurised milk, and cheese made from pasteurised milk: cheddar, gouda, parmesan.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "yoghurt",
+      "name": "Yoghurt",
+      "emoji": "🥣",
+      "aliases": [
+        "yoghurts",
+        "greek yoghurt",
+        "natural yoghurt",
+        "pot set yoghurt",
+        "yoghurt pot",
+        "vanilla yoghurt",
+        "yoghurt tub",
+        "chobani"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "green",
+      "why": "Every pasteurised kind is a yes, live cultures included. Greek, natural, flavoured or pot set: pick your favourite and dig in.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "bacon-hot",
+      "name": "Bacon, served hot",
+      "emoji": "🥓",
+      "aliases": [
+        "bacon",
+        "crispy bacon",
+        "streaky bacon",
+        "middle bacon",
+        "bacon rashers",
+        "rasher",
+        "grilled bacon",
+        "bacon butty"
+      ],
+      "group": "Meat & poultry",
+      "tier": "green",
+      "why": "Cooked in the pan and served hot, bacon is a yes. Heat is what handles any listeria, so eat it straight off the heat rather than cold from the fridge.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cooked-meats",
+      "name": "Beef, lamb, pork and chicken, cooked through",
+      "emoji": "🍖",
+      "aliases": [
+        "beef",
+        "lamb",
+        "pork",
+        "chicken",
+        "mince",
+        "cooked meat",
+        "roast lamb",
+        "roast pork",
+        "lamb chops",
+        "pork chop",
+        "chicken breast",
+        "roast dinner"
+      ],
+      "group": "Meat & poultry",
+      "tier": "green",
+      "why": "Cooked right through with no pink and clear juices, meat is a green light and a top iron hit. Get leftovers into the fridge fast, then reheat them steaming hot within a day.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "meat-paste-shelf-stable",
+      "name": "Canned or jar meat and fish paste",
+      "emoji": "🥫",
+      "aliases": [
+        "meat paste",
+        "fish paste",
+        "sandwich paste",
+        "potted meat",
+        "jar pate",
+        "tinned pate",
+        "canned pate",
+        "shelf stable pate"
+      ],
+      "group": "Meat & poultry",
+      "tier": "green",
+      "why": "Shelf-stable tins and jars are safe as houses until you open them. After that, treat it like any fresh food: straight into the fridge and eaten up quickly.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cold-deli-meats",
+      "name": "Cold deli meats",
+      "emoji": "🥪",
+      "aliases": [
+        "salami",
+        "mortadella",
+        "pastrami",
+        "chicken loaf",
+        "devon",
+        "fritz",
+        "strasburg",
+        "luncheon meat",
+        "cold cuts",
+        "deli meat",
+        "shaved ham",
+        "leg ham",
+        "cabanossi"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Cold cured and cooked meats can carry listeria, and freshly sliced is not safer: the slicer itself can spread it around. Heat is what changes the answer.",
+      "makeItGreen": "Heat it until it is steaming hot right through, like on a pizza or in a toastie, and it is back on.",
+      "swap": "Tinned tuna, hot roast chicken, or firm-cooked egg in the sanga.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "bbq-chicken-cold",
+      "name": "Cold leftover BBQ chicken",
+      "emoji": "🧊",
+      "aliases": [
+        "cold chook",
+        "cold chicken",
+        "leftover chicken",
+        "chicken leftovers",
+        "leftover bbq chook",
+        "cold bbq chicken",
+        "cold roast chicken"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Once cooked chicken has gone cold, listeria gets its chance. Straight from the fridge is a no, but it is only a reheat away from a yes.",
+      "makeItGreen": "Reheat it until it is steaming hot right through, and finish it within a day of buying it.",
+      "swap": "Hot chook fresh from the shop, or reheated chicken piled into a wrap.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sandwich-shop-cold-meats",
+      "name": "Cold meats and chicken from sandwich shops and cafes",
+      "emoji": "🥖",
+      "aliases": [
+        "cold chicken sandwich",
+        "cold meat sandwich",
+        "sandwich bar chicken",
+        "deli counter chicken",
+        "sliced chicken sandwich",
+        "cafe cold chicken",
+        "subway chicken",
+        "subway sub"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Cold chicken and cold cuts at a sanga shop sit in the fridge and share a slicer and tongs, which is listeria's happy place.",
+      "makeItGreen": "Ask for it toasted until the filling is steaming hot right through.",
+      "swap": "A hot toasted sanga, or a salad you watched them make fresh.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "ham",
+      "name": "Ham",
+      "emoji": "🍖",
+      "aliases": [
+        "ham",
+        "hams",
+        "ham sandwich",
+        "sliced ham",
+        "ham slices",
+        "ham off the bone",
+        "christmas ham",
+        "chrissy ham",
+        "glazed ham",
+        "ham steak"
+      ],
+      "group": "Meat & poultry",
+      "tier": "depends",
+      "why": "Depends whether it's hot or cold:",
+      "variants": [
+        {
+          "label": "Heated until steaming hot",
+          "tier": "green",
+          "why": "On a pizza or in a toastie, ham gets its full redemption arc. Listeria gives up at 74 degrees held for 2 minutes, and a hot toastie sails past that."
+        },
+        {
+          "label": "Cold, from the pack or deli counter",
+          "tier": "red",
+          "why": "Cold ready-to-eat deli meat is the classic listeria risk, and freshly sliced is not safer: the slicer itself is the problem.",
+          "makeItGreen": "Heat it until it is properly steaming, then it is all yours.",
+          "swap": "A hot ham and cheese toastie, or tinned tuna with jar mayo in the sanga instead."
+        },
+        {
+          "label": "Cold cuts on a Chrissy platter",
+          "tier": "red",
+          "why": "Platter ham has usually been out of the fridge a while and handled by half the family, so the risk stacks up.",
+          "makeItGreen": "Take your slices to the pan first and fry them until they are steaming, then load up your plate.",
+          "swap": "Hot glazed ham straight out of the oven, before it hits the platter."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "deli-meat-heated",
+      "name": "Ham or salami, heated steaming hot",
+      "emoji": "🔥",
+      "aliases": [
+        "hot ham",
+        "grilled ham",
+        "melted ham",
+        "steaming hot ham",
+        "hot salami",
+        "grilled salami",
+        "ham on pizza",
+        "salami on pizza",
+        "heated deli meat"
+      ],
+      "group": "Meat & poultry",
+      "tier": "green",
+      "why": "Heat is the loophole. Deli meats taken right up to steaming hot, on a pizza or in a toastie, are back on the menu: listeria does not survive 74C for two minutes.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "bbq-chicken-hot",
+      "name": "Hot BBQ chicken, fresh from the shop",
+      "emoji": "🍗",
+      "aliases": [
+        "chook",
+        "bbq chook",
+        "hot chook",
+        "bbq chicken",
+        "barbecue chicken",
+        "rotisserie chicken",
+        "charcoal chicken",
+        "hot roast chicken"
+      ],
+      "group": "Meat & poultry",
+      "tier": "green",
+      "why": "Straight from the hot cabinet and still steaming, BBQ chook is a green light. Leftovers go into the fridge within 2 hours and get eaten within a day, reheated hot.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "jerky-biltong",
+      "name": "Jerky and biltong",
+      "emoji": "🥩",
+      "aliases": [
+        "jerky",
+        "beef jerky",
+        "biltong",
+        "droewors",
+        "dried meat",
+        "meat sticks",
+        "kangaroo jerky"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Jerky and biltong are dried and cured but never cooked, so nothing in there has been through heat. Sitting this one out for now.",
+      "makeItGreen": null,
+      "swap": "Salted nuts, roasted chickpeas, or hot cooked meat straight off the barbie.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [
+        "confirm"
+      ],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "liver",
+      "name": "Liver",
+      "emoji": "🫀",
+      "aliases": [
+        "lambs fry",
+        "lamb fry",
+        "lambs liver",
+        "beef liver",
+        "calves liver",
+        "chicken livers",
+        "liver and bacon",
+        "offal"
+      ],
+      "group": "Meat & poultry",
+      "tier": "yellow",
+      "why": "Liver is an iron legend, but it is packed with retinol and too much vitamin A is not great for the bump. Keep it to 50g a week, about one small slice.",
+      "makeItGreen": "Stay under 50g a week, roughly one small slice, and cook it right through.",
+      "swap": "Red meat, chickpeas or leafy greens bring the iron with no vitamin A cap.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pate-refrigerated",
+      "name": "Pâté (refrigerated)",
+      "emoji": "🧈",
+      "aliases": [
+        "pate",
+        "chicken liver pate",
+        "chicken liver parfait",
+        "liver parfait",
+        "parfait",
+        "duck pate",
+        "brussels pate",
+        "liverwurst",
+        "rillettes",
+        "terrine"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Refrigerated pâté is a double whammy: listeria from a chilled ready-to-eat spread, plus a big hit of vitamin A from the liver.",
+      "makeItGreen": null,
+      "swap": "Shelf-stable tinned or jar pâté (into the fridge once opened), or a home-made white bean dip.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "prosciutto",
+      "name": "Prosciutto",
+      "emoji": "🐖",
+      "aliases": [
+        "proscuitto",
+        "prosciuto",
+        "parma ham",
+        "jamon",
+        "serrano ham",
+        "coppa",
+        "capicola",
+        "charcuterie",
+        "cured meat",
+        "antipasto meats"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Cured but never actually cooked, so cold prosciutto can carry listeria. Freshly sliced is not safer either, the slicer can pass it along.",
+      "makeItGreen": "Crisp it in a hot pan or under the grill until it sizzles, then scatter it over pasta or pizza.",
+      "swap": "Hot crispy prosciutto shards over pasta, or hot roast chicken in a sanga.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "steak-rare",
+      "name": "Rare or medium-rare steak",
+      "emoji": "🥩",
+      "aliases": [
+        "rare steak",
+        "medium rare steak",
+        "medium rare",
+        "blue steak",
+        "pink steak",
+        "rare beef",
+        "bloody steak",
+        "undercooked steak"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Pink in the middle can carry toxoplasmosis, so this one waits. The good news: a well-done steak is still very much a steak.",
+      "makeItGreen": "Order it well done, cooked right through with no pink left, and it is a green light.",
+      "swap": "A well-done scotch fillet with all the trimmings.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "raw-mince-dishes",
+      "name": "Raw mince dishes (tartare, kibbeh)",
+      "emoji": "🔪",
+      "aliases": [
+        "steak tartare",
+        "beef tartare",
+        "tartare",
+        "kibbeh",
+        "raw mince",
+        "raw beef",
+        "raw meat",
+        "raw lamb",
+        "carpaccio",
+        "beef carpaccio"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "Raw mince has never met heat, so nothing has knocked out the bugs. Tartare and kibbeh are benched for the next few months.",
+      "makeItGreen": "Cook the mince right through until it is steaming: same flavours, safe version.",
+      "swap": "A rich slow-cooked bolognese, or a burger patty cooked all the way through.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sausages-cooked",
+      "name": "Sausages, cooked through",
+      "emoji": "🌭",
+      "aliases": [
+        "snag",
+        "snags",
+        "sausage",
+        "bangers",
+        "sausage sizzle",
+        "bunnings snag",
+        "chipolata",
+        "bratwurst",
+        "kransky"
+      ],
+      "group": "Meat & poultry",
+      "tier": "green",
+      "why": "Cook a snag right through until there is no pink left and it is a green light. The Bunnings sausage sizzle lives to see another Saturday.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "steak-well-done",
+      "name": "Steak, well done",
+      "emoji": "🥩",
+      "aliases": [
+        "steak",
+        "well done steak",
+        "grilled steak",
+        "porterhouse",
+        "scotch fillet",
+        "eye fillet",
+        "rump steak",
+        "t bone steak",
+        "sirloin"
+      ],
+      "group": "Meat & poultry",
+      "tier": "green",
+      "why": "No pink for now, but a steak cooked all the way through is all yours. Well done still comes with chips, and the iron is doing you both a favour.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pate-veggie",
+      "name": "Veggie pâté (refrigerated)",
+      "emoji": "🌿",
+      "aliases": [
+        "veggie pate",
+        "vegetarian pate",
+        "vegan pate",
+        "vegetable pate",
+        "lentil pate",
+        "mushroom pate"
+      ],
+      "group": "Meat & poultry",
+      "tier": "red",
+      "why": "The refrigerated pâté rule is about the fridge, not the meat. Chilled ready-to-eat spreads can carry listeria, the veggie ones included.",
+      "makeItGreen": null,
+      "swap": "A home-made white bean or beetroot dip, or a shelf-stable jar version.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "canned-smoked-shellfish",
+      "name": "Canned smoked oysters and mussels",
+      "emoji": "🐚",
+      "aliases": [
+        "smoked oysters",
+        "tinned oysters",
+        "canned oysters",
+        "smoked mussels",
+        "tinned mussels",
+        "canned mussels",
+        "canned smoked seafood"
+      ],
+      "group": "Fish & seafood",
+      "tier": "green",
+      "why": "Smoked seafood is usually a no, but the tin changes the answer. Canning heat-treats the lot, so smoked oysters and mussels from a can are a green light.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "canned-fish",
+      "name": "Canned tuna, salmon and sardines",
+      "emoji": "🥫",
+      "aliases": [
+        "tinned tuna",
+        "canned tuna",
+        "tuna",
+        "sardines",
+        "tinned fish",
+        "canned fish",
+        "anchovies",
+        "tin of tuna",
+        "tuna in spring water"
+      ],
+      "group": "Fish & seafood",
+      "tier": "green",
+      "why": "Canning does all the safety work for you, and tinned fish is a brilliant omega-3 hit. A small tin of tuna counts as half a serve, so several tins a week is fine.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "ceviche",
+      "name": "Ceviche",
+      "emoji": "🍋",
+      "aliases": [
+        "seviche",
+        "cebiche",
+        "kinilaw",
+        "citrus cured fish",
+        "lime cured fish",
+        "raw fish in lime"
+      ],
+      "group": "Fish & seafood",
+      "tier": "red",
+      "why": "Citrus firms the fish up so it looks cooked, but that is chemistry, not heat, and the bugs never got the memo. Ceviche still counts as raw.",
+      "makeItGreen": "Cook the fish right through and serve it hot with the same lime, chilli and coriander over the top.",
+      "swap": "Hot grilled fish tacos with lime, coriander and plenty of avo.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "fish-and-chips",
+      "name": "Fish and chips",
+      "emoji": "🍟",
+      "aliases": [
+        "battered fish",
+        "fish n chips",
+        "fish and chip shop",
+        "crumbed fish",
+        "fried fish",
+        "beer battered fish",
+        "seafood basket",
+        "fishermans basket"
+      ],
+      "group": "Fish & seafood",
+      "tier": "green",
+      "why": "Straight out of the fryer and piping hot, battered fish is a green light. One thing worth asking at the counter: if the fish is flake, that is shark, and shark has a mercury cap.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "flake",
+      "name": "Flake (shark), swordfish and marlin",
+      "emoji": "🦈",
+      "aliases": [
+        "flake",
+        "shark",
+        "swordfish",
+        "broadbill",
+        "marlin",
+        "billfish",
+        "flake and chips",
+        "shark fillet",
+        "swordfish steak"
+      ],
+      "group": "Fish & seafood",
+      "tier": "yellow",
+      "why": "Heads up: flake at the fish and chip shop IS shark. Shark, swordfish, broadbill and marlin carry the most mercury, so it is one serve a fortnight and no other fish that fortnight.",
+      "makeItGreen": "Keep it to one 150g serve a fortnight and eat no other fish in that fortnight. Note the sources differ here: Monash IVF says once a week, the Royal Women's says once a fortnight, and we go with the stricter fortnight.",
+      "swap": "Ask the shop for snapper, whiting or flathead instead: same batter, same chips, no mercury cap.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cooked-fish",
+      "name": "Freshly cooked fish, served hot",
+      "emoji": "🐟",
+      "aliases": [
+        "cooked fish",
+        "grilled fish",
+        "baked fish",
+        "snapper",
+        "barramundi",
+        "barra",
+        "whiting",
+        "flathead",
+        "fish fillet",
+        "fish fingers",
+        "pan fried fish",
+        "steamed fish"
+      ],
+      "group": "Fish & seafood",
+      "tier": "green",
+      "why": "Hot off the grill and flaking apart, cooked fish is the default good choice. Fish is actively encouraged here: 1 to 3 serves a week, a serve being about 150g.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cooked-shellfish",
+      "name": "Freshly cooked prawns, lobster, crab and calamari",
+      "emoji": "🦞",
+      "aliases": [
+        "hot garlic prawns",
+        "garlic prawns",
+        "cooked prawns",
+        "lobster",
+        "crayfish",
+        "moreton bay bugs",
+        "crab",
+        "calamari",
+        "squid",
+        "salt and pepper squid",
+        "scallops",
+        "cooked mussels"
+      ],
+      "group": "Fish & seafood",
+      "tier": "green",
+      "why": "Cooked fresh and served hot, the whole shellfish crew is yours. Heat is the entire trick, so tuck in while it is still steaming rather than saving it for later.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sushi-cooked-fresh",
+      "name": "Freshly made sushi with cooked fillings",
+      "emoji": "🍣",
+      "aliases": [
+        "cooked sushi",
+        "cooked sushi rolls",
+        "california roll",
+        "avocado roll",
+        "cucumber roll",
+        "teriyaki chicken roll",
+        "hand roll",
+        "maki roll",
+        "freshly made sushi",
+        "veggie sushi",
+        "chicken sushi"
+      ],
+      "group": "Fish & seafood",
+      "tier": "green",
+      "why": "Rolled in front of you with cooked fillings and eaten straight away, sushi is a green light. Nothing raw, nothing smoked, and no time spent sitting in a fridge.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "marinated-mussels",
+      "name": "Marinated mussels",
+      "emoji": "🫙",
+      "aliases": [
+        "pickled mussels",
+        "marinated seafood",
+        "deli mussels",
+        "mussels in oil",
+        "marinated octopus",
+        "cold mussels",
+        "seafood salad"
+      ],
+      "group": "Fish & seafood",
+      "tier": "red",
+      "why": "Marinated seafood from the deli fridge is ready to eat and has not been near heat since it was packed. Listeria is very comfortable in the cold.",
+      "makeItGreen": "Cook mussels fresh and eat them hot, straight out of the pot with the shells steaming.",
+      "swap": "A hot pot of steamed mussels in garlic and tomato, with bread for the sauce.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "orange-roughy-catfish",
+      "name": "Orange roughy and catfish",
+      "emoji": "🐠",
+      "aliases": [
+        "orange roughy",
+        "sea perch",
+        "deep sea perch",
+        "catfish",
+        "roughy",
+        "orange ruffy",
+        "cat fish"
+      ],
+      "group": "Fish & seafood",
+      "tier": "yellow",
+      "why": "Orange roughy (sometimes sold as sea perch) and catfish sit mid-table for mercury. One serve a week, with no other fish that week, keeps you comfortably inside the limit.",
+      "makeItGreen": "One 150g serve a week, and make it the only fish that week.",
+      "swap": "Snapper, barramundi, whiting or tinned tuna, none of which come with a weekly cap.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "prawns",
+      "name": "Prawns",
+      "emoji": "🍤",
+      "aliases": [
+        "prawns",
+        "prawn",
+        "shrimp",
+        "shrimps",
+        "king prawns",
+        "tiger prawns",
+        "banana prawns",
+        "prawn skewers",
+        "salt and pepper prawns",
+        "prawns on the barbie"
+      ],
+      "group": "Fish & seafood",
+      "tier": "depends",
+      "why": "Depends how they're served:",
+      "variants": [
+        {
+          "label": "Freshly cooked, served hot",
+          "tier": "green",
+          "why": "Hot garlic prawns, salt and pepper prawns, prawns off the barbecue: cooked fresh and eaten hot, they are a green light and a lovely iron hit."
+        },
+        {
+          "label": "Cold and pre-cooked",
+          "tier": "red",
+          "why": "Cold cooked prawns may have been cooked hours ago, then chilled and handled since, which is listeria territory.",
+          "makeItGreen": "Reheat them right through until they are steaming, or order them hot off the pan in the first place.",
+          "swap": "Hot garlic prawns instead of the prawn cocktail, and you get the better version anyway."
+        },
+        {
+          "label": "Raw",
+          "tier": "red",
+          "why": "Raw prawns in sashimi, ceviche or a marinade have not been cooked at all, so nothing has dealt with the bacteria.",
+          "makeItGreen": "Cook them until they turn opaque and are hot right through.",
+          "swap": "Cooked prawn nigiri made fresh, or a hot chilli prawn stir-fry."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "prawns-precooked-cold",
+      "name": "Pre-cooked cold prawns",
+      "emoji": "🍤",
+      "aliases": [
+        "chrissy prawns",
+        "christmas prawns",
+        "prawn cocktail",
+        "cold prawns",
+        "seafood platter",
+        "prawn platter",
+        "cooked cold prawns",
+        "prawns from the seafood shop"
+      ],
+      "group": "Fish & seafood",
+      "tier": "red",
+      "why": "Sold ready-cooked and chilled, these may have been sitting around a while, and cold ready-to-eat seafood is listeria's favourite address. Heat is the fix.",
+      "makeItGreen": "Reheat them until they are steaming hot right through, or order them hot in the first place.",
+      "swap": "Hot garlic prawns, or a prawn stir-fry cooked until they curl and sizzle.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sushi-store-bought",
+      "name": "Pre-made or store-bought sushi",
+      "emoji": "🏪",
+      "aliases": [
+        "supermarket sushi",
+        "servo sushi",
+        "packaged sushi",
+        "pre made sushi",
+        "prepacked sushi",
+        "food court sushi",
+        "sushi from the fridge",
+        "day old sushi"
+      ],
+      "group": "Fish & seafood",
+      "tier": "red",
+      "why": "Even with cooked fillings, sushi that has been sitting in a fridge or a display case has had time for listeria to settle in. It is the sitting, not the filling.",
+      "makeItGreen": "Sushi made fresh in front of you with cooked fillings, eaten straight away, is a green light.",
+      "swap": "A hot teriyaki chicken don, or home-made cooked rolls with tinned tuna and avo.",
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "oysters-raw",
+      "name": "Raw oysters",
+      "emoji": "🦪",
+      "aliases": [
+        "oysters",
+        "natural oysters",
+        "raw oyster",
+        "shucked oysters",
+        "oyster shooter",
+        "sydney rock oysters",
+        "pacific oysters",
+        "oysters on the half shell"
+      ],
+      "group": "Fish & seafood",
+      "tier": "red",
+      "why": "Raw oysters filter everything the water has to offer and nothing gets cooked out. Shellfish this raw waits until after the birth.",
+      "makeItGreen": "Cooked hot right through, like oysters Kilpatrick bubbling out from under the grill, and they are back on.",
+      "swap": "Kilpatrick, oysters mornay, or a plate of hot salt and pepper squid.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "emoji": "🐟",
+      "aliases": [
+        "salmon",
+        "salmon fillet",
+        "salmon fillets",
+        "atlantic salmon",
+        "salmon steak",
+        "tasmanian salmon",
+        "pink salmon",
+        "salmon portion",
+        "sammon",
+        "salmon and rice"
+      ],
+      "group": "Fish & seafood",
+      "tier": "depends",
+      "why": "Depends how it's served:",
+      "variants": [
+        {
+          "label": "Cooked through, served hot",
+          "tier": "green",
+          "why": "Baked, grilled or pan-fried until it flakes, salmon is one of the best things on the menu. Fish is encouraged at 1 to 3 serves a week, and salmon is a low-mercury one."
+        },
+        {
+          "label": "Smoked or raw",
+          "tier": "red",
+          "why": "Cold-smoked salmon, gravlax and raw salmon are ready-to-eat and chilled, which is exactly where listeria likes to sit.",
+          "makeItGreen": "Cook it right through in a hot dish and eat it steaming: a salmon and pasta bake, or smoked salmon stirred into a hot quiche.",
+          "swap": "Canned salmon with cream cheese on a toasted bagel gives you the same salty hit."
+        },
+        {
+          "label": "Canned",
+          "tier": "green",
+          "why": "Canning heat-treats the lot, so tinned salmon is safe, cheap and a cracking omega-3 delivery system."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sashimi",
+      "name": "Sashimi, raw sushi and poke",
+      "emoji": "🍥",
+      "aliases": [
+        "sashimi",
+        "nigiri",
+        "poke",
+        "poke bowl",
+        "raw fish",
+        "raw sushi",
+        "salmon sashimi",
+        "tuna sashimi",
+        "raw tuna",
+        "kingfish sashimi",
+        "crudo",
+        "sashimi platter"
+      ],
+      "group": "Fish & seafood",
+      "tier": "red",
+      "why": "Raw fish can carry listeria, one of the few bugs that keeps growing in a cold fridge. Sashimi, raw nigiri and poke are benched for the next few months.",
+      "makeItGreen": "Rolls made fresh in front of you with cooked fillings, like teriyaki chicken, tinned tuna or avocado, are back on the menu.",
+      "swap": "A cooked-roll sushi night at home, or hot garlic prawns with rice.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "smoked-salmon",
+      "name": "Smoked salmon, smoked trout and gravlax",
+      "emoji": "🥯",
+      "aliases": [
+        "smoked salmon",
+        "smoked trout",
+        "gravlax",
+        "gravadlax",
+        "lox",
+        "cold smoked salmon",
+        "hot smoked salmon",
+        "smoked fish",
+        "smoked cod",
+        "smoked salmon bagel"
+      ],
+      "group": "Fish & seafood",
+      "tier": "red",
+      "why": "Cold smoked fish is chilled, ready to eat and never actually cooked, which is exactly the setup listeria likes. Canned or cooked right through is a different story.",
+      "makeItGreen": "Cooked right through in a hot dish, like a salmon and leek pasta bake straight from the oven, and it is a green light.",
+      "swap": "Canned salmon with cream cheese on a toasted bagel does the same job.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "baked-cakes-biscuits",
+      "name": "Cakes and biscuits, baked",
+      "emoji": "🍪",
+      "aliases": [
+        "bikkies",
+        "bikkie",
+        "biscuits",
+        "cookies",
+        "cake",
+        "cakes",
+        "banana bread",
+        "muffins",
+        "brownies",
+        "sponge cake",
+        "cupcakes",
+        "baked cake"
+      ],
+      "group": "Eggs",
+      "tier": "green",
+      "why": "Once it has had its time in the oven, the egg in the batter is cooked through. Cake, bikkies and banana bread are all clear. It is only the raw batter that is benched.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "chocolate-mousse",
+      "name": "Chocolate mousse",
+      "emoji": "🍫",
+      "aliases": [
+        "mousse",
+        "choc mousse",
+        "chocolate moose",
+        "chocolate mouse",
+        "mousse au chocolat",
+        "white chocolate mousse",
+        "berry mousse",
+        "mousse dessert"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "Classic mousse gets its cloud from raw egg, whipped in and never cooked, so the restaurant and homemade ones are out for now.",
+      "makeItGreen": "A mousse made without raw egg, like a cooked-custard or melted-chocolate-and-cream one, is fine. Worth asking the kitchen.",
+      "swap": "Chocolate custard, a warm self-saucing pudding, or ice cream from a tub.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "eggnog",
+      "name": "Eggnog",
+      "emoji": "🥛",
+      "aliases": [
+        "egg nog",
+        "eggnogg",
+        "egg flip",
+        "christmas eggnog",
+        "eggnog drink",
+        "nog",
+        "raw egg drink"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "Traditional nog is raw egg whisked into cream, and there is usually a slug of brandy in there too. Two good reasons to sit this one out at Chrissy.",
+      "makeItGreen": "A nog cooked custard-style until it thickens, with the booze left out, is fine.",
+      "swap": "Warm milk with nutmeg and vanilla, or shop-bought custard poured over ice.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "eggs",
+      "name": "Eggs",
+      "emoji": "🥚",
+      "aliases": [
+        "eggs",
+        "egg",
+        "eggies",
+        "chook eggs",
+        "hens eggs",
+        "free range eggs",
+        "cage free eggs",
+        "egg on toast",
+        "brekkie eggs",
+        "eggs for brekkie"
+      ],
+      "group": "Eggs",
+      "tier": "depends",
+      "why": "Depends how they're cooked:",
+      "variants": [
+        {
+          "label": "Cooked firm, yolk set",
+          "tier": "green",
+          "why": "Hard-boiled, firm scrambled, set omelette or fried until the yolk thickens. Cooked firm, eggs are a straight yes and a brilliant protein hit."
+        },
+        {
+          "label": "Runny, poached or soft-boiled",
+          "tier": "red",
+          "why": "A yolk that still runs has not got hot enough to see off salmonella.",
+          "makeItGreen": "Ask for the yolks cooked firm, or give it another minute in the pan. Cafes do it all day without blinking.",
+          "swap": "Firm-yolk fried eggs on smashed avo, or a slice of set frittata."
+        },
+        {
+          "label": "Raw in a sauce or dessert",
+          "tier": "red",
+          "why": "Cafe mayo, house aioli, hollandaise, mousse and tiramisu all use the egg raw.",
+          "makeItGreen": "Jar mayonnaise and shelf-stable commercial aioli are made with pasteurised egg, so those are all clear.",
+          "swap": "Pavlova, quiche or a chocolate brownie: baked egg desserts you can dive straight into."
+        },
+        {
+          "label": "Baked into cakes, quiche or pav",
+          "tier": "green",
+          "why": "Baked is cooked. Cakes, bikkies, quiche and pavlova are all fine, so the national treasure stays intact."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "eggs-cooked-firm",
+      "name": "Eggs cooked firm",
+      "emoji": "🍳",
+      "aliases": [
+        "hard boiled eggs",
+        "hard boiled egg",
+        "boiled eggs",
+        "scrambled eggs",
+        "omelette",
+        "omelet",
+        "omlette",
+        "frittata",
+        "fried eggs",
+        "firm yolk",
+        "cooked eggs",
+        "french toast"
+      ],
+      "group": "Eggs",
+      "tier": "green",
+      "why": "Cooked until the white sets and the yolk thickens, eggs are a straight yes and a cracking protein hit. Hard-boiled, firm scrambled, set omelette or frittata: all yours.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "eggs-cracked",
+      "name": "Eggs with cracked shells",
+      "emoji": "🥚",
+      "aliases": [
+        "cracked egg",
+        "cracked eggs",
+        "cracked eggshell",
+        "cracked shell",
+        "broken egg",
+        "broken eggs",
+        "chipped egg",
+        "cracked egg shell"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "A cracked shell lets bacteria wander straight in, so that one goes in the bin, not the pan. The rest of the carton is still perfectly good.",
+      "makeItGreen": null,
+      "swap": "Any egg with a clean, unbroken shell, cooked until the yolk is firm.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "hollandaise",
+      "name": "Hollandaise and béarnaise",
+      "emoji": "🧈",
+      "aliases": [
+        "hollandaise",
+        "hollandaise sauce",
+        "holandaise",
+        "hollandais",
+        "bearnaise",
+        "bearnaise sauce",
+        "bernaise",
+        "dutch sauce",
+        "benny sauce"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "Both sauces are barely-warmed raw egg yolk, which puts them in the raw-egg camp. This is the classic eggs benny trap, and it is not on you for loving it.",
+      "makeItGreen": "Ordered with firm-cooked eggs and the sauce left off, brunch is back on.",
+      "swap": "Smashed avo for the creamy bit, or lemon and melted butter over your greens.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "mayonnaise-homemade",
+      "name": "Homemade or cafe mayonnaise and aioli",
+      "emoji": "🧄",
+      "aliases": [
+        "aioli",
+        "aoili",
+        "garlic aioli",
+        "chipotle aioli",
+        "homemade mayo",
+        "home made mayonnaise",
+        "cafe aioli",
+        "house made mayo",
+        "house mayo",
+        "fresh mayonnaise"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "Whipped up fresh at home or in a cafe kitchen, mayo and aioli are raw egg with a fancy name, so salmonella is the risk. The jar version has none of that drama.",
+      "makeItGreen": "Ask whether the mayo or aioli came out of a jar or a commercial bottle. If it did, you are all good.",
+      "swap": "Jar mayonnaise, or lemon juice and olive oil on the side.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "mayonnaise-jar",
+      "name": "Jar mayonnaise and commercial aioli",
+      "emoji": "🫙",
+      "aliases": [
+        "jar mayo",
+        "jarred mayonnaise",
+        "store bought mayo",
+        "shop bought mayonnaise",
+        "whole egg mayonnaise",
+        "praise mayonnaise",
+        "kewpie",
+        "japanese mayo",
+        "commercial aioli",
+        "shelf stable aioli",
+        "squeezy mayo",
+        "mayo from a jar"
+      ],
+      "group": "Eggs",
+      "tier": "green",
+      "why": "Mayo from a jar or a squeezy bottle is made with pasteurised egg, so it is a green light on your sanga. Keep it in the fridge once open and follow the label.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cake-batter-raw",
+      "name": "Licking the cake batter",
+      "emoji": "🥣",
+      "aliases": [
+        "licking the spoon",
+        "licking the beaters",
+        "lick the bowl",
+        "licking the batter",
+        "brownie batter",
+        "batter bowl",
+        "raw cake mix",
+        "uncooked cake mix"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "The cruellest rule on the list: raw batter means raw egg. The bowl and the beaters will keep for a few months, and the baked version is completely yours.",
+      "makeItGreen": "Bake it first. Cooked cake, bikkies and brownies are completely fine.",
+      "swap": "Ten minutes of patience and a warm slice straight from the oven.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "mayonnaise",
+      "name": "Mayonnaise",
+      "emoji": "🥄",
+      "aliases": [
+        "mayonnaise",
+        "mayo",
+        "mayonaise",
+        "mayonaisse",
+        "egg mayo",
+        "mayo on chips",
+        "mayo on a sandwich",
+        "creamy dressing",
+        "coleslaw",
+        "potato salad"
+      ],
+      "group": "Eggs",
+      "tier": "depends",
+      "why": "Depends where it came from:",
+      "variants": [
+        {
+          "label": "From a jar or squeezy bottle",
+          "tier": "green",
+          "why": "Commercial mayonnaise and shelf-stable aioli are made with pasteurised egg. Keep it in the fridge once opened and go by the label."
+        },
+        {
+          "label": "Homemade or cafe-made",
+          "tier": "red",
+          "why": "House mayo and house aioli are usually built on raw egg, which brings salmonella along for the ride.",
+          "makeItGreen": "Ask the magic question: is the mayo from a jar? Most kitchens will happily tell you, and most of them use jar mayo anyway.",
+          "swap": "Jar mayo, or smashed avo for the same creamy, tangy hit."
+        },
+        {
+          "label": "In a shop-made salad or sandwich",
+          "tier": "red",
+          "why": "Deli coleslaw, potato salad and pre-made sandwiches carry the sitting-time risk on top of the raw-egg question.",
+          "makeItGreen": "Make it at home with jar mayo and eat it the same day, and it is a green light.",
+          "swap": "A fresh toastie made in front of you, hot off the press."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pavlova",
+      "name": "Pavlova",
+      "emoji": "🍰",
+      "aliases": [
+        "pav",
+        "pavs",
+        "meringue",
+        "meringues",
+        "baked meringue",
+        "mini pavlova",
+        "pavlova base",
+        "eton mess",
+        "pavlova roll",
+        "meringue nest"
+      ],
+      "group": "Eggs",
+      "tier": "green",
+      "why": "Baked meringue is cooked meringue, so the pav is safe as houses. Top it with cream and fruit you cut at home and enjoy the lot. National treasure: intact.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "quiche",
+      "name": "Quiche",
+      "emoji": "🥧",
+      "aliases": [
+        "quiche lorraine",
+        "quiches",
+        "keesh",
+        "mini quiche",
+        "crustless quiche",
+        "quiche slice",
+        "egg tart",
+        "portuguese tart",
+        "egg and bacon pie"
+      ],
+      "group": "Eggs",
+      "tier": "green",
+      "why": "Quiche bakes until the egg custard sets, and baked means cooked, so it is a yes. With leftovers, keep them cold, eat them within a day and reheat until steaming.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "caesar-salad",
+      "name": "Restaurant Caesar salad",
+      "emoji": "🥗",
+      "aliases": [
+        "caesar salad",
+        "caesar dressing",
+        "chicken caesar",
+        "caeser salad",
+        "ceasar salad",
+        "cesar salad",
+        "caesar",
+        "chicken caesar salad",
+        "caesar wrap"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "The traditional dressing is raw egg yolk, so the restaurant version is out for now. The cold sliced chicken that often comes with it is not helping either.",
+      "makeItGreen": "Made at home with jar mayo, hot grilled chicken and hot crispy bacon, Caesar is back on the menu.",
+      "swap": "A home Caesar with jar-mayo dressing, hot chicken and a snowstorm of parmesan.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "eggs-runny",
+      "name": "Runny, poached or soft-boiled eggs",
+      "emoji": "🍳",
+      "aliases": [
+        "runny egg",
+        "runny eggs",
+        "runny yolk",
+        "runny yolks",
+        "poached egg",
+        "poached eggs",
+        "soft boiled egg",
+        "soft boiled eggs",
+        "sunny side up",
+        "over easy",
+        "dippy egg",
+        "soft yolk"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "A runny yolk can carry salmonella, so this one is benched for a few months. Ask for the yolks cooked firm and the rest of the brekkie is all yours.",
+      "makeItGreen": "Ask for the yolks cooked firm: hard-poached, over hard, or fried until the yolk sets. Cafes do it all day without blinking.",
+      "swap": "A slice of set frittata, or firm-yolk fried eggs on smashed avo.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "tiramisu",
+      "name": "Tiramisu",
+      "emoji": "🍮",
+      "aliases": [
+        "tirimisu",
+        "tiramasu",
+        "tirimasu",
+        "tiramisu cake",
+        "tiramisu cup",
+        "zabaglione",
+        "sabayon",
+        "italian coffee dessert"
+      ],
+      "group": "Eggs",
+      "tier": "red",
+      "why": "The creamy layers are mascarpone whipped with raw egg, so the classic build is a no for now. The coffee and cocoa were never the problem.",
+      "makeItGreen": "An egg-free tiramisu, mascarpone and cream only, is fine. Easy to ask about, easy to make that way at home.",
+      "swap": "Affogato with tub ice cream and a decaf shot, or a slice of coffee cake.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "avocado",
+      "name": "Avocado",
+      "emoji": "🥑",
+      "aliases": [
+        "avo",
+        "avos",
+        "smashed avo",
+        "smashed avocado",
+        "avo on toast",
+        "avocado toast",
+        "avacado",
+        "avocardo",
+        "guacamole",
+        "guac",
+        "half an avocado"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Smashed, sliced or scooped straight out of the skin, avo is a green light. Rinse the skin before you cut it so the knife stays clean on the way in.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cafe-juice-smoothie",
+      "name": "Cafe and juice-bar juices and smoothies",
+      "emoji": "🥤",
+      "aliases": [
+        "juice bar",
+        "juice bar smoothie",
+        "juice bar juice",
+        "cafe smoothie",
+        "boost juice",
+        "cold pressed juice",
+        "green juice",
+        "shopping centre juice",
+        "fresh juice from a cafe"
+      ],
+      "group": "Fruit & veg",
+      "tier": "red",
+      "why": "Two problems in the one cup: fruit that was cut hours ago, and juicers and blenders that are genuinely hard to clean properly.",
+      "makeItGreen": "Blend it at home from washed whole fruit and drink it straight away, and it is a green light.",
+      "swap": "A bottled pasteurised juice from the fridge aisle, or a smoothie out of your own blender.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "canned-dried-fruit",
+      "name": "Canned and dried fruit",
+      "emoji": "🍑",
+      "aliases": [
+        "tinned fruit",
+        "canned peaches",
+        "tinned peaches",
+        "dried fruit",
+        "sultanas",
+        "raisins",
+        "dried apricots",
+        "dates",
+        "prunes",
+        "canned pineapple",
+        "fruit cup"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Sealed tins and dried fruit are a yes any day. Dried apricots and prunes are quietly brilliant for iron and for keeping things moving along.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "canned-vegetables",
+      "name": "Canned vegetables",
+      "emoji": "🥫",
+      "aliases": [
+        "tinned vegetables",
+        "tinned veg",
+        "canned corn",
+        "tinned corn",
+        "canned tomatoes",
+        "tinned tomatoes",
+        "canned beans",
+        "tinned beetroot",
+        "canned chickpeas"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Straight off the shelf and good to go. Once the tin is open, follow the storage note on the label and tip the leftovers into a container in the fridge.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cooked-mushrooms",
+      "name": "Cooked mushrooms",
+      "emoji": "🍄",
+      "aliases": [
+        "mushies",
+        "grilled mushies",
+        "cooked mushies",
+        "button mushrooms",
+        "swiss brown mushrooms",
+        "field mushrooms",
+        "portobello",
+        "sauteed mushrooms",
+        "garlic mushrooms",
+        "mushrooms on toast"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Wash them, cook them hot, enjoy them. Grilled mushies on the big brekky are a green light, with one exception: enoki, which has its own card.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cooked-vegetables",
+      "name": "Cooked vegetables",
+      "emoji": "🥕",
+      "aliases": [
+        "cooked veg",
+        "steamed vegetables",
+        "roast vegetables",
+        "broccoli",
+        "carrots",
+        "pumpkin",
+        "cauliflower",
+        "green beans",
+        "brussels sprouts",
+        "brussel sprouts",
+        "corn on the cob",
+        "stir fried vegetables"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Wash them, cook them, eat them: veg is where a lot of the good stuff lives. Roasted, steamed or stir fried, the whole lot is a green light.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "enoki-mushrooms",
+      "name": "Enoki mushrooms",
+      "emoji": "🍲",
+      "aliases": [
+        "enoki",
+        "enokitake",
+        "raw enoki",
+        "golden needle mushrooms",
+        "enoki in hot pot",
+        "enoki bundles",
+        "enoki topping"
+      ],
+      "group": "Fruit & veg",
+      "tier": "red",
+      "why": "Enoki has been behind listeria outbreaks here in Australia, so raw or barely wilted in a hot pot it is a no for now.",
+      "makeItGreen": "Cooked right through and piping hot, stir fried or simmered in a soup for a few minutes, enoki is fine.",
+      "swap": "Button or swiss brown mushrooms, cooked hot in the pan, do the same job in a stir fry.",
+      "sources": [
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "fresh-fruit",
+      "name": "Fresh fruit, washed",
+      "emoji": "🍎",
+      "aliases": [
+        "apple",
+        "apples",
+        "banana",
+        "bananas",
+        "strawberries",
+        "blueberries",
+        "raspberries",
+        "berries",
+        "grapes",
+        "mango",
+        "pineapple",
+        "kiwi fruit"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Bananas, apples, berries, mango: all a straight yes. Give fruit a wash under the tap first, skin and all, even the bits you are not going to eat.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "fresh-herbs",
+      "name": "Fresh herbs, washed",
+      "emoji": "🌿",
+      "aliases": [
+        "herbs",
+        "fresh herbs",
+        "basil",
+        "coriander",
+        "parsley",
+        "mint leaves",
+        "rosemary",
+        "thyme",
+        "chives",
+        "dill"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Give them a good rinse and scatter away. Basil, coriander, parsley and mint are all a green light, straight from the bunch onto the plate.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "frozen-fruit",
+      "name": "Frozen fruit",
+      "emoji": "🫐",
+      "aliases": [
+        "frozen berries",
+        "frozen mixed berries",
+        "frozen mango",
+        "frozen raspberries",
+        "frozen blueberries",
+        "frozen strawberries",
+        "frozen banana",
+        "frozen fruit bag"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Frozen fruit is a yes. Imported frozen berries have been recalled before, so the extra-cautious move is to cook them first or pick Australian grown.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [
+        "confirm"
+      ],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "frozen-vegetables",
+      "name": "Frozen vegetables",
+      "emoji": "🥦",
+      "aliases": [
+        "frozen veg",
+        "frozen vegies",
+        "frozen peas",
+        "frozen corn",
+        "frozen broccoli",
+        "frozen spinach",
+        "frozen mixed veg",
+        "frozen beans",
+        "bag of frozen veg"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Frozen veg is a yes once it is cooked. NSW Food Authority asks you not to eat it straight from the packet, so give it a proper hot cook first.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "fruit-cut-at-home",
+      "name": "Fruit cut at home",
+      "emoji": "🔪",
+      "aliases": [
+        "cut fruit at home",
+        "home cut fruit",
+        "chopped fruit",
+        "sliced fruit",
+        "watermelon",
+        "honeydew melon",
+        "home fruit platter",
+        "sliced mango",
+        "fruit i cut myself"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "You control the knife, the board and the clock, so fruit you wash and cut yourself is a green light. Keep it in the fridge and eat it the same day.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "home-juice-smoothie",
+      "name": "Juice and smoothies made at home",
+      "emoji": "🧃",
+      "aliases": [
+        "homemade juice",
+        "home made juice",
+        "juice made at home",
+        "freshly squeezed juice",
+        "smoothie made at home",
+        "blender smoothie",
+        "home juicer",
+        "juicing at home"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "You are the juice bar now: washed whole fruit, your own clean blender, drunk straight away. That is the entire rule, and it is a yes.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "mushrooms",
+      "name": "Mushrooms",
+      "emoji": "🍄",
+      "aliases": [
+        "mushrooms",
+        "mushroom",
+        "mushroon",
+        "musrooms",
+        "shiitake",
+        "oyster mushrooms",
+        "shimeji",
+        "mushroom soup",
+        "flat mushrooms",
+        "cup mushrooms"
+      ],
+      "group": "Fruit & veg",
+      "tier": "depends",
+      "why": "Depends on the type, and how cooked:",
+      "variants": [
+        {
+          "label": "Cooked mushrooms",
+          "tier": "green",
+          "why": "Grilled, roasted or fried button, cup, Swiss brown, portobello or field mushies are a straight yes, and a big brekkie without them is a sadder plate."
+        },
+        {
+          "label": "Raw and washed, in a home salad",
+          "tier": "green",
+          "why": "Common mushrooms raw are washed-veg territory: give them a good rinse, make the salad yourself and eat it fresh."
+        },
+        {
+          "label": "Enoki, raw or lightly cooked",
+          "tier": "red",
+          "why": "Enoki are a known listeria carrier and have been behind Australian recalls, so the thin raw ones on top of a bowl are out.",
+          "makeItGreen": "Cook them right through until they are hot and soft, simmered into a soup, hot pot or stir-fry.",
+          "swap": "Sliced Swiss browns or shiitake, cooked hot, for the same earthy flavour."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "potatoes",
+      "name": "Potatoes",
+      "emoji": "🥔",
+      "aliases": [
+        "potato",
+        "spud",
+        "spuds",
+        "mashed potato",
+        "mash",
+        "roast potatoes",
+        "baked potato",
+        "jacket potato",
+        "boiled potatoes",
+        "sweet potato",
+        "kumara"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Spuds are a yes in every form you can cook them: mashed, roasted, baked or boiled. Give the skin a scrub first if the jacket is coming along too.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "raw-sprouts",
+      "name": "Raw sprouts",
+      "emoji": "🌱",
+      "aliases": [
+        "sprouts",
+        "alfalfa",
+        "alfalfa sprouts",
+        "bean sprouts",
+        "beansprouts",
+        "snow pea sprouts",
+        "broccoli sprouts",
+        "clover sprouts",
+        "radish sprouts",
+        "sunflower sprouts",
+        "mung beans",
+        "soybean sprouts"
+      ],
+      "group": "Fruit & veg",
+      "tier": "red",
+      "why": "NSW Food Authority benches every kind raw or lightly cooked, alfalfa through to mung. Seeds sprout in warm damp conditions, and bacteria love that too.",
+      "makeItGreen": "Cooked properly hot right through, tossed into a stir fry or a soup until they go soft, sprouts are back on.",
+      "swap": "Grated carrot, cucumber ribbons or shredded cabbage give you the same crunch in a sandwich.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "rockmelon",
+      "name": "Rockmelon",
+      "emoji": "🍈",
+      "aliases": [
+        "cantaloupe",
+        "canteloupe",
+        "cantaloup",
+        "rock melon",
+        "rockmelons",
+        "melon",
+        "melon slices",
+        "cut rockmelon"
+      ],
+      "group": "Fruit & veg",
+      "tier": "red",
+      "why": "Our two sources disagree here: Royal Women's allows it washed and cut at home, NSW Food Authority says skip it entirely because the rough rind traps bacteria. Stricter wins, so it is benched.",
+      "makeItGreen": null,
+      "swap": "Watermelon, honeydew or mango, washed and cut at home, gives you the same sweet juicy hit.",
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "salad-bars-packaged",
+      "name": "Salad bars and pre-packaged salads",
+      "emoji": "🥬",
+      "aliases": [
+        "salad bar",
+        "smorgasbord",
+        "buffet salad",
+        "pre packaged salad",
+        "packaged salad",
+        "bagged salad",
+        "supermarket salad",
+        "food court salad",
+        "pre made salad",
+        "deli coleslaw",
+        "salad kit"
+      ],
+      "group": "Fruit & veg",
+      "tier": "red",
+      "why": "Someone else washed it, someone else cut it, and nobody can tell you how long it has been sitting out. A sneeze guard does not stop listeria.",
+      "makeItGreen": "Ask for it made fresh in front of you, or build the very same salad at home.",
+      "swap": "A home-made garden salad, or hot cooked veg on the side instead.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "home-salad",
+      "name": "Salad made fresh at home",
+      "emoji": "🥗",
+      "aliases": [
+        "salad",
+        "garden salad",
+        "green salad",
+        "home made salad",
+        "homemade salad",
+        "tossed salad",
+        "lettuce",
+        "cucumber",
+        "cherry tomatoes",
+        "baby spinach",
+        "rocket",
+        "raw carrot sticks"
+      ],
+      "group": "Fruit & veg",
+      "tier": "green",
+      "why": "Lettuce help: wash everything well, build it fresh and eat it soon after. The only thing to leave out is raw sprouts, which have their own card.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "shop-fruit-salad",
+      "name": "Shop fruit salad",
+      "emoji": "🍇",
+      "aliases": [
+        "fruit salad",
+        "cafe fruit salad",
+        "fruit salad tub",
+        "bought fruit salad",
+        "fruit salad cup",
+        "fruit salad from the deli"
+      ],
+      "group": "Fruit & veg",
+      "tier": "red",
+      "why": "Pre-cut fruit plus an unknown amount of sitting time is exactly the combination listeria likes. Not this one for now.",
+      "makeItGreen": "Make it at home from washed whole fruit and eat it the same day.",
+      "swap": "Home-cut fruit salad with a spoon of yoghurt and a drizzle of honey on top.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pre-cut-fruit",
+      "name": "Store-bought pre-cut fruit",
+      "emoji": "🍉",
+      "aliases": [
+        "pre cut fruit",
+        "precut fruit",
+        "cut fruit tub",
+        "packaged cut fruit",
+        "supermarket fruit cup",
+        "pre cut melon",
+        "pre cut watermelon",
+        "fruit pack from the servo"
+      ],
+      "group": "Fruit & veg",
+      "tier": "red",
+      "why": "Once fruit is cut it sits wet and cool for hours, which is listeria weather. Pre-cut melon is the riskiest of the lot.",
+      "makeItGreen": "Buy it whole, wash the skin and cut it yourself at home. Same fruit, no worries.",
+      "swap": "A whole banana, apple or mandarin off the same shelf: nature's own packaging.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "zero-alcohol-drinks",
+      "name": "0.0% beers and zero-alcohol drinks",
+      "emoji": "🍺",
+      "aliases": [
+        "zero beer",
+        "non alcoholic beer",
+        "alcohol free beer",
+        "0 0 beer",
+        "zero alcohol wine",
+        "non alcoholic wine",
+        "alcohol free wine",
+        "heaps normal",
+        "zero alcohol spirits",
+        "de alcoholised wine",
+        "zero percent beer"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "In Australia a drink labelled 0.0 can still legally hold up to 0.5% alcohol. Plenty of people are comfortable with that, and it is a great one to raise at your next appointment.",
+      "makeItGreen": "Brands that state 0.0% and confirm no detectable alcohol are the safest pick here, and your midwife's take is the one that counts.",
+      "swap": "Soda water with lime and frozen berries in a proper glass, or a pasteurised juice spritz.",
+      "sources": [
+        "rwh-2026",
+        "fsanz"
+      ],
+      "flags": [
+        "confirm"
+      ],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "alcohol",
+      "name": "Alcohol",
+      "emoji": "🍷",
+      "aliases": [
+        "wine",
+        "beer",
+        "spirits",
+        "cocktail",
+        "champagne",
+        "prosecco",
+        "gin",
+        "vodka",
+        "whisky",
+        "espresso martini",
+        "bubbly",
+        "cider"
+      ],
+      "group": "Drinks",
+      "tier": "red",
+      "why": "No known safe amount in pregnancy, so it sits out the next few months. A splash cooked into a long-simmered sauce is one for your care team to call.",
+      "makeItGreen": null,
+      "swap": "Sparkling water, lime and frozen berries in the good glass, or soda with a splash of pasteurised juice and a fat wedge of orange.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "artificial-sweeteners",
+      "name": "Artificial sweeteners",
+      "emoji": "🍬",
+      "aliases": [
+        "sweetener",
+        "sweeteners",
+        "aspartame",
+        "stevia",
+        "splenda",
+        "sucralose",
+        "equal sweetener",
+        "diet drinks",
+        "sugar free drinks",
+        "saccharin",
+        "sweetener sachet",
+        "sugar substitute"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "Fine in moderation, and that really is the whole story. The sweeteners approved for Australian food and drink are safe, there is just no need to go overboard.",
+      "makeItGreen": "In normal everyday amounts they are a green light.",
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "emoji": "☕",
+      "aliases": [
+        "flat white",
+        "flat wite",
+        "latte",
+        "cappuccino",
+        "long black",
+        "short black",
+        "espresso",
+        "instant coffee",
+        "cold brew",
+        "iced coffee",
+        "mocha",
+        "macchiato"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "Caffeine has a daily cap of 200mg from everything combined. That is roughly 1 to 2 espresso-based coffees, or about 3 cups of instant.",
+      "makeItGreen": "Keep the whole day under 200mg and your coffee is a green light. The trick is counting the teas and colas in the same tally.",
+      "swap": "A decaf flat white, or warm milk with cinnamon when the budget is spent.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cola",
+      "name": "Cola",
+      "emoji": "🥫",
+      "aliases": [
+        "coke",
+        "coca cola",
+        "pepsi",
+        "diet coke",
+        "coke zero",
+        "pepsi max",
+        "cola can",
+        "cola drink",
+        "coke can",
+        "dr pepper"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "Cola carries caffeine, so it lands in the same 200mg daily cap: about 4 to 5 cans fits, shared with your coffees and teas.",
+      "makeItGreen": "Inside the day's 200mg caffeine total, cola is fine. Caffeine-free versions do not touch the tally at all.",
+      "swap": "Sparkling water with a big wedge of lime, or a lemonade if it is the fizz you are chasing.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "decaf-coffee",
+      "name": "Decaf coffee",
+      "emoji": "☕",
+      "aliases": [
+        "decaf",
+        "decaffeinated",
+        "decaffeinated coffee",
+        "decaf latte",
+        "decaf flat white",
+        "decaf cappuccino",
+        "decaf oat latte",
+        "swiss water decaf",
+        "decaf long black",
+        "decaf beans"
+      ],
+      "group": "Drinks",
+      "tier": "green",
+      "why": "Basically a free hug. Near enough to no caffeine, so it sits outside the daily budget and the 4pm one is entirely yours.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "energy-drinks",
+      "name": "Energy drinks",
+      "emoji": "⚡",
+      "aliases": [
+        "energy drink",
+        "red bull",
+        "mother energy",
+        "monster energy",
+        "rockstar energy",
+        "guarana",
+        "pre workout",
+        "caffeine drink",
+        "energy can",
+        "v energy"
+      ],
+      "group": "Drinks",
+      "tier": "red",
+      "why": "Energy drinks stack caffeine with guarana and other stimulants, which blows past the 200mg daily cap quickly. Off the menu for now.",
+      "makeItGreen": null,
+      "swap": "A cold brew that fits inside your caffeine budget, or an icy sparkling water when it is the cold hit you are after.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "herbal-tea",
+      "name": "Herbal tea",
+      "emoji": "🌿",
+      "aliases": [
+        "herbal teas",
+        "peppermint tea",
+        "ginger tea",
+        "chamomile tea",
+        "camomile tea",
+        "rooibos",
+        "lemon and ginger tea",
+        "fruit tea",
+        "raspberry leaf tea",
+        "fennel tea",
+        "herbal infusion"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "A couple of cups a day of the common flavours, like ginger or peppermint, is the usual advice. Medicinal and slimming blends are a different beast entirely.",
+      "makeItGreen": "Stick to everyday flavours like ginger, peppermint and chamomile, keep it to a couple of cups, and run any medicinal blend past your midwife first.",
+      "swap": "Hot water with fresh lemon and a slice of ginger, or a decaf brew.",
+      "sources": [
+        "pbb"
+      ],
+      "flags": [
+        "confirm"
+      ],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "smoothie-homemade",
+      "name": "Home-made smoothies",
+      "emoji": "🍓",
+      "aliases": [
+        "home smoothie",
+        "homemade smoothie",
+        "home made smoothie",
+        "smoothie at home",
+        "banana smoothie",
+        "berry smoothie",
+        "yoghurt smoothie",
+        "milk smoothie",
+        "home blended smoothie",
+        "protein smoothie"
+      ],
+      "group": "Drinks",
+      "tier": "green",
+      "why": "Your blender, your rules. Pasteurised milk or yoghurt plus washed fruit, blitzed and drunk straight away, is a green light every single time.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "hot-chocolate",
+      "name": "Hot chocolate",
+      "emoji": "🍫",
+      "aliases": [
+        "hot choc",
+        "drinking chocolate",
+        "milo",
+        "warm milo",
+        "cocoa",
+        "hot cocoa",
+        "chocolate milk",
+        "choccy milk",
+        "hot chocolate drink",
+        "hot chocolate sachet"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "A hot choc counts toward the 200mg caffeine budget, but it is one of the lightest hitters going. Roughly 4 to 5 cups fits in a day.",
+      "makeItGreen": "Inside the day's 200mg caffeine total, it is a green light. Made on pasteurised milk at home, it is one of the easy ones.",
+      "swap": "Warm milk with cinnamon or vanilla: no caffeine, same cosy.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "fermented-drinks",
+      "name": "Kombucha, kefir and ginger beer",
+      "emoji": "🫙",
+      "aliases": [
+        "kombucha",
+        "combucha",
+        "kombucha tea",
+        "kefir",
+        "kefir drink",
+        "water kefir",
+        "ginger beer",
+        "kvass",
+        "scoby drink",
+        "fermented drink",
+        "live cultured drink"
+      ],
+      "group": "Drinks",
+      "tier": "red",
+      "why": "Fermented drinks are brewed with live cultures, so they carry a contamination risk plus a little leftover alcohol. NSW Food Authority says park them for now.",
+      "makeItGreen": null,
+      "swap": "Dry ginger ale over ice for the same spicy fizz, or a fresh ginger tea if it is the tummy-settling you are after.",
+      "sources": [
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "juice-pasteurised",
+      "name": "Pasteurised bottled juice",
+      "emoji": "🧃",
+      "aliases": [
+        "bottled juice",
+        "orange juice",
+        "apple juice",
+        "pasteurised juice",
+        "carton juice",
+        "juice box",
+        "popper",
+        "long life juice",
+        "supermarket juice",
+        "pineapple juice",
+        "cranberry juice",
+        "fridge aisle juice"
+      ],
+      "group": "Drinks",
+      "tier": "green",
+      "why": "Pasteurised is the magic word. The bottled and carton stuff has already been heat-treated on your behalf, so pour a big one.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "raw-milk-drink",
+      "name": "Raw milk as a drink",
+      "emoji": "🥛",
+      "aliases": [
+        "drinking raw milk",
+        "raw cows milk",
+        "unpasteurised cows milk",
+        "raw milk to drink",
+        "straight from the cow",
+        "green top milk",
+        "farm gate milk",
+        "raw milk drink"
+      ],
+      "group": "Drinks",
+      "tier": "red",
+      "why": "Without pasteurisation, listeria and friends stay right where they are in the bottle. This is the one dairy rule with no wiggle room in it.",
+      "makeItGreen": "Pasteurised milk, including UHT and long life, is a green light and tastes the same in your coffee.",
+      "swap": "Any pasteurised milk from the fridge aisle, dairy or otherwise.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "soft-drinks",
+      "name": "Soft drinks and sugary drinks",
+      "emoji": "🥤",
+      "aliases": [
+        "soft drink",
+        "soft drinks",
+        "fizzy drink",
+        "lemonade",
+        "sprite",
+        "fanta",
+        "solo",
+        "creaming soda",
+        "sugary drink",
+        "cordial",
+        "ginger ale",
+        "dry ginger ale"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "Nothing unsafe here, it is just sometimes-food territory: lots of sugar and not much else. Save them for when you genuinely fancy one.",
+      "makeItGreen": "Treated as a sometimes drink rather than the daily one, there is nothing to worry about.",
+      "swap": "Sparkling water with fruit in it, or pasteurised juice topped up with soda water.",
+      "sources": [
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "tea",
+      "name": "Tea",
+      "emoji": "🍵",
+      "aliases": [
+        "cuppa",
+        "black tea",
+        "english breakfast",
+        "earl grey",
+        "green tea",
+        "chai",
+        "chai latte",
+        "milk tea",
+        "tea bag",
+        "iced tea",
+        "builders tea",
+        "breakfast tea"
+      ],
+      "group": "Drinks",
+      "tier": "yellow",
+      "why": "Tea draws on the same 200mg daily caffeine budget as coffee. Around 4 to 5 cups fits inside it, as long as coffee is not also on the tally.",
+      "makeItGreen": "Keep the day's caffeine total under 200mg and your cuppa is all clear.",
+      "swap": "A decaf brew, or hot water with lemon when the tally is nearly full.",
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "water",
+      "name": "Water and sparkling water",
+      "emoji": "💧",
+      "aliases": [
+        "water",
+        "sparkling water",
+        "soda water",
+        "mineral water",
+        "tap water",
+        "still water",
+        "fizzy water",
+        "carbonated water",
+        "bottled water",
+        "sparkling mineral water",
+        "filtered water"
+      ],
+      "group": "Drinks",
+      "tier": "green",
+      "why": "The GOAT of pregnancy drinks. Staying hydrated helps with just about everything, and the bubbly kind counts exactly the same as the still kind.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "eatforhealth"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "bread-cereal-oats",
+      "name": "Bread, cereal and oats",
+      "emoji": "🍞",
+      "aliases": [
+        "toast",
+        "sourdough",
+        "wholemeal bread",
+        "white bread",
+        "breakfast cereal",
+        "weet bix",
+        "muesli",
+        "porridge",
+        "oats",
+        "crumpets",
+        "muesli bar",
+        "bread roll"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Carbs are cheering for you. Toast, porridge, a bowl of muesli: all a straight yes, and the slow-burn ones keep those out-of-nowhere energy dips at bay.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "eatforhealth"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "canned-bottled-foods",
+      "name": "Canned and bottled foods",
+      "emoji": "🥫",
+      "aliases": [
+        "tinned food",
+        "canned food",
+        "baked beans",
+        "canned soup",
+        "tinned soup",
+        "tinned spaghetti",
+        "bottled sauce",
+        "jar of sauce",
+        "canned coconut milk",
+        "tinned coconut cream"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Sealed tins and bottles are shelf-stable and safe. Once one is open it counts as fresh food, so it goes in the fridge and follows whatever the label says.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "chocolate",
+      "name": "Chocolate",
+      "emoji": "🍫",
+      "aliases": [
+        "choccy",
+        "choc",
+        "dark chocolate",
+        "milk chocolate",
+        "white chocolate",
+        "chocolate bar",
+        "block of chocolate",
+        "easter egg",
+        "choc chips",
+        "chocolate buttons"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Yes, and zero guilt about it. Dark chocolate brings a little caffeine, roughly 20 to 30mg a row, so it only nibbles at the 200mg daily budget.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "dips-with-soft-cheese",
+      "name": "Dips with feta or ricotta",
+      "emoji": "🫕",
+      "aliases": [
+        "feta dip",
+        "fetta dip",
+        "ricotta dip",
+        "whipped feta",
+        "whipped ricotta",
+        "dip with feta",
+        "creamy feta dip",
+        "feta and beetroot dip"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "red",
+      "why": "The dip is not the issue, the soft cheese stirred through it is: cold uncooked feta and ricotta can carry listeria.",
+      "makeItGreen": "Baked in the oven and served hot and bubbling, a feta dip is back on.",
+      "swap": "White bean dip, or a beetroot or pumpkin dip with no soft cheese in it.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "emoji": "🍯",
+      "aliases": [
+        "honey drizzle",
+        "manuka honey",
+        "raw honey",
+        "honey on toast",
+        "runny honey",
+        "honeycomb",
+        "hunny",
+        "honey jar"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Drizzle away. The no-honey rule belongs to babies under one, not to you. Lovely over yoghurt, on hot toast, or stirred through a mug of tea.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "pbb"
+      ],
+      "flags": [
+        "confirm"
+      ],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "hummus",
+      "name": "Hummus",
+      "emoji": "🫓",
+      "aliases": [
+        "hommus",
+        "houmous",
+        "humous",
+        "hummous",
+        "hommous",
+        "chickpea dip",
+        "hummus dip",
+        "beetroot hummus",
+        "hummus and crackers",
+        "supermarket hummus"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "red",
+      "why": "This one catches everybody out: the tahini in it is raw sesame, which can carry salmonella and listeria. Home-made counts too, because that tahini is still raw.",
+      "makeItGreen": "Blend chickpeas with olive oil, lemon and garlic and leave the tahini out, and it is back on the menu.",
+      "swap": "A home-made white bean dip, or a beetroot dip with no feta in it. Same scoop, same crackers, same you.",
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "jar-condiments",
+      "name": "Jam, tomato sauce and jar condiments",
+      "emoji": "🧂",
+      "aliases": [
+        "jam",
+        "marmalade",
+        "tomato sauce",
+        "ketchup",
+        "bbq sauce",
+        "mustard",
+        "sweet chilli sauce",
+        "soy sauce",
+        "pickles",
+        "gherkins",
+        "chutney",
+        "dead horse"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "In a pickle? Good news, pickles are fine. Jam, dead horse, mustard and the rest are pasteurised and shelf-stable: cap them, fridge them once open, mind the label.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "lollies",
+      "name": "Lollies",
+      "emoji": "🍬",
+      "aliases": [
+        "lolly",
+        "jelly beans",
+        "gummy bears",
+        "snakes",
+        "party mix",
+        "marshmallows",
+        "sherbet",
+        "boiled lollies",
+        "jelly snakes",
+        "lolly bag"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Sugar is a sometimes-food, not a safety problem. Snakes, jelly beans and party mix are all clear, so let the craving have its moment.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "eatforhealth"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "nuts-and-seeds",
+      "name": "Nuts and seeds",
+      "emoji": "🌰",
+      "aliases": [
+        "almonds",
+        "cashews",
+        "walnuts",
+        "pistachios",
+        "macadamias",
+        "sunflower seeds",
+        "pumpkin seeds",
+        "pepitas",
+        "chia seeds",
+        "trail mix",
+        "mixed nuts",
+        "nut mix"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Almonds, cashews, pepitas, a fistful of trail mix: all green, and quietly loaded with iron and good fats. Ideal for the 3pm hunger that arrives with no warning.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "peanuts",
+      "name": "Peanuts and peanut butter",
+      "emoji": "🥜",
+      "aliases": [
+        "peanut",
+        "peanuts",
+        "peanut butter",
+        "crunchy peanut butter",
+        "smooth peanut butter",
+        "peanut butter on toast",
+        "salted peanuts",
+        "peanut allergy",
+        "satay sauce",
+        "nut butter"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Myth busted: eating peanuts while you are pregnant does not give your baby an allergy. The one reason to skip them is if you are allergic yourself.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pineapple-labour-myth",
+      "name": "Pineapple and the labour myth",
+      "emoji": "🍍",
+      "aliases": [
+        "pineapple labour",
+        "does pineapple start labour",
+        "pineapple to induce labour",
+        "pineapple myth",
+        "bromelain",
+        "pineapple induce labour",
+        "eating pineapple in pregnancy",
+        "pineapple bring on labour"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Eat the pineapple. It will not start labour, whatever the internet told you at 2am. Wash it, cut it at home, enjoy every juicy bit.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "pbb"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "popcorn",
+      "name": "Popcorn",
+      "emoji": "🍿",
+      "aliases": [
+        "pop corn",
+        "popped corn",
+        "movie popcorn",
+        "microwave popcorn",
+        "salted popcorn",
+        "sweet popcorn",
+        "caramel popcorn",
+        "cinema popcorn"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "A big bowl of popcorn is a green light: light, salty and endlessly refillable. Movie night is fully approved, butter optional but encouraged.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "eatforhealth"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cookie-dough",
+      "name": "Raw cookie dough",
+      "emoji": "🍪",
+      "aliases": [
+        "cookie dough",
+        "raw cookie mix",
+        "choc chip cookie dough",
+        "biscuit dough",
+        "raw biscuit dough",
+        "uncooked cookie dough",
+        "dough from the bowl",
+        "raw dough"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "red",
+      "why": "Raw egg in the bowl, sorry legend. The dough is the one part of baking that has to wait, and the tray that comes out of the oven is entirely yours.",
+      "makeItGreen": "Bake it. Once they are cooked through, the whole tray is fair game.",
+      "swap": "A warm bikkie straight off the tray, or a scoop of tub ice cream while you wait.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "rice-and-pasta",
+      "name": "Rice and pasta, served fresh and hot",
+      "emoji": "🍚",
+      "aliases": [
+        "pasta",
+        "spaghetti",
+        "rice",
+        "fried rice",
+        "leftover rice",
+        "noodles",
+        "risotto",
+        "pasta bake",
+        "penne",
+        "macaroni",
+        "reheated pasta",
+        "steamed rice"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Fresh, hot and steaming is the way. Leftovers go into the fridge quickly, get eaten within a day, and are reheated once only, right through to piping hot.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sesame-heat-treated",
+      "name": "Sesame oil and toasted sesame",
+      "emoji": "🥯",
+      "aliases": [
+        "sesame oil",
+        "toasted sesame",
+        "toasted sesame seeds",
+        "sesame seed bun",
+        "sesame bagel",
+        "sesame on bread",
+        "roasted sesame oil",
+        "sesame sticks"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Heat sorts sesame out, so oil in the wok and toasted seeds baked onto bread are both green. It is raw sesame paste, the tahini kind, that gets benched.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "spicy-food",
+      "name": "Spicy food",
+      "emoji": "🔥",
+      "aliases": [
+        "chilli",
+        "curry",
+        "hot sauce",
+        "spicy",
+        "vindaloo",
+        "sriracha",
+        "jalapenos",
+        "spicy noodles",
+        "chilli flakes",
+        "hot curry"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Bring the chilli. Spicy food is safe the whole way through: the only thing it tends to upset is heartburn, so go gentler late at night if reflux has found you.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "pbb"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "tahini-halva",
+      "name": "Tahini and halva",
+      "emoji": "🥄",
+      "aliases": [
+        "tahina",
+        "tahini paste",
+        "sesame paste",
+        "halva",
+        "halvah",
+        "helva",
+        "tahini dressing",
+        "tahini sauce",
+        "sesame halva"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "red",
+      "why": "Both are built on raw sesame, which can carry salmonella and listeria. It is the same reason hummus is sitting on the bench for a few months.",
+      "makeItGreen": "Heat-treated sesame is fine, so sesame oil and toasted seeds baked onto bread are still yours.",
+      "swap": "Peanut butter through the smoothie, and lemon, olive oil and yoghurt where the tahini dressing used to go.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "tofu-and-soy",
+      "name": "Tofu and soy products",
+      "emoji": "🫘",
+      "aliases": [
+        "soy milk",
+        "soy yoghurt",
+        "silken tofu",
+        "firm tofu",
+        "bean curd",
+        "tempeh",
+        "edamame",
+        "soy beans",
+        "miso soup",
+        "miso paste",
+        "tofu stir fry"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Miso happy for you two: every soy product on the shelf is safe. Tofu, soy milk, soy yoghurt, tempeh and edamame are all a yes, and all a tidy protein hit.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "vegemite",
+      "name": "Vegemite",
+      "emoji": "🫙",
+      "aliases": [
+        "vegemite on toast",
+        "vegimite",
+        "veggiemite",
+        "vegemite toast",
+        "marmite",
+        "promite",
+        "yeast extract",
+        "yeast spread"
+      ],
+      "group": "Pantry & sweets",
+      "tier": "green",
+      "why": "Enthusiastically yes. It is a folate and B vitamin hit in a jar, and spread thin on hot buttered toast it is basically a national service.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "eatforhealth"
+      ],
+      "flags": [
+        "confirm"
+      ],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "burgers",
+      "name": "Burgers, cooked through",
+      "emoji": "🍔",
+      "aliases": [
+        "burger",
+        "burgers",
+        "hamburger",
+        "cheeseburger",
+        "beef burger",
+        "big mac",
+        "quarter pounder",
+        "whopper",
+        "maccas",
+        "hungry jacks",
+        "chicken burger",
+        "chicken nuggets",
+        "mcnuggets"
+      ],
+      "group": "Takeaway",
+      "tier": "green",
+      "why": "No pink in the patty and you are laughing, since takeaway burgers get cooked hard and fast. At fancier joints, ask whether the aioli is house-made, because that one is raw egg.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "chicken-parmigiana",
+      "name": "Chicken parmigiana",
+      "emoji": "🍗",
+      "aliases": [
+        "parmy",
+        "parma",
+        "parmi",
+        "chicken parma",
+        "chicken parmy",
+        "parmigiana",
+        "parmagiana",
+        "chicken schnitzel",
+        "schnitty",
+        "schnitzel",
+        "eggplant parmigiana"
+      ],
+      "group": "Takeaway",
+      "tier": "green",
+      "why": "The pub legend is all clear: crumbed chicken cooked right through, ham grilled hot under the cheese, and the whole lot served bubbling. Order it with chips and no guilt.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "eggs-benedict",
+      "name": "Eggs benedict",
+      "emoji": "🍳",
+      "aliases": [
+        "eggs benedict",
+        "eggs benny",
+        "egg benedict",
+        "benedict",
+        "benny",
+        "eggs florentine",
+        "florentine",
+        "eggs royale",
+        "eggs benidict",
+        "eggs bene"
+      ],
+      "group": "Takeaway",
+      "tier": "red",
+      "why": "The cafe classic is a double act: the poached yolk runs, and hollandaise is built on raw egg. Both are salmonella territory.",
+      "makeItGreen": "Ask for the eggs cooked firm and the hollandaise left off. Smashed avo, wilted spinach or a hot grilled tomato fills the gap beautifully.",
+      "swap": "A big brekky with firm-yolk eggs, hot bacon and avo on toast.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "hot-chips",
+      "name": "Hot chips",
+      "emoji": "🍟",
+      "aliases": [
+        "chips",
+        "hot chip",
+        "fries",
+        "french fries",
+        "chicken salt",
+        "potato scallop",
+        "potato cake",
+        "wedges",
+        "chips and gravy",
+        "shoestring fries"
+      ],
+      "group": "Takeaway",
+      "tier": "green",
+      "why": "Deep fried and scorching hot, straight out of the fryer into the paper. About as safe as takeaway gets, and yes, the chicken salt is allowed.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "kebab",
+      "name": "Kebab",
+      "emoji": "🥙",
+      "aliases": [
+        "kebabs",
+        "doner kebab",
+        "donner kebab",
+        "yiros",
+        "gyros",
+        "souvlaki",
+        "shawarma",
+        "hsp",
+        "halal snack pack",
+        "snack pack",
+        "kebab shop",
+        "chicken kebab",
+        "lamb kebab"
+      ],
+      "group": "Takeaway",
+      "tier": "yellow",
+      "why": "Meat carved hot off the spit with fresh salad is a solid feed. The wildcard is house-made garlic sauce, which is often a raw-egg job.",
+      "makeItGreen": "Ask for the meat hot right through, and stick to sauces poured from a commercial bottle. If the garlic sauce is made in-house, chilli or barbecue sauce has your back.",
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "maccas-soft-serve",
+      "name": "Maccas soft serve cone",
+      "emoji": "🍦",
+      "aliases": [
+        "maccas cone",
+        "maccas ice cream",
+        "maccas dessert",
+        "maccas sundae",
+        "drive through soft serve",
+        "drive thru ice cream",
+        "hungry jacks soft serve",
+        "kfc sundae",
+        "swirl cone",
+        "ice cream machine"
+      ],
+      "group": "Takeaway",
+      "tier": "red",
+      "why": "It is the machine, not the ice cream. Soft serve dispensers are hard to clean right through, so listeria can quietly set up shop inside one.",
+      "makeItGreen": null,
+      "swap": "A choc top, a scoop from a tub, or a frozen banana blitzed at home.",
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "meat-pie",
+      "name": "Meat pie and sausage roll",
+      "emoji": "🥧",
+      "aliases": [
+        "meat pie",
+        "meat pies",
+        "servo pie",
+        "servo pies",
+        "sausage roll",
+        "sausage rolls",
+        "party pie",
+        "party pies",
+        "bakery pie",
+        "pie warmer",
+        "chunky beef pie",
+        "footy pie"
+      ],
+      "group": "Takeaway",
+      "tier": "green",
+      "why": "Baked hot and held hot, so the bakery run is a green light. The only ask is that it arrives steaming the whole way through, not warm on the outside and cool in the middle.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pad-thai-stir-fry",
+      "name": "Pad thai and stir-fries with sprouts",
+      "emoji": "🍜",
+      "aliases": [
+        "pad thai",
+        "padthai",
+        "pad see ew",
+        "stir fry",
+        "stir fries",
+        "chow mein",
+        "hokkien noodles",
+        "singapore noodles",
+        "mee goreng",
+        "thai takeaway",
+        "wok noodles",
+        "noodle stir fry"
+      ],
+      "group": "Takeaway",
+      "tier": "yellow",
+      "why": "The wok runs plenty hot, but bean sprouts usually go in at the last second and stay raw, and raw sprouts are the one listeria risk in the bowl.",
+      "makeItGreen": "Ask for the sprouts left out or cooked right through, then eat it fresh and steaming rather than saving half for tomorrow.",
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pho",
+      "name": "Pho",
+      "emoji": "🍲",
+      "aliases": [
+        "vietnamese noodle soup",
+        "pho bo",
+        "pho ga",
+        "pho tai",
+        "beef pho",
+        "chicken pho",
+        "pho noodle soup",
+        "vietnamese pho",
+        "rice noodle soup"
+      ],
+      "group": "Takeaway",
+      "tier": "depends",
+      "why": "Depends what the beef is doing and where those sprouts end up:",
+      "variants": [
+        {
+          "label": "Chicken or well-done beef, sprouts wilted in the broth",
+          "tier": "green",
+          "why": "Boiling broth is your friend here. Cooked meat, plus sprouts pushed under until they soften right through, makes a lovely safe dinner."
+        },
+        {
+          "label": "Rare beef slices (pho tai)",
+          "tier": "red",
+          "why": "Those pink slices only get flashed by the broth, so they count as undercooked beef.",
+          "makeItGreen": "Ask for the beef well done, or order the chicken one.",
+          "swap": "Pho ga, or a well-done brisket pho."
+        },
+        {
+          "label": "Raw sprouts piled on top",
+          "tier": "red",
+          "why": "Raw bean sprouts are a known listeria carrier, even the crisp fresh-looking ones.",
+          "makeItGreen": "Leave them off, or drown them in the hot broth until they are cooked right through."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "pizza",
+      "name": "Pizza",
+      "emoji": "🍕",
+      "aliases": [
+        "pizzas",
+        "pizza slice",
+        "margherita",
+        "hawaiian pizza",
+        "pepperoni",
+        "pepperoni pizza",
+        "meat lovers",
+        "supreme pizza",
+        "capricciosa",
+        "wood fired pizza",
+        "dominos",
+        "pizza hut"
+      ],
+      "group": "Takeaway",
+      "tier": "green",
+      "why": "Even the ham and the salami, because it all comes out of a screaming hot oven. Leftover slices are fine too, just send them back through the oven until they are steaming.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "monash-ivf"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "packaged-sandwiches",
+      "name": "Pre-packaged sandwiches and wraps",
+      "emoji": "🌯",
+      "aliases": [
+        "pre packaged sandwich",
+        "packaged sandwich",
+        "prepackaged sandwich",
+        "servo sanga",
+        "servo sandwich",
+        "petrol station sandwich",
+        "pre made wrap",
+        "packaged wrap",
+        "supermarket sandwich",
+        "sandwich from the fridge",
+        "airport sandwich",
+        "triangle sandwich"
+      ],
+      "group": "Takeaway",
+      "tier": "red",
+      "why": "Made hours ago, kept cold and sealed in plastic: that is exactly the set-up listeria likes, whatever the filling turns out to be.",
+      "makeItGreen": "Made fresh in front of you with hot fillings, or built at home that morning, and it is back on the menu.",
+      "swap": "A hot toastie, or a salad roll you put together yourself.",
+      "sources": [
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 2,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "stuffing-in-bird",
+      "name": "Stuffing cooked inside the bird",
+      "emoji": "🦃",
+      "aliases": [
+        "stuffing",
+        "roast stuffing",
+        "chicken stuffing",
+        "turkey stuffing",
+        "stuffed chicken",
+        "stuffed turkey",
+        "stuffed roast",
+        "christmas stuffing",
+        "chrissy stuffing",
+        "sage and onion stuffing",
+        "bread stuffing"
+      ],
+      "group": "Takeaway",
+      "tier": "red",
+      "why": "Stuffing in the cavity soaks up raw juices and often never gets hot enough in the middle, even when the bird itself is perfectly cooked.",
+      "makeItGreen": "Bake the stuffing in its own dish until it is piping hot, then serve it alongside. Same flavour, crispier edges, none of the risk.",
+      "swap": "Stuffing balls baked on their own tray.",
+      "sources": [
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 1,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sushi",
+      "name": "Sushi",
+      "emoji": "🍣",
+      "aliases": [
+        "sushi",
+        "nori roll",
+        "sushi roll",
+        "sushi rolls",
+        "sushi bar",
+        "sushi platter",
+        "susi",
+        "suchi",
+        "temaki",
+        "inari"
+      ],
+      "group": "Takeaway",
+      "tier": "depends",
+      "why": "Depends how fresh it is, and what's in it:",
+      "variants": [
+        {
+          "label": "Made fresh in front of you, cooked fillings",
+          "tier": "green",
+          "why": "Teriyaki chicken, tinned tuna with jar mayo, avo or cucumber, rolled while you watch and eaten straight away. Sushi night is very much on."
+        },
+        {
+          "label": "Raw or smoked fillings",
+          "tier": "red",
+          "why": "Sashimi, nigiri and raw salmon rolls are raw seafood, and smoked salmon rolls are chilled ready-to-eat, so both carry a listeria risk.",
+          "makeItGreen": "Same shop, cooked fillings: teriyaki chicken, cooked prawn, katsu or a veggie roll.",
+          "swap": "A cooked-roll sushi night at home, where you own the knife and the clock."
+        },
+        {
+          "label": "Pre-packed or been circling a while",
+          "tier": "red",
+          "why": "Sitting time is the problem here, even with cooked fillings. Fridge sushi and long-lap train sushi have both had hours to get friendly with listeria.",
+          "makeItGreen": "Order it made to your order and eat it within the hour.",
+          "swap": "A hot chicken katsu don or a teriyaki rice bowl from the same counter."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026",
+        "nswfa"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sushi-train",
+      "name": "Sushi train",
+      "emoji": "🍣",
+      "aliases": [
+        "sushi belt",
+        "conveyor belt sushi",
+        "conveyor sushi",
+        "kaiten sushi",
+        "revolving sushi",
+        "sushi go round",
+        "sushi train plate",
+        "belt sushi",
+        "sushi carousel"
+      ],
+      "group": "Takeaway",
+      "tier": "depends",
+      "why": "Depends what is on the plate and how long it has been going round:",
+      "variants": [
+        {
+          "label": "Made fresh to order with cooked fillings",
+          "tier": "green",
+          "why": "Rolled for you and eaten straight away with cooked fillings, like teriyaki chicken, avocado or cucumber, is the green lane."
+        },
+        {
+          "label": "Raw or smoked fish, or cold seafood",
+          "tier": "red",
+          "why": "Raw and cold-smoked seafood carries listeria, and so does anything cooked, chilled and left waiting.",
+          "makeItGreen": "Ask the kitchen for a fresh roll with cooked chicken, cooked egg or veg fillings instead.",
+          "swap": "A teriyaki chicken roll, made to order."
+        },
+        {
+          "label": "Been circling the belt a while",
+          "tier": "red",
+          "why": "Sitting time is the risk. Even cooked fillings pick up listeria once a plate has been out of the kitchen for hours.",
+          "makeItGreen": "Order off the menu so it is made fresh, and eat it while it is still cold from the kitchen."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "toasted-ham-cheese",
+      "name": "Toasted ham and cheese",
+      "emoji": "🥪",
+      "aliases": [
+        "toastie",
+        "jaffle",
+        "ham and cheese toastie",
+        "toasted sandwich",
+        "cheese toastie",
+        "ham and cheese jaffle",
+        "grilled cheese",
+        "croque monsieur",
+        "panini",
+        "toasted sanga",
+        "melted cheese sandwich",
+        "ham toastie"
+      ],
+      "group": "Takeaway",
+      "tier": "green",
+      "why": "Deli ham's redemption arc. The press takes it properly hot and heat is the one thing listeria cannot survive. Just have it steaming, not lukewarm.",
+      "makeItGreen": null,
+      "swap": null,
+      "sources": [
+        "rwh-2026"
+      ],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    }
+  ]
+}

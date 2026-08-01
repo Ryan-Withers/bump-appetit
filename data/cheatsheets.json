@@ -1,0 +1,302 @@
+{
+  "sheets": [
+    {
+      "id": "cafe-brunch",
+      "name": "Cafe brunch",
+      "emoji": "🥑",
+      "intro": "Brunch is almost all green once the yolks are firm. Here is the benny trap and everything around it, on one screen.",
+      "rows": [
+        {
+          "tier": "red",
+          "text": "Eggs benedict is the trap: the poached yolk runs and hollandaise is a raw-egg sauce. Ask for the eggs firm and the hollandaise left off, then add smashed avo or a hot grilled tomato."
+        },
+        {
+          "tier": "red",
+          "text": "Cafe-made mayo and aioli are raw egg. Jar mayo and commercial aioli are pasteurised, so just ask which one lands on the plate."
+        },
+        {
+          "tier": "red",
+          "text": "Smoked salmon is cold-smoked and never actually cooked. Canned salmon with cream cheese on a toasted bagel scratches the same itch."
+        },
+        {
+          "tier": "red",
+          "text": "Cold ham, prosciutto or salami on the board carries listeria. Ask for it crisped hot in the pan and it is back on."
+        },
+        {
+          "tier": "red",
+          "text": "Brie, feta, ricotta and goat cheese on the toast only count once they are cooked and bubbling hot. Cold and crumbled is a no, baked is a yes."
+        },
+        {
+          "tier": "red",
+          "text": "The cold-press juice and the smoothie bar use pre-cut fruit and machines that are hard to clean. A bottled pasteurised juice or a blender at home is the fix."
+        },
+        {
+          "tier": "yellow",
+          "text": "Coffee is absolutely on: keep the whole day under 200mg of caffeine, which is about 1 to 2 espresso coffees. Decaf takes over after that."
+        },
+        {
+          "tier": "green",
+          "text": "The big brekky is all clear: firm-yolk eggs, hot bacon, grilled mushrooms, hash browns, smashed avo and toast."
+        }
+      ],
+      "asks": [
+        "Can I get the eggs cooked firm, please?",
+        "Is the mayo or aioli from a jar?",
+        "Can that come without the hollandaise?"
+      ]
+    },
+    {
+      "id": "pub",
+      "name": "Pub",
+      "emoji": "🍺",
+      "intro": "Parmy yes, steak well done, wine list on pause. The pub menu is friendlier than it looks.",
+      "rows": [
+        {
+          "tier": "red",
+          "text": "Rare and medium-rare steak is a toxoplasmosis risk. Ordered well done with no pink left, steak is back on the table."
+        },
+        {
+          "tier": "red",
+          "text": "There is no safe amount of alcohol, so the wine and the espresso martini both sit this one out. Soda, lime and frozen berries in a proper glass still feels like a night out."
+        },
+        {
+          "tier": "red",
+          "text": "Pâté, parfait and terrine on the starters are chilled meat spreads: listeria plus a lot of vitamin A. A shelf-stable jar pâté at home is the safe version."
+        },
+        {
+          "tier": "red",
+          "text": "Caesar salad dressing is traditionally raw egg, and the cured meat on top is cold. Ask for a bottled dressing and hot grilled chicken."
+        },
+        {
+          "tier": "red",
+          "text": "Oysters natural and the cold prawn plate are ready-to-eat seafood. Kilpatrick and hot garlic prawns are the same craving, cooked."
+        },
+        {
+          "tier": "yellow",
+          "text": "Flake in the beer batter is shark: one 150g serve a fortnight, and no other fish in that fortnight. Ask what the fish of the day actually is."
+        },
+        {
+          "tier": "green",
+          "text": "The parmy is a legend and completely fine: chicken cooked through, ham grilled hot under bubbling cheese."
+        },
+        {
+          "tier": "green",
+          "text": "Well-done burgers, schnitzels, hot pies, chips and a roast dinner are all green when they arrive hot."
+        }
+      ],
+      "asks": [
+        "Can I get the steak well done, please?",
+        "Is the fish of the day flake?",
+        "Is the salad dressing made here or out of a bottle?"
+      ]
+    },
+    {
+      "id": "sushi-train",
+      "name": "Sushi train",
+      "emoji": "🍣",
+      "intro": "Fresh plus cooked wins every time. It is raw fish and sitting time that get benched, not sushi itself.",
+      "rows": [
+        {
+          "tier": "red",
+          "text": "Sashimi, nigiri and anything raw is off for now. Ask the kitchen for a fresh roll with cooked chicken, cooked egg or veg instead."
+        },
+        {
+          "tier": "red",
+          "text": "Smoked salmon rolls count as raw too, because cold-smoked fish is never cooked. A teriyaki chicken roll is the swap."
+        },
+        {
+          "tier": "red",
+          "text": "Plates that have been circling a while are out even with cooked fillings, because sitting time is the listeria risk. Order off the menu so it is made fresh."
+        },
+        {
+          "tier": "red",
+          "text": "Pre-packed sushi from a supermarket or servo fridge is the same problem: made hours ago and kept cold. Made in front of you is the green version."
+        },
+        {
+          "tier": "red",
+          "text": "Cold cooked prawn on top of a plate counts as pre-cooked cold seafood. Hot prawn tempura, straight from the fryer, is all clear."
+        },
+        {
+          "tier": "green",
+          "text": "Made to order with cooked fillings and eaten straight away is the green lane: teriyaki chicken, cooked egg, avo, cucumber, tinned tuna with jar mayo."
+        },
+        {
+          "tier": "green",
+          "text": "Anything hot from the kitchen is easy: karaage chicken, gyoza, katsu curry, miso soup and edamame."
+        }
+      ],
+      "asks": [
+        "Can you make that one fresh for me with cooked fillings?",
+        "Is there any raw or smoked fish in this roll?",
+        "How long has that plate been on the belt?"
+      ]
+    },
+    {
+      "id": "pizza",
+      "name": "Pizza",
+      "emoji": "🍕",
+      "intro": "The easiest menu in the game. A screaming hot oven fixes nearly everything, including the ham and the salami.",
+      "rows": [
+        {
+          "tier": "red",
+          "text": "Prosciutto draped on after the oven stays cold and cured. Ask for it baked on so it crisps up, and it is a green light."
+        },
+        {
+          "tier": "red",
+          "text": "Fresh mozzarella, bocconcini or burrata scattered on at the end never gets hot. Melted through under the heat, it is fine."
+        },
+        {
+          "tier": "red",
+          "text": "A cold feta or ricotta crumble added after baking misses the oven. Ask for the soft cheese cooked on instead."
+        },
+        {
+          "tier": "red",
+          "text": "House-made aioli or garlic dip on the side can be raw egg. Stick to a commercial bottle, or go with the tomato sugo."
+        },
+        {
+          "tier": "green",
+          "text": "Ham, salami, pepperoni and bacon baked onto the pizza are all clear. The oven does the work that heating deli meat at home would do."
+        },
+        {
+          "tier": "green",
+          "text": "Melted mozzarella, mushrooms, olives, capsicum and pineapple are green. Pineapple will not start labour either, promise."
+        },
+        {
+          "tier": "green",
+          "text": "Leftover slices are fine the next day: back through a hot oven until they are steaming, not straight from the fridge."
+        }
+      ],
+      "asks": [
+        "Can you cook the prosciutto on the pizza rather than adding it after?",
+        "Is the mozzarella baked on, or added fresh at the end?",
+        "Is the garlic dip out of a bottle?"
+      ]
+    },
+    {
+      "id": "fish-and-chips",
+      "name": "Fish and chips",
+      "emoji": "🍟",
+      "intro": "Straight out of the fryer is a green light. The only real question at the counter is what the fish actually is.",
+      "rows": [
+        {
+          "tier": "red",
+          "text": "Prawn cocktail and the chilled prawns in the cabinet are pre-cooked cold seafood. Ask for them hot in a garlic prawn dish instead."
+        },
+        {
+          "tier": "red",
+          "text": "Raw oysters off the ice are out, but oysters Kilpatrick straight off the grill are very much in."
+        },
+        {
+          "tier": "yellow",
+          "text": "Flake IS shark. One 150g serve a fortnight, and no other fish in that fortnight. Snapper, whiting or flathead comes with no cap."
+        },
+        {
+          "tier": "yellow",
+          "text": "Swordfish, broadbill and marlin sit under the same fortnight rule as flake."
+        },
+        {
+          "tier": "yellow",
+          "text": "Orange roughy, sold as sea perch, and catfish are once a week with no other fish that week."
+        },
+        {
+          "tier": "green",
+          "text": "Battered or grilled snapper, whiting, flathead and barra, hot from the fryer, are the good news: 1 to 3 serves of fish a week is encouraged."
+        },
+        {
+          "tier": "green",
+          "text": "Hot chips, potato cakes, calamari and dim sims are all green when they land hot. Chicken salt included."
+        },
+        {
+          "tier": "green",
+          "text": "Tartare sauce from a commercial bottle or a squeeze pack is pasteurised and fine."
+        }
+      ],
+      "asks": [
+        "Is the fish of the day flake?",
+        "What fish is in the battered fillet today?",
+        "Is the tartare sauce out of a bottle?"
+      ]
+    },
+    {
+      "id": "maccas",
+      "name": "Maccas",
+      "emoji": "🍔",
+      "intro": "Drive-through, sorted. The burgers are fine, it is the ice cream machine that gets benched.",
+      "rows": [
+        {
+          "tier": "red",
+          "text": "Soft serve cones, sundaes, McFlurry and thickshakes all come out of the dispenser machine, which is hard to clean right through. A choc top or a scoop from a tub is the fix."
+        },
+        {
+          "tier": "red",
+          "text": "Pre-packaged sandwiches, wraps and salads from a fridge cabinet, the servo next door included, are made ahead and kept cold. Anything hot off the grill beats them."
+        },
+        {
+          "tier": "yellow",
+          "text": "Fancier burger joints often use a house-made aioli, which is raw egg. The big chains use commercial sauces, so ask if you are anywhere boutique."
+        },
+        {
+          "tier": "yellow",
+          "text": "The McCafe latte draws on the same 200mg daily caffeine budget as any other coffee."
+        },
+        {
+          "tier": "green",
+          "text": "Burgers, cheeseburgers and quarter pounders are all clear. Fast-food patties get cooked hard and fast, so there is no pink left."
+        },
+        {
+          "tier": "green",
+          "text": "Nuggets, fries and a hot apple pie are green, straight from the fryer to the bag."
+        },
+        {
+          "tier": "green",
+          "text": "Still craving the cone? A tub ice cream sundae at home, or a frozen banana blitzed with a splash of milk, does the job."
+        }
+      ],
+      "asks": [
+        "Is that sauce a commercial one from a bottle?",
+        "Can I get this one hot and fresh, please?"
+      ]
+    },
+    {
+      "id": "thai-chinese",
+      "name": "Thai and Chinese",
+      "emoji": "🥡",
+      "intro": "Hot, fresh and straight from the wok is exactly what we want. Sprouts are the one regular thing to ask about.",
+      "rows": [
+        {
+          "tier": "red",
+          "text": "Raw bean sprouts piled on the pad thai or the pho are a listeria carrier. Ask for them cooked right through or left out, and the dish is green."
+        },
+        {
+          "tier": "red",
+          "text": "Rare beef in pho only gets flashed by the broth. Ask for the beef well done, or order the chicken one."
+        },
+        {
+          "tier": "red",
+          "text": "Enoki mushrooms in a hotpot often go in at the last second. Give them a proper simmer until they are cooked through and they are fine."
+        },
+        {
+          "tier": "red",
+          "text": "Fried ice cream has an egg batter that often does not cook through. A scoop from a tub with a hot sauce over it is the safe version."
+        },
+        {
+          "tier": "yellow",
+          "text": "Chinese tea and Thai iced tea count toward the 200mg daily caffeine budget."
+        },
+        {
+          "tier": "green",
+          "text": "Stir-fries, curries, steamed rice, dumplings, san choy bow and soups are the green lane whenever they arrive steaming hot."
+        },
+        {
+          "tier": "green",
+          "text": "Fried rice is fine made fresh with the egg cooked firm. Leftovers get cooled fast, reheated once, and eaten within a day."
+        }
+      ],
+      "asks": [
+        "Can I get the sprouts cooked right through, or left out?",
+        "Is the beef in the pho cooked well done?",
+        "Can that come out fresh from the wok rather than the bain-marie?"
+      ]
+    }
+  ]
+}

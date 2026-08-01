@@ -1,0 +1,429 @@
+{
+  "foods": [
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "emoji": "🐟",
+      "aliases": [
+        "salmon",
+        "salmon fillet",
+        "salmon fillets",
+        "atlantic salmon",
+        "salmon steak",
+        "tasmanian salmon",
+        "pink salmon",
+        "salmon portion",
+        "sammon",
+        "salmon and rice"
+      ],
+      "group": "Fish & seafood",
+      "tier": "depends",
+      "why": "Depends how it's served:",
+      "variants": [
+        {
+          "label": "Cooked through, served hot",
+          "tier": "green",
+          "why": "Baked, grilled or pan-fried until it flakes, salmon is one of the best things on the menu. Fish is encouraged at 1 to 3 serves a week, and salmon is a low-mercury one."
+        },
+        {
+          "label": "Smoked or raw",
+          "tier": "red",
+          "why": "Cold-smoked salmon, gravlax and raw salmon are ready-to-eat and chilled, which is exactly where listeria likes to sit.",
+          "makeItGreen": "Cook it right through in a hot dish and eat it steaming: a salmon and pasta bake, or smoked salmon stirred into a hot quiche.",
+          "swap": "Canned salmon with cream cheese on a toasted bagel gives you the same salty hit."
+        },
+        {
+          "label": "Canned",
+          "tier": "green",
+          "why": "Canning heat-treats the lot, so tinned salmon is safe, cheap and a cracking omega-3 delivery system."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "monash-ivf"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "eggs",
+      "name": "Eggs",
+      "emoji": "🥚",
+      "aliases": [
+        "eggs",
+        "egg",
+        "eggies",
+        "chook eggs",
+        "hens eggs",
+        "free range eggs",
+        "cage free eggs",
+        "egg on toast",
+        "brekkie eggs",
+        "eggs for brekkie"
+      ],
+      "group": "Eggs",
+      "tier": "depends",
+      "why": "Depends how they're cooked:",
+      "variants": [
+        {
+          "label": "Cooked firm, yolk set",
+          "tier": "green",
+          "why": "Hard-boiled, firm scrambled, set omelette or fried until the yolk thickens. Cooked firm, eggs are a straight yes and a brilliant protein hit."
+        },
+        {
+          "label": "Runny, poached or soft-boiled",
+          "tier": "red",
+          "why": "A yolk that still runs has not got hot enough to see off salmonella.",
+          "makeItGreen": "Ask for the yolks cooked firm, or give it another minute in the pan. Cafes do it all day without blinking.",
+          "swap": "Firm-yolk fried eggs on smashed avo, or a slice of set frittata."
+        },
+        {
+          "label": "Raw in a sauce or dessert",
+          "tier": "red",
+          "why": "Cafe mayo, house aioli, hollandaise, mousse and tiramisu all use the egg raw.",
+          "makeItGreen": "Jar mayonnaise and shelf-stable commercial aioli are made with pasteurised egg, so those are all clear.",
+          "swap": "Pavlova, quiche or a chocolate brownie: baked egg desserts you can dive straight into."
+        },
+        {
+          "label": "Baked into cakes, quiche or pav",
+          "tier": "green",
+          "why": "Baked is cooked. Cakes, bikkies, quiche and pavlova are all fine, so the national treasure stays intact."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "monash-ivf"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "emoji": "🧀",
+      "aliases": [
+        "cheese",
+        "cheeses",
+        "cheeseboard",
+        "cheese board",
+        "cheese platter",
+        "cheese plate",
+        "cheese and crackers",
+        "grazing board",
+        "chese",
+        "cheeze"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "depends",
+      "why": "Depends which cheese, and whether it's hot:",
+      "variants": [
+        {
+          "label": "Hard cheese",
+          "tier": "green",
+          "why": "Cheddar, tasty, parmesan, gouda, edam, Swiss and pecorino are too dry and salty for listeria to throw a party in. Grate news."
+        },
+        {
+          "label": "Soft cheese, uncooked",
+          "tier": "red",
+          "why": "Brie, camembert, blue, feta, ricotta, burrata, bocconcini and soft goat cheese are moist and low-acid, which is listeria's favourite postcode.",
+          "makeItGreen": "Cook it right through and eat it while it is still bubbling hot: baked brie, lasagne, spanakopita.",
+          "swap": "A cheddar, parmesan and cherry tomato board scratches exactly the same itch."
+        },
+        {
+          "label": "Soft cheese in a hot cooked dish",
+          "tier": "green",
+          "why": "Heat sorts it out. Melted mozzarella on pizza, ricotta baked into a lasagne, feta in a hot spanakopita: all back on the menu, served steaming."
+        },
+        {
+          "label": "Unpasteurised or raw-milk cheese",
+          "tier": "red",
+          "why": "Raw-milk cheese skips pasteurisation, the step that deals with listeria and salmonella in the first place.",
+          "swap": "Any pasteurised hard cheese, which is very nearly everything in the supermarket fridge."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "monash-ivf", "nswfa"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "ham",
+      "name": "Ham",
+      "emoji": "🍖",
+      "aliases": [
+        "ham",
+        "hams",
+        "ham sandwich",
+        "sliced ham",
+        "ham slices",
+        "ham off the bone",
+        "christmas ham",
+        "chrissy ham",
+        "glazed ham",
+        "ham steak"
+      ],
+      "group": "Meat & poultry",
+      "tier": "depends",
+      "why": "Depends whether it's hot or cold:",
+      "variants": [
+        {
+          "label": "Heated until steaming hot",
+          "tier": "green",
+          "why": "On a pizza or in a toastie, ham gets its full redemption arc. Listeria gives up at 74 degrees held for 2 minutes, and a hot toastie sails past that."
+        },
+        {
+          "label": "Cold, from the pack or deli counter",
+          "tier": "red",
+          "why": "Cold ready-to-eat deli meat is the classic listeria risk, and freshly sliced is not safer: the slicer itself is the problem.",
+          "makeItGreen": "Heat it until it is properly steaming, then it is all yours.",
+          "swap": "A hot ham and cheese toastie, or tinned tuna with jar mayo in the sanga instead."
+        },
+        {
+          "label": "Cold cuts on a Chrissy platter",
+          "tier": "red",
+          "why": "Platter ham has usually been out of the fridge a while and handled by half the family, so the risk stacks up.",
+          "makeItGreen": "Take your slices to the pan first and fry them until they are steaming, then load up your plate.",
+          "swap": "Hot glazed ham straight out of the oven, before it hits the platter."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "monash-ivf"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "prawns",
+      "name": "Prawns",
+      "emoji": "🍤",
+      "aliases": [
+        "prawns",
+        "prawn",
+        "shrimp",
+        "shrimps",
+        "king prawns",
+        "tiger prawns",
+        "banana prawns",
+        "prawn skewers",
+        "salt and pepper prawns",
+        "prawns on the barbie"
+      ],
+      "group": "Fish & seafood",
+      "tier": "depends",
+      "why": "Depends how they're served:",
+      "variants": [
+        {
+          "label": "Freshly cooked, served hot",
+          "tier": "green",
+          "why": "Hot garlic prawns, salt and pepper prawns, prawns off the barbecue: cooked fresh and eaten hot, they are a green light and a lovely iron hit."
+        },
+        {
+          "label": "Cold and pre-cooked",
+          "tier": "red",
+          "why": "Cold cooked prawns may have been cooked hours ago, then chilled and handled since, which is listeria territory.",
+          "makeItGreen": "Reheat them right through until they are steaming, or order them hot off the pan in the first place.",
+          "swap": "Hot garlic prawns instead of the prawn cocktail, and you get the better version anyway."
+        },
+        {
+          "label": "Raw",
+          "tier": "red",
+          "why": "Raw prawns in sashimi, ceviche or a marinade have not been cooked at all, so nothing has dealt with the bacteria.",
+          "makeItGreen": "Cook them until they turn opaque and are hot right through.",
+          "swap": "Cooked prawn nigiri made fresh, or a hot chilli prawn stir-fry."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "monash-ivf"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "sushi",
+      "name": "Sushi",
+      "emoji": "🍣",
+      "aliases": [
+        "sushi",
+        "nori roll",
+        "sushi roll",
+        "sushi rolls",
+        "sushi bar",
+        "sushi platter",
+        "susi",
+        "suchi",
+        "temaki",
+        "inari"
+      ],
+      "group": "Takeaway",
+      "tier": "depends",
+      "why": "Depends how fresh it is, and what's in it:",
+      "variants": [
+        {
+          "label": "Made fresh in front of you, cooked fillings",
+          "tier": "green",
+          "why": "Teriyaki chicken, tinned tuna with jar mayo, avo or cucumber, rolled while you watch and eaten straight away. Sushi night is very much on."
+        },
+        {
+          "label": "Raw or smoked fillings",
+          "tier": "red",
+          "why": "Sashimi, nigiri and raw salmon rolls are raw seafood, and smoked salmon rolls are chilled ready-to-eat, so both carry a listeria risk.",
+          "makeItGreen": "Same shop, cooked fillings: teriyaki chicken, cooked prawn, katsu or a veggie roll.",
+          "swap": "A cooked-roll sushi night at home, where you own the knife and the clock."
+        },
+        {
+          "label": "Pre-packed or been circling a while",
+          "tier": "red",
+          "why": "Sitting time is the problem here, even with cooked fillings. Fridge sushi and long-lap train sushi have both had hours to get friendly with listeria.",
+          "makeItGreen": "Order it made to your order and eat it within the hour.",
+          "swap": "A hot chicken katsu don or a teriyaki rice bowl from the same counter."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "nswfa"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "mayonnaise",
+      "name": "Mayonnaise",
+      "emoji": "🥄",
+      "aliases": [
+        "mayonnaise",
+        "mayo",
+        "mayonaise",
+        "mayonaisse",
+        "egg mayo",
+        "mayo on chips",
+        "mayo on a sandwich",
+        "creamy dressing",
+        "coleslaw",
+        "potato salad"
+      ],
+      "group": "Eggs",
+      "tier": "depends",
+      "why": "Depends where it came from:",
+      "variants": [
+        {
+          "label": "From a jar or squeezy bottle",
+          "tier": "green",
+          "why": "Commercial mayonnaise and shelf-stable aioli are made with pasteurised egg. Keep it in the fridge once opened and go by the label."
+        },
+        {
+          "label": "Homemade or cafe-made",
+          "tier": "red",
+          "why": "House mayo and house aioli are usually built on raw egg, which brings salmonella along for the ride.",
+          "makeItGreen": "Ask the magic question: is the mayo from a jar? Most kitchens will happily tell you, and most of them use jar mayo anyway.",
+          "swap": "Jar mayo, or smashed avo for the same creamy, tangy hit."
+        },
+        {
+          "label": "In a shop-made salad or sandwich",
+          "tier": "red",
+          "why": "Deli coleslaw, potato salad and pre-made sandwiches carry the sitting-time risk on top of the raw-egg question.",
+          "makeItGreen": "Make it at home with jar mayo and eat it the same day, and it is a green light.",
+          "swap": "A fresh toastie made in front of you, hot off the press."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "nswfa"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "emoji": "🥛",
+      "aliases": [
+        "milk",
+        "milks",
+        "glass of milk",
+        "cows milk",
+        "goats milk",
+        "lactose free milk",
+        "oat milk",
+        "almond milk",
+        "plant milk",
+        "milk on cereal"
+      ],
+      "group": "Cheese & dairy",
+      "tier": "depends",
+      "why": "Depends whether it's pasteurised:",
+      "variants": [
+        {
+          "label": "Pasteurised, including UHT",
+          "tier": "green",
+          "why": "Everything in the supermarket fridge and on the long-life shelf is pasteurised, and that is the step that sorts out the bacteria. Buttermilk counts too."
+        },
+        {
+          "label": "Raw or unpasteurised, including bath milk",
+          "tier": "red",
+          "why": "Raw milk skips pasteurisation, so listeria, salmonella and E. coli can survive in it. Bath milk is raw milk with a label workaround.",
+          "swap": "Any regular supermarket milk, dairy or plant based. Same white, none of the worry."
+        },
+        {
+          "label": "Soy, oat, almond and other plant milks",
+          "tier": "green",
+          "why": "Commercially made plant milks are heat treated in the carton, so the whole aisle is yours. Soy products in general are a yes."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "monash-ivf"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    },
+    {
+      "id": "mushrooms",
+      "name": "Mushrooms",
+      "emoji": "🍄",
+      "aliases": [
+        "mushrooms",
+        "mushroom",
+        "mushroon",
+        "musrooms",
+        "shiitake",
+        "oyster mushrooms",
+        "shimeji",
+        "mushroom soup",
+        "flat mushrooms",
+        "cup mushrooms"
+      ],
+      "group": "Fruit & veg",
+      "tier": "depends",
+      "why": "Depends on the type, and how cooked:",
+      "variants": [
+        {
+          "label": "Cooked mushrooms",
+          "tier": "green",
+          "why": "Grilled, roasted or fried button, cup, Swiss brown, portobello or field mushies are a straight yes, and a big brekkie without them is a sadder plate."
+        },
+        {
+          "label": "Raw and washed, in a home salad",
+          "tier": "green",
+          "why": "Common mushrooms raw are washed-veg territory: give them a good rinse, make the salad yourself and eat it fresh."
+        },
+        {
+          "label": "Enoki, raw or lightly cooked",
+          "tier": "red",
+          "why": "Enoki are a known listeria carrier and have been behind Australian recalls, so the thin raw ones on top of a bowl are out.",
+          "makeItGreen": "Cook them right through until they are hot and soft, simmered into a soup, hot pot or stir-fry.",
+          "swap": "Sliced Swiss browns or shiitake, cooked hot, for the same earthy flavour."
+        }
+      ],
+      "makeItGreen": null,
+      "swap": null,
+      "sources": ["rwh-2026", "nswfa"],
+      "flags": [],
+      "popularity": 3,
+      "reviewed": "2026-07"
+    }
+  ]
+}
