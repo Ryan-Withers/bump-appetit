@@ -31,6 +31,7 @@ let dom = null;
 let open = false;
 let current = null;   // { id, label, onClose }
 let opener = null;    // element focus returns to
+let openedAt = 0;     // when the current open animation began
 let lock = null;      // saved body styles plus scroll offset
 let drag = null;
 let generation = 0;
@@ -144,7 +145,13 @@ function ensureDom() {
   hideChrome();
 
   close.addEventListener('click', () => closeSheet());
-  backdrop.addEventListener('click', () => closeSheet());
+  backdrop.addEventListener('click', () => {
+    // An impatient double-tap lands its second tap on the backdrop while the
+    // sheet is still flying up, and closing on it makes the sheet flash and
+    // vanish. During the open flight a backdrop tap is noise, not intent.
+    if (performance.now() - openedAt < OPEN_MS + 60) return;
+    closeSheet();
+  });
   sheet.addEventListener('pointerdown', onPointerDown);
   sheet.addEventListener('pointermove', onPointerMove);
   sheet.addEventListener('pointerup', onPointerUp);
@@ -474,6 +481,9 @@ export function openSheet(options = {}) {
   }
 
   open = true;
+  openedAt = performance.now();
+  // A fresh open must also undo the close path's immediate inerting below.
+  dom.backdrop.style.pointerEvents = '';
   lockScroll();
   suspendTransitions(false);
   showChrome();
@@ -516,6 +526,10 @@ export function closeSheet({ fromHistory = false } = {}) {
   if (!open || !dom) return;
 
   open = false;
+  // Inert from the first frame of the close, not from settle(): the hidden
+  // attribute only lands when the animation finishes, and until then the
+  // fading backdrop was still eating the tap that follows a close.
+  dom.backdrop.style.pointerEvents = 'none';
   const closing = current;
   current = null;
   cancelDrag();
