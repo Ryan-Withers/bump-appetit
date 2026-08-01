@@ -40,6 +40,9 @@ jobs:
       - name: Validate the data
         run: node scripts/validate.js
 
+      - name: Check every string lookup reaches strings.js
+        run: node scripts/check-strings.js
+
       - name: Run the golden search queries
         run: node scripts/test-search.js
 

@@ -492,7 +492,7 @@ function readLine(line) {
     return {
       dish: line,
       tier: 'green',
-      why: str('scan.cookedWhy', 'Cooked through and served hot is the safe way, and nothing on my risk list showed up here.'),
+      why: str('scanning.cookedWhy', 'Cooked through and served hot is the safe way, and nothing on my risk list showed up here.'),
       makeItGreen: '',
     };
   }
@@ -500,7 +500,7 @@ function readLine(line) {
   return {
     dish: line,
     tier: 'unsure',
-    why: str('scan.unsureWhy', 'Nothing on my list turned up in this line, so it is worth an ask.'),
+    why: str('scanning.unsureWhy', 'Nothing on my list turned up in this line, so it is worth an ask.'),
     makeItGreen: '',
   };
 }

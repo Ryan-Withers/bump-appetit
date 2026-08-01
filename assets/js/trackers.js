@@ -284,9 +284,10 @@ function caffeineStatusText(total, limitMg) {
     return str('caffeine.atLimit', "Budget's full for today, and decaf's got your back.");
   }
   if (total <= 0) return str('caffeine.empty', 'Nothing counted yet today.');
+  const mg = Math.round(total);
   return fill(
-    str('caffeine.status', '{used}mg of {limit}mg today.'),
-    { used: Math.round(total), limit: limitMg },
+    str('caffeine.running', '{mg}mg so far. {left}mg left in the budget.'),
+    { mg, left: Math.max(0, limitMg - mg) },
   );
 }
 
@@ -332,7 +333,18 @@ function excludedRow(item) {
 function buildCaffeine(content) {
   const { limitMg, drinks, note, excluded } = caffeineData();
   let entries = readCaffeine();
+  let dayKey = caffeineKey();
   let wobbled = totalOf(entries) >= limitMg;   // already full on open, so no scolding
+
+  // The sheet can sit open across midnight. Entries were read for the day the
+  // sheet opened, so a write after the date rolls must start from the new
+  // day's (empty) list, not carry yesterday's coffees into it.
+  const rolloverGuard = () => {
+    if (caffeineKey() === dayKey) return;
+    dayKey = caffeineKey();
+    entries = readCaffeine();
+    wobbled = totalOf(entries) >= limitMg;
+  };
 
   content.appendChild(el('h2', { class: 'verdict__name' }, str('caffeine.title', 'Caffeine today')));
 
@@ -366,6 +378,7 @@ function buildCaffeine(content) {
     role: 'group',
     aria: { label: str('caffeine.chipsLabel', 'Add a drink') },
   }, drinks.map((drink) => drinkChip(drink, (entry) => {
+    rolloverGuard();
     entries = [...entries, { ...entry, at: Date.now() }];
     writeCaffeine(entries);
     repaint(true);
@@ -373,6 +386,7 @@ function buildCaffeine(content) {
   content.appendChild(chips);
 
   undo.addEventListener('click', () => {
+    rolloverGuard();
     if (!entries.length) return;
     entries = entries.slice(0, -1);
     writeCaffeine(entries);
@@ -383,13 +397,13 @@ function buildCaffeine(content) {
   const excludedItems = excluded.length ? excluded : [{
     name: str('caffeine.energy.name', 'Energy drink'),
     emoji: '⚡',
-    note: str('caffeine.energy.note', 'Energy drinks sit outside the tally rather than inside the budget.'),
+    note: str('caffeine.energyNote', 'Energy drinks sit outside the tally. Caffeine plus guarana is a Not now rather than something to budget for.'),
   }];
   for (const item of excludedItems) content.appendChild(excludedRow(item));
 
   const noteText = note || str('caffeine.note', 'Values are averages, so treat the bar as a guide.');
   if (noteText) content.appendChild(el('p', { class: 'caption' }, noteText));
-  content.appendChild(el('p', { class: 'caption' }, str('caffeine.reset', 'Starts fresh at midnight.')));
+  content.appendChild(el('p', { class: 'caption' }, str('caffeine.resetNote', 'The tally clears itself at midnight.')));
 
   repaint(false);
 }
@@ -410,19 +424,19 @@ function dotsEl(used, allowance) {
  * for anyone who cannot separate a filled dot from an empty one.
  */
 function countText(used, allowance) {
-  return fill(str('fish.count', '{used} of {allowance} used'), { used, allowance });
+  return fill(str('fish.dotsLabel', '{used} of {total} serves used'), { used, total: allowance });
 }
 
 function fishRow(kind, allowance, state) {
   const label = kind === 'high'
-    ? str('fish.high.label', 'High-mercury serve')
-    : str('fish.other.label', 'Other fish serves');
+    ? str('fish.fortnightLabel', 'High-mercury serve, this fortnight')
+    : str('fish.weekLabel', 'Other fish serves, this week');
   const window = kind === 'high'
     ? str('fish.high.window', 'This fortnight')
     : str('fish.other.window', 'This week');
   const why = kind === 'high'
-    ? str('fish.high.why', 'Flake, swordfish, marlin and broadbill: one serve a fortnight, and no other fish that fortnight.')
-    : str('fish.other.why', 'Freshly cooked fish is encouraged: 1 to 3 serves a week, a serve being about 150g.');
+    ? str('fish.flake', 'Flake at the fish and chip shop IS shark. Shark, swordfish, broadbill and marlin carry the most mercury, so it is one serve a fortnight, and no other fish in that fortnight.')
+    : str('fish.weekRule', 'Orange roughy (sea perch) and catfish are once a week, with no other fish that week.');
 
   const card = el('section', { class: 'card' });
   card.appendChild(el('h3', { class: 'group-title' }, label));
@@ -433,17 +447,20 @@ function fishRow(kind, allowance, state) {
   card.append(dotsHost, readout);
   card.appendChild(el('p', {}, why));
 
+  const addLabel = kind === 'high'
+    ? str('fish.addHigh', 'Add a high-mercury serve')
+    : str('fish.addOther', 'Add a serve');
   const add = el('button', {
     class: 'btn btn--primary',
     type: 'button',
-    aria: { label: fill(str('fish.addOne', 'Add one {label}'), { label }) },
-  }, [str('fish.add', 'Add a serve')]);
+    aria: { label: addLabel },
+  }, [addLabel]);
   add.insertAdjacentHTML('afterbegin', icon('plus', { size: 20 }));
 
   const undo = el('button', {
     class: 'btn btn--ghost',
     type: 'button',
-    aria: { label: fill(str('fish.undoOne', 'Undo one {label}'), { label }) },
+    aria: { label: str('fish.undo', 'Undo last') },
   }, [str('fish.undo', 'Undo last')]);
   undo.insertAdjacentHTML('afterbegin', icon('undo', { size: 20 }));
 
@@ -482,8 +499,8 @@ function buildFish(content) {
 
   content.appendChild(el('h2', { class: 'verdict__name' }, str('fish.title', 'Fish tracker')));
   content.appendChild(el('p', {}, str(
-    'fish.lead',
-    'Fish is a good thing here. These two rows just keep the mercury ones spaced out.',
+    'fish.intro',
+    'Fish is encouraged: 1 to 3 serves a week, and a serve is about 150g.',
   )));
 
   const high = fishRow('high', HIGH_ALLOWANCE, state);
@@ -501,7 +518,10 @@ function buildFish(content) {
     'Heads-up: flake at the fish and chip shop is shark, which is the high-mercury one. Ask what the fish of the day is.',
   )));
 
-  const extra = strList('fish.notes');
+  const extra = [
+    str('fish.tinNote', 'A small tin of tuna counts as half a serve, so a few tins across the week is fine.'),
+    str('fish.encourage', 'Two serves of cooked-through fish a week is a genuine win for you both.'),
+  ];
   for (const line of extra) content.appendChild(el('p', { class: 'caption' }, line));
 }
 

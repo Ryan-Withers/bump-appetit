@@ -221,7 +221,7 @@ export function createSearchView(ctx = {}) {
     autocapitalize: 'none',
     autocorrect: 'off',
     spellcheck: 'false',
-    placeholder: str('search.placeholder', 'Search a food'),
+    placeholder: str('searchPlaceholder', 'brie, sushi, flat white...'),
     aria: { label: str(['search.label', 'a11y.searchLabel'], 'Search foods') },
   });
 

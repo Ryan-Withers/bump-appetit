@@ -189,10 +189,10 @@ function buildMeal(content, meal) {
   }
 
   if (ingredients.length) {
-    content.appendChild(el('h3', { class: 'group-title' }, str('bites.ingredients', 'Ingredients')));
+    content.appendChild(el('h3', { class: 'group-title' }, str('bites.ingredientsTitle', 'What you need')));
     content.appendChild(el('p', { class: 'caption' }, str(
-      'bites.checklistHint',
-      'Tap each one to tick it off as you go.',
+      'bites.tickHint',
+      'Tap an ingredient to tick it off while you cook.',
     )));
     content.appendChild(el('ul', { class: 'stack' }, ingredients.map(
       (text, index) => el('li', {}, [ingredientButton(meal, String(text), index)]),
@@ -200,7 +200,7 @@ function buildMeal(content, meal) {
   }
 
   if (steps.length) {
-    content.appendChild(el('h3', { class: 'group-title' }, str('bites.steps', 'Method')));
+    content.appendChild(el('h3', { class: 'group-title' }, str('bites.stepsTitle', 'How it goes')));
     content.appendChild(el('ol', { class: 'steps' }, steps.map(
       (text) => el('li', {}, String(text)),
     )));

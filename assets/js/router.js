@@ -68,6 +68,29 @@ function cssToken(name, fallback) {
 const easeOut = () => cssToken('--ease-out', 'cubic-bezier(.22,1,.36,1)');
 const spring = () => cssToken('--spring', 'cubic-bezier(.34,1.56,.64,1)');
 
+/**
+ * History writes that survive embedded contexts. A sandboxed iframe with a
+ * null origin accepts a state-only pushState but throws on one that carries a
+ * URL, and one throw here used to take the whole tab switch down with it.
+ * The URL fragment is a nicety (a shareable #view); navigation itself must
+ * never depend on it.
+ */
+function writeHistory(method, state, url) {
+  try {
+    if (url) {
+      history[method](state, '', url);
+      return;
+    }
+  } catch {
+    // fall through to the state-only form
+  }
+  try {
+    history[method](state, '');
+  } catch {
+    // No history at all: views still switch in memory, back just won't undo.
+  }
+}
+
 /** One animation per node at a time, so rapid taps never leave a half-faded view. */
 function animateNode(node, frames, options) {
   if (!node || typeof node.animate !== 'function') return null;
@@ -422,7 +445,7 @@ export function initRouter({ views: list = [], onEnter, onLeave } = {}) {
   const initial = viewFromHash() || defaultViewId();
   // replaceState, not pushState: the first entry should BE the first view, not
   // sit on top of a duplicate.
-  history.replaceState({ view: initial }, '', `#${initial}`);
+  writeHistory('replaceState', { view: initial }, `#${initial}`);
   activate(initial, { animate: false });
 }
 
@@ -467,8 +490,8 @@ export function go(viewId, { push = true } = {}) {
 
   if (push || sheetEntryFree) {
     const state = { view: viewId };
-    if (sheetEntryFree) history.replaceState(state, '', `#${viewId}`);
-    else history.pushState(state, '', `#${viewId}`);
+    if (sheetEntryFree) writeHistory('replaceState', state, `#${viewId}`);
+    else writeHistory('pushState', state, `#${viewId}`);
   }
   activate(viewId, { animate: true });
 }
@@ -482,12 +505,12 @@ export function pushSheet(id) {
   const now = history.state || {};
   // Swapping one sheet for another replaces the entry. Stacking them would
   // make a single back press land on the sheet she just left.
-  if (now.sheet) history.replaceState(state, '');
-  else history.pushState(state, '');
+  if (now.sheet) writeHistory('replaceState', state);
+  else writeHistory('pushState', state);
 }
 
 export function replaceStateForSheetClose() {
   const now = history.state || {};
   if (!now.sheet) return;
-  history.replaceState({ view: activeId || now.view || defaultViewId() }, '');
+  writeHistory('replaceState', { view: activeId || now.view || defaultViewId() });
 }

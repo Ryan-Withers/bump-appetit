@@ -468,7 +468,20 @@ function maybeShowInstallHint(standalone) {
     store.set(HINT_KEY, true);
     node.classList.remove('is-open');
     node.hidden = true;
+    document.removeEventListener('pointerdown', onOutside, true);
   };
+
+  // The hint is a fixed card floating over the bottom of every screen, which
+  // makes it a dead zone for anything underneath: real taps on real results
+  // were dying on it. So the first tap anywhere OUTSIDE the card dismisses it,
+  // at capture phase on pointerdown. By the time that same tap's click event
+  // hit-tests, the card is gone, so the tap still lands on the thing she was
+  // actually aiming at. The hint gets seen once and never costs her a tap.
+  const onOutside = (event) => {
+    if (node.contains(event.target)) return;
+    dismiss();
+  };
+  document.addEventListener('pointerdown', onOutside, true);
 
   const body = el('div', { class: 'stack', style: '--stack-gap: var(--s2); flex: 1' }, [
     el('p', { style: 'font-weight: 700' }, str('ui.installHint.title', 'Make me an app')),
@@ -551,7 +564,11 @@ async function boot() {
             // The factories reuse the shell by id, so this populates the very
             // element the router is already showing.
             real = (typeof make === 'function' ? make(ctx) : null) || null;
-            placeFooter(el); // back to the bottom, under the new content
+            // Only reclaim the footer when this view is the one on screen. The
+            // idle warm-up loads views in the background, and moving the single
+            // shared footer into a hidden view would strip it off the screen
+            // she is actually looking at.
+            if (el.classList.contains('is-active')) placeFooter(el);
             return real;
           })
           .catch((err) => {
@@ -606,6 +623,77 @@ async function boot() {
   enhance('install hint', () => maybeShowInstallHint(isStandalone()));
 
   enhance('keyboard', wireKeyboard);
+
+  enhance('touch resilience', wireTapFallback);
+}
+
+/**
+ * Some embedded contexts (sandboxed iframes among them) deliver touch and
+ * pointer events but never synthesise the mouse events that follow a tap.
+ * Every control in this app activates on 'click', so in those contexts a tap
+ * lands, does nothing, and the app reads as broken.
+ *
+ * The fallback: after a clean touch pointerup, wait a beat for the native
+ * click. If it never comes, dispatch one at the same spot. Environments that
+ * synthesise clicks normally never see this fire, because the native click
+ * always arrives first.
+ */
+function wireTapFallback() {
+  const WAIT_MS = 120;      // native synthesis lands within a few ms when it exists
+  const SLOP_PX = 12;       // more movement than this is a scroll, not a tap
+  const DEDUPE_MS = 400;
+
+  let down = null;
+  let lastClickAt = -Infinity;   // any click, native or synthetic
+  let synthAt = -Infinity;       // synthetic clicks only
+
+  document.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'touch' || !event.isPrimary) return;
+    down = { x: event.clientX, y: event.clientY };
+  }, true);
+
+  document.addEventListener('pointercancel', () => { down = null; }, true);
+
+  document.addEventListener('click', (event) => {
+    if (event.__baSynthetic) {
+      lastClickAt = performance.now();
+      return;
+    }
+    // A real click arriving hot on the heels of a synthetic one is the same
+    // tap counted twice: swallow it.
+    if (performance.now() - synthAt < DEDUPE_MS) {
+      event.stopPropagation();
+      event.preventDefault();
+      return;
+    }
+    lastClickAt = performance.now();
+  }, true);
+
+  document.addEventListener('pointerup', (event) => {
+    if (event.pointerType !== 'touch' || !event.isPrimary || !down) return;
+    const start = down;
+    down = null;
+    if (Math.hypot(event.clientX - start.x, event.clientY - start.y) > SLOP_PX) return;
+
+    const upAt = performance.now();
+    const x = event.clientX;
+    const y = event.clientY;
+    setTimeout(() => {
+      if (lastClickAt >= upAt) return;   // the native click showed up, all good
+      const target = document.elementFromPoint(x, y);
+      if (!target) return;
+      synthAt = performance.now();
+      const synthetic = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+        clientX: x,
+        clientY: y,
+      });
+      synthetic.__baSynthetic = true;
+      target.dispatchEvent(synthetic);
+    }, WAIT_MS);
+  }, true);
 }
 
 /* Standalone detection first, so the very first paint already knows whether it

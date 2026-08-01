@@ -125,8 +125,8 @@ function buildCheatSheet(content, sheet, ctx) {
 
   if (asks.length) {
     content.appendChild(el('h3', { class: 'group-title' }, str(
-      'cheatsheets.asks',
-      'Magic questions for the staff',
+      'cheatsheets.asksTitle',
+      'Handy things to ask',
     )));
     content.appendChild(el('ul', { class: 'asks' }, asks.map(
       (ask) => el('li', {}, String(ask)),
@@ -134,7 +134,7 @@ function buildCheatSheet(content, sheet, ctx) {
   }
 
   const back = el('button', { class: 'btn btn--ghost', type: 'button' }, [
-    str('cheatsheets.back', 'All cheat sheets'),
+    str('ui.buttons.back', 'Back'),
   ]);
   back.addEventListener('click', () => openCheatSheetPicker(ctx));
   content.appendChild(back);
@@ -151,8 +151,8 @@ function openCheatSheetPicker(ctx, { fromEl } = {}) {
     build: (content) => {
       content.appendChild(el('h2', { class: 'verdict__name' }, title));
       content.appendChild(el('p', {}, str(
-        'cheatsheets.intro',
-        'One screen per spot, so you can order without a search.',
+        'cheatsheets.sub',
+        'One screen per outing, for reading under the table.',
       )));
 
       if (!sheets.length) {
@@ -189,7 +189,7 @@ function helplineButton(line) {
 
   const name = String(line.name || '').trim();
   const display = String(line.display || line.number || '').trim();
-  const label = fill(str('oops.call', 'Call {name} - {number}'), { name, number: display });
+  const label = fill(str('ui.buttons.callHelpline', 'Call {name} - {number}'), { name, number: display });
 
   const button = el('a', { class: 'callbtn', href }, [el('span', {}, label)]);
   button.insertAdjacentHTML('afterbegin', icon('phone', { size: 24 }));
@@ -207,7 +207,7 @@ function buildOops(content) {
 
   calm.appendChild(el('h2', { class: 'verdict__name' }, str('oops.title', 'Oops, I ate it')));
   calm.appendChild(el('p', {}, str(
-    'oops.lead',
+    'oops.opener',
     'First: breathe. One-off exposures very rarely cause harm.',
   )));
 
@@ -216,19 +216,22 @@ function buildOops(content) {
   )));
 
   if (helplines.length) {
-    calm.appendChild(el('h3', { class: 'group-title' }, str('oops.helplines', 'Someone to talk it through with')));
+    calm.appendChild(el('h3', { class: 'group-title' }, str('oops.callTitle', 'Someone to talk to, any time')));
     for (const line of helplines) {
       const button = helplineButton(line);
       if (button) calm.appendChild(button);
     }
   }
 
-  const closing = str('oops.closing', '');
+  const closing = str(
+    'oops.reassure',
+    'You did nothing wrong. The food rules in pregnancy are fiddly, and everybody lands on this page at some point.',
+  );
   if (closing) calm.appendChild(el('p', {}, closing));
 
   calm.appendChild(el('p', { class: 'disclaimer' }, str(
-    'oops.disclaimer',
-    'General information from Australian health sources, not medical advice. Your midwife, OB or GP knows your pregnancy.',
+    'disclaimer',
+    'General info from Australian health sources - not medical advice. Always check with your midwife, OB or GP, especially with allergies or conditions like gestational diabetes.',
   )));
 
   content.appendChild(calm);
@@ -289,12 +292,12 @@ function openAboutSheet(ctx, { fromEl } = {}) {
     build: (content) => {
       content.appendChild(el('h2', { class: 'verdict__name' }, title));
 
-      const lead = str('about.lead', '');
+      const lead = str('about.intro', 'Bump Appetit is a small app built for one person by someone who loves her. It answers one question fast: can I eat this?');
       if (lead) content.appendChild(el('p', {}, lead));
 
       const rows = Object.values(sources).map(sourceRow).filter(Boolean);
       if (rows.length) {
-        content.appendChild(el('h3', { class: 'group-title' }, str('about.sources', 'Where the answers come from')));
+        content.appendChild(el('h3', { class: 'group-title' }, str('about.sourcesTitle', 'Where the answers come from')));
         content.appendChild(el('div', { class: 'rows' }, rows));
       }
 
@@ -307,12 +310,12 @@ function openAboutSheet(ctx, { fromEl } = {}) {
       }
 
       content.appendChild(el('p', { class: 'disclaimer' }, str(
-        'about.disclaimer',
-        'General information from Australian health sources, not medical advice. Always check with your midwife, OB or GP, especially with allergies or conditions like gestational diabetes.',
+        'disclaimer',
+        'General info from Australian health sources - not medical advice. Always check with your midwife, OB or GP, especially with allergies or conditions like gestational diabetes.',
       )));
 
       const made = el('p', { class: 'caption' }, [
-        el('span', {}, str('about.madeBy', 'Made with love by Ryan')),
+        el('span', {}, str('about.credit', 'Made with love by Ryan.')),
       ]);
       made.insertAdjacentHTML('afterbegin', icon('heart', { size: 16 }));
       content.appendChild(made);
@@ -331,7 +334,7 @@ export function createMoreView(ctx = {}) {
     root.appendChild(inner);
   }
 
-  const label = (key) => str(`more.rows.${key}`, ROW_LABELS[key]);
+  const label = (key) => str(`ui.rows.${key}`, ROW_LABELS[key]);
 
   const rows = el('div', { class: 'rows' }, [
     rowButton(label('cheatsheets'), (fromEl) => openCheatSheetPicker(ctx, { fromEl })),
@@ -343,7 +346,7 @@ export function createMoreView(ctx = {}) {
   ]);
 
   inner.replaceChildren(
-    el('h1', { class: 'group-title' }, str('more.title', 'More')),
+    el('h1', { class: 'group-title' }, str('tabs.more', 'More')),
     rows,
   );
 

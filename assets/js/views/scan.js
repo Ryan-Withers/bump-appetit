@@ -14,7 +14,6 @@ import { scanWithWorker, scanWithOcr, groupDishes, hasSmartScanner } from '../sc
 const VIEW_ID = 'scan';
 
 const ROTATE_MS = 2500;      // build spec 5.4: the scanning copy rotates on 2.5s
-const BAND_PX = 56;          // the sweeping scan-line band
 const CAMERA_PX = 32;        // icon inside the 72px circular button
 
 // HOLD first: she needs the warnings before the good news. Unsure sits last
@@ -25,7 +24,7 @@ const GROUP_FALLBACKS = Object.freeze({
   red: 'Not now',
   yellow: 'Limit',
   green: 'Yes',
-  unsure: 'Not sure',
+  unsure: 'Unsure',
 });
 
 const SCANNING_FALLBACKS = Object.freeze([
@@ -47,27 +46,27 @@ const ASK_FALLBACKS = Object.freeze([
 const ERRORS = Object.freeze({
   offline: Object.freeze({
     icon: 'wifi-off',
-    path: 'scan.error.offline',
+    path: 'scanning.errors.offline',
     title: 'Scanner needs internet',
-    body: 'Search still works, online or off. Try the scan again once you have a bar or two.',
+    body: 'Search still works! Bites, cheat sheets and the trackers all work offline too.',
   }),
   unreadable: Object.freeze({
     icon: 'image',
-    path: 'scan.error.unreadable',
+    path: 'scanning.errors.unreadable',
     title: 'Couldn\'t read that one',
-    body: 'Try flattening the menu and getting closer, with the text filling the frame.',
+    body: 'Try flattening the menu and getting closer. Good light helps more than a steady hand.',
   }),
   'daily-limit': Object.freeze({
     icon: 'circle-alert',
-    path: 'scan.error.limit',
-    title: 'That is the scans for today',
-    body: 'The daily quota is spent. It comes back at midnight, and search works the whole time.',
+    path: 'scanning.errors.dailyLimit',
+    title: 'That\'s today\'s scans used up',
+    body: 'The scanner has a daily cap so it stays free to run. It resets tomorrow, and search has every food in the cookbook in the meantime.',
   }),
   failed: Object.freeze({
     icon: 'refresh-cw',
-    path: 'scan.error.failed',
-    title: 'That scan did not come back',
-    body: 'Something went quiet on the way. Have another go, or read it on your phone instead.',
+    path: 'scanning.errors.generic',
+    title: 'The scanner tripped on that one',
+    body: 'Nothing lost. Try another photo, or search the dish by name.',
   }),
 });
 
@@ -136,8 +135,8 @@ export function createScanView(ctx = {}) {
   const disclaimer = el('p', {
     class: 'disclaimer',
     text: str(
-      ['scan.disclaimer', 'scan.footer'],
-      'The scanner is a guide, not a guarantee. When unsure, ask the staff or search the food above.'
+      'scanning.guide',
+      'Scanner\'s a guide, not a guarantee. When unsure, ask the staff or search the food above.'
     ),
   });
 
@@ -223,14 +222,12 @@ export function createScanView(ctx = {}) {
   }
 
   function statusText() {
-    // Reduced motion swaps the sweeping band for a still progress caption, so
-    // that is the one place a percentage earns its keep.
+    // Reduced motion swaps the sweeping band for one still caption. The
+    // authored line is static, so no percentage is spliced in.
     if (prefersReducedMotion()) {
-      return progress >= 0
-        ? fill(str('scan.progress', 'Reading the menu, {n}%'), { n: Math.round(progress * 100) })
-        : str('scan.status', 'Reading the menu');
+      return str('scanning.progressStatic', 'Reading the menu...');
     }
-    const lines = strList(['scanning', 'scan.scanning'], SCANNING_FALLBACKS);
+    const lines = strList('scanning.lines', SCANNING_FALLBACKS);
     return lines[rotateAt % lines.length];
   }
 
@@ -322,7 +319,7 @@ export function createScanView(ctx = {}) {
       el('img', {
         class: 'scan__preview',
         src: photo.url,
-        alt: str('scan.photoAlt', 'The menu photo you just took'),
+        alt: str('a11y.scanPreview', 'The menu photo you are about to check'),
         // A phone photo is 4000px wide. The cap is inline so a slow stylesheet
         // can never let one blow the layout out sideways.
         style: { maxWidth: '100%' },
@@ -330,18 +327,11 @@ export function createScanView(ctx = {}) {
     ]);
 
     if (withLine && !prefersReducedMotion()) {
-      frame.appendChild(el('div', {
-        class: 'scan__line',
-        aria: { hidden: 'true' },
-        style: {
-          position: 'absolute',
-          left: '0',
-          right: '0',
-          top: '0',
-          height: `${BAND_PX}px`,
-          pointerEvents: 'none',
-        },
-      }));
+      // Geometry belongs to the stylesheet: .scan__line is a full-height
+      // overlay carrying the 56px gradient band as a background, and the
+      // sweep animation translates the whole overlay down the photo. An
+      // inline height here once pinned it to the top 56px of the frame.
+      frame.appendChild(el('div', { class: 'scan__line', aria: { hidden: 'true' } }));
     }
 
     return frame;
@@ -370,7 +360,7 @@ export function createScanView(ctx = {}) {
       class: 'caption',
       hidden: true,
       style: { display: 'none' },
-      text: str('scan.tips', 'Best shots: flat menu, good light, fill the frame.'),
+      text: str('scanning.tips', 'Best shots: flat menu, good light, fill the frame'),
     });
 
     const toggle = el('button', {
@@ -400,16 +390,16 @@ export function createScanView(ctx = {}) {
     const shoot = el('button', {
       class: 'scan__button',
       type: 'button',
-      aria: { label: str('scan.shoot', 'Take a photo of the menu') },
+      aria: { label: str('ui.buttons.snapMenu', 'Snap the menu') },
       html: icon('camera', { size: CAMERA_PX }),
     });
     shoot.addEventListener('click', () => cameraInput.click());
 
     return el('div', { class: 'stack' }, [
-      el('h1', { class: 'greeting', text: str('scan.title', 'Snap the menu') }),
+      el('h1', { class: 'greeting', text: str('scanning.idleTitle', 'Snap the menu') }),
       el('p', {
         class: 'caption',
-        text: str('scan.caption', 'Point at any menu. I\'ll sort it into Yes, Limit and Not now.'),
+        text: str('scanning.idleCaption', 'Point at any menu. I\'ll sort it into Yes, Limit and Not now.'),
       }),
       shoot,
       button(str('scan.choose', 'Choose from Photos'), { onClick: () => libraryInput.click(), iconName: 'image' }),
@@ -417,10 +407,10 @@ export function createScanView(ctx = {}) {
       el('p', {
         class: 'caption',
         text: smart
-          ? str('scan.privacy', 'The photo goes off to be read, then it is gone. Menus only, please.')
+          ? str('scanning.privacy', 'Your photo is sent away to be read, and it is not kept afterwards. Menus only, and nothing else on your phone is touched.')
           : str(
-            'scan.basicOnly',
-            'The smart scanner is not set up yet, so this reads the menu on your phone and catches keywords only. The photo never leaves the device.'
+            'scanning.noEndpointBody',
+            'Basic on-device reading is available instead. It never sends your photo anywhere, and it reads plain menu fonts best.'
           ),
       }),
     ]);
@@ -431,10 +421,10 @@ export function createScanView(ctx = {}) {
     return el('div', { class: 'stack' }, [
       photoFrame(false),
       button(
-        smart ? str('scan.check', 'Check this menu') : str('scan.checkBasic', 'Read this menu'),
+        smart ? str('ui.buttons.checkMenu', 'Check this menu') : str('ui.buttons.readOnDevice', 'Read it on this phone instead'),
         { primary: true, onClick: () => run(!smart) }
       ),
-      button(str('scan.retake', 'Retake'), { onClick: retake }),
+      button(str('ui.buttons.retake', 'Retake'), { onClick: retake }),
     ]);
   }
 
@@ -450,7 +440,7 @@ export function createScanView(ctx = {}) {
     return el('div', { class: 'stack' }, [
       photoFrame(true),
       statusEl,
-      button(str('scan.cancel', 'Cancel'), {
+      button(str('ui.buttons.cancel', 'Cancel'), {
         onClick: () => {
           cancelRun();
           state = 'preview';
@@ -461,9 +451,9 @@ export function createScanView(ctx = {}) {
   }
 
   function asksBlock() {
-    const asks = strList(['scan.asks', 'scan.questions'], ASK_FALLBACKS);
+    const asks = strList('scanning.asks', ASK_FALLBACKS);
     return el('div', { class: 'stack' }, [
-      el('h3', { class: 'caption', text: str('scan.asksTitle', 'Magic questions for the staff') }),
+      el('h3', { class: 'caption', text: str('scanning.asksTitle', 'Magic questions for the staff') }),
       el('ul', { class: 'asks' }, asks.map((ask) => el('li', {}, ask))),
     ]);
   }
@@ -480,7 +470,7 @@ export function createScanView(ctx = {}) {
   }
 
   function groupTitle(tier, count) {
-    const word = str(`scan.groups.${tier}`, GROUP_FALLBACKS[tier]);
+    const word = str(`scanning.groups.${tier}`, GROUP_FALLBACKS[tier]);
     return fill(str('scan.groupCount', '{title} ({n})'), { title: word, n: count });
   }
 
@@ -504,7 +494,7 @@ export function createScanView(ctx = {}) {
       if (tier === 'unsure') host.appendChild(asksBlock());
     }
 
-    host.appendChild(button(str('scan.again', 'Scan another menu'), { primary: true, onClick: retake }));
+    host.appendChild(button(str('ui.buttons.tryAgain', 'Try again'), { primary: true, onClick: retake }));
     return host;
   }
 
@@ -517,13 +507,13 @@ export function createScanView(ctx = {}) {
     ]);
 
     const actions = el('div', { class: 'stack' });
-    actions.appendChild(button(str('scan.retake', 'Retake'), { primary: true, onClick: retake }));
+    actions.appendChild(button(str('ui.buttons.retake', 'Retake'), { primary: true, onClick: retake }));
 
     // Basic reading is worth offering after any smart-scanner failure, but only
     // with the truth attached: its reader downloads once, so it needs a little
     // network the first time too.
     if (mode !== 'basic' && photo) {
-      actions.appendChild(button(str('scan.tryBasic', 'Try basic reading instead'), {
+      actions.appendChild(button(str('ui.buttons.readOnDevice', 'Read it on this phone instead'), {
         onClick: () => run(true),
       }));
       actions.appendChild(el('p', {
@@ -543,7 +533,7 @@ export function createScanView(ctx = {}) {
 
   function announce() {
     if (state === 'scanning') {
-      live.textContent = str('scan.status', 'Reading the menu');
+      live.textContent = str('scanning.progressStatic', 'Reading the menu...');
       return;
     }
     if (state === 'results' && result) {

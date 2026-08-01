@@ -314,6 +314,16 @@ function appendFooter(content, food) {
     ]));
   }
 
+  // Honesty about the pipeline: rows still awaiting Ryan's source sign-off say
+  // so, rather than wearing the same "checked" clothes as the verified ones.
+  const flags = Array.isArray(food.flags) ? food.flags : [];
+  if (flags.includes('confirm')) {
+    content.appendChild(el('p', { class: 'caption' }, str(
+      'verdict.flagConfirm',
+      'Ryan is double-checking this one against the source.',
+    )));
+  }
+
   content.appendChild(el('p', { class: 'checked' }, checkedText()));
   content.appendChild(el('button', {
     class: 'btn btn--ghost',
