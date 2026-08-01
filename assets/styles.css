@@ -369,7 +369,10 @@ button { cursor: pointer; }
 .toast a, .toast button { color: inherit; }
 
 .install-hint {
-  z-index: 65;
+  /* Above the tab bar (40) but below the sheet backdrop (50). This card sits
+     there until she dismisses it, so it must never cover a verdict: the toast
+     can outrank a sheet because it is transient, this cannot. */
+  z-index: 45;
   display: flex;
   align-items: flex-start;
   gap: var(--s3);
