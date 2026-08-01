@@ -66,8 +66,12 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
 
+      # enablement turns Pages on the first time this runs, so the site does not
+      # need anyone to visit a settings page to go live.
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       # The repo root IS the site. No build step, no bundler, nothing compiled.
       # The action already leaves out .git and .github.
