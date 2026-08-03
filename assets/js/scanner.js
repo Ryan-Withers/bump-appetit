@@ -269,11 +269,10 @@ export async function scanWithWorker(blob, { signal } = {}) {
   if (offline()) throw scanError('offline', 'The device reports no network.');
 
   const image = await encodeForUpload(blob);
-  const link = linkAbort(signal, Number(scanner.timeoutMs) || 20000);
+  const link = linkAbort(signal, Number(scanner.timeoutMs) || 30000);
 
-  let res;
   try {
-    res = await fetch(String(scanner.endpoint).trim(), {
+    const res = await fetch(String(scanner.endpoint).trim(), {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -282,7 +281,31 @@ export async function scanWithWorker(blob, { signal } = {}) {
       body: JSON.stringify({ image }),
       signal: link.signal,
     });
+
+    if (res.status === 429) throw scanError('daily-limit', 'Worker daily quota spent.');
+    if (!res.ok) {
+      const kind = await readError(res);
+      throw scanError(kind === 'unreadable' || kind === 'bad-image' ? 'unreadable' : 'failed', `HTTP ${res.status}`);
+    }
+
+    let body;
+    try {
+      body = await res.json();
+    } catch {
+      throw scanError('unreadable', 'The Worker did not return JSON.');
+    }
+
+    if (body && typeof body.error === 'string') {
+      throw scanError(body.error === 'daily-limit' ? 'daily-limit' : 'unreadable', body.error);
+    }
+
+    const dishes = shapeDishes(body && body.dishes);
+    // An empty menu is not a result, it is a photo that did not work.
+    if (!dishes.length) throw scanError('unreadable', 'No dishes came back.');
+    return { mode: 'smart', dishes };
   } catch (cause) {
+    // Anything already carrying a kind is a verdict reached on purpose above.
+    if (cause && cause.kind) throw cause;
     const reason = link.reason();
     if (reason === 'cancelled') throw scanError('cancelled', 'She tapped cancel.');
     if (reason === 'timeout') throw scanError('failed', 'The scanner did not answer in time.');
@@ -290,30 +313,12 @@ export async function scanWithWorker(blob, { signal } = {}) {
     // Worker, and from the queue at a cafe those feel like the same thing.
     throw scanError(offline() ? 'offline' : 'failed', String(cause && cause.message));
   } finally {
+    // Released only once the body has been read, not when the headers land.
+    // Releasing early cleared the timer and dropped the abort listener while
+    // res.json() was still waiting, so a connection that died mid-body left
+    // the spinner turning forever with Cancel no longer able to stop it.
     link.release();
   }
-
-  if (res.status === 429) throw scanError('daily-limit', 'Worker daily quota spent.');
-  if (!res.ok) {
-    const kind = await readError(res);
-    throw scanError(kind === 'unreadable' || kind === 'bad-image' ? 'unreadable' : 'failed', `HTTP ${res.status}`);
-  }
-
-  let body;
-  try {
-    body = await res.json();
-  } catch {
-    throw scanError('unreadable', 'The Worker did not return JSON.');
-  }
-
-  if (body && typeof body.error === 'string') {
-    throw scanError(body.error === 'daily-limit' ? 'daily-limit' : 'unreadable', body.error);
-  }
-
-  const dishes = shapeDishes(body && body.dishes);
-  // An empty menu is not a result, it is a photo that did not work.
-  if (!dishes.length) throw scanError('unreadable', 'No dishes came back.');
-  return { mode: 'smart', dishes };
 }
 
 /* ------------------------------------------------------------------ Path A */

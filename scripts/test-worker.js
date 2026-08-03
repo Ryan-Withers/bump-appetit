@@ -317,11 +317,50 @@ const IMAGE = 'x'.repeat(2000);
     });
   }
 
+  /* ------------------------------------------- what the quota actually counts */
+
+  // This suite used to assert the opposite, and was wrong: it treated the cap
+  // as a count of good answers when the thing worth capping is money. A scan
+  // that came back unreadable was billed exactly like one that worked, so
+  // counting only successes left an unbounded hole for anyone holding the
+  // passphrase, which ships to the browser and is therefore public.
   await withModel('{}', async () => {
     const e = env();
-    await worker.fetch(post({ image: IMAGE }), e);
+    const res = await worker.fetch(post({ image: IMAGE }), e);
     const counted = await e.KV.get(`scans:${today}`);
-    check('a failed scan does not burn quota', counted === null || counted === '0', `counter=${counted}`);
+    check('a scan that fails validation still counts, because it still cost money',
+      res.status === 502 && counted === '1', `status ${res.status} counter=${counted}`);
+  });
+
+  await withModel('{"error":"unreadable"}', async () => {
+    // The exact loop a stranger would run: a photo of anything that is not a
+    // menu, over and over. The model obeys rule 6 every time.
+    const e = env();
+    for (let i = 0; i < 5; i += 1) await worker.fetch(post({ image: IMAGE }), e);
+    check('a loop of non-menu photos burns the quota rather than running free',
+      (await e.KV.get(`scans:${today}`)) === '5', `counter=${await e.KV.get(`scans:${today}`)}`);
+  });
+
+  await withModel(GOOD, async (sent) => {
+    const e = env({ KV: fakeKV({ [`scans:${today}`]: '100' }) });
+    const res = await worker.fetch(post({ image: IMAGE }), e);
+    check('and once spent, the cap is reached before the model is called, not after',
+      res.status === 429 && sent.length === 0, `status ${res.status}, ${sent.length} model calls`);
+  });
+
+  /* ------------------------------------------------ when KV itself misbehaves */
+
+  await withModel(GOOD, async () => {
+    // A read that throws must not be read as "zero scans today": writing 1 over
+    // a real count of 87 would hand back 86 slots, and over 100 would un-spend
+    // a cap that had correctly stopped.
+    const broken = fakeKV({ [`scans:${today}`]: '87' });
+    broken.get = async () => { throw new Error('KV blip'); };
+    const e = env({ KV: broken });
+    const res = await worker.fetch(post({ image: IMAGE }), e);
+    check('a failed KV read never clobbers the real count',
+      res.status === 200 && broken.store.get(`scans:${today}`) === '87',
+      `status ${res.status} counter=${broken.store.get(`scans:${today}`)}`);
   });
 
   /* ---------------------------------------------------------------- report */

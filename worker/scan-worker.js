@@ -7,7 +7,8 @@
 //
 // - no wildcard CORS, ever (the allowed origin comes from an env var)
 // - no request without the shared passphrase
-// - no more than DAILY_LIMIT model calls a day, counted in KV
+// - no more than DAILY_LIMIT model calls a day, counted in KV before the call
+//   is made, because what is being capped is spend and a failed call still bills
 // - no malformed model output reaching the app: bad JSON becomes "unreadable"
 //
 // Secrets: PASS and MODEL_KEY. See wrangler.toml for where to set them.
@@ -151,7 +152,11 @@ async function readCount(env) {
   try {
     return parseInt((await env.KV.get(todayKey())) || '0', 10) || 0;
   } catch {
-    return 0;
+    // null, not 0. Reading 0 from a failed read would let the next scan write
+    // "1" over a real count of 87 and hand back 86 slots, or un-spend a cap
+    // that had correctly stopped at 100. null means "cap off for this one
+    // request, and do not write", which loses nothing and destroys nothing.
+    return null;
   }
 }
 
@@ -418,6 +423,16 @@ export default {
       return json({ error: 'bad-image' }, 400, cors);
     }
 
+    // Counted BEFORE the call, not after it succeeds. What this cap exists to
+    // limit is spend, and a call that comes back unreadable was billed exactly
+    // like one that worked. Counting only successes meant a stranger with the
+    // passphrase could loop photos of a brick wall forever: the model obeys
+    // rule 6, answers "unreadable", the validator rejects it, and the counter
+    // never moved. The ceiling was Cloudflare's 100k requests a day, not this.
+    // The cost of counting first is that one of her own bad photos does use a
+    // slot, which is honest: it cost the same money.
+    if (used !== null) await bumpCount(env, used);
+
     let raw = '';
     try {
       raw = await callVisionModel(env, SYSTEM_PROMPT, image);
@@ -429,10 +444,6 @@ export default {
 
     const parsed = safeParseVerdicts(raw);
     if (!parsed) return json({ error: 'unreadable' }, 502, cors);
-
-    // Counted only once a scan actually worked, so a bad photo never costs her
-    // a slot in the daily quota.
-    if (used !== null) await bumpCount(env, used);
 
     return json(parsed, 200, cors);
   },

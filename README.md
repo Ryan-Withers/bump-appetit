@@ -24,7 +24,7 @@ Nothing. That is not a rounding error, it is the design.
 | Hosting on GitHub Pages | $0 |
 | Search (Fuse.js, vendored into the repo) | $0 |
 | The scanner Worker on Cloudflare | $0, free tier is 100k requests a day |
-| The vision model behind the scanner | $0 on the Gemini free tier |
+| The vision model behind the scanner | About half a cent per scan on Claude Haiku 4.5, capped at 100 scans a day |
 | Domain | $0 on `github.io` |
 
 No accounts, no analytics, no cookies, no tracking, no server. The whole app is
@@ -246,9 +246,17 @@ Secret:
 | Secret | What it is |
 |---|---|
 | `PASS` | A passphrase you invent. It must match `CONFIG.scanner.pass` in `assets/js/config.js` exactly. Not real security, it just stops a stranger who finds the URL burning the daily quota |
-| `MODEL_KEY` | The vision model API key. Gemini by default, from aistudio.google.com |
+| `MODEL_KEY` | The vision model API key. **Anthropic by default**, from console.anthropic.com > API keys |
 
 Neither of them ever goes in a file in this repo. The repo is public.
+
+The Worker calls Claude Haiku 4.5 with no other variables set, at roughly half a
+cent per scan. To use Gemini instead, put a Google key in `MODEL_KEY` and set
+`MODEL_PROVIDER = "gemini"` in `worker/wrangler.toml`, **not** as a dashboard
+variable: `wrangler deploy` replaces the whole `[vars]` block with what is
+committed, so a dashboard variable is wiped by the next push while the secret
+survives. That combination would leave a Google key being posted to Anthropic,
+and every scan failing with the reason visible only in the Worker logs.
 
 Finally, paste the Worker's `workers.dev` URL into `CONFIG.scanner.endpoint` in
 `assets/js/config.js`, along with the same `pass`, and commit. That file is the

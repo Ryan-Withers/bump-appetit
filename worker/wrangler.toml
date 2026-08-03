@@ -44,9 +44,12 @@ ALLOWED_ORIGIN = "https://ryan-withers.github.io"
 # To move to a different Claude model, set MODEL alone:
 #   MODEL = "claude-sonnet-5"
 #
-# To move to Gemini, set MODEL_PROVIDER and put a Google key in MODEL_KEY. A
-# model id starting with "gemini" is enough on its own, but being explicit
-# costs nothing and reads better in the dashboard six months from now.
+# To move to Gemini, uncomment both of these HERE and put a Google key in the
+# MODEL_KEY secret. Set them in this file, never as dashboard variables: a
+# deploy replaces this whole [vars] block with what is committed, so a
+# dashboard variable is silently wiped by the next push to worker/ while the
+# secret survives. That leaves a Google key being posted to Anthropic and every
+# scan failing, with the only trace a line in the Worker logs.
 # MODEL_PROVIDER = "gemini"
 # MODEL = "gemini-2.0-flash"
 
