@@ -1,6 +1,13 @@
 #!/usr/bin/env node
-// Generates the Bump Appetit app icons: a cream fruit sticker, tilted like it was
-// pressed on by hand, with a heart punched out of its middle.
+// Generates the Bump Appetit app icons: half an avocado, tilted like it was
+// pressed on by hand, with a heart where the stone should be.
+//
+// An avocado because it is the friendliest food there is, because it is the
+// fruit every pregnancy app compares the baby to around week sixteen, and
+// because a green heart on a plate looked like a hospital pamphlet. It has to
+// survive being 40 pixels wide next to Instagram, so it is three flat shapes
+// and no gradients.
+//
 // Pure Node, zero dependencies, so it runs anywhere including CI.
 // Usage: node scripts/build-icons.js
 
@@ -11,34 +18,45 @@ const zlib = require('zlib');
 const OUT = path.join(__dirname, '..', 'assets', 'icons');
 
 // Brand colours, kept in sync with the tokens in assets/styles.css.
-const GREEN = [0x25, 0x6c, 0x47]; // --brand
-const CREAM = [0xf5, 0xf7, 0xf2]; // --bg
+const GREEN = [0x25, 0x6c, 0x47]; // --brand, the skin
+const CREAM = [0xf5, 0xf7, 0xf2]; // --bg, the tile behind it
+const FLESH = [0xdd, 0xe9, 0xb8]; // pale butter green, the cut face
+const STONE = [0xd9, 0x7a, 0x55]; // warm coral, the heart in the middle
 
 const SS = 4; // supersample factor, 4x4 samples per output pixel
 
-// Rotated ellipse test. Coordinates are normalised to -1..1 with the icon centre
-// at the origin. The sticker leans -8 degrees, same as the CSS resting tilt.
+// Coordinates are normalised to -1..1 with the icon centre at the origin, and y
+// pointing down. The whole motif leans -8 degrees, same as the CSS resting tilt.
 const TILT = (-8 * Math.PI) / 180;
 const COS = Math.cos(TILT);
 const SIN = Math.sin(TILT);
 
-function inSticker(x, y, rx, ry) {
-  const u = x * COS + y * SIN;
-  const v = -x * SIN + y * COS;
-  return (u * u) / (rx * rx) + (v * v) / (ry * ry) <= 1;
+function tilt(x, y) {
+  return [x * COS + y * SIN, -x * SIN + y * COS];
+}
+
+/**
+ * An ellipse with a taper, so it narrows toward the top the way an avocado
+ * does. Without the taper it reads as an egg, which is the one fruit this app
+ * would rather not put on the home screen.
+ */
+function inAvocado(u, v, rx, ry) {
+  if (v < -ry || v > ry) return false;
+  const down = (v / ry + 1) / 2;              // 0 at the neck, 1 at the base
+  const width = rx * (0.58 + 0.42 * Math.pow(down, 0.5));
+  return (u * u) / (width * width) + (v * v) / (ry * ry) <= 1;
 }
 
 // Classic implicit heart curve: (x^2 + y^2 - 1)^3 - x^2 * y^3 <= 0.
-// Rotated with the sticker so the whole motif reads as one pressed-on object.
-function inHeart(x, y, scale) {
-  const u = (x * COS + y * SIN) / scale;
-  const v = -(-x * SIN + y * COS) / scale; // flip so the point faces down
-  const a = u * u + v * v - 1;
-  return a * a * a - u * u * v * v * v <= 0;
+function inHeart(u, v, scale, cy) {
+  const a = u / scale;
+  const b = -(v - cy) / scale; // flip so the point faces down
+  const t = a * a + b * b - 1;
+  return t * t * t - a * a * b * b * b <= 0;
 }
 
 function renderIcon(size, opts) {
-  const { stickerRx, stickerRy, heartScale } = opts;
+  const { rx, ry, rim, heartScale, heartY } = opts;
   const rgb = Buffer.alloc(size * size * 3);
   const step = 1 / (SS + 1);
 
@@ -49,11 +67,17 @@ function renderIcon(size, opts) {
       let b = 0;
       for (let sy = 1; sy <= SS; sy++) {
         for (let sx = 1; sx <= SS; sx++) {
-          // Map the sample to -1..1 space.
+          // Map the sample to -1..1 space, then into the tilted frame once.
           const x = ((px + sx * step) / size) * 2 - 1;
           const y = ((py + sy * step) / size) * 2 - 1;
-          const onSticker = inSticker(x, y, stickerRx, stickerRy) && !inHeart(x, y, heartScale);
-          const c = onSticker ? CREAM : GREEN;
+          const [u, v] = tilt(x, y);
+
+          // Painter's order: tile, then skin, then the cut face, then the stone.
+          let c = CREAM;
+          if (inAvocado(u, v, rx, ry)) c = GREEN;
+          if (inAvocado(u, v, rx - rim, ry - rim)) c = FLESH;
+          if (inHeart(u, v, heartScale, heartY)) c = STONE;
+
           r += c[0];
           g += c[1];
           b += c[2];
@@ -131,11 +155,12 @@ function write(name, size, opts) {
   console.log(`  ${name}  ${size}x${size}  ${(png.length / 1024).toFixed(1)}KB`);
 }
 
-// Standard framing: the sticker fills most of the tile.
-const FULL = { stickerRx: 0.82, stickerRy: 0.62, heartScale: 0.27 };
+// Standard framing: the avocado fills most of the tile. heartY sits the stone a
+// little below centre, where the real one sits in the fat of the fruit.
+const FULL = { rx: 0.60, ry: 0.80, rim: 0.11, heartScale: 0.25, heartY: 0.12 };
 // Maskable framing: everything important sits inside the centre 80% safe zone,
 // so Android can crop to a circle or squircle without clipping the heart.
-const MASKABLE = { stickerRx: 0.6, stickerRy: 0.45, heartScale: 0.22 };
+const MASKABLE = { rx: 0.45, ry: 0.60, rim: 0.085, heartScale: 0.19, heartY: 0.09 };
 
 fs.mkdirSync(OUT, { recursive: true });
 console.log('Building icons...');
