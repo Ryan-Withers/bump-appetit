@@ -1,0 +1,38 @@
+name: Smoke test the live scanner
+
+# Manual only, and deliberately so. This is the one test that calls the real
+# vision model through the real deployed Worker, so every run costs about half
+# a cent against MODEL_KEY and consumes one of the day's 100 scan slots.
+#
+# Run it from the Actions tab after changing SYSTEM_PROMPT, the model, or
+# anything in worker/. It is the only thing that would catch a prompt change
+# that quietly starts calling raw-egg hollandaise safe.
+on:
+  workflow_dispatch:
+    inputs:
+      menu:
+        description: 'Menu fixture to scan'
+        required: false
+        default: 'tests/fixtures/menu.jpg'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Scan a real menu through the live Worker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # No secrets are needed. The endpoint and passphrase are read straight out
+      # of assets/js/config.js, because a mismatch between what the app ships
+      # and what the Worker expects is exactly what this is here to catch.
+      - name: Scan the menu
+        run: node scripts/smoke-scan.js "${{ inputs.menu }}"
