@@ -27,8 +27,10 @@ export const CONFIG = Object.freeze({
     // a stranger who finds the URL from burning the daily quota.
     pass: '',
 
-    // How long to wait before giving up on a scan, in milliseconds.
-    timeoutMs: 20000,
+    // How long to wait before giving up on a scan, in milliseconds. Keep this
+    // above the Worker's own model timeout, so a slow scan comes back as a
+    // proper answer rather than the phone quietly giving up first.
+    timeoutMs: 30000,
 
     // Longest edge of the uploaded photo, in pixels. Big enough for menu text,
     // small enough for cafe wifi.

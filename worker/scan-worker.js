@@ -24,10 +24,17 @@ const MAX_DISH_NAME = 120;
 
 const VALID_TIERS = new Set(['green', 'yellow', 'red', 'unsure']);
 
+// The four both providers accept. The app only ever sends JPEG, but a data URL
+// from a share sheet or a paste can arrive as anything.
+const IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp']);
+
 // KV keys expire after two days, so a day's counter cleans itself up.
 const COUNTER_TTL_S = 172800;
 
-const MODEL_TIMEOUT_MS = 45000;
+// Deliberately under CONFIG.scanner.timeoutMs on the client. If the model is
+// having a slow day we want to answer with a clean "unreadable" she can act on,
+// rather than let the phone give up first while this keeps burning the call.
+const MODEL_TIMEOUT_MS = 25000;
 
 // Build spec 9.3, verbatim. Iterate against real menus before touching it.
 const SYSTEM_PROMPT = `You are a pregnancy food-safety checker for an Australian user, applying Australian
@@ -160,14 +167,80 @@ async function bumpCount(env, used) {
 
 /* ------------------------------------------------------------ model client */
 
+const DEFAULT_MODEL = 'claude-haiku-4-5';
+
+function modelId(env) {
+  return String((env && env.MODEL) || '').trim() || DEFAULT_MODEL;
+}
+
 /**
- * Gemini first: the free tier is the reason this app costs nothing to run.
- * Everything model-shaped lives in this one function, so swapping providers is
- * a change here and nowhere else. The Claude alternative is directly below.
+ * Claude unless told otherwise. MODEL_PROVIDER wins when it is set, and failing
+ * that a gemini-* model id picks the Google path, so changing provider is one
+ * dashboard variable rather than an edit in here.
  */
-async function callVisionModel(env, prompt, image) {
-  const model = String((env && env.MODEL) || 'gemini-2.0-flash');
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+function providerFor(env) {
+  const named = String((env && env.MODEL_PROVIDER) || '').toLowerCase().trim();
+  if (named === 'anthropic' || named === 'claude') return 'anthropic';
+  if (named === 'gemini' || named === 'google') return 'gemini';
+  return /^gemini/i.test(modelId(env)) ? 'gemini' : 'anthropic';
+}
+
+/**
+ * Observability only. The app is never told which provider failed or why, but
+ * "unreadable" with no trail behind it is impossible to diagnose, and the most
+ * likely cause by far is a key that was pasted wrong.
+ */
+async function modelFailed(provider, res) {
+  let detail = '';
+  try {
+    detail = (await res.text()).slice(0, 300);
+  } catch {
+    // Nothing to add. The status alone still says most of it.
+  }
+  console.warn(`scan: ${provider} answered ${res.status}`, detail);
+  return '';
+}
+
+/** Anthropic Messages API. Image block first, then the instruction. */
+async function callAnthropic(env, prompt, image) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'x-api-key': String(env.MODEL_KEY || ''),
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model: modelId(env),
+      max_tokens: 2048,
+      // Zero, because a food-safety verdict is not a place for flair.
+      temperature: 0,
+      system: prompt,
+      messages: [{
+        role: 'user',
+        content: [
+          {
+            type: 'image',
+            source: { type: 'base64', media_type: image.mediaType, data: image.data },
+          },
+          { type: 'text', text: 'Read this menu and classify every dish. JSON only.' },
+        ],
+      }],
+    }),
+    signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
+  });
+
+  if (!res.ok) return modelFailed('anthropic', res);
+
+  const body = await res.json();
+  return (Array.isArray(body && body.content) ? body.content : [])
+    .map((part) => (part && part.type === 'text' && typeof part.text === 'string' ? part.text : ''))
+    .join('');
+}
+
+/** Google Gemini, kept live rather than commented out so it stays swappable. */
+async function callGemini(env, prompt, image) {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId(env)}:generateContent`;
 
   const res = await fetch(url, {
     method: 'POST',
@@ -179,10 +252,9 @@ async function callVisionModel(env, prompt, image) {
       systemInstruction: { parts: [{ text: prompt }] },
       contents: [{
         role: 'user',
-        parts: [{ inline_data: { mime_type: 'image/jpeg', data: image } }],
+        parts: [{ inline_data: { mime_type: image.mediaType, data: image.data } }],
       }],
       generationConfig: {
-        // Zero, because a food-safety verdict is not a place for flair.
         temperature: 0,
         responseMimeType: 'application/json',
         maxOutputTokens: 2048,
@@ -191,7 +263,7 @@ async function callVisionModel(env, prompt, image) {
     signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
   });
 
-  if (!res.ok) return '';
+  if (!res.ok) return modelFailed('gemini', res);
 
   const body = await res.json();
   const parts = (body
@@ -203,36 +275,40 @@ async function callVisionModel(env, prompt, image) {
   return parts.map((part) => (part && typeof part.text === 'string' ? part.text : '')).join('');
 }
 
-// Claude Messages API alternative. Swap the body of callVisionModel for this
-// and set MODEL_KEY to an Anthropic key. Same inputs, same string out.
-//
-// const res = await fetch('https://api.anthropic.com/v1/messages', {
-//   method: 'POST',
-//   headers: {
-//     'content-type': 'application/json',
-//     'x-api-key': String(env.MODEL_KEY || ''),
-//     'anthropic-version': '2023-06-01',
-//   },
-//   body: JSON.stringify({
-//     model: String(env.MODEL || 'claude-haiku-4-5'),
-//     max_tokens: 2048,
-//     temperature: 0,
-//     system: prompt,
-//     messages: [{
-//       role: 'user',
-//       content: [
-//         { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: image } },
-//         { type: 'text', text: 'Classify this menu.' },
-//       ],
-//     }],
-//   }),
-//   signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
-// });
-// if (!res.ok) return '';
-// const body = await res.json();
-// return (body.content || []).map((part) => (part.type === 'text' ? part.text : '')).join('');
+/** Everything model-shaped goes through here, and returns plain text either way. */
+function callVisionModel(env, prompt, image) {
+  return providerFor(env) === 'gemini'
+    ? callGemini(env, prompt, image)
+    : callAnthropic(env, prompt, image);
+}
 
 /* ---------------------------------------------------------------- parsing */
+
+/**
+ * Pulls the base64 and its media type out of the request body, or null if there
+ * is nothing usable there. The app sends bare base64 JPEG; a data URL prefix is
+ * a cheap thing to survive, and its declared type is worth keeping rather than
+ * assuming JPEG and handing the model a mislabelled PNG.
+ */
+function readImage(body) {
+  let raw = body && typeof body.image === 'string' ? body.image : '';
+  let mediaType = 'image/jpeg';
+
+  if (raw.startsWith('data:')) {
+    const comma = raw.indexOf(',');
+    if (comma < 0) return null;
+    const declared = raw.slice(5, comma).split(';')[0].toLowerCase().trim();
+    if (IMAGE_TYPES.has(declared)) mediaType = declared;
+    raw = raw.slice(comma + 1);
+  }
+
+  const data = raw.trim();
+  if (!data || data.length > MAX_IMAGE_CHARS) return null;
+  // Junk in the field is a bad request, not a model call worth paying for.
+  if (!/^[A-Za-z0-9+/=\s]+$/.test(data)) return null;
+
+  return { data, mediaType };
+}
 
 function tidy(value, max) {
   if (typeof value !== 'string') return '';
@@ -337,12 +413,8 @@ export default {
       return json({ error: 'bad-image' }, 400, cors);
     }
 
-    let image = body && typeof body.image === 'string' ? body.image : '';
-    // The app sends bare base64, but a data URL prefix is a cheap thing to survive.
-    const comma = image.indexOf(',');
-    if (image.startsWith('data:') && comma > 0) image = image.slice(comma + 1);
-
-    if (!image || image.length > MAX_IMAGE_CHARS) {
+    const image = readImage(body);
+    if (!image) {
       return json({ error: 'bad-image' }, 400, cors);
     }
 

@@ -61,13 +61,29 @@ function post(body, { origin = ORIGIN, pass = PASS, method = 'POST' } = {}) {
   });
 }
 
-/** Swaps global fetch for one that returns a canned Gemini-shaped reply. */
-function withModel(replyText, fn, { status = 200 } = {}) {
+/** Wraps a reply string in whichever provider's response envelope. */
+function envelope(provider, replyText) {
+  return provider === 'gemini'
+    ? { candidates: [{ content: { parts: [{ text: replyText }] } }] }
+    : { content: [{ type: 'text', text: replyText }] };
+}
+
+/**
+ * Swaps global fetch for one that returns a canned reply in the given
+ * provider's shape, and records what the Worker actually sent. Anthropic is the
+ * default because that is what an unconfigured deploy now uses.
+ */
+function withModel(replyText, fn, { status = 200, provider = 'anthropic' } = {}) {
   const real = globalThis.fetch;
-  globalThis.fetch = async () => new Response(JSON.stringify({
-    candidates: [{ content: { parts: [{ text: replyText }] } }],
-  }), { status, headers: { 'content-type': 'application/json' } });
-  return fn().finally(() => { globalThis.fetch = real; });
+  const sent = [];
+  globalThis.fetch = async (url, init) => {
+    sent.push({ url: String(url), init: init || {} });
+    return new Response(JSON.stringify(envelope(provider, replyText)), {
+      status,
+      headers: { 'content-type': 'application/json' },
+    });
+  };
+  return fn(sent).finally(() => { globalThis.fetch = real; });
 }
 
 const GOOD = JSON.stringify({
@@ -148,6 +164,102 @@ const IMAGE = 'x'.repeat(2000);
     const res = await worker.fetch(post({ image: IMAGE }), env({ KV: undefined }));
     check('with no KV binding the scan still works, cap simply off', res.status === 200, `status ${res.status}`);
   });
+
+  /* ------------------------------------------------------ the model request */
+
+  await withModel(GOOD, async (sent) => {
+    await worker.fetch(post({ image: IMAGE }), env());
+    const call = sent[0] || {};
+    const headers = call.init.headers || {};
+    const body = JSON.parse(call.init.body || '{}');
+
+    check('by default the Worker calls Anthropic',
+      call.url === 'https://api.anthropic.com/v1/messages', call.url);
+    check('with the key in x-api-key and a pinned api version',
+      headers['x-api-key'] === 'fake-key' && headers['anthropic-version'] === '2023-06-01',
+      JSON.stringify(headers));
+    check('the model is Haiku 4.5', body.model === 'claude-haiku-4-5', body.model);
+    check('temperature is zero, because a verdict is not a place for flair',
+      body.temperature === 0, String(body.temperature));
+    check('the build-spec system prompt is sent as the system prompt',
+      typeof body.system === 'string' && body.system.includes('pregnancy food-safety checker'));
+
+    // Both of these are rejected outright by Haiku 4.5, so a stray one would
+    // turn every scan into a 400 that only shows up in production.
+    check('no effort or thinking field is sent',
+      body.effort === undefined && body.thinking === undefined,
+      JSON.stringify({ effort: body.effort, thinking: body.thinking }));
+
+    const content = (body.messages && body.messages[0] && body.messages[0].content) || [];
+    check('the image goes first, as a base64 block',
+      content[0] && content[0].type === 'image'
+      && content[0].source.type === 'base64'
+      && content[0].source.media_type === 'image/jpeg'
+      && content[0].source.data === IMAGE,
+      JSON.stringify(content[0] && content[0].source && content[0].source.type));
+    check('and the instruction follows it', content[1] && content[1].type === 'text');
+  });
+
+  await withModel(GOOD, async (sent) => {
+    await worker.fetch(post({ image: IMAGE }), env({ MODEL: 'claude-sonnet-5' }));
+    check('the MODEL variable overrides the model id',
+      JSON.parse(sent[0].init.body).model === 'claude-sonnet-5');
+  });
+
+  /* ------------------------------------------------ the provider is swappable */
+
+  await withModel(GOOD, async (sent) => {
+    const res = await worker.fetch(post({ image: IMAGE }), env({ MODEL_PROVIDER: 'gemini', MODEL: 'gemini-2.0-flash' }));
+    check('MODEL_PROVIDER=gemini switches provider',
+      /generativelanguage\.googleapis\.com/.test(sent[0].url), sent[0].url);
+    check('and sends the key the Google way',
+      (sent[0].init.headers || {})['x-goog-api-key'] === 'fake-key');
+    check('and its reply shape still parses', res.status === 200, `status ${res.status}`);
+  }, { provider: 'gemini' });
+
+  await withModel(GOOD, async (sent) => {
+    await worker.fetch(post({ image: IMAGE }), env({ MODEL: 'gemini-2.0-flash' }));
+    check('a gemini model id alone is enough to pick the Google path',
+      /generativelanguage/.test(sent[0].url), sent[0].url);
+  }, { provider: 'gemini' });
+
+  /* ------------------------------------------------------------ the picture */
+
+  await withModel(GOOD, async (sent) => {
+    const res = await worker.fetch(post({ image: `data:image/png;base64,${IMAGE}` }), env());
+    const source = JSON.parse(sent[0].init.body).messages[0].content[0].source;
+    check('a data URL prefix is stripped off', source.data === IMAGE, source.data.slice(0, 24));
+    check('and its declared media type is carried through, not assumed JPEG',
+      source.media_type === 'image/png', source.media_type);
+    check('the scan still succeeds', res.status === 200);
+  });
+
+  await withModel(GOOD, async (sent) => {
+    const res = await worker.fetch(post({ image: 'not base64 at all !!! <script>' }), env());
+    check('junk in the image field is refused before the model is called',
+      res.status === 400 && sent.length === 0, `status ${res.status}, ${sent.length} calls`);
+  });
+
+  /* ------------------------------------------------- when the provider is down */
+
+  {
+    const warnings = [];
+    const realWarn = console.warn;
+    console.warn = (...args) => warnings.push(args.join(' '));
+    try {
+      await withModel('{"error":{"message":"invalid x-api-key"}}', async () => {
+        const res = await worker.fetch(post({ image: IMAGE }), env());
+        check('a rejected key becomes a kind unreadable, not a stack trace',
+          res.status === 502 && (await res.json()).error === 'unreadable', `status ${res.status}`);
+      }, { status: 401 });
+    } finally {
+      console.warn = realWarn;
+    }
+    check('the failure is logged so it can be diagnosed',
+      warnings.some((line) => /401/.test(line)), JSON.stringify(warnings));
+    check('and the log never contains the key',
+      !warnings.some((line) => line.includes('fake-key')), JSON.stringify(warnings));
+  }
 
   /* -------------------------------------------- the model response validator */
 

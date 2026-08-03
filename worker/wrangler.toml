@@ -14,9 +14,9 @@
 #   1. PASS       a passphrase you invent. It must match CONFIG.scanner.pass in
 #                 assets/js/config.js exactly. Not a security boundary: it just
 #                 stops a stranger who finds the URL burning the daily quota.
-#   2. MODEL_KEY  the vision model API key. Gemini by default, from
-#                 aistudio.google.com > Get API key. Swap to an Anthropic key if
-#                 you switch callVisionModel over to Claude.
+#   2. MODEL_KEY  the vision model API key. Anthropic by default, from
+#                 console.anthropic.com > API keys. A Gemini key works too, see
+#                 MODEL_PROVIDER below.
 #
 # Never put either of them in this file. This file is public in the repo.
 # ---------------------------------------------------------------------------
@@ -37,7 +37,17 @@ workers_dev = true
 # Comma-separate if you ever need a second origin, for example a custom domain.
 ALLOWED_ORIGIN = "https://ryan-withers.github.io"
 
-# Optional. Overrides the default model id in callVisionModel.
+# Both optional. The Worker calls Claude Haiku 4.5 with no variables set at all,
+# which is the cheapest model that reads a photographed menu reliably: about a
+# tenth of a cent per scan.
+#
+# To move to a different Claude model, set MODEL alone:
+#   MODEL = "claude-sonnet-5"
+#
+# To move to Gemini, set MODEL_PROVIDER and put a Google key in MODEL_KEY. A
+# model id starting with "gemini" is enough on its own, but being explicit
+# costs nothing and reads better in the dashboard six months from now.
+# MODEL_PROVIDER = "gemini"
 # MODEL = "gemini-2.0-flash"
 
 # The daily scan counter lives here, one key per day, self-expiring.
