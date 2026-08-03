@@ -46,6 +46,12 @@ jobs:
       - name: Run the golden search queries
         run: node scripts/test-search.js
 
+      # The Worker is tested against a fake model, so this needs no Cloudflare
+      # account and no API key: it guards the auth, quota and the validator that
+      # stands between a hallucinating model and a verdict she reads.
+      - name: Test the scanner Worker
+        run: node scripts/test-worker.js
+
   deploy:
     name: Deploy to GitHub Pages
     # Push to the default branch only. Pull requests get the checks above and
