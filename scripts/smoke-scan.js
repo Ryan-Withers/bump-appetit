@@ -30,29 +30,44 @@ const FIXTURE = process.argv[2] || 'tests/fixtures/menu.jpg';
 const EXPECT = [
   // The unambiguous reds. Getting any of these wrong is the whole app failing.
   { match: /p[âa]t[ée]|liver/i, tier: ['red'], label: 'chicken liver pate' },
-  { match: /prawn/i, tier: ['red'], label: 'cold prawn cocktail' },
+  { match: /prawn cocktail/i, tier: ['red'], label: 'cold prawn cocktail' },
   { match: /prosciutto|rockmelon|melon/i, tier: ['red'], label: 'prosciutto and rockmelon' },
   { match: /benedict|hollandaise/i, tier: ['red'], label: 'eggs benedict' },
   { match: /caesar/i, tier: ['red'], label: 'caesar salad' },
   { match: /soft serve|sundae/i, tier: ['red'], label: 'soft serve' },
   { match: /tiramisu/i, tier: ['red'], label: 'tiramisu' },
   { match: /kombucha/i, tier: ['red'], label: 'kombucha' },
+  // Smoked does not mean hot, and cold cooked chicken is the listeria case.
+  { match: /smoked chicken/i, tier: ['red'], label: 'smoked chicken salad (cold cooked chicken)' },
 
-  // Fine with a limit, and saying so is the point: calling flake plain red
-  // would be wrong, and calling it green would be worse.
-  { match: /flake/i, tier: ['yellow', 'red'], label: 'flake (shark)' },
+  // Fine with a limit. Every one of these is a tier foods.json states outright,
+  // so a disagreement here is the scanner contradicting the search screen about
+  // the very same words, which is worse than either answer alone.
+  { match: /flake/i, tier: ['yellow'], label: 'flake (shark, fortnightly)' },
   { match: /flat white|long black|coffee/i, tier: ['yellow'], label: 'coffee' },
+  { match: /peppermint|herbal tea/i, tier: ['yellow'], label: 'peppermint tea' },
+  { match: /hot chocolate/i, tier: ['yellow'], label: 'hot chocolate (counts toward caffeine)' },
+  { match: /heaps normal|zero alcohol|pale ale/i, tier: ['yellow'], label: 'zero alcohol beer (up to 0.5%)' },
+  { match: /gelato/i, tier: ['yellow'], label: 'scooped gelato (shared scoop)' },
+  { match: /pad thai/i, tier: ['yellow'], label: 'pad thai (raw bean sprouts)' },
 
-  // Must not be waved through as green. Red or unsure are both acceptable
-  // answers here, because the menu genuinely does not settle them.
+  // Must not be waved through as green. The menu genuinely does not settle
+  // these, so red or unsure are both honest answers and green is not.
   { match: /smashed avo|avocado/i, tier: ['red', 'unsure', 'yellow'], label: 'smashed avo with fetta and poached egg' },
   { match: /squid|calamari/i, tier: ['red', 'unsure'], label: 'squid with aioli' },
-  { match: /scotch|fillet steak|steak/i, tier: ['red', 'unsure', 'yellow', 'green'], label: 'scotch fillet', soft: true },
+  { match: /scotch|rump|sirloin/i, tier: ['red', 'unsure', 'yellow'], label: 'scotch fillet cooked to your liking' },
+  { match: /burger/i, tier: ['red', 'unsure', 'yellow'], label: 'beef burger with a fried egg of unstated doneness' },
 
-  // Safe, and should be recognised as safe. Only a warning if it comes back
-  // unsure, because over-caution costs her a meal, not her health.
+  // Safe, and should be recognised as safe. Only a warning if these come back
+  // unsure, because over-caution costs her a meal rather than her health, but a
+  // scanner that hedges on ordinary food is a scanner she stops opening.
   { match: /barramundi/i, tier: ['green'], label: 'grilled barramundi', soft: true },
-  { match: /toastie|toasted/i, tier: ['green'], label: 'ham and cheese toastie', soft: true },
+  { match: /toastie/i, tier: ['green'], label: 'ham and cheese toastie', soft: true },
+  { match: /croissant/i, tier: ['green'], label: 'ham and cheese croissant (hot deli)', soft: true },
+  { match: /margherita|pizza/i, tier: ['green'], label: 'wood fired margherita', soft: true },
+  { match: /kilpatrick/i, tier: ['green'], label: 'oysters kilpatrick (cooked under the grill)', soft: true },
+  { match: /pavlova/i, tier: ['green'], label: 'pavlova (baked meringue)', soft: true },
+  { match: /battered fish|fish of the day/i, tier: ['green'], label: 'battered fish of the day', soft: true },
 ];
 
 /* ------------------------------------------------------------------ config */
