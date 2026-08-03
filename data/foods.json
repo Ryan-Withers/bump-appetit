@@ -25,7 +25,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "brie",
@@ -54,7 +58,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "cheese",
@@ -114,7 +122,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "cheese-spread",
@@ -139,7 +151,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med"
+   }
   },
   {
    "id": "cottage-cheese",
@@ -165,7 +180,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "low",
+    "protein": "high"
+   }
   },
   {
    "id": "cream-and-butter",
@@ -220,7 +239,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "low"
+   }
   },
   {
    "id": "custard",
@@ -246,7 +268,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med"
+   }
   },
   {
    "id": "feta-and-ricotta",
@@ -274,7 +299,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "fresh-mozzarella",
@@ -302,7 +331,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "fried-ice-cream",
@@ -352,7 +385,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "hard-cheeses",
@@ -383,7 +420,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "ice-cream-tub",
@@ -438,7 +479,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "milk",
@@ -485,7 +530,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "homemade-milkshake",
@@ -510,7 +560,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "paneer",
@@ -537,7 +591,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "pasteurised-milk",
@@ -566,7 +624,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "processed-cheese-slices",
@@ -592,7 +655,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med"
+   }
   },
   {
    "id": "gelato-scooped",
@@ -657,7 +723,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "soft-serve",
@@ -740,7 +809,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "yoghurt",
@@ -767,7 +841,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "emmental",
@@ -791,7 +870,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "jarlsberg",
@@ -814,7 +897,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "provolone",
@@ -837,7 +924,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "manchego",
@@ -859,7 +950,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "red-leicester",
@@ -882,7 +977,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "double-gloucester",
@@ -905,7 +1004,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "raclette",
@@ -941,7 +1044,11 @@
      "makeItGreen": "Under the grill or over potatoes until it bubbles, and it is straight back on.",
      "swap": "A firm pasteurised alpine cheese like gruyere from the green list."
     }
-   ]
+   ],
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "hard-goat-cheese",
@@ -965,7 +1072,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "havarti",
@@ -989,7 +1100,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "stracchino",
@@ -1011,7 +1126,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "taleggio",
@@ -1034,7 +1153,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "mascarpone",
@@ -1081,7 +1204,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "quark",
@@ -1104,7 +1231,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high"
+   }
   },
   {
    "id": "skyr",
@@ -1127,7 +1257,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "high"
+   }
   },
   {
    "id": "kefir-yoghurt",
@@ -1150,7 +1284,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "yoghurt-drinks",
@@ -1175,7 +1314,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "fromage-frais",
@@ -1199,7 +1342,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "custard-tart",
@@ -1246,7 +1393,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "condensed-milk",
@@ -1290,7 +1441,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med"
+   }
   },
   {
    "id": "flavoured-milk",
@@ -1315,7 +1469,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "frozen-yoghurt-tub",
@@ -1382,7 +1540,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "med"
+   }
   },
   {
    "id": "bacon-hot",
@@ -1408,7 +1570,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "cooked-meats",
@@ -1439,7 +1604,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "meat-paste-shelf-stable",
@@ -1493,7 +1662,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "bbq-chicken-cold",
@@ -1518,7 +1690,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high"
+   }
   },
   {
    "id": "sandwich-shop-cold-meats",
@@ -1544,7 +1719,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "ham",
@@ -1594,7 +1772,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "deli-meat-heated",
@@ -1626,7 +1807,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "bbq-chicken-hot",
@@ -1652,7 +1836,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high"
+   }
   },
   {
    "id": "jerky-biltong",
@@ -1690,6 +1877,10 @@
       "says": "Red. It is dried and cured but never cooked, and there is no sensible way to serve jerky steaming hot, so the stricter reading of the cured meat rule wins."
      }
     ]
+   },
+   "nutrients": {
+    "iron": "med",
+    "protein": "high"
    }
   },
   {
@@ -1716,7 +1907,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "high",
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "pate-refrigerated",
@@ -1745,7 +1941,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med"
+   }
   },
   {
    "id": "prosciutto",
@@ -1773,7 +1972,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "steak-rare",
@@ -1800,7 +2002,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "raw-mince-dishes",
@@ -1828,7 +2034,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "sausages-cooked",
@@ -1855,7 +2065,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "steak-well-done",
@@ -1882,7 +2096,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "pate-veggie",
@@ -1952,7 +2170,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "pepperoni-cold",
@@ -2079,7 +2301,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "speck",
@@ -2201,7 +2427,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "high"
+   }
   },
   {
    "id": "schnitzel-cooked",
@@ -2231,7 +2461,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high"
+   }
   },
   {
    "id": "rissoles",
@@ -2254,7 +2487,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "meatballs-cooked",
@@ -2282,7 +2519,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "high"
+   }
   },
   {
    "id": "pulled-pork",
@@ -2306,7 +2547,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high"
+   }
   },
   {
    "id": "ribs-hot",
@@ -2333,7 +2577,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high"
+   }
   },
   {
    "id": "chicken-wings",
@@ -2359,7 +2606,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "brisket-slow-cooked",
@@ -2383,7 +2633,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "dim-sims-hot",
@@ -2471,7 +2725,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "high"
+   }
   },
   {
    "id": "venison-game",
@@ -2499,7 +2757,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "kangaroo",
@@ -2537,7 +2799,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "high",
+    "protein": "high"
+   }
   },
   {
    "id": "turducken",
@@ -2559,7 +2825,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high"
+   }
   },
   {
    "id": "fried-chicken-hot",
@@ -2588,7 +2857,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "hot-dogs-frankfurts",
@@ -2671,7 +2943,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "high"
+   }
   },
   {
    "id": "meatloaf",
@@ -2693,7 +2969,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "high"
+   }
   },
   {
    "id": "canned-smoked-shellfish",
@@ -2718,7 +2998,13 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med",
+    "omega3": "med",
+    "iodine": "high"
+   }
   },
   {
    "id": "canned-fish",
@@ -2745,7 +3031,13 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "high",
+    "omega3": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "ceviche",
@@ -2769,7 +3061,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "fish-and-chips",
@@ -2795,7 +3091,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "flake",
@@ -2838,6 +3138,10 @@
       "source": "monash-ivf"
      }
     ]
+   },
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
    }
   },
   {
@@ -2869,7 +3173,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "med",
+    "iodine": "high"
+   }
   },
   {
    "id": "cooked-shellfish",
@@ -2899,7 +3208,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "high"
+   }
   },
   {
    "id": "sushi-cooked-fresh",
@@ -2929,7 +3242,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "marinated-mussels",
@@ -2954,7 +3271,12 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med",
+    "iodine": "high"
+   }
   },
   {
    "id": "orange-roughy-catfish",
@@ -2979,7 +3301,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "prawns",
@@ -3029,7 +3355,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "high"
+   }
   },
   {
    "id": "prawns-precooked-cold",
@@ -3056,7 +3386,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "high"
+   }
   },
   {
    "id": "sushi-store-bought",
@@ -3083,7 +3417,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "oysters-raw",
@@ -3109,7 +3447,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med",
+    "iodine": "high"
+   }
   },
   {
    "id": "salmon",
@@ -3157,7 +3500,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "sashimi",
@@ -3186,7 +3534,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "smoked-salmon",
@@ -3214,7 +3567,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "ling",
@@ -3237,7 +3595,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "blue-grenadier-hoki",
@@ -3261,7 +3623,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "basa",
@@ -3287,7 +3654,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "omega3": "low"
+   }
   },
   {
    "id": "john-dory",
@@ -3310,7 +3681,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "bream",
@@ -3334,7 +3709,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "garfish",
@@ -3356,7 +3735,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "trevally",
@@ -3378,7 +3761,12 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "mahi-mahi",
@@ -3401,7 +3789,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "kingfish-cooked",
@@ -3438,7 +3830,12 @@
      "makeItGreen": "Cooked through is the flip: ask for it grilled instead.",
      "swap": "Grilled kingfish, or cooked-through salmon."
     }
-   ]
+   ],
+   "nutrients": {
+    "protein": "high",
+    "omega3": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "fresh-tuna-steak",
@@ -3478,7 +3875,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "fresh-trout",
@@ -3503,7 +3905,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "omega3": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "grilled-octopus",
@@ -3526,7 +3933,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "balmain-bugs",
@@ -3549,7 +3961,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "pipis-vongole",
@@ -3574,7 +3990,12 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "high",
+    "protein": "med",
+    "iodine": "high"
+   }
   },
   {
    "id": "oysters-kilpatrick-mornay",
@@ -3600,7 +4021,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med",
+    "iodine": "high"
+   }
   },
   {
    "id": "canned-mackerel-herring",
@@ -3625,7 +4051,13 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "high",
+    "omega3": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "fish-roe-caviar",
@@ -3652,7 +4084,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "omega3": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "seafood-extender",
@@ -3677,7 +4113,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "omega3": "low"
+   }
   },
   {
    "id": "whitebait",
@@ -3699,7 +4139,13 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "high",
+    "protein": "high",
+    "omega3": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "thai-fish-cakes",
@@ -3723,7 +4169,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "tuna-mornay-fish-pie",
@@ -3747,7 +4197,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "marinara-mix",
@@ -3770,7 +4224,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "salmon-patties",
@@ -3793,7 +4251,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med",
+    "omega3": "med"
+   }
   },
   {
    "id": "baked-cakes-biscuits",
@@ -3874,7 +4337,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med"
+   }
   },
   {
    "id": "eggs",
@@ -3929,7 +4395,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "med",
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "eggs-cooked-firm",
@@ -3960,7 +4431,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "med",
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "eggs-cracked",
@@ -4201,7 +4677,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "caesar-salad",
@@ -4259,7 +4739,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "med",
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "tiramisu",
@@ -4324,7 +4809,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "carbonara",
@@ -4362,7 +4851,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "creme-brulee",
@@ -4409,7 +4901,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "lemon-curd",
@@ -4533,7 +5029,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "duck-eggs",
@@ -4570,7 +5070,12 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "med",
+    "protein": "high",
+    "iodine": "med"
+   }
   },
   {
    "id": "devilled-eggs",
@@ -4609,7 +5114,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "scotch-eggs",
@@ -4644,7 +5153,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "egg-salad-sandwich",
@@ -4683,7 +5196,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "avocado",
@@ -4712,7 +5229,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "high",
+    "fibre": "med"
+   }
   },
   {
    "id": "cafe-juice-smoothie",
@@ -4768,7 +5289,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "canned-vegetables",
@@ -4796,7 +5320,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "cooked-mushrooms",
@@ -4855,7 +5382,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "enoki-mushrooms",
@@ -4911,7 +5442,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "fresh-herbs",
@@ -4979,6 +5513,9 @@
       "says": "Imported frozen berries have been recalled in Australia before. The extra-careful move is to cook them first, or pick Australian grown. Your call, and both are reasonable."
      }
     ]
+   },
+   "nutrients": {
+    "fibre": "med"
    }
   },
   {
@@ -5007,7 +5544,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "fruit-cut-at-home",
@@ -5034,7 +5575,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "home-juice-smoothie",
@@ -5060,7 +5604,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "mushrooms",
@@ -5137,7 +5684,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "raw-sprouts",
@@ -5270,7 +5820,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "high",
+    "fibre": "med"
+   }
   },
   {
    "id": "shop-fruit-salad",
@@ -5372,7 +5926,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "blueberries-raspberries",
@@ -5400,7 +5957,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "fibre": "high"
+   }
   },
   {
    "id": "mangoes",
@@ -5425,7 +5985,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "grapes-cherries",
@@ -5477,7 +6041,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "apples-pears",
@@ -5504,7 +6071,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "citrus-fruit",
@@ -5535,7 +6105,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "papaya",
@@ -5560,7 +6134,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "pomegranate",
@@ -5583,7 +6161,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "fresh-figs",
@@ -5606,7 +6187,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "stone-fruit",
@@ -5712,7 +6296,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "high",
+    "iron": "low",
+    "fibre": "med"
+   }
   },
   {
    "id": "kale",
@@ -5752,7 +6341,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "high",
+    "calcium": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "cos-iceberg-lettuce",
@@ -5782,7 +6376,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "med"
+   }
   },
   {
    "id": "bagged-coleslaw-mix",
@@ -6347,7 +6944,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "hot-chocolate",
@@ -6375,7 +6976,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "fermented-drinks",
@@ -6576,7 +7181,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "affogato",
@@ -6721,7 +7330,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "iced-coffee-bottled",
@@ -6748,7 +7361,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "rooibos-tea",
@@ -7048,7 +7665,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "milkshake-shop",
@@ -7084,7 +7705,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "bone-broth",
@@ -7107,7 +7732,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "low",
+    "protein": "low"
+   }
   },
   {
    "id": "bread-cereal-oats",
@@ -7137,7 +7766,13 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "high",
+    "iron": "med",
+    "iodine": "med",
+    "fibre": "high"
+   }
   },
   {
    "id": "canned-bottled-foods",
@@ -7287,7 +7922,12 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "folate": "med",
+    "protein": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "jar-condiments",
@@ -7375,7 +8015,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "peanuts",
@@ -7403,7 +8048,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "pineapple-labour-myth",
@@ -7455,7 +8104,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "fibre": "med"
+   }
   },
   {
    "id": "cookie-dough",
@@ -7597,7 +8249,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "calcium": "med"
+   }
   },
   {
    "id": "tofu-and-soy",
@@ -7627,7 +8283,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "calcium": "med",
+    "protein": "high"
+   }
   },
   {
    "id": "vegemite",
@@ -7666,6 +8327,9 @@
       "says": "Green, enthusiastically. It brings folate and B vitamins, which pregnancy actively wants, so benching it would be inventing a worry."
      }
     ]
+   },
+   "nutrients": {
+    "folate": "high"
    }
   },
   {
@@ -8177,7 +8841,10 @@
      "why": "Brown seaweeds pack serious iodine, and too much is its own problem. Keep wakame salads and kombu broths occasional rather than daily.",
      "makeItGreen": "An occasional serve is fine; it is the every-day habit to skip. Nori has no such cap."
     }
-   ]
+   ],
+   "nutrients": {
+    "iodine": "high"
+   }
   },
   {
    "id": "protein-balls",
@@ -8215,7 +8882,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "low",
+    "fibre": "med"
+   }
   },
   {
    "id": "instant-noodles",
@@ -8369,7 +9040,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "chicken-parmigiana",
@@ -8395,7 +9070,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "eggs-benedict",
@@ -8423,7 +9102,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "hot-chips",
@@ -8483,7 +9166,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "maccas-soft-serve",
@@ -8541,7 +9228,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "pad-thai-stir-fry",
@@ -8571,7 +9262,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "pho",
@@ -8619,7 +9313,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "pizza",
@@ -8649,7 +9347,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "packaged-sandwiches",
@@ -8758,7 +9460,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "sushi-train",
@@ -8805,7 +9511,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "toasted-ham-cheese",
@@ -8835,7 +9545,11 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "banh-mi",
@@ -8860,7 +9574,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "laksa",
@@ -8885,7 +9602,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "bibimbap",
@@ -8922,7 +9642,13 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "med",
+    "iron": "med",
+    "protein": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "ramen",
@@ -8962,7 +9688,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "dumplings-gyoza",
@@ -8994,7 +9723,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "yum-cha",
@@ -9110,7 +9842,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "butter-chicken-curries",
@@ -9138,7 +9874,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "rice-paper-rolls",
@@ -9211,7 +9950,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "fibre": "med"
+   }
   },
   {
    "id": "burrito",
@@ -9242,7 +9985,13 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "folate": "med",
+    "iron": "med",
+    "protein": "med",
+    "fibre": "high"
+   }
   },
   {
    "id": "fish-burger",
@@ -9265,7 +10014,12 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "omega3": "low",
+    "iodine": "med"
+   }
   },
   {
    "id": "pastie",
@@ -9314,7 +10068,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "iron": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "san-choy-bau",
@@ -9339,7 +10097,10 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "tom-yum",
@@ -9364,7 +10125,11 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med",
+    "iodine": "med"
+   }
   },
   {
    "id": "thai-green-curry",
@@ -9391,7 +10156,10 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "katsu-curry",
@@ -9416,7 +10184,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "teriyaki-chicken",
@@ -9440,7 +10211,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "sweet-and-sour-pork",
@@ -9463,7 +10237,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "lemon-honey-chicken",
@@ -9486,7 +10263,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   },
   {
    "id": "salt-pepper-tofu",
@@ -9509,7 +10289,11 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "calcium": "med",
+    "protein": "med"
+   }
   },
   {
    "id": "satay-skewers",
@@ -9533,7 +10317,10 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrients": {
+    "protein": "med"
+   }
   }
  ]
 }
