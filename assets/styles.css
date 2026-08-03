@@ -835,7 +835,28 @@ body:has(.sheet.is-open) .sheet-backdrop {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 0 var(--s5) var(--s6);
+  padding: 0 var(--s5) var(--s8);
+}
+
+/* The sheet's vertical rhythm. Sheet content arrives as a flat list of
+   blocks, so the breathing room lives here rather than on each block: a calm
+   default beat, tighter where a pair belongs together (emoji and name,
+   sources and their checked date), and extra air before the nutrient chips
+   so the good news never crowds the safety verdict above it. */
+.sheet__body > * + * { margin-top: var(--s4); }
+
+.sheet__body > * + .verdict__name { margin-top: var(--s6); }
+.sheet__body > .verdict__emoji + .verdict__name { margin-top: var(--s2); }
+.sheet__body > .sticker { margin-top: var(--s3); }
+.sheet__body > .checked { margin-top: var(--s2); }
+.sheet__body > .nutrients { margin-top: var(--s6); }
+
+/* The footer meta starts under a soft hairline, so the source chips read as
+   the sheet's credits rather than as more nutrient chips. */
+.sheet__body > .sources {
+  margin-top: var(--s6);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--line);
 }
 
 /* The heart lives in the sheet's top-right cluster, immediately left of the
