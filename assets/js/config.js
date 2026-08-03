@@ -20,12 +20,14 @@ export const CONFIG = Object.freeze({
     // 'https://bump-scan.your-subdomain.workers.dev'.
     // Leave it empty and the Scan screen politely offers basic on-device
     // reading instead of pretending the smart scanner exists.
-    endpoint: '',
+    endpoint: 'https://bump-scan.ryan-96e.workers.dev',
 
     // Shared passphrase, sent as the x-bump-pass header. Must match the PASS
     // secret set on the Worker. This is not a security boundary, it just stops
-    // a stranger who finds the URL from burning the daily quota.
-    pass: '',
+    // a stranger who finds the URL from burning the daily quota. It ships to
+    // the browser, so treat it as public: the thing that actually caps the
+    // damage is the Worker's 100 model calls a day.
+    pass: 'cedar-nectar-fennel-9349',
 
     // How long to wait before giving up on a scan, in milliseconds. Keep this
     // above the Worker's own model timeout, so a slow scan comes back as a
