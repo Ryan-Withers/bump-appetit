@@ -229,6 +229,33 @@ function swapEl(message) {
   ]);
 }
 
+/**
+ * The honest 50-50 panel. Some foods are genuine judgement calls, and Ryan's
+ * rule for those is transparency over false confidence: show what each source
+ * actually says, side by side, and let the tier carry the stricter call.
+ */
+function splitEl(split) {
+  if (!split || typeof split !== 'object') return null;
+  const positions = (Array.isArray(split.positions) ? split.positions : [])
+    .filter((pos) => pos && text(pos.label) && text(pos.says));
+  if (positions.length < 2) return null;
+
+  const wrap = el('div', { class: 'split', role: 'note' }, [
+    el('p', { class: 'split__note' }, [
+      el('strong', {}, labelled(str('verdict.splitHeading', "It's a 50-50"))),
+      text(split.note),
+    ]),
+  ]);
+
+  for (const pos of positions) {
+    wrap.appendChild(el('p', { class: 'split__position' }, [
+      el('strong', { class: 'split__who' }, labelled(text(pos.label))),
+      text(pos.says),
+    ]));
+  }
+  return wrap;
+}
+
 function whyEl(food, key) {
   const why = text(food.why)
     || (key === 'depends' ? str('verdict.dependsLead', "Depends how it's served:") : '');
@@ -345,6 +372,9 @@ function buildVerdict(content, food, refs) {
   refs.sticker = content.lastElementChild;
 
   content.appendChild(whyEl(food, key));
+
+  const split = splitEl(food.split);
+  if (split) content.appendChild(split);
 
   const green = text(food.makeItGreen);
   if (green) {

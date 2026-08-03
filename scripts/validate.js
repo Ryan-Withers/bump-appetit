@@ -255,6 +255,7 @@ function checkFoods(bundle, sourceKeys) {
     aliases: 0,
     groups: new Map(),
     flagged: 0,
+    splits: 0,
     sourcesUsed: new Set(),
   };
 
@@ -436,6 +437,47 @@ function checkFoods(bundle, sourceKeys) {
 
     if (food.tier === 'red' && !isFilledString(food.makeItGreen) && !isFilledString(food.swap)) {
       fail(file, label, 'is red with no way out. Add a "makeItGreen" or a "swap". No dead ends: that rule is a build check, not a guideline.');
+    }
+
+    // 7. Split verdicts: the honest 50-50s, where the sources genuinely
+    // disagree or simply do not cover it. Optional on any entry. Each position
+    // is shown to her verbatim with its attribution, so the same rules apply
+    // as to why: short, kind, and never a wall of text.
+    if (food.split !== undefined) {
+      const spot = at('split');
+      if (!food.split || typeof food.split !== 'object' || Array.isArray(food.split)) {
+        fail(file, spot, 'must be an object with a note and at least two positions.');
+      } else {
+        stats.splits += 1;
+        if (!isFilledString(food.split.note)) {
+          fail(file, `${spot}.note`, 'is missing. Say plainly that this one is a judgement call.');
+        } else if (food.split.note.length > WHY_MAX) {
+          fail(file, `${spot}.note`, `is ${food.split.note.length} characters, over the ${WHY_MAX} limit.`);
+        }
+        if (!Array.isArray(food.split.positions) || food.split.positions.length < 2) {
+          fail(file, `${spot}.positions`, 'needs at least two positions. One opinion is not a split.');
+        } else {
+          food.split.positions.forEach((pos, j) => {
+            const posSpot = `${spot}.positions[${j}]`;
+            if (!pos || typeof pos !== 'object') {
+              fail(file, posSpot, 'must be an object with label and says.');
+              return;
+            }
+            if (!isFilledString(pos.label)) fail(file, `${posSpot}.label`, 'is missing. Who says this?');
+            if (!isFilledString(pos.says)) fail(file, `${posSpot}.says`, 'is missing.');
+            if (isString(pos.says) && pos.says.length > WHY_MAX) {
+              fail(file, `${posSpot}.says`, `is ${pos.says.length} characters, over the ${WHY_MAX} limit.`);
+            }
+            if (pos.source !== undefined) {
+              if (!sourceKeys.has(pos.source)) {
+                fail(file, `${posSpot}.source`, `refers to ${JSON.stringify(pos.source)}, which is not in data/sources.json.`);
+              } else {
+                stats.sourcesUsed.add(pos.source);
+              }
+            }
+          });
+        }
+      }
     }
   });
 
@@ -718,6 +760,7 @@ function summarise(counts) {
     `  aliases       ${foods.aliases} unique search terms`,
     `  groups        ${groupLines}`,
     `  pending       ${foods.flagged} entr${foods.flagged === 1 ? 'y' : 'ies'} flagged for sign-off`,
+    `  splits        ${foods.splits} advice-is-split panels, sources quoted side by side`,
     `  meals         ${meals.meals} (${meals.snacks} snacks, ${meals.mains} meals) plus ${meals.swaps} craving swaps`,
     `  lexicon       ${lexicon.terms} terms, ${lexicon.phrases} phrases, ${lexicon.signals} cooked signals`,
     `  cheat sheets  ${sheets.sheets} sheets, ${sheets.rows} rows, ${sheets.asks} magic questions`,

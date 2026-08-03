@@ -90,6 +90,7 @@ Entry shape:
 | `flags` | string[] | yes | `confirm` marks a row still pending Ryan's sign-off. Empty array otherwise |
 | `popularity` | 1-3 | yes | 3 is a very common search, 1 is a long-tail entry. Breaks ranking ties |
 | `reviewed` | string | yes | `YYYY-MM` |
+| `split` | object | no | The honest 50-50 panel, for foods where the sources genuinely disagree or never weigh in. `{ note, positions: [{ label, says, source? }] }` with at least 2 positions, `note` and each `says` 220 max, `source` optional but must exist in sources.json. The tier still carries the stricter call; the panel shows both sides verbatim |
 
 Rule the validator enforces: every red entry and every red variant must carry a
 `makeItGreen` or a `swap`. Kindness is a build check, not a guideline.
@@ -334,7 +335,8 @@ Sheet: `.sheet-backdrop`, `.sheet`, `.sheet.is-open`, `.sheet__handle`,
 `.sheet__close`, `.sheet__body`, `.sheet__fav`.
 
 Verdict: `.verdict__emoji`, `.verdict__name`, `.verdict__why`, `.callout`,
-`.callout--green`, `.callout__icon`, `.swap`, `.variants`, `.variant`,
+`.callout--green`, `.callout__icon`, `.swap`, `.split`, `.split__note`,
+`.split__position`, `.split__who`, `.variants`, `.variant`,
 `.variant__label`, `.variant__why`, `.sources`, `.source-chip`, `.checked`.
 
 Scan: `.scan`, `.scan__button`, `.scan__preview`, `.scan__line`, `.scan__status`,

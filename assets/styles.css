@@ -904,6 +904,31 @@ body:has(.sheet.is-open) .sheet-backdrop {
 .swap { font-size: var(--fs-label); line-height: 1.5; color: var(--ink-2); }
 .swap strong { color: var(--ink); font-weight: 700; }
 
+/* The honest 50-50 panel: both sources' positions, side by side, on foods where
+   the advice genuinely splits. Same quiet card language as .callout, no tier
+   colour, because the panel's whole job is to NOT pretend certainty. */
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-btn);
+  background: var(--surface-2);
+  font-size: var(--fs-label);
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.split__note strong { color: var(--ink); font-weight: 700; }
+
+.split__position {
+  padding-left: var(--s3);
+  border-left: 2px solid var(--line);
+}
+
+.split__who { color: var(--ink); font-weight: 700; }
+
 .variants { display: flex; flex-direction: column; gap: var(--s2); }
 
 /* Wraps so the why can drop to its own line when expanded, whatever element

@@ -161,6 +161,9 @@ export const STRINGS = Object.freeze({
     favourite: 'Save to favourites',
     unfavourite: 'Remove from favourites',
     flagConfirm: 'Ryan is double-checking this one against the source.',
+    // Leads the honest 50-50 panel on foods where the sources genuinely
+    // disagree or simply never weigh in. Both positions are quoted under it.
+    splitHeading: "It's a 50-50",
   },
 
   /* ------------------------------------------------------------ how we decide
