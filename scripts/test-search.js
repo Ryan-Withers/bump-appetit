@@ -163,7 +163,7 @@ const GOLDEN = [
   ['liver', 'liver', 'yellow'],
   ['gelato', 'gelato-scooped', 'yellow'],
   ['coke', 'cola', 'yellow'],
-  ['raspberry leaf tea', 'herbal-tea', 'yellow'],
+  ['raspberry leaf tea', 'raspberry-leaf-tea', 'red'],
   ['zero beer', 'zero-alcohol-drinks', 'yellow'],
   ['pad thai', 'pad-thai-stir-fry', 'yellow'],
   ['stevia', 'artificial-sweeteners', 'yellow'],
