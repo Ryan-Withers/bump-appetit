@@ -38,7 +38,7 @@ const GOLDEN = [
 
   // 2. Australian vernacular. She will not type "chicken parmigiana".
   ['parmy', 'chicken-parmigiana', 'green'],
-  ['schnitty', 'chicken-parmigiana', 'green'],
+  ['schnitty', 'schnitzel-cooked', 'green'],
   ['chook', 'bbq-chicken-hot', 'green'],
   ['cold chook', 'bbq-chicken-cold', 'red'],
   ['avo', 'avocado', 'green'],
@@ -167,6 +167,26 @@ const GOLDEN = [
   ['zero beer', 'zero-alcohol-drinks', 'yellow'],
   ['pad thai', 'pad-thai-stir-fry', 'yellow'],
   ['stevia', 'artificial-sweeteners', 'yellow'],
+
+  // 8. The expansion audit round. Every row here is a search steal or wrong
+  // tier the August audit caught: a dedicated card whose bare word still
+  // pointed at an older, more permissive entry.
+  ['pepperoni', 'pepperoni-cold', 'red'],
+  ['baby spinach', 'spinach', 'depends'],
+  ['dory', 'basa', 'yellow'],
+  ['schnitzel', 'schnitzel-cooked', 'green'],
+  ['poke bowl', 'poke-bowl-cooked', 'depends'],
+  ['reuben', 'deli-meat-heated', 'green'],
+  ['rooibos', 'rooibos-tea', 'yellow'],
+  ['slushie', 'slushies', 'red'],
+  ['risotto', 'risotto-hot', 'yellow'],
+  ['coconut water', 'coconut-water-bottled', 'depends'],
+  ['kingfish', 'kingfish-cooked', 'depends'],
+  ['fish burger', 'fish-burger', 'yellow'],
+  ['raclette', 'raclette', 'depends'],
+  ['wakame', 'seaweed-nori', 'depends'],
+  ['spag bol', 'rice-and-pasta', 'green'],
+  ['teriyaki', 'teriyaki-chicken', 'yellow'],
 ];
 
 const VALID_KINDS = new Set(['exact-name', 'exact-alias', 'fuzzy']);

@@ -624,8 +624,7 @@
     "positions": [
      {
       "label": "The source sheets",
-      "says": "Ice cream from a tub is green, and machine soft serve is red because the dispenser can harbour listeria. Scooped gelato sits between the two, and none of our sheets names it.",
-      "source": "rwh-2026"
+      "says": "Ice cream from a tub is green, and machine soft serve is red because the dispenser can harbour listeria. Scooped gelato sits between the two, and none of our sheets names it."
      },
      {
       "label": "Our call",
@@ -919,8 +918,8 @@
     "raclette grill"
    ],
    "group": "Cheese & dairy",
-   "tier": "green",
-   "why": "Raclette's whole job is being melted until it bubbles, and served hot like that it is a green light. For cold nibbling, stick to firm wedges marked pasteurised.",
+   "tier": "depends",
+   "why": "Depends how it's served:",
    "makeItGreen": null,
    "swap": null,
    "sources": [
@@ -928,7 +927,21 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "variants": [
+    {
+     "label": "Melted until bubbling",
+     "tier": "green",
+     "why": "Raclette's whole job is being melted until it bubbles, and served hot like that it is a green light, raw-milk wheel or not. Heat settles it."
+    },
+    {
+     "label": "Cold wedge from the board",
+     "tier": "red",
+     "why": "Cold raclette is a moist semi-soft cheese, often made from raw milk, so it sits with havarti on the bench until bub arrives.",
+     "makeItGreen": "Under the grill or over potatoes until it bubbles, and it is straight back on.",
+     "swap": "A firm pasteurised alpine cheese like gruyere from the green list."
+    }
+   ]
   },
   {
    "id": "hard-goat-cheese",
@@ -967,7 +980,7 @@
    ],
    "group": "Cheese & dairy",
    "tier": "red",
-   "why": "Havarti is a semi-soft cheese. The hard cheese tick is really about dryness, and havarti keeps more moisture than gouda, so the stricter reading benches it while it is cold. Annoying, but easy to fix.",
+   "why": "Havarti keeps more moisture than its hard cheese cousins, and moisture is what listeria likes, so cold slices are benched for now. Annoying, but easy to fix.",
    "makeItGreen": "Melted until bubbling in a toastie or on a burger, havarti is back on.",
    "swap": "Gouda or edam scratch the same creamy, mild itch from the green list.",
    "sources": [
@@ -1197,7 +1210,9 @@
     "pastel de nata",
     "pasteis de nata",
     "nutmeg custard tart",
-    "bakery custard tart"
+    "bakery custard tart",
+    "egg tart",
+    "portuguese tart"
    ],
    "group": "Cheese & dairy",
    "tier": "green",
@@ -1458,8 +1473,6 @@
    "emoji": "🥪",
    "aliases": [
     "salami",
-    "mortadella",
-    "pastrami",
     "chicken loaf",
     "devon",
     "fritz",
@@ -1468,8 +1481,7 @@
     "cold cuts",
     "deli meat",
     "shaved ham",
-    "leg ham",
-    "cabanossi"
+    "leg ham"
    ],
    "group": "Meat & poultry",
    "tier": "red",
@@ -1597,7 +1609,11 @@
     "grilled salami",
     "ham on pizza",
     "salami on pizza",
-    "heated deli meat"
+    "heated deli meat",
+    "hot pastrami",
+    "reuben",
+    "reuben sandwich",
+    "fried devon"
    ],
    "group": "Meat & poultry",
    "tier": "green",
@@ -1667,8 +1683,7 @@
     "positions": [
      {
       "label": "The source sheets",
-      "says": "None of our pregnancy sheets lists jerky or biltong. The nearest rule is the cold cured meat one: listeria risk, fixed only by heating until steaming hot.",
-      "source": "rwh-2026"
+      "says": "None of our pregnancy sheets lists jerky or biltong. The nearest rule is the cold cured meat one: listeria risk, fixed only by heating until steaming hot."
      },
      {
       "label": "Our call",
@@ -1902,7 +1917,8 @@
     "mortadella slices",
     "pistachio mortadella",
     "mortadella sandwich",
-    "mortadella roll"
+    "mortadella roll",
+    "mortadella"
    ],
    "group": "Meat & poultry",
    "tier": "red",
@@ -1923,10 +1939,8 @@
    "aliases": [
     "pastrami sandwich",
     "pastrami on rye",
-    "hot pastrami",
-    "reuben",
-    "reuben sandwich",
-    "pastrami bagel"
+    "pastrami bagel",
+    "pastrami"
    ],
    "group": "Meat & poultry",
    "tier": "red",
@@ -2008,7 +2022,8 @@
     "kabana sticks",
     "kabana stick",
     "kabanossi",
-    "cabana"
+    "cabana",
+    "cabanossi"
    ],
    "group": "Meat & poultry",
    "tier": "red",
@@ -2089,7 +2104,7 @@
   {
    "id": "pancetta",
    "name": "Pancetta",
-   "emoji": "🍳",
+   "emoji": "🥓",
    "aliases": [
     "panchetta",
     "crispy pancetta",
@@ -2125,10 +2140,9 @@
   {
    "id": "devon-fritz-polony",
    "name": "Devon, fritz and polony",
-   "emoji": "🍞",
+   "emoji": "🥪",
    "aliases": [
     "polony",
-    "fried devon",
     "devon and sauce",
     "devon sandwich",
     "fritz and sauce",
@@ -2201,7 +2215,10 @@
     "schnitzel and chips",
     "crumbed steak",
     "crumbed chicken",
-    "crumbed cutlet"
+    "crumbed cutlet",
+    "schnitzel",
+    "schnitty",
+    "chicken schnitzel"
    ],
    "group": "Meat & poultry",
    "tier": "green",
@@ -2798,7 +2815,7 @@
    "group": "Fish & seafood",
    "tier": "yellow",
    "why": "Heads up: flake at the fish and chip shop IS shark. Shark, swordfish, broadbill and marlin carry the most mercury, so it is one serve a fortnight and no other fish that fortnight.",
-   "makeItGreen": "Keep it to one 150g serve a fortnight and eat no other fish in that fortnight. Note the sources differ here: Monash IVF says once a week, the Royal Women's says once a fortnight, and we go with the stricter fortnight.",
+   "makeItGreen": "Keep it to one 150g serve a fortnight, and eat no other fish in that fortnight.",
    "swap": "Ask the shop for snapper, whiting or flathead instead: same batter, same chips, no mercury cap.",
    "sources": [
     "rwh-2026",
@@ -3149,8 +3166,6 @@
    "aliases": [
     "sashimi",
     "nigiri",
-    "poke",
-    "poke bowl",
     "raw fish",
     "raw sushi",
     "salmon sashimi",
@@ -3259,11 +3274,12 @@
     "vietnamese catfish",
     "swai",
     "cream dory",
-    "pacific dory"
+    "pacific dory",
+    "dory"
    ],
    "group": "Fish & seafood",
    "tier": "yellow",
-   "why": "Basa is a farmed catfish, and catfish sits on the once-a-week mercury list in our sheets alongside orange roughy. Many say farmed basa is milder, but the sheets say catfish, so stricter wins here.",
+   "why": "Basa is a catfish, and catfish carries a once-a-week mercury cap, same as orange roughy. Farmed basa may well run milder, but the cap is the safe call, so one serve a week it is.",
    "makeItGreen": "Keep it to one 150g serve a week with no other fish that week, or simply pick a fish without a cap.",
    "swap": "Hoki, ling or whiting: the same flaky white fillet, no weekly limit.",
    "sources": [
@@ -3279,7 +3295,6 @@
    "emoji": "🐠",
    "aliases": [
     "john dory",
-    "dory",
     "dory fillet",
     "john dory fillet",
     "saint peters fish"
@@ -3390,7 +3405,7 @@
   },
   {
    "id": "kingfish-cooked",
-   "name": "Kingfish, cooked",
+   "name": "Kingfish",
    "emoji": "🐟",
    "aliases": [
     "kingfish",
@@ -3399,8 +3414,8 @@
     "kingfish steak"
    ],
    "group": "Fish & seafood",
-   "tier": "green",
-   "why": "Cooked through and served hot, kingfish is a green light with no mercury cap in our sheets. The raw kingfish sashimi that menus love is the bit that waits until after bub.",
+   "tier": "depends",
+   "why": "Depends how it's served:",
    "makeItGreen": null,
    "swap": null,
    "sources": [
@@ -3409,7 +3424,21 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "variants": [
+    {
+     "label": "Cooked through, served hot",
+     "tier": "green",
+     "why": "Cooked through and served hot, kingfish is a green light with no mercury cap. Grill it, bake it, glaze it."
+    },
+    {
+     "label": "Sashimi, crudo or cured",
+     "tier": "red",
+     "why": "Raw kingfish is the menu's favourite sashimi, and raw fish waits until after bub, same as the rest of the sashimi list.",
+     "makeItGreen": "Cooked through is the flip: ask for it grilled instead.",
+     "swap": "Grilled kingfish, or cooked-through salmon."
+    }
+   ]
   },
   {
    "id": "fresh-tuna-steak",
@@ -3746,7 +3775,7 @@
   {
    "id": "salmon-patties",
    "name": "Salmon patties",
-   "emoji": "🍳",
+   "emoji": "🥫",
    "aliases": [
     "salmon patties",
     "salmon patty",
@@ -4160,8 +4189,6 @@
     "mini quiche",
     "crustless quiche",
     "quiche slice",
-    "egg tart",
-    "portuguese tart",
     "egg and bacon pie"
    ],
    "group": "Eggs",
@@ -4398,7 +4425,7 @@
    ],
    "group": "Eggs",
    "tier": "green",
-   "why": "Lemon curd is cooked on the stove until it thickens, and that thickening is the egg cooking, so jar lemon butter and a properly cooked homemade batch are both fine. Lemon meringue pie gets the nod too.",
+   "why": "Curd is cooked until it thickens, and that thickening is the egg cooking: jar lemon butter and homemade are both fine. Baked lemon meringue pie gets the nod; if the cafe torches the meringue instead, ask.",
    "makeItGreen": null,
    "swap": null,
    "sources": [
@@ -5160,7 +5187,7 @@
    ],
    "group": "Fruit & veg",
    "tier": "red",
-   "why": "Our two sources disagree here: Royal Women's allows it washed and cut at home, NSW Food Authority says skip it entirely because the rough rind traps bacteria. Stricter wins, so it is benched.",
+   "why": "Rockmelon's rough rind can trap bacteria that the knife drags through the flesh, and one of our sources says skip it entirely. Stricter wins, so it is benched for now.",
    "makeItGreen": null,
    "swap": "Watermelon, honeydew or mango, washed and cut at home, gives you the same sweet juicy hit.",
    "sources": [
@@ -5200,7 +5227,6 @@
     "supermarket salad",
     "food court salad",
     "pre made salad",
-    "deli coleslaw",
     "salad kit"
    ],
    "group": "Fruit & veg",
@@ -5230,7 +5256,6 @@
     "lettuce",
     "cucumber",
     "cherry tomatoes",
-    "baby spinach",
     "rocket",
     "raw carrot sticks"
    ],
@@ -5653,7 +5678,8 @@
     "bagged baby spinach",
     "baby spinach bag",
     "bag of baby spinach",
-    "spinach leaves"
+    "spinach leaves",
+    "baby spinach"
    ],
    "group": "Fruit & veg",
    "tier": "depends",
@@ -5770,7 +5796,8 @@
     "bag of coleslaw",
     "rainbow slaw",
     "kaleslaw",
-    "coleslaw kit"
+    "coleslaw kit",
+    "deli coleslaw"
    ],
    "group": "Fruit & veg",
    "tier": "red",
@@ -5809,7 +5836,7 @@
     {
      "label": "Fresh refrigerated kimchi, eaten raw",
      "tier": "red",
-     "why": "Our sheets only name fermented drinks, but live unpasteurised kimchi is the same raw-ferment family NSW Food Authority benches, so we call it the stricter way.",
+     "why": "Live unpasteurised kimchi is a raw ferment, the same family as the fermented drinks on the bench, so raw is a skip for now.",
      "makeItGreen": "Cook it into the dish: kimchi fried rice, a bubbling jjigae or a kimchi pancake, served hot.",
      "swap": "A pasteurised jar from the shelf, or quick-pickled cucumber made at home."
     },
@@ -5853,7 +5880,7 @@
     {
      "label": "Raw refrigerated kraut, the live-culture kind",
      "tier": "red",
-     "why": "The sheets only name fermented drinks, but raw kraut is the same live-ferment family NSW Food Authority benches, so stricter wins for now.",
+     "why": "Raw live-culture kraut is the same raw-ferment family as the benched fermented drinks, so it sits out for now. Heat or pasteurisation flips it.",
      "makeItGreen": "Heat it right through on the hot dog or in the pan, or choose the pasteurised jar instead.",
      "swap": "Pasteurised jar sauerkraut, or a squeeze of pickle from a sealed jar."
     }
@@ -5974,7 +6001,7 @@
    ],
    "group": "Fruit & veg",
    "tier": "red",
-   "why": "Our sheets never name microgreens, but they are grown warm and damp just like sprouts, and NSW Food Authority benches every raw sprout. We call it the stricter way: skip them raw for now.",
+   "why": "Microgreens are grown warm and damp, exactly like sprouts, and raw sprouts are benched. Same conditions, same call: skip them raw for now.",
    "makeItGreen": "Cooked hot right through, wilted into a stir fry or dropped into a simmering soup, they are fine.",
    "swap": "Washed fresh herbs give the plate the same fancy-garnish lift.",
    "sources": [
@@ -6264,7 +6291,6 @@
     "ginger tea",
     "chamomile tea",
     "camomile tea",
-    "rooibos",
     "lemon and ginger tea",
     "fruit tea",
     "fennel tea",
@@ -6732,11 +6758,12 @@
     "red bush tea",
     "redbush tea",
     "rooibos latte",
-    "red tea"
+    "red tea",
+    "rooibos"
    ],
    "group": "Drinks",
    "tier": "yellow",
-   "why": "Rooibos has no caffeine at all and it is an everyday variety, not a medicinal blend. The usual herbal-tea advice still applies: a couple of cups a day is the happy zone.",
+   "why": "Rooibos has no caffeine, so the only reason it shares herbal tea's gentle couple-of-cups habit is that it is still a herbal brew. About as relaxed as yellow gets.",
    "makeItGreen": "As an everyday cuppa in normal amounts, this is about as relaxed as herbal tea gets.",
    "swap": null,
    "sources": [
@@ -6803,17 +6830,30 @@
     "frozen drink"
    ],
    "group": "Drinks",
-   "tier": "yellow",
-   "why": "A slushie machine churns sugar ice, not dairy, so the soft-serve machine worry does not apply here. What is left is a big whack of sugar, which lands it in sometimes-drink territory.",
-   "makeItGreen": "As an occasional hot-day treat it is fine. Cola flavours carry a little caffeine, so count those toward the day's 200mg.",
-   "swap": null,
+   "tier": "red",
+   "why": "A slushie comes out of a churning dispenser machine, and the machine is the whole worry: soft serve is benched for exactly that reason. Sugar ice or not, the same question applies, so stricter wins.",
+   "makeItGreen": null,
+   "swap": "An icy pole from a sealed wrapper, or a home-blitzed frozen fruit slushie.",
    "sources": [
     "monash-ivf",
     "rwh-2026"
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "split": {
+    "note": "The sheets never name slushies, so this is a judgement call. Here is both sides, in the open.",
+    "positions": [
+     {
+      "label": "The source sheets",
+      "says": "Soft serve and thickshakes are red because the dispensing machine can harbour listeria. A slushie machine is a churning dispenser too, though it holds sugar ice rather than dairy. No sheet rules on it either way."
+     },
+     {
+      "label": "Our call",
+      "says": "Red. The machine rule is about the machine, not the milk, and there is no way to check the barrel. A sealed icy pole gets you the same hit without the question mark."
+     }
+    ]
+   }
   },
   {
    "id": "icy-poles",
@@ -6876,8 +6916,8 @@
     "pure coconut water"
    ],
    "group": "Drinks",
-   "tier": "green",
-   "why": "The bottled and carton stuff is pasteurised, so it follows the same happy rule as any bottled juice. Hydrating, gentle, and a nice change from plain water.",
+   "tier": "depends",
+   "why": "Depends on the label:",
    "makeItGreen": null,
    "swap": null,
    "sources": [
@@ -6885,7 +6925,21 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "variants": [
+    {
+     "label": "Carton or bottle marked pasteurised",
+     "tier": "green",
+     "why": "Pasteurised coconut water follows the same happy rule as any bottled juice. Hydrating, gentle, and a nice change from plain water."
+    },
+    {
+     "label": "Raw or cold-pressed from the fridge",
+     "tier": "red",
+     "why": "Raw and cold-pressed coconut water skips pasteurisation, and unpasteurised juice is on the bench, same rule as the juice-bar smoothie.",
+     "makeItGreen": "Swap to a carton or bottle with pasteurised on the label; most of the big brands are.",
+     "swap": "Chilled pasteurised coconut water, or icy soda water with a squeeze of lime."
+    }
+   ]
   },
   {
    "id": "sports-drinks",
@@ -6977,7 +7031,7 @@
   {
    "id": "turmeric-latte",
    "name": "Turmeric latte",
-   "emoji": "🟡",
+   "emoji": "🥛",
    "aliases": [
     "golden latte",
     "golden milk",
@@ -7440,12 +7494,16 @@
     "fried rice",
     "leftover rice",
     "noodles",
-    "risotto",
     "pasta bake",
     "penne",
     "macaroni",
     "reheated pasta",
-    "steamed rice"
+    "steamed rice",
+    "bolognese",
+    "spag bol",
+    "spaghetti bolognese",
+    "lasagne",
+    "lasagna"
    ],
    "group": "Pantry & sweets",
    "tier": "green",
@@ -7747,7 +7805,7 @@
     {
      "label": "Alcohol-free trifle",
      "tier": "green",
-     "why": "Jelly, sponge, store-bought custard and pasteurised cream, assembled fresh. Every layer is a yes, so dig in."
+     "why": "Jelly, sponge, shop-bought custard and pasteurised cream, assembled fresh. Every layer is a yes, so dig in."
     },
     {
      "label": "Classic sherry-soaked trifle",
@@ -8090,20 +8148,36 @@
     "roasted seaweed",
     "dried seaweed",
     "seaweed sheets",
-    "wakame"
+    "wakame",
+    "kombu",
+    "kelp"
    ],
    "group": "Pantry & sweets",
-   "tier": "green",
-   "why": "Dried and roasted seaweed snacks are shelf-stable and green, with a tidy little iodine bonus. The verdict on a sushi roll comes from what is inside it, not the wrapper.",
+   "tier": "depends",
+   "why": "Depends on the seaweed:",
    "makeItGreen": null,
    "swap": null,
    "sources": [
     "rwh-2026",
-    "eatforhealth"
+    "eatforhealth",
+    "fsanz"
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "variants": [
+    {
+     "label": "Nori sheets and roasted snacks",
+     "tier": "green",
+     "why": "Dried nori and roasted seaweed snacks are shelf-stable and green, with a tidy little iodine bonus. A sushi roll's verdict comes from the filling, not the wrapper."
+    },
+    {
+     "label": "Brown seaweed: wakame, kombu, kelp",
+     "tier": "yellow",
+     "why": "Brown seaweeds pack serious iodine, and too much is its own problem. Keep wakame salads and kombu broths occasional rather than daily.",
+     "makeItGreen": "An occasional serve is fine; it is the every-day habit to skip. Nori has no such cap."
+    }
+   ]
   },
   {
    "id": "protein-balls",
@@ -8309,9 +8383,6 @@
     "chicken parmy",
     "parmigiana",
     "parmagiana",
-    "chicken schnitzel",
-    "schnitty",
-    "schnitzel",
     "eggplant parmigiana"
    ],
    "group": "Takeaway",
@@ -8559,7 +8630,6 @@
     "pizza slice",
     "margherita",
     "hawaiian pizza",
-    "pepperoni",
     "pepperoni pizza",
     "meat lovers",
     "supreme pizza",
@@ -9003,12 +9073,13 @@
     "chicken risotto",
     "prawn risotto",
     "risoto",
-    "rissotto"
+    "rissotto",
+    "risotto"
    ],
    "group": "Takeaway",
-   "tier": "green",
-   "why": "Stirred over heat for ages and served hot, so everything in the pan is properly cooked. The splash of wine goes in early and simmers down to a trace; mention it to your care team if you want certainty.",
-   "makeItGreen": null,
+   "tier": "yellow",
+   "why": "Stirred over heat for ages and served hot, so everything in the pan is properly cooked. The wine is the asterisk: it simmers down to a trace, and whether a trace is fine is your care team's call, not ours.",
+   "makeItGreen": "Ask for it made without the wine, or make it at home with extra stock. Same comfort, no asterisk.",
    "swap": null,
    "sources": [
     "rwh-2026"
@@ -9106,7 +9177,9 @@
     "cooked poke bowl",
     "tofu poke bowl",
     "poke bar",
-    "salmon poke bowl"
+    "salmon poke bowl",
+    "poke",
+    "poke bowl"
    ],
    "group": "Takeaway",
    "tier": "depends",
@@ -9183,9 +9256,9 @@
     "fish sandwich"
    ],
    "group": "Takeaway",
-   "tier": "green",
-   "why": "Battered or grilled, the fillet gets cooked right through and served hot, so the fish burger is a safe order. One ask: if the tartare is made in-house, check, because house mayo can mean raw egg.",
-   "makeItGreen": null,
+   "tier": "yellow",
+   "why": "Battered or grilled, the fillet is cooked right through and served hot. The wildcard is the tartare: house-made can mean raw egg, the same asterisk the kebab wears.",
+   "makeItGreen": "Ask for tartare or mayo from a commercial bottle, or a squeeze of lemon instead, and it is a green light.",
    "swap": null,
    "sources": [
     "rwh-2026"
@@ -9358,9 +9431,9 @@
     "teriyaki sauce"
    ],
    "group": "Takeaway",
-   "tier": "green",
-   "why": "Grilled hot and glazed in a sauce that gets cooked down in the pan, so the splash of mirin simmers away to a trace. Served fresh and steaming over rice, it is an easy yes.",
-   "makeItGreen": null,
+   "tier": "yellow",
+   "why": "Grilled hot and served fresh over rice, the chicken is an easy yes. The mirin in the glaze cooks down to a trace, and trace alcohol is a care-team call, so it wears a limit instead of a free pass.",
+   "makeItGreen": "Ask for the glaze made without mirin, or make it at home with soy, sugar and ginger.",
    "swap": null,
    "sources": [
     "rwh-2026"
