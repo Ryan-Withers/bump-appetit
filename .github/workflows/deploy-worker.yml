@@ -44,10 +44,14 @@ jobs:
             echo '::notice title=Worker not deployed::No CLOUDFLARE_API_TOKEN repo secret is set, so the scan Worker was skipped. The app is fine without it: the Scan screen offers basic on-device reading until CONFIG.scanner.endpoint is filled in.'
           fi
 
+      # accountId is passed rather than committed, so wrangler.toml stays free of
+      # anything of Ryan's in a public repo, and the token above does not need
+      # permission to list accounts just to find the one it already belongs to.
       - name: Deploy with wrangler
         if: steps.token.outputs.present == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           command: deploy
