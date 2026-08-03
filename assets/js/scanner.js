@@ -52,7 +52,7 @@ function str(path, fallback) {
 /**
  * Errors travel as a kind, never as a message. The view maps the kind to copy,
  * which is what keeps a raw stack trace off a screen she reads at 3am.
- * Kinds: offline, unreadable, daily-limit, cancelled, no-endpoint, failed.
+ * Kinds: offline, unreadable, daily-limit, timeout, cancelled, no-endpoint, failed.
  */
 function scanError(kind, detail) {
   const err = new Error(detail || kind);
@@ -308,7 +308,7 @@ export async function scanWithWorker(blob, { signal } = {}) {
     if (cause && cause.kind) throw cause;
     const reason = link.reason();
     if (reason === 'cancelled') throw scanError('cancelled', 'She tapped cancel.');
-    if (reason === 'timeout') throw scanError('failed', 'The scanner did not answer in time.');
+    if (reason === 'timeout') throw scanError('timeout', 'The scanner did not answer in time.');
     // A fetch that rejects without an abort is a dead network or a dead
     // Worker, and from the queue at a cafe those feel like the same thing.
     throw scanError(offline() ? 'offline' : 'failed', String(cause && cause.message));

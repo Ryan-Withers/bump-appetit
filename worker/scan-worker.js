@@ -26,8 +26,13 @@ const MAX_DISH_NAME = 120;
 const VALID_TIERS = new Set(['green', 'yellow', 'red', 'unsure']);
 
 // The four both providers accept. The app only ever sends JPEG, but a data URL
-// from a share sheet or a paste can arrive as anything.
+// from a share sheet or a paste can arrive as anything, and anything else is
+// refused outright rather than relabelled: a HEIC dressed up as image/jpeg is
+// a billed model call that can only end in "unreadable".
 const IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp']);
+
+// Sloppy-but-honest JPEG labels that mean image/jpeg and should keep working.
+const IMAGE_TYPE_ALIASES = { 'image/jpg': 'image/jpeg', 'image/pjpeg': 'image/jpeg' };
 
 // KV keys expire after two days, so a day's counter cleans itself up.
 const COUNTER_TTL_S = 172800;
@@ -303,7 +308,13 @@ function readImage(body) {
     const comma = raw.indexOf(',');
     if (comma < 0) return null;
     const declared = raw.slice(5, comma).split(';')[0].toLowerCase().trim();
-    if (IMAGE_TYPES.has(declared)) mediaType = declared;
+    if (declared) {
+      const normalised = IMAGE_TYPE_ALIASES[declared] || declared;
+      // A type the model does not take is a free 400 here, not a billed call
+      // that was always going to come back unreadable.
+      if (!IMAGE_TYPES.has(normalised)) return null;
+      mediaType = normalised;
+    }
     raw = raw.slice(comma + 1);
   }
 

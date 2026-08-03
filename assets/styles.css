@@ -995,8 +995,6 @@ body:has(.sheet.is-open) .sheet-backdrop {
   background: var(--surface-2);
 }
 
-.scan__preview img { display: block; width: 100%; height: auto; }
-
 /* A soft band sweeping the photo. Transform only, so it costs nothing. */
 .scan__line {
   position: absolute;

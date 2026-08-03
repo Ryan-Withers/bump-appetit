@@ -62,6 +62,12 @@ const ERRORS = Object.freeze({
     title: 'That\'s today\'s scans used up',
     body: 'The scanner has a daily cap so it stays free to run. It resets tomorrow, and search has every food in the cookbook in the meantime.',
   }),
+  timeout: Object.freeze({
+    icon: 'refresh-cw',
+    path: 'scanning.errors.timeout',
+    title: 'That one took too long',
+    body: 'The connection dropped out somewhere. Have another go, or search the dish by name.',
+  }),
   failed: Object.freeze({
     icon: 'refresh-cw',
     path: 'scanning.errors.generic',

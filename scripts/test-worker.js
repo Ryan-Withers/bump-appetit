@@ -240,6 +240,44 @@ const IMAGE = 'x'.repeat(2000);
       res.status === 400 && sent.length === 0, `status ${res.status}, ${sent.length} calls`);
   });
 
+  // The invariant that matters: nothing outside the allowlist ever reaches the
+  // model, under any label. An iPhone HEIC relabelled image/jpeg is a billed
+  // call that can only come back unreadable, so it must die here as a free 400.
+  for (const declared of ['image/heic', 'image/heif', 'IMAGE/HEIC', 'image/heic;charset=utf-8', 'image/avif', 'image/bmp', 'image/tiff', 'application/pdf']) {
+    await withModel(GOOD, async (sent) => {
+      const res = await worker.fetch(post({ image: `data:${declared};base64,${IMAGE}` }), env());
+      check(`a ${declared} data URL is a free 400, never a model call`,
+        res.status === 400 && sent.length === 0, `status ${res.status}, ${sent.length} calls`);
+    });
+  }
+
+  for (const [declared, expected] of [
+    ['image/jpeg', 'image/jpeg'],
+    ['image/jpg', 'image/jpeg'],     // sloppy but honest labels stay working
+    ['image/pjpeg', 'image/jpeg'],
+    ['IMAGE/PNG', 'image/png'],
+    ['image/gif', 'image/gif'],
+    ['image/webp', 'image/webp'],
+  ]) {
+    await withModel(GOOD, async (sent) => {
+      const res = await worker.fetch(post({ image: `data:${declared};base64,${IMAGE}` }), env());
+      const source = JSON.parse(sent[0].init.body).messages[0].content[0].source;
+      check(`${declared} goes through as ${expected}`,
+        res.status === 200 && source.media_type === expected, `status ${res.status} type=${source && source.media_type}`);
+    });
+  }
+
+  await withModel(GOOD, async (sent) => {
+    const res = await worker.fetch(post({ image: 'data:image/jpeg;base64' }), env());
+    check('a data URL with no comma is refused, not sliced into nonsense',
+      res.status === 400 && sent.length === 0, `status ${res.status}, ${sent.length} calls`);
+  });
+
+  await withModel(GOOD, async () => {
+    const res = await worker.fetch(post({ image: 'z'.repeat(7_999_999) }), env());
+    check('an image just under the size cap still goes through', res.status === 200, `status ${res.status}`);
+  });
+
   /* ------------------------------------------------- when the provider is down */
 
   {
