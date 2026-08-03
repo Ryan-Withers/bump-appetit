@@ -164,6 +164,9 @@ export const STRINGS = Object.freeze({
     // Leads the honest 50-50 panel on foods where the sources genuinely
     // disagree or simply never weigh in. Both positions are quoted under it.
     splitHeading: "It's a 50-50",
+    // Sits above the nutrient chips: folate, iron and friends with their
+    // high, medium or low levels.
+    nutrientsHeading: 'The good stuff in it',
   },
 
   /* ------------------------------------------------------------ how we decide

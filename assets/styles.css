@@ -38,6 +38,12 @@
   --butter: #F6C445;           /* delight only: confetti, heart burst, sun */
 
   /* Tier: GO (green) */
+  /* Nutrient chips live in a berry family on purpose: nutrition must never
+     wear the traffic-light colours, or "high in folate" starts reading as a
+     safety verdict. Three strengths of the same hue carry high, med, low. */
+  --nut-high-bg: #ECE0F6; --nut-high-line: #D2BBE9; --nut-high-ink: #5A3789;
+  --nut-med-bg: #F2ECF8;  --nut-med-line: #E0D4EE; --nut-med-ink: #6E5698;
+
   --go-bg: #DFF0E3;  --go-line: #B9DCC4;  --go-ink: #1D6A41;
   /* Tier: EASY (amber / limit) */
   --easy-bg: #FBF0D3; --easy-line: #EDD79E; --easy-ink: #7A5800;
@@ -69,6 +75,8 @@
     --bg: #121A15; --surface: #1A241E; --surface-2: #202B24;
     --ink: #E8EFE9; --ink-2: #9BAEA1; --line: #2A362F;
     --brand: #58B380; --butter: #E3B63E;
+    --nut-high-bg: #2C2140; --nut-high-line: #4C3A70; --nut-high-ink: #CDB3F2;
+    --nut-med-bg: #241E31;  --nut-med-line: #3A3153; --nut-med-ink: #AFA0D4;
     --go-bg: #17301F;  --go-line: #295C3D;  --go-ink: #7FD3A0;
     --easy-bg: #322A12; --easy-line: #5D4E1E; --easy-ink: #E4BC5A;
     --hold-bg: #331D1B; --hold-line: #5E3531; --hold-ink: #EE9C8F;
@@ -928,6 +936,31 @@ body:has(.sheet.is-open) .sheet-backdrop {
 }
 
 .split__who { color: var(--ink); font-weight: 700; }
+
+/* Pregnancy nutrient chips. The level is always written out in the chip, so
+   the berry colour is reinforcement, never the only carrier. Low stays in the
+   neutral chip clothes: quiet is the honest look for "not much in it". */
+.nutrients { display: flex; flex-direction: column; gap: var(--s2); }
+.nutrients__title { font-size: var(--fs-caption); font-weight: 700; color: var(--ink-2); text-transform: uppercase; letter-spacing: .04em; }
+.nutrients__row { display: flex; flex-wrap: wrap; gap: var(--s2); }
+
+.nutrient {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s1);
+  padding: var(--s1) var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  font-size: var(--fs-caption);
+  color: var(--ink-2);
+}
+.nutrient strong { color: var(--ink); font-weight: 700; }
+
+.nutrient--high { background: var(--nut-high-bg); border-color: var(--nut-high-line); color: var(--nut-high-ink); }
+.nutrient--high strong { color: var(--nut-high-ink); }
+.nutrient--med { background: var(--nut-med-bg); border-color: var(--nut-med-line); color: var(--nut-med-ink); }
+.nutrient--med strong { color: var(--nut-med-ink); }
 
 .variants { display: flex; flex-direction: column; gap: var(--s2); }
 

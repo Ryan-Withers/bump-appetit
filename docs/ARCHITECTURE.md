@@ -91,6 +91,7 @@ Entry shape:
 | `popularity` | 1-3 | yes | 3 is a very common search, 1 is a long-tail entry. Breaks ranking ties |
 | `reviewed` | string | yes | `YYYY-MM` |
 | `split` | object | no | The honest 50-50 panel, for foods where the sources genuinely disagree or never weigh in. `{ note, positions: [{ label, says, source? }] }` with at least 2 positions, `note` and each `says` 220 max, `source` optional but must exist in sources.json. The tier still carries the stricter call; the panel shows both sides verbatim |
+| `nutrients` | object | no | Pregnancy nutrient chips, e.g. `{ "folate": "high", "iron": "med" }`. Keys from the closed set folate, iron, calcium, protein, omega3, iodine, fibre; levels high, med, low. Only notable nutrients are listed; the sheet renders them in fixed order, in a berry palette deliberately distinct from the tier colours |
 
 Rule the validator enforces: every red entry and every red variant must carry a
 `makeItGreen` or a `swap`. Kindness is a build check, not a guideline.
@@ -342,6 +343,7 @@ Sheet: `.sheet-backdrop`, `.sheet`, `.sheet.is-open`, `.sheet__handle`,
 
 Verdict: `.verdict__emoji`, `.verdict__name`, `.verdict__why`, `.callout`,
 `.callout--green`, `.callout__icon`, `.swap`, `.split`, `.split__note`,
+`.nutrients`, `.nutrients__title`, `.nutrients__row`, `.nutrient`, `.nutrient--high`, `.nutrient--med`,
 `.split__position`, `.split__who`, `.variants`, `.variant`,
 `.variant__label`, `.variant__why`, `.sources`, `.source-chip`, `.checked`.
 

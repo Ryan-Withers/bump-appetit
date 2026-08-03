@@ -230,6 +230,44 @@ function swapEl(message) {
 }
 
 /**
+ * Pregnancy nutrient chips. A closed set with a fixed order, so every sheet
+ * reads the same way and the validator can hold the line. The level word is
+ * always written in the chip: the berry colour reinforces, it never carries
+ * the meaning alone.
+ */
+const NUTRIENTS = Object.freeze([
+  ['folate', 'Folate'],
+  ['iron', 'Iron'],
+  ['calcium', 'Calcium'],
+  ['protein', 'Protein'],
+  ['omega3', 'Omega-3'],
+  ['iodine', 'Iodine'],
+  ['fibre', 'Fibre'],
+]);
+
+const NUTRIENT_LEVELS = Object.freeze({ high: 'high', med: 'medium', low: 'low' });
+
+function nutrientsEl(nutrients) {
+  if (!nutrients || typeof nutrients !== 'object') return null;
+
+  const chips = [];
+  for (const [key, label] of NUTRIENTS) {
+    const level = NUTRIENT_LEVELS[nutrients[key]];
+    if (!level) continue;
+    chips.push(el('span', { class: `nutrient nutrient--${nutrients[key]}` }, [
+      el('strong', {}, label),
+      ` ${level}`,
+    ]));
+  }
+  if (!chips.length) return null;
+
+  return el('div', { class: 'nutrients' }, [
+    el('p', { class: 'nutrients__title' }, str('verdict.nutrientsHeading', 'The good stuff in it')),
+    el('div', { class: 'nutrients__row' }, chips),
+  ]);
+}
+
+/**
  * The honest 50-50 panel. Some foods are genuine judgement calls, and Ryan's
  * rule for those is transparency over false confidence: show what each source
  * actually says, side by side, and let the tier carry the stricter call.
@@ -387,6 +425,11 @@ function buildVerdict(content, food, refs) {
 
   const variants = Array.isArray(food.variants) ? food.variants : [];
   if (variants.length) content.appendChild(variantsEl(variants));
+
+  // Nutrition sits below every safety element on purpose: what is in it for
+  // her is worth knowing, but never allowed to upstage whether she can eat it.
+  const nutrients = nutrientsEl(food.nutrients);
+  if (nutrients) content.appendChild(nutrients);
 
   appendFooter(content, food);
 }

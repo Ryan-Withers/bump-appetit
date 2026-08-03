@@ -46,6 +46,11 @@ const MEAL_TAGS = [
 ];
 
 const WHY_MAX = 220;
+
+// The nutrient chips on the verdict sheet. A closed set with closed levels, so
+// a typo on a phone becomes a build failure rather than a silently missing chip.
+const NUTRIENT_KEYS = ['folate', 'iron', 'calcium', 'protein', 'omega3', 'iodine', 'fibre'];
+const NUTRIENT_LEVELS = ['high', 'med', 'low'];
 const MONTH_RE = /^\d{4}-(0[1-9]|1[0-2])$/;
 const DAY_RE = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -256,6 +261,7 @@ function checkFoods(bundle, sourceKeys) {
     groups: new Map(),
     flagged: 0,
     splits: 0,
+    nutrients: 0,
     sourcesUsed: new Set(),
   };
 
@@ -437,6 +443,29 @@ function checkFoods(bundle, sourceKeys) {
 
     if (food.tier === 'red' && !isFilledString(food.makeItGreen) && !isFilledString(food.swap)) {
       fail(file, label, 'is red with no way out. Add a "makeItGreen" or a "swap". No dead ends: that rule is a build check, not a guideline.');
+    }
+
+    // 8. Nutrient chips. Optional; when present, keys and levels come from the
+    // closed sets above and the object must actually say something.
+    if (food.nutrients !== undefined) {
+      const spot = at('nutrients');
+      if (!food.nutrients || typeof food.nutrients !== 'object' || Array.isArray(food.nutrients)) {
+        fail(file, spot, 'must be an object of nutrient levels, for example {"folate":"high"}.');
+      } else {
+        const entries = Object.entries(food.nutrients);
+        if (!entries.length) {
+          fail(file, spot, 'is empty. Leave the key off entirely when there is nothing to say.');
+        }
+        stats.nutrients += entries.length ? 1 : 0;
+        for (const [key, level] of entries) {
+          if (!NUTRIENT_KEYS.includes(key)) {
+            fail(file, `${spot}.${key}`, `is not a known nutrient. Use: ${NUTRIENT_KEYS.join(', ')}.`);
+          }
+          if (!NUTRIENT_LEVELS.includes(level)) {
+            fail(file, `${spot}.${key}`, `is ${JSON.stringify(level)}. Levels are: ${NUTRIENT_LEVELS.join(', ')}.`);
+          }
+        }
+      }
     }
 
     // 7. Split verdicts: the honest 50-50s, where the sources genuinely
@@ -770,6 +799,7 @@ function summarise(counts) {
     `  groups        ${groupLines}`,
     `  pending       ${foods.flagged} entr${foods.flagged === 1 ? 'y' : 'ies'} flagged for sign-off`,
     `  splits        ${foods.splits} advice-is-split panels, sources quoted side by side`,
+    `  nutrients     ${foods.nutrients} entries carrying nutrient chips`,
     `  meals         ${meals.meals} (${meals.snacks} snacks, ${meals.mains} meals) plus ${meals.swaps} craving swaps`,
     `  lexicon       ${lexicon.terms} terms, ${lexicon.phrases} phrases, ${lexicon.signals} cooked signals`,
     `  cheat sheets  ${sheets.sheets} sheets, ${sheets.rows} rows, ${sheets.asks} magic questions`,
