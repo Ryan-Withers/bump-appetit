@@ -57,7 +57,7 @@ ALLOWED_ORIGIN = "https://ryan-withers.github.io"
 # Without this binding the Worker still answers scans, but the daily cap is off.
 [[kv_namespaces]]
 binding = "KV"
-id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+id = "1ed7e8bfe31847d19dd992ae6874c284"
 
 [observability]
 enabled = true
