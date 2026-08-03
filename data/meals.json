@@ -3,11 +3,23 @@
     {
       "id": "folate-legend",
       "name": "The Folate Legend",
+      "dish": "Vegemite and avo on toast",
       "emoji": "🥑",
       "punLine": "Vegemite and smashed avo on hot toast, which is about as Australian as a B-vitamin hit gets.",
       "type": "snack",
-      "tags": ["5-minute", "nausea-friendly", "comfort"],
-      "ingredients": ["Wholemeal bread", "Butter", "Vegemite", "Ripe avocado", "Lemon juice", "Cracked pepper"],
+      "tags": [
+        "5-minute",
+        "nausea-friendly",
+        "comfort"
+      ],
+      "ingredients": [
+        "Wholemeal bread",
+        "Butter",
+        "Vegemite",
+        "Ripe avocado",
+        "Lemon juice",
+        "Cracked pepper"
+      ],
       "steps": [
         "Toast the bread and butter it while it is still hot.",
         "Spread the Vegemite thinly, the way the nation intended.",
@@ -19,11 +31,21 @@
     {
       "id": "hard-yolker",
       "name": "Hard Yolker",
+      "dish": "Hard-boiled egg with toast soldiers",
       "emoji": "🥚",
       "punLine": "A properly hard-boiled egg with a row of toast soldiers, because a firm yolk is the whole trick.",
       "type": "snack",
-      "tags": ["lunchbox", "nausea-friendly", "iron-boost"],
-      "ingredients": ["Eggs", "Bread", "Butter", "Salt and pepper"],
+      "tags": [
+        "lunchbox",
+        "nausea-friendly",
+        "iron-boost"
+      ],
+      "ingredients": [
+        "Eggs",
+        "Bread",
+        "Butter",
+        "Salt and pepper"
+      ],
       "steps": [
         "Lower the eggs into boiling water and cook them for a full 8 minutes.",
         "Cool them under cold water, then peel.",
@@ -35,11 +57,21 @@
     {
       "id": "grate-expectations",
       "name": "Grate Expectations",
+      "dish": "Cheddar, crackers and cherry toms",
       "emoji": "🧀",
       "punLine": "Cheddar cubes, crunchy Vita-Weats and cherry toms: hard cheese is far too dry for listeria to throw a party in.",
       "type": "snack",
-      "tags": ["calcium", "5-minute", "lunchbox"],
-      "ingredients": ["Tasty cheddar", "Vita-Weats", "Cherry tomatoes", "Cracked pepper"],
+      "tags": [
+        "calcium",
+        "5-minute",
+        "lunchbox"
+      ],
+      "ingredients": [
+        "Tasty cheddar",
+        "Vita-Weats",
+        "Cherry tomatoes",
+        "Cracked pepper"
+      ],
       "steps": [
         "Cube the cheddar into fat little bricks.",
         "Wash the cherry tomatoes well under running water and halve them.",
@@ -51,11 +83,22 @@
     {
       "id": "berry-nice",
       "name": "Berry Nice",
+      "dish": "Yoghurt with berries, honey and oats",
       "emoji": "🫐",
       "punLine": "Yoghurt, washed berries and a lazy drizzle of honey, and yes, honey is a green light for mum.",
       "type": "snack",
-      "tags": ["calcium", "sweet-treat", "5-minute"],
-      "ingredients": ["Greek yoghurt", "Fresh strawberries", "Fresh blueberries", "Honey", "Rolled oats"],
+      "tags": [
+        "calcium",
+        "sweet-treat",
+        "5-minute"
+      ],
+      "ingredients": [
+        "Greek yoghurt",
+        "Fresh strawberries",
+        "Fresh blueberries",
+        "Honey",
+        "Rolled oats"
+      ],
       "steps": [
         "Wash the berries well under running water and slice the big ones.",
         "Spoon the yoghurt into a bowl or a tall glass.",
@@ -67,11 +110,22 @@
     {
       "id": "smooth-operator",
       "name": "Smooth Operator",
+      "dish": "Banana and oat smoothie",
       "emoji": "🥤",
       "punLine": "Banana, oats and milk in your own blender, so you are the juice bar and the hygiene inspector.",
       "type": "snack",
-      "tags": ["calcium", "nausea-friendly", "5-minute"],
-      "ingredients": ["Ripe banana", "Rolled oats", "Milk", "Honey", "Cinnamon"],
+      "tags": [
+        "calcium",
+        "nausea-friendly",
+        "5-minute"
+      ],
+      "ingredients": [
+        "Ripe banana",
+        "Rolled oats",
+        "Milk",
+        "Honey",
+        "Cinnamon"
+      ],
       "steps": [
         "Peel the banana and drop it into a clean blender.",
         "Add the oats, cold milk, a little honey and a pinch of cinnamon.",
@@ -83,11 +137,21 @@
     {
       "id": "date-night",
       "name": "Date Night",
+      "dish": "Peanut butter stuffed dates",
       "emoji": "🥜",
       "punLine": "Medjool dates stuffed with peanut butter: nature's caramel, and peanuts in pregnancy are absolutely fine.",
       "type": "snack",
-      "tags": ["iron-boost", "sweet-treat", "5-minute"],
-      "ingredients": ["Medjool dates", "Peanut butter", "Crushed peanuts", "Pinch of sea salt"],
+      "tags": [
+        "iron-boost",
+        "sweet-treat",
+        "5-minute"
+      ],
+      "ingredients": [
+        "Medjool dates",
+        "Peanut butter",
+        "Crushed peanuts",
+        "Pinch of sea salt"
+      ],
       "steps": [
         "Split each date down one side and lift the stone out.",
         "Spoon peanut butter into the gap.",
@@ -99,11 +163,23 @@
     {
       "id": "trail-blazer",
       "name": "Trail Blazer",
+      "dish": "Nut, seed and dried fruit mix",
       "emoji": "🌰",
       "punLine": "A jar of nuts, seeds and dried fruit that lives in your bag for hunger that turns up with no warning.",
       "type": "snack",
-      "tags": ["iron-boost", "lunchbox", "5-minute"],
-      "ingredients": ["Almonds", "Cashews", "Pepitas", "Sunflower seeds", "Dried apricots", "Sultanas"],
+      "tags": [
+        "iron-boost",
+        "lunchbox",
+        "5-minute"
+      ],
+      "ingredients": [
+        "Almonds",
+        "Cashews",
+        "Pepitas",
+        "Sunflower seeds",
+        "Dried apricots",
+        "Sultanas"
+      ],
       "steps": [
         "Tip everything into a big jar in roughly equal handfuls.",
         "Shake it until the dried fruit stops clumping.",
@@ -115,11 +191,21 @@
     {
       "id": "pop-star",
       "name": "Pop Star",
+      "dish": "Parmesan popcorn",
       "emoji": "🍿",
       "punLine": "Popcorn is a fully green, fibre-carrying snack that takes about four minutes flat.",
       "type": "snack",
-      "tags": ["5-minute", "lunchbox", "comfort"],
-      "ingredients": ["Popping corn", "Olive oil", "Salt", "Grated parmesan"],
+      "tags": [
+        "5-minute",
+        "lunchbox",
+        "comfort"
+      ],
+      "ingredients": [
+        "Popping corn",
+        "Olive oil",
+        "Salt",
+        "Grated parmesan"
+      ],
       "steps": [
         "Heat a splash of oil in a big pot with a lid on.",
         "Add the corn, cover it, and shake the pot as it pops.",
@@ -131,11 +217,21 @@
     {
       "id": "chick-magnet",
       "name": "Chick Magnet",
+      "dish": "Crispy roasted chickpeas",
       "emoji": "🫘",
       "punLine": "Canned chickpeas roasted until they rattle: the salty crunch of chips, with a lot more iron.",
       "type": "snack",
-      "tags": ["iron-boost", "lunchbox", "craving-buster"],
-      "ingredients": ["Canned chickpeas", "Olive oil", "Smoked paprika", "Salt"],
+      "tags": [
+        "iron-boost",
+        "lunchbox",
+        "craving-buster"
+      ],
+      "ingredients": [
+        "Canned chickpeas",
+        "Olive oil",
+        "Smoked paprika",
+        "Salt"
+      ],
       "steps": [
         "Drain and rinse the chickpeas, then dry them properly on a clean tea towel.",
         "Toss them with oil, paprika and salt.",
@@ -147,11 +243,21 @@
     {
       "id": "nice-nice-baby",
       "name": "Nice Nice Baby",
+      "dish": "Frozen banana nice cream",
       "emoji": "🍌",
       "punLine": "Frozen banana blitzed to soft-serve texture at home, which is the version of soft serve that is on the menu.",
       "type": "snack",
-      "tags": ["sweet-treat", "craving-buster", "5-minute"],
-      "ingredients": ["Very ripe bananas", "Splash of milk", "Peanut butter", "Cocoa powder"],
+      "tags": [
+        "sweet-treat",
+        "craving-buster",
+        "5-minute"
+      ],
+      "ingredients": [
+        "Very ripe bananas",
+        "Splash of milk",
+        "Peanut butter",
+        "Cocoa powder"
+      ],
       "steps": [
         "Peel and slice the bananas, then freeze them on a tray overnight.",
         "Blitz the frozen slices with a splash of milk until they turn glossy and thick.",
@@ -163,11 +269,22 @@
     {
       "id": "corn-to-be-wild",
       "name": "Corn To Be Wild",
+      "dish": "Cottage cheese and tomato corn thins",
       "emoji": "🌽",
       "punLine": "Corn thins, cottage cheese and tomato: the crunchy, salty answer to a 3pm slump.",
       "type": "snack",
-      "tags": ["calcium", "5-minute", "lunchbox"],
-      "ingredients": ["Corn thins", "Cottage cheese", "Ripe tomato", "Chives", "Cracked pepper"],
+      "tags": [
+        "calcium",
+        "5-minute",
+        "lunchbox"
+      ],
+      "ingredients": [
+        "Corn thins",
+        "Cottage cheese",
+        "Ripe tomato",
+        "Chives",
+        "Cracked pepper"
+      ],
       "steps": [
         "Wash the tomato and slice it thinly.",
         "Spread cottage cheese over the corn thins.",
@@ -179,11 +296,23 @@
     {
       "id": "white-bean-dream",
       "name": "White Bean Dream",
+      "dish": "White bean dip with veggie sticks",
       "emoji": "🧄",
       "punLine": "The dip that stepped up while hummus is benched, and it does the job without a drop of tahini.",
       "type": "snack",
-      "tags": ["craving-buster", "5-minute", "lunchbox"],
-      "ingredients": ["Canned cannellini beans", "Garlic", "Lemon juice", "Olive oil", "Carrot sticks", "Cucumber sticks"],
+      "tags": [
+        "craving-buster",
+        "5-minute",
+        "lunchbox"
+      ],
+      "ingredients": [
+        "Canned cannellini beans",
+        "Garlic",
+        "Lemon juice",
+        "Olive oil",
+        "Carrot sticks",
+        "Cucumber sticks"
+      ],
       "steps": [
         "Drain and rinse the beans well.",
         "Blitz them with garlic, lemon juice, olive oil and salt until silky.",
@@ -195,11 +324,25 @@
     {
       "id": "legal-parmy",
       "name": "The Legal Parmy",
+      "dish": "Chicken parmigiana, chips and salad",
       "emoji": "🍗",
       "punLine": "Pub royalty, made legal: the chicken cooks right through and the ham grills steaming hot under the cheese.",
       "type": "meal",
-      "tags": ["craving-buster", "comfort", "date-night"],
-      "ingredients": ["Chicken breast", "Egg", "Panko breadcrumbs", "Shaved ham", "Tomato passata", "Grated mozzarella", "Hot chips", "Garden salad"],
+      "tags": [
+        "craving-buster",
+        "comfort",
+        "date-night"
+      ],
+      "ingredients": [
+        "Chicken breast",
+        "Egg",
+        "Panko breadcrumbs",
+        "Shaved ham",
+        "Tomato passata",
+        "Grated mozzarella",
+        "Hot chips",
+        "Garden salad"
+      ],
       "steps": [
         "Crumb the chicken through beaten egg and panko, then bake or shallow fry it until it is cooked right through with no pink.",
         "Spoon over the passata, lay the ham on top and cover it with mozzarella.",
@@ -211,11 +354,24 @@
     {
       "id": "iron-man-bol",
       "name": "Iron Man Bol",
+      "dish": "Beef spag bol",
       "emoji": "🍝",
       "punLine": "A big bowl of bolognese pulling double duty as comfort food and an iron delivery system.",
       "type": "meal",
-      "tags": ["iron-boost", "comfort", "freezer-friendly"],
-      "ingredients": ["Beef mince", "Onion", "Garlic", "Carrot", "Canned tomatoes", "Spaghetti", "Grated parmesan"],
+      "tags": [
+        "iron-boost",
+        "comfort",
+        "freezer-friendly"
+      ],
+      "ingredients": [
+        "Beef mince",
+        "Onion",
+        "Garlic",
+        "Carrot",
+        "Canned tomatoes",
+        "Spaghetti",
+        "Grated parmesan"
+      ],
       "steps": [
         "Brown the mince with the onion, garlic and grated carrot until no pink is left.",
         "Add the canned tomatoes and simmer gently for at least 30 minutes.",
@@ -227,11 +383,23 @@
     {
       "id": "omega-bake",
       "name": "Omega Bake",
+      "dish": "Baked salmon, greens and potatoes",
       "emoji": "🐟",
       "punLine": "Baked salmon and greens, delivering the omega-3 that fish is genuinely encouraged for.",
       "type": "meal",
-      "tags": ["omega-3", "date-night", "comfort"],
-      "ingredients": ["Salmon fillet", "Olive oil", "Lemon", "Broccolini", "Green beans", "Baby potatoes"],
+      "tags": [
+        "omega-3",
+        "date-night",
+        "comfort"
+      ],
+      "ingredients": [
+        "Salmon fillet",
+        "Olive oil",
+        "Lemon",
+        "Broccolini",
+        "Green beans",
+        "Baby potatoes"
+      ],
       "steps": [
         "Heat the oven to 200 degrees Celsius and rub the salmon with oil, salt and lemon.",
         "Bake for 12 to 15 minutes, until the flesh is opaque and flakes all the way through.",
@@ -243,11 +411,25 @@
     {
       "id": "wok-this-way",
       "name": "Wok This Way",
+      "dish": "Chicken and veggie stir-fry with rice",
       "emoji": "🥢",
       "punLine": "A fast chicken and veg stir-fry where everything, sprouts included, gets properly hot in the wok.",
       "type": "meal",
-      "tags": ["iron-boost", "craving-buster", "comfort"],
-      "ingredients": ["Chicken thigh", "Broccoli", "Capsicum", "Carrot", "Bean sprouts", "Garlic and ginger", "Soy sauce", "Steamed rice"],
+      "tags": [
+        "iron-boost",
+        "craving-buster",
+        "comfort"
+      ],
+      "ingredients": [
+        "Chicken thigh",
+        "Broccoli",
+        "Capsicum",
+        "Carrot",
+        "Bean sprouts",
+        "Garlic and ginger",
+        "Soy sauce",
+        "Steamed rice"
+      ],
       "steps": [
         "Slice the chicken and stir-fry it over high heat until it is cooked right through.",
         "Add the hard veg, garlic and ginger and keep everything moving.",
@@ -259,11 +441,24 @@
     {
       "id": "spud-life",
       "name": "Spud Life",
+      "dish": "Loaded baked potato with tuna",
       "emoji": "🥔",
       "punLine": "A baked potato is a plate, a hug and a blank canvas all at once.",
       "type": "meal",
-      "tags": ["comfort", "omega-3", "craving-buster"],
-      "ingredients": ["Large potatoes", "Butter", "Canned tuna", "Jar mayonnaise", "Canned corn", "Grated tasty cheese", "Spring onion"],
+      "tags": [
+        "comfort",
+        "omega-3",
+        "craving-buster"
+      ],
+      "ingredients": [
+        "Large potatoes",
+        "Butter",
+        "Canned tuna",
+        "Jar mayonnaise",
+        "Canned corn",
+        "Grated tasty cheese",
+        "Spring onion"
+      ],
       "steps": [
         "Scrub the potatoes, prick them and bake at 200 degrees Celsius for about an hour, until they give when squeezed.",
         "Split them open and fork butter through the fluffy middle.",
@@ -275,11 +470,24 @@
     {
       "id": "fried-rice-done-nice",
       "name": "Fried Rice, Done Nice",
+      "dish": "Egg and veggie fried rice",
       "emoji": "🍚",
       "punLine": "Fried rice made fresh and served steaming, with the egg cooked firm and no second lap through the microwave.",
       "type": "meal",
-      "tags": ["5-minute", "comfort", "craving-buster"],
-      "ingredients": ["Cooked rice, chilled", "Eggs", "Frozen peas and corn", "Carrot", "Spring onion", "Soy sauce", "Sesame oil"],
+      "tags": [
+        "5-minute",
+        "comfort",
+        "craving-buster"
+      ],
+      "ingredients": [
+        "Cooked rice, chilled",
+        "Eggs",
+        "Frozen peas and corn",
+        "Carrot",
+        "Spring onion",
+        "Soy sauce",
+        "Sesame oil"
+      ],
       "steps": [
         "Cook the rice, cool it quickly and keep it in the fridge for no longer than a day.",
         "Scramble the eggs in the hot wok until they are firmly set, then lift them out.",
@@ -291,11 +499,24 @@
     {
       "id": "well-done-wonder",
       "name": "Well-Done Wonder",
+      "dish": "Cooked-through cheeseburgers",
       "emoji": "🍔",
       "punLine": "Homemade burgers cooked all the way through, so nobody has to ask how you want it done.",
       "type": "meal",
-      "tags": ["iron-boost", "craving-buster", "comfort"],
-      "ingredients": ["Beef mince", "Burger buns", "Tasty cheese", "Washed lettuce", "Tomato", "Jar mayonnaise", "Tomato sauce"],
+      "tags": [
+        "iron-boost",
+        "craving-buster",
+        "comfort"
+      ],
+      "ingredients": [
+        "Beef mince",
+        "Burger buns",
+        "Tasty cheese",
+        "Washed lettuce",
+        "Tomato",
+        "Jar mayonnaise",
+        "Tomato sauce"
+      ],
       "steps": [
         "Season the mince and shape it into patties.",
         "Cook them 4 to 5 minutes a side, until the juices run clear and there is no pink in the middle.",
@@ -307,11 +528,25 @@
     {
       "id": "curry-on",
       "name": "Curry On",
+      "dish": "Chickpea and spinach curry with rice",
       "emoji": "🍛",
       "punLine": "A mild chickpea and veg curry that freezes beautifully and asks almost nothing of you.",
       "type": "meal",
-      "tags": ["freezer-friendly", "iron-boost", "comfort"],
-      "ingredients": ["Canned chickpeas", "Onion", "Garlic and ginger", "Mild curry powder", "Canned tomatoes", "Canned coconut milk", "Baby spinach", "Basmati rice"],
+      "tags": [
+        "freezer-friendly",
+        "iron-boost",
+        "comfort"
+      ],
+      "ingredients": [
+        "Canned chickpeas",
+        "Onion",
+        "Garlic and ginger",
+        "Mild curry powder",
+        "Canned tomatoes",
+        "Canned coconut milk",
+        "Baby spinach",
+        "Basmati rice"
+      ],
       "steps": [
         "Soften the onion, garlic and ginger, then toast the curry powder for a minute.",
         "Add the tomatoes, coconut milk and drained chickpeas, and simmer for 20 minutes.",
@@ -323,11 +558,21 @@
     {
       "id": "toastie-loophole",
       "name": "The Toastie Loophole",
+      "dish": "Ham and cheese toastie",
       "emoji": "🥪",
       "punLine": "Deli ham's redemption arc: steaming hot counts as cooked.",
       "type": "meal",
-      "tags": ["5-minute", "craving-buster", "comfort"],
-      "ingredients": ["Bread", "Shaved ham", "Tasty cheese", "Butter"],
+      "tags": [
+        "5-minute",
+        "craving-buster",
+        "comfort"
+      ],
+      "ingredients": [
+        "Bread",
+        "Shaved ham",
+        "Tasty cheese",
+        "Butter"
+      ],
       "steps": [
         "Butter the outsides of two slices of bread.",
         "Stack the ham and cheese in the middle.",
@@ -339,11 +584,25 @@
     {
       "id": "cooked-roll-sushi-night",
       "name": "Cooked-Roll Sushi Night",
+      "dish": "Home sushi rolls, cooked fillings",
       "emoji": "🍣",
       "punLine": "Sushi night at your place, where every filling is cooked, canned or crunchy and nothing is raw.",
       "type": "meal",
-      "tags": ["craving-buster", "date-night", "omega-3"],
-      "ingredients": ["Sushi rice", "Nori sheets", "Teriyaki chicken", "Canned tuna", "Jar mayonnaise", "Avocado", "Cucumber", "Rice vinegar"],
+      "tags": [
+        "craving-buster",
+        "date-night",
+        "omega-3"
+      ],
+      "ingredients": [
+        "Sushi rice",
+        "Nori sheets",
+        "Teriyaki chicken",
+        "Canned tuna",
+        "Jar mayonnaise",
+        "Avocado",
+        "Cucumber",
+        "Rice vinegar"
+      ],
       "steps": [
         "Cook the rice, season it with vinegar and let it cool to room temperature.",
         "Cook the chicken right through in teriyaki sauce, then slice it.",
@@ -355,11 +614,24 @@
     {
       "id": "frittata-fiesta",
       "name": "Frittata Fiesta",
+      "dish": "Veggie and cheese frittata",
       "emoji": "🥘",
       "punLine": "A veggie frittata set firm right to the middle: no wobble, no worries.",
       "type": "meal",
-      "tags": ["lunchbox", "freezer-friendly", "iron-boost"],
-      "ingredients": ["Eggs", "Potato", "Capsicum", "Zucchini", "Onion", "Grated tasty cheese", "Milk"],
+      "tags": [
+        "lunchbox",
+        "freezer-friendly",
+        "iron-boost"
+      ],
+      "ingredients": [
+        "Eggs",
+        "Potato",
+        "Capsicum",
+        "Zucchini",
+        "Onion",
+        "Grated tasty cheese",
+        "Milk"
+      ],
       "steps": [
         "Fry the onion, potato, capsicum and zucchini until soft.",
         "Whisk the eggs with a splash of milk and the cheese, then pour it over the veg.",
@@ -371,11 +643,24 @@
     {
       "id": "big-brekky-home-edition",
       "name": "Big Brekky, Home Edition",
+      "dish": "The full cooked breakfast",
       "emoji": "🍳",
       "punLine": "The full cafe brekky at your place, with firm yolks, hot mushies and precisely zero hollandaise.",
       "type": "meal",
-      "tags": ["comfort", "craving-buster", "iron-boost"],
-      "ingredients": ["Eggs", "Button mushrooms", "Hash browns", "Sourdough bread", "Butter", "Tomatoes", "Bacon"],
+      "tags": [
+        "comfort",
+        "craving-buster",
+        "iron-boost"
+      ],
+      "ingredients": [
+        "Eggs",
+        "Button mushrooms",
+        "Hash browns",
+        "Sourdough bread",
+        "Butter",
+        "Tomatoes",
+        "Bacon"
+      ],
       "steps": [
         "Fry the bacon until it is crisp and serve it hot off the pan.",
         "Cook the mushrooms and halved tomatoes in the same pan until they are soft and sizzling.",
@@ -387,11 +672,25 @@
     {
       "id": "pav-the-way",
       "name": "Pav The Way",
+      "dish": "Homemade pavlova with fresh fruit",
       "emoji": "🍰",
       "punLine": "The pav stays a national treasure: baked meringue is cooked egg, so dessert is sorted.",
       "type": "meal",
-      "tags": ["sweet-treat", "date-night", "craving-buster"],
-      "ingredients": ["Egg whites", "Caster sugar", "Cornflour", "White vinegar", "Thickened cream", "Strawberries", "Kiwifruit", "Passionfruit"],
+      "tags": [
+        "sweet-treat",
+        "date-night",
+        "craving-buster"
+      ],
+      "ingredients": [
+        "Egg whites",
+        "Caster sugar",
+        "Cornflour",
+        "White vinegar",
+        "Thickened cream",
+        "Strawberries",
+        "Kiwifruit",
+        "Passionfruit"
+      ],
       "steps": [
         "Whip the egg whites and sugar to stiff, glossy peaks, then fold in the cornflour and vinegar.",
         "Bake it low and slow until the outside is crisp and dry to the touch, then cool it in the oven.",
@@ -402,16 +701,49 @@
     }
   ],
   "swaps": [
-    { "craving": "Soft serve", "swap": "Tub ice cream, or frozen-banana nice cream" },
-    { "craving": "Sashimi", "swap": "Fresh cooked-filling rolls, made into a sushi night at home" },
-    { "craving": "Prosciutto", "swap": "Crisped hot prosciutto shards over pasta" },
-    { "craving": "Runny eggs", "swap": "Firm-yolk fried eggs, or a fat slice of fully set frittata" },
-    { "craving": "Smoked salmon bagel", "swap": "Canned salmon and cream cheese bagel" },
-    { "craving": "Brie board", "swap": "Baked brie, served bubbling hot" },
-    { "craving": "Pâté", "swap": "White bean dip, or shelf-stable jar pâté, kept in the fridge once opened" },
-    { "craving": "Cold Chrissy prawns", "swap": "Hot garlic prawns" },
-    { "craving": "Third coffee", "swap": "Decaf oat latte, which tastes like the real thing at 4pm" },
-    { "craving": "Wine o'clock", "swap": "Sparkling water, lime and frozen berries in the good glass" },
-    { "craving": "Hummus", "swap": "White bean dip or beetroot dip, hold the feta" }
+    {
+      "craving": "Soft serve",
+      "swap": "Tub ice cream, or frozen-banana nice cream"
+    },
+    {
+      "craving": "Sashimi",
+      "swap": "Fresh cooked-filling rolls, made into a sushi night at home"
+    },
+    {
+      "craving": "Prosciutto",
+      "swap": "Crisped hot prosciutto shards over pasta"
+    },
+    {
+      "craving": "Runny eggs",
+      "swap": "Firm-yolk fried eggs, or a fat slice of fully set frittata"
+    },
+    {
+      "craving": "Smoked salmon bagel",
+      "swap": "Canned salmon and cream cheese bagel"
+    },
+    {
+      "craving": "Brie board",
+      "swap": "Baked brie, served bubbling hot"
+    },
+    {
+      "craving": "Pâté",
+      "swap": "White bean dip, or shelf-stable jar pâté, kept in the fridge once opened"
+    },
+    {
+      "craving": "Cold Chrissy prawns",
+      "swap": "Hot garlic prawns"
+    },
+    {
+      "craving": "Third coffee",
+      "swap": "Decaf oat latte, which tastes like the real thing at 4pm"
+    },
+    {
+      "craving": "Wine o'clock",
+      "swap": "Sparkling water, lime and frozen berries in the good glass"
+    },
+    {
+      "craving": "Hummus",
+      "swap": "White bean dip or beetroot dip, hold the feta"
+    }
   ]
 }

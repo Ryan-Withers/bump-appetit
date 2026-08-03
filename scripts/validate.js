@@ -511,6 +511,15 @@ function checkMeals(bundle) {
     if (!isFilledString(meal.name)) fail(file, at('name'), 'is missing.');
     if (!isFilledString(meal.punLine)) fail(file, at('punLine'), 'is missing. The pun is the point of this screen.');
 
+    // The pun is the personality, the dish line is the information. A card has
+    // to say what the food IS without being tapped, so this is required and
+    // short enough to never wrap twice.
+    if (!isFilledString(meal.dish)) {
+      fail(file, at('dish'), 'is missing. One plain line saying what the recipe actually is, e.g. "Ham and cheese toastie".');
+    } else if (meal.dish.length > 60) {
+      fail(file, at('dish'), `is ${meal.dish.length} characters, over the 60 limit. It has to read at a glance.`);
+    }
+
     const emojiIssue = emojiProblem(meal.emoji);
     if (emojiIssue) fail(file, at('emoji'), emojiIssue);
 

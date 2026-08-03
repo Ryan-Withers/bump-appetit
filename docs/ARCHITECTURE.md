@@ -127,6 +127,7 @@ Keys in use: `rwh-2026`, `monash-ivf`, `nswfa`, `fsanz`, `pbb`, `betterhealth`,
       "id": "toastie-loophole",
       "name": "The Toastie Loophole",
       "emoji": "🥪",
+      "dish": "Ham and cheese toastie",
       "punLine": "Deli ham's redemption arc: steaming hot counts as cooked.",
       "type": "meal",
       "tags": ["5-minute", "craving-buster", "comfort"],
@@ -138,6 +139,11 @@ Keys in use: `rwh-2026`, `monash-ivf`, `nswfa`, `fsanz`, `pbb`, `betterhealth`,
   "swaps": [ { "craving": "Soft serve", "swap": "Tub ice cream, or frozen-banana nice cream" } ]
 }
 ```
+
+`dish` is required, 60 characters max: the plain what-it-actually-is line shown
+on the card and the sheet, because the pun name alone made her tap in to find
+out what the recipe was. The pun is the personality; the dish line is the
+information. The long `punLine` renders only in the opened sheet.
 
 `type` is `snack` or `meal`. `tags` come from this closed set:
 `craving-buster`, `nausea-friendly`, `iron-boost`, `calcium`, `omega-3`,
@@ -342,7 +348,7 @@ Verdict: `.verdict__emoji`, `.verdict__name`, `.verdict__why`, `.callout`,
 Scan: `.scan`, `.scan__button`, `.scan__preview`, `.scan__line`, `.scan__status`,
 `.dish`, `.dish__name`, `.dish__why`, `.group-title`, `.asks`.
 
-Bites: `.bite`, `.bite__emoji`, `.bite__name`, `.bite__pun`, `.tags`, `.tag`, `.ingredient`,
+Bites: `.bite`, `.bite__emoji`, `.bite__name`, `.bite__dish`, `.bite__pun`, `.tags`, `.tag`, `.ingredient`,
 `.ingredient.is-done`, `.steps`, `.swaps`, `.swap-row`.
 
 More: `.rows`, `.row`, `.row__label`, `.row__chev`, `.calm`, `.calm__step`,

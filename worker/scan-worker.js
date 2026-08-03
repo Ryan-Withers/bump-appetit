@@ -94,7 +94,8 @@ THREE HAZARD SHAPES, each with its own proof:
      eggnog, fried ice cream), mayo or aioli printed house made, and mayo salads made
      on site (coleslaw, potato salad): red; only a printed "egg free" lifts it. Bare
      mayo, aioli, garlic sauce or tartare sauce: unsure, makeItGreen "Ask if it comes
-     from a commercial bottle."
+     from a commercial bottle." A sauce served with, on or beside a dish is part of
+     the dish: squid with lemon aioli takes the aioli's tier, however hot the fry.
    - Egg cooked firm by the recipe itself (quiche, frittata, scrambled, omelette,
      french toast, cakes, puddings, pavlova, baked meringue): green. A fried egg or
      bare egg with no yolk state: unsure, makeItGreen "Ask for the yolk cooked firm."

@@ -180,6 +180,8 @@ function buildMeal(content, meal) {
 
   if (emoji) content.appendChild(el('div', { class: 'verdict__emoji', aria: { hidden: 'true' } }, emoji));
   content.appendChild(el('h2', { class: 'verdict__name' }, name));
+  const dish = String(meal.dish || '').trim();
+  if (dish) content.appendChild(el('p', { class: 'bite__dish' }, dish));
   if (pun) content.appendChild(el('p', { class: 'bite__pun' }, pun));
 
   if (tags.length) {
@@ -227,10 +229,13 @@ function mealCard(meal, open) {
   const emoji = String(meal.emoji || '').trim();
   const tags = Array.isArray(meal.tags) ? meal.tags.slice(0, 3) : [];
 
+  // The pun name is the personality; the dish line says what the food IS. The
+  // long punLine joke lives in the opened sheet, not here, so the card reads
+  // at a glance: Grate Expectations. Cheddar, crackers and cherry toms.
   const card = el('button', { class: 'bite', type: 'button' }, [
     emoji ? el('span', { class: 'bite__emoji', aria: { hidden: 'true' } }, emoji) : null,
     el('span', { class: 'bite__name' }, String(meal.name || '')),
-    meal.punLine ? el('span', { class: 'bite__pun' }, String(meal.punLine)) : null,
+    meal.dish ? el('span', { class: 'bite__dish' }, String(meal.dish)) : null,
     tags.length
       ? el('span', { class: 'tags' }, tags.map((tag) => el('span', { class: 'tag' }, tagLabel(tag))))
       : null,

@@ -1119,6 +1119,10 @@ body:has(.sheet.is-open) .sheet-backdrop {
 
 .bite__pun { font-size: var(--fs-label); line-height: 1.5; color: var(--ink-2); }
 
+/* The plain what-it-actually-is line, one notch louder than the pun so the card
+   answers "what is this?" before it lands the joke. */
+.bite__dish { font-size: var(--fs-label); line-height: 1.5; color: var(--ink); font-weight: 600; }
+
 .tags { display: flex; flex-wrap: wrap; gap: var(--s2); }
 
 .tag {
