@@ -167,6 +167,12 @@ export const STRINGS = Object.freeze({
     // Sits above the nutrient chips: folate, iron and friends with their
     // high, medium or low levels.
     nutrientsHeading: 'The good stuff in it',
+    // The per-serve nutrition panel underneath the chips.
+    nutritionHeading: "What's in it",
+    nutritionServe: 'Per {serve}',
+    // Says the quiet part out loud. Someone counting carbs for gestational
+    // diabetes has to know these are typical values, not a label reading.
+    nutritionNote: 'Typical serve, averaged from Australian food data. A guide for interest, not a label reading, so check the packet if you are counting closely.',
   },
 
   /* ------------------------------------------------------------ how we decide

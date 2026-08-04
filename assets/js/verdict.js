@@ -268,6 +268,70 @@ function nutrientsEl(nutrients) {
 }
 
 /**
+ * The per-serve nutrition panel. Australian label order, so it reads the way
+ * the back of a packet does, with saturated fat and sugars indented under
+ * their parents rather than pretending to be separate lines.
+ *
+ * Every number is a typical-serve estimate, and the panel says so out loud.
+ * Someone counting carbs for gestational diabetes needs to know this is a
+ * guide rather than a label reading, and burying that would be a quiet lie.
+ */
+const NUTRITION_ROWS = Object.freeze([
+  { key: 'protein', label: 'Protein', unit: 'g' },
+  { key: 'fat', label: 'Fat, total', unit: 'g' },
+  { key: 'satFat', label: 'saturated', unit: 'g', sub: true },
+  { key: 'carbs', label: 'Carbohydrate', unit: 'g' },
+  { key: 'sugars', label: 'sugars', unit: 'g', sub: true },
+  { key: 'fibre', label: 'Fibre', unit: 'g' },
+  { key: 'sodium', label: 'Sodium', unit: 'mg' },
+]);
+
+/** Trims the trailing zero so 5.0g reads as 5g, the way a label prints it. */
+function amount(value, unit) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) return null;
+  const rounded = Math.round(value * 10) / 10;
+  return `${Number.isInteger(rounded) ? rounded : rounded.toFixed(1)}${unit}`;
+}
+
+function nutritionEl(nutrition) {
+  if (!nutrition || typeof nutrition !== 'object') return null;
+  const kj = amount(nutrition.kj, '');
+  if (kj === null) return null;
+
+  const rows = [];
+  for (const row of NUTRITION_ROWS) {
+    const value = amount(nutrition[row.key], row.unit);
+    if (value === null) continue;
+    rows.push(el('div', { class: `nutrition__row${row.sub ? ' nutrition__row--sub' : ''}` }, [
+      el('span', { class: 'nutrition__label' }, row.label),
+      el('span', { class: 'nutrition__value' }, value),
+    ]));
+  }
+  if (!rows.length) return null;
+
+  const serve = text(nutrition.serve);
+
+  return el('section', { class: 'nutrition' }, [
+    el('div', { class: 'nutrition__head' }, [
+      el('h3', { class: 'nutrition__title' }, str('verdict.nutritionHeading', "What's in it")),
+      serve ? el('p', { class: 'nutrition__serve' }, fill(
+        str('verdict.nutritionServe', 'Per {serve}'),
+        { serve },
+      )) : null,
+    ].filter(Boolean)),
+    el('div', { class: 'nutrition__energy' }, [
+      el('span', { class: 'nutrition__kj' }, `${kj} kJ`),
+      el('span', { class: 'nutrition__cal' }, `${Math.round(nutrition.kj / 4.184)} Cal`),
+    ]),
+    el('div', { class: 'nutrition__rows' }, rows),
+    el('p', { class: 'nutrition__note' }, str(
+      'verdict.nutritionNote',
+      'Typical serve, averaged from Australian food data. A guide for interest, not a label reading, so check the packet if you are counting closely.',
+    )),
+  ]);
+}
+
+/**
  * The honest 50-50 panel. Some foods are genuine judgement calls, and Ryan's
  * rule for those is transparency over false confidence: show what each source
  * actually says, side by side, and let the tier carry the stricter call.
@@ -362,6 +426,20 @@ function variantsEl(variants) {
   return wrap;
 }
 
+/** Same slot filler the other views carry, so a string can move between them. */
+function fill(template, values) {
+  let out = String(template || '');
+  let used = false;
+  for (const [key, value] of Object.entries(values)) {
+    const slot = `{${key}}`;
+    if (out.includes(slot)) {
+      used = true;
+      out = out.split(slot).join(String(value));
+    }
+  }
+  return used ? out : `${out} ${Object.values(values).join(' ')}`.trim();
+}
+
 function checkedText() {
   const date = text(CONFIG && CONFIG.reviewedLabel);
   const template = str('verdict.checked', 'Checked {date}');
@@ -430,6 +508,9 @@ function buildVerdict(content, food, refs) {
   // her is worth knowing, but never allowed to upstage whether she can eat it.
   const nutrients = nutrientsEl(food.nutrients);
   if (nutrients) content.appendChild(nutrients);
+
+  const nutrition = nutritionEl(food.nutrition);
+  if (nutrition) content.appendChild(nutrition);
 
   appendFooter(content, food);
 }

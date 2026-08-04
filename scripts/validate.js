@@ -51,6 +51,25 @@ const WHY_MAX = 220;
 // a typo on a phone becomes a build failure rather than a silently missing chip.
 const NUTRIENT_KEYS = ['folate', 'iron', 'calcium', 'protein', 'omega3', 'iodine', 'fibre'];
 const NUTRIENT_LEVELS = ['high', 'med', 'low'];
+
+// The per-serve nutrition panel. Grams for macros, milligrams for sodium,
+// kilojoules for energy, because Australian labels are in kJ.
+const NUTRITION_GRAMS = ['protein', 'fat', 'satFat', 'carbs', 'sugars', 'fibre'];
+const SERVE_MAX = 28;
+
+// Atwater-style energy factors, kJ per gram. Fibre is counted at a lower
+// factor because most of it is not absorbed. These let the validator catch a
+// fabricated number: macros and energy have to tell the same story.
+const KJ_PER_G = { protein: 17, carbs: 17, fat: 37, fibre: 8 };
+const KJ_TOLERANCE = 0.25;
+
+// Alcohol carries 29kJ/g and never appears in the macro rows, so boozy entries
+// legitimately read high against the macro sum. They are listed rather than
+// pattern-matched, so a new one has to be a deliberate decision.
+const ALCOHOL_IDS = new Set([
+  'alcohol', 'rum-balls', 'trifle', 'fruit-cake', 'zero-alcohol-drinks',
+  'tiramisu', 'eggnog', 'christmas-pudding',
+]);
 const MONTH_RE = /^\d{4}-(0[1-9]|1[0-2])$/;
 const DAY_RE = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -262,6 +281,7 @@ function checkFoods(bundle, sourceKeys) {
     flagged: 0,
     splits: 0,
     nutrients: 0,
+    nutrition: 0,
     sourcesUsed: new Set(),
   };
 
@@ -463,6 +483,75 @@ function checkFoods(bundle, sourceKeys) {
           }
           if (!NUTRIENT_LEVELS.includes(level)) {
             fail(file, `${spot}.${key}`, `is ${JSON.stringify(level)}. Levels are: ${NUTRIENT_LEVELS.join(', ')}.`);
+          }
+        }
+      }
+    }
+
+    // 9. The per-serve nutrition panel. Optional, but when it is there every
+    // field must be present and the numbers must agree with each other: a
+    // panel that contradicts itself is worse than no panel at all.
+    if (food.nutrition !== undefined) {
+      const spot = at('nutrition');
+      const n = food.nutrition;
+      if (!n || typeof n !== 'object' || Array.isArray(n)) {
+        fail(file, spot, 'must be an object. See docs/ARCHITECTURE.md section 2.');
+      } else {
+        stats.nutrition += 1;
+
+        if (!isFilledString(n.serve)) {
+          fail(file, `${spot}.serve`, 'is missing. Every panel says what one serve actually is.');
+        } else if (n.serve.length > SERVE_MAX) {
+          fail(file, `${spot}.serve`, `is ${n.serve.length} characters. Keep it under ${SERVE_MAX}: "2 slices", "1 cup cooked".`);
+        }
+
+        const num = (key, { integer = false } = {}) => {
+          const value = n[key];
+          if (typeof value !== 'number' || !Number.isFinite(value)) {
+            fail(file, `${spot}.${key}`, `must be a number, got ${JSON.stringify(value)}.`);
+            return null;
+          }
+          if (value < 0) {
+            fail(file, `${spot}.${key}`, `is negative (${value}).`);
+            return null;
+          }
+          if (integer && !Number.isInteger(value)) {
+            fail(file, `${spot}.${key}`, `must be a whole number, got ${value}.`);
+            return null;
+          }
+          if (!integer && Math.round(value * 10) !== value * 10) {
+            fail(file, `${spot}.${key}`, `has more than one decimal place (${value}).`);
+          }
+          return value;
+        };
+
+        const kj = num('kj', { integer: true });
+        const sodium = num('sodium', { integer: true });
+        const grams = {};
+        for (const key of NUTRITION_GRAMS) grams[key] = num(key);
+
+        // Internal consistency. Saturated fat is part of the fat, sugars are
+        // part of the carbohydrate: a panel breaking these is simply wrong.
+        if (grams.satFat !== null && grams.fat !== null && grams.satFat > grams.fat) {
+          fail(file, `${spot}.satFat`, `is ${grams.satFat}g but total fat is only ${grams.fat}g. Saturated fat is part of the fat.`);
+        }
+        if (grams.sugars !== null && grams.carbs !== null && grams.sugars > grams.carbs) {
+          fail(file, `${spot}.sugars`, `is ${grams.sugars}g but total carbs are only ${grams.carbs}g. Sugars are part of the carbs.`);
+        }
+
+        // Energy against the macros. This is the check that catches a number
+        // somebody guessed: you cannot fake kilojoules past the arithmetic.
+        const complete = kj !== null && NUTRITION_GRAMS.every((k) => grams[k] !== null);
+        if (complete && !ALCOHOL_IDS.has(food.id)) {
+          const expected = Object.entries(KJ_PER_G)
+            .reduce((sum, [key, factor]) => sum + grams[key] * factor, 0);
+          const floor = 40; // tiny serves: a 5g slick of Vegemite rounds badly
+          if (expected > floor || kj > floor) {
+            const low = expected * (1 - KJ_TOLERANCE);
+            const high = expected * (1 + KJ_TOLERANCE);
+            if (kj < low - floor || kj > high + floor) {
+              fail(file, `${spot}.kj`, `is ${kj}kJ but the macros add up to about ${Math.round(expected)}kJ. One of the two is wrong.`);
+            }
           }
         }
       }
@@ -800,6 +889,7 @@ function summarise(counts) {
     `  pending       ${foods.flagged} entr${foods.flagged === 1 ? 'y' : 'ies'} flagged for sign-off`,
     `  splits        ${foods.splits} advice-is-split panels, sources quoted side by side`,
     `  nutrients     ${foods.nutrients} entries carrying nutrient chips`,
+    `  nutrition     ${foods.nutrition} entries carrying a per-serve panel`,
     `  meals         ${meals.meals} (${meals.snacks} snacks, ${meals.mains} meals) plus ${meals.swaps} craving swaps`,
     `  lexicon       ${lexicon.terms} terms, ${lexicon.phrases} phrases, ${lexicon.signals} cooked signals`,
     `  cheat sheets  ${sheets.sheets} sheets, ${sheets.rows} rows, ${sheets.asks} magic questions`,
