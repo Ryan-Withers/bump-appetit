@@ -29,6 +29,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "30g wedge",
+    "kj": 430,
+    "protein": 6.3,
+    "fat": 8.7,
+    "satFat": 5.7,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 420
    }
   },
   {
@@ -62,6 +73,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "30g wedge, baked hot",
+    "kj": 410,
+    "protein": 6.0,
+    "fat": 8.3,
+    "satFat": 5.3,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 190
    }
   },
   {
@@ -126,6 +148,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "40g, about 2 slices",
+    "kj": 670,
+    "protein": 9.8,
+    "fat": 13.4,
+    "satFat": 8.6,
+    "carbs": 0.4,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 250
    }
   },
   {
@@ -154,6 +187,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "calcium": "med"
+   },
+   "nutrition": {
+    "serve": "1 wedge (20g)",
+    "kj": 220,
+    "protein": 2.2,
+    "fat": 4.4,
+    "satFat": 2.8,
+    "carbs": 1.0,
+    "sugars": 0.8,
+    "fibre": 0.0,
+    "sodium": 220
    }
   },
   {
@@ -184,6 +228,17 @@
    "nutrients": {
     "calcium": "low",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "half a cup (120g)",
+    "kj": 490,
+    "protein": 15.0,
+    "fat": 4.8,
+    "satFat": 3.1,
+    "carbs": 3.6,
+    "sugars": 3.6,
+    "fibre": 0.0,
+    "sodium": 360
    }
   },
   {
@@ -213,7 +268,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 tbsp thickened cream",
+    "kj": 550,
+    "protein": 0.9,
+    "fat": 14.0,
+    "satFat": 9.2,
+    "carbs": 1.2,
+    "sugars": 1.2,
+    "fibre": 0.0,
+    "sodium": 12
+   }
   },
   {
    "id": "cream-cheese",
@@ -242,6 +308,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "calcium": "low"
+   },
+   "nutrition": {
+    "serve": "2 tbsp (30g)",
+    "kj": 430,
+    "protein": 2.0,
+    "fat": 10.2,
+    "satFat": 6.6,
+    "carbs": 1.1,
+    "sugars": 0.9,
+    "fibre": 0.0,
+    "sodium": 96
    }
   },
   {
@@ -271,6 +348,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "calcium": "med"
+   },
+   "nutrition": {
+    "serve": "half a cup (125g)",
+    "kj": 560,
+    "protein": 4.0,
+    "fat": 3.8,
+    "satFat": 2.5,
+    "carbs": 20.6,
+    "sugars": 15.0,
+    "fibre": 0.0,
+    "sodium": 75
    }
   },
   {
@@ -303,6 +391,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "40g baked in a dish",
+    "kj": 330,
+    "protein": 4.8,
+    "fat": 6.4,
+    "satFat": 4.2,
+    "carbs": 0.9,
+    "sugars": 0.9,
+    "fibre": 0.0,
+    "sodium": 240
    }
   },
   {
@@ -335,6 +434,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "half a ball (60g)",
+    "kj": 620,
+    "protein": 10.8,
+    "fat": 11.4,
+    "satFat": 7.5,
+    "carbs": 0.9,
+    "sugars": 0.6,
+    "fibre": 0.0,
+    "sodium": 240
    }
   },
   {
@@ -358,7 +468,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 battered ball",
+    "kj": 1260,
+    "protein": 5.0,
+    "fat": 16.0,
+    "satFat": 8.0,
+    "carbs": 34.0,
+    "sugars": 22.0,
+    "fibre": 1.0,
+    "sodium": 150
+   }
   },
   {
    "id": "haloumi",
@@ -389,6 +510,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "3 slices, grilled",
+    "kj": 820,
+    "protein": 13.2,
+    "fat": 15.6,
+    "satFat": 10.2,
+    "carbs": 1.2,
+    "sugars": 1.2,
+    "fibre": 0.0,
+    "sodium": 780
    }
   },
   {
@@ -424,6 +556,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices of cheddar",
+    "kj": 670,
+    "protein": 9.8,
+    "fat": 13.4,
+    "satFat": 8.6,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 250
    }
   },
   {
@@ -452,7 +595,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 scoops (100g)",
+    "kj": 880,
+    "protein": 3.8,
+    "fat": 11.0,
+    "satFat": 7.5,
+    "carbs": 24.0,
+    "sugars": 22.0,
+    "fibre": 0.0,
+    "sodium": 60
+   }
   },
   {
    "id": "melted-mozzarella",
@@ -483,6 +637,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "60g melted on a pizza",
+    "kj": 710,
+    "protein": 14.4,
+    "fat": 12.0,
+    "satFat": 7.8,
+    "carbs": 1.5,
+    "sugars": 0.6,
+    "fibre": 0.0,
+    "sodium": 370
    }
   },
   {
@@ -535,6 +700,17 @@
     "calcium": "high",
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 glass (250mL)",
+    "kj": 660,
+    "protein": 8.5,
+    "fat": 8.5,
+    "satFat": 5.5,
+    "carbs": 12.0,
+    "sugars": 12.0,
+    "fibre": 0.0,
+    "sodium": 108
    }
   },
   {
@@ -564,6 +740,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 tall glass (400mL)",
+    "kj": 1490,
+    "protein": 12.0,
+    "fat": 14.0,
+    "satFat": 9.0,
+    "carbs": 45.0,
+    "sugars": 42.0,
+    "fibre": 0.0,
+    "sodium": 180
    }
   },
   {
@@ -595,6 +782,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "80g through a curry",
+    "kj": 930,
+    "protein": 14.4,
+    "fat": 17.6,
+    "satFat": 11.2,
+    "carbs": 2.0,
+    "sugars": 2.0,
+    "fibre": 0.0,
+    "sodium": 20
    }
   },
   {
@@ -629,6 +827,17 @@
     "calcium": "high",
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup (250mL)",
+    "kj": 660,
+    "protein": 8.5,
+    "fat": 8.5,
+    "satFat": 5.5,
+    "carbs": 12.0,
+    "sugars": 12.0,
+    "fibre": 0.0,
+    "sodium": 108
    }
   },
   {
@@ -658,6 +867,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "calcium": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices (40g)",
+    "kj": 510,
+    "protein": 6.8,
+    "fat": 9.6,
+    "satFat": 6.4,
+    "carbs": 2.2,
+    "sugars": 2.0,
+    "fibre": 0.0,
+    "sodium": 560
    }
   },
   {
@@ -697,6 +917,17 @@
       "says": "Yellow. The tub keeps the risk low, but the shared scoop and the bench it rests on are unknowns, so we hedge rather than wave it fully green."
      }
     ]
+   },
+   "nutrition": {
+    "serve": "1 scoop in a cup",
+    "kj": 640,
+    "protein": 3.2,
+    "fat": 5.6,
+    "satFat": 3.6,
+    "carbs": 22.4,
+    "sugars": 20.0,
+    "fibre": 0.0,
+    "sodium": 48
    }
   },
   {
@@ -726,6 +957,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "30g, baked hot",
+    "kj": 380,
+    "protein": 5.4,
+    "fat": 7.5,
+    "satFat": 5.1,
+    "carbs": 0.6,
+    "sugars": 0.6,
+    "fibre": 0.0,
+    "sodium": 150
    }
   },
   {
@@ -754,7 +996,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 cone",
+    "kj": 620,
+    "protein": 3.5,
+    "fat": 5.0,
+    "satFat": 3.5,
+    "carbs": 22.0,
+    "sugars": 18.0,
+    "fibre": 0.5,
+    "sodium": 80
+   }
   },
   {
    "id": "thickshake-mcflurry",
@@ -781,7 +1034,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 regular cup",
+    "kj": 1620,
+    "protein": 9.0,
+    "fat": 12.0,
+    "satFat": 8.0,
+    "carbs": 60.0,
+    "sugars": 54.0,
+    "fibre": 0.5,
+    "sodium": 200
+   }
   },
   {
    "id": "raw-milk-and-cheese",
@@ -814,6 +1078,17 @@
     "calcium": "high",
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 glass (250mL)",
+    "kj": 700,
+    "protein": 8.5,
+    "fat": 9.5,
+    "satFat": 6.0,
+    "carbs": 11.8,
+    "sugars": 11.8,
+    "fibre": 0.0,
+    "sodium": 105
    }
   },
   {
@@ -846,6 +1121,17 @@
     "calcium": "high",
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 tub (170g)",
+    "kj": 630,
+    "protein": 11.1,
+    "fat": 7.7,
+    "satFat": 5.1,
+    "carbs": 9.4,
+    "sugars": 9.4,
+    "fibre": 0.0,
+    "sodium": 77
    }
   },
   {
@@ -874,6 +1160,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices (40g)",
+    "kj": 660,
+    "protein": 11.2,
+    "fat": 12.4,
+    "satFat": 7.6,
+    "carbs": 0.4,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 140
    }
   },
   {
@@ -901,6 +1198,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices (40g)",
+    "kj": 590,
+    "protein": 10.8,
+    "fat": 10.8,
+    "satFat": 6.8,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 180
    }
   },
   {
@@ -928,6 +1236,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices (40g)",
+    "kj": 590,
+    "protein": 10.2,
+    "fat": 10.8,
+    "satFat": 6.8,
+    "carbs": 0.8,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 350
    }
   },
   {
@@ -954,6 +1273,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "40g off the board",
+    "kj": 690,
+    "protein": 10.0,
+    "fat": 14.0,
+    "satFat": 8.8,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 440
    }
   },
   {
@@ -981,6 +1311,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices (40g)",
+    "kj": 670,
+    "protein": 9.6,
+    "fat": 13.6,
+    "satFat": 8.6,
+    "carbs": 0.1,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 260
    }
   },
   {
@@ -1008,6 +1349,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "40g wedge",
+    "kj": 670,
+    "protein": 9.6,
+    "fat": 13.6,
+    "satFat": 8.8,
+    "carbs": 0.1,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 250
    }
   },
   {
@@ -1048,6 +1400,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "80g melted",
+    "kj": 1150,
+    "protein": 18.4,
+    "fat": 22.4,
+    "satFat": 14.4,
+    "carbs": 0.4,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 560
    }
   },
   {
@@ -1076,6 +1439,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices (40g)",
+    "kj": 700,
+    "protein": 10.0,
+    "fat": 14.0,
+    "satFat": 9.6,
+    "carbs": 0.6,
+    "sugars": 0.6,
+    "fibre": 0.0,
+    "sodium": 280
    }
   },
   {
@@ -1104,6 +1478,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices (40g)",
+    "kj": 640,
+    "protein": 8.8,
+    "fat": 13.2,
+    "satFat": 8.4,
+    "carbs": 0.4,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 280
    }
   },
   {
@@ -1130,6 +1515,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "40g melted through",
+    "kj": 490,
+    "protein": 6.0,
+    "fat": 10.4,
+    "satFat": 6.8,
+    "carbs": 0.4,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 160
    }
   },
   {
@@ -1157,6 +1553,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "40g melted through",
+    "kj": 530,
+    "protein": 7.6,
+    "fat": 10.8,
+    "satFat": 7.2,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 360
    }
   },
   {
@@ -1180,7 +1587,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 tbsp (40g)",
+    "kj": 720,
+    "protein": 1.8,
+    "fat": 18.0,
+    "satFat": 12.0,
+    "carbs": 1.4,
+    "sugars": 1.2,
+    "fibre": 0.0,
+    "sodium": 12
+   }
   },
   {
    "id": "labneh",
@@ -1208,6 +1626,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 tbsp (40g)",
+    "kj": 300,
+    "protein": 3.2,
+    "fat": 6.0,
+    "satFat": 4.0,
+    "carbs": 1.6,
+    "sugars": 1.6,
+    "fibre": 0.0,
+    "sodium": 80
    }
   },
   {
@@ -1234,6 +1663,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "half a cup (120g)",
+    "kj": 340,
+    "protein": 14.4,
+    "fat": 0.4,
+    "satFat": 0.2,
+    "carbs": 4.8,
+    "sugars": 4.8,
+    "fibre": 0.0,
+    "sodium": 48
    }
   },
   {
@@ -1261,6 +1701,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "1 tub (170g)",
+    "kj": 440,
+    "protein": 18.7,
+    "fat": 0.3,
+    "satFat": 0.2,
+    "carbs": 6.8,
+    "sugars": 6.8,
+    "fibre": 0.0,
+    "sodium": 85
    }
   },
   {
@@ -1289,6 +1740,17 @@
     "calcium": "high",
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 tub (170g)",
+    "kj": 450,
+    "protein": 6.8,
+    "fat": 5.1,
+    "satFat": 3.4,
+    "carbs": 8.5,
+    "sugars": 8.5,
+    "fibre": 0.0,
+    "sodium": 85
    }
   },
   {
@@ -1318,6 +1780,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 small bottle (200mL)",
+    "kj": 580,
+    "protein": 5.6,
+    "fat": 3.0,
+    "satFat": 2.0,
+    "carbs": 22.0,
+    "sugars": 21.0,
+    "fibre": 0.0,
+    "sodium": 80
    }
   },
   {
@@ -1346,6 +1819,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 pouch (70g)",
+    "kj": 290,
+    "protein": 3.9,
+    "fat": 2.5,
+    "satFat": 1.6,
+    "carbs": 7.7,
+    "sugars": 7.0,
+    "fibre": 0.0,
+    "sodium": 28
    }
   },
   {
@@ -1371,7 +1855,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tart",
+    "kj": 910,
+    "protein": 4.5,
+    "fat": 11.0,
+    "satFat": 5.5,
+    "carbs": 25.0,
+    "sugars": 12.0,
+    "fibre": 0.8,
+    "sodium": 130
+   }
   },
   {
    "id": "evaporated-milk",
@@ -1397,6 +1892,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 tbsp (40mL)",
+    "kj": 220,
+    "protein": 2.7,
+    "fat": 3.0,
+    "satFat": 1.9,
+    "carbs": 4.0,
+    "sugars": 4.0,
+    "fibre": 0.0,
+    "sodium": 44
    }
   },
   {
@@ -1419,7 +1925,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tbsp (20g)",
+    "kj": 280,
+    "protein": 1.6,
+    "fat": 1.7,
+    "satFat": 1.1,
+    "carbs": 11.0,
+    "sugars": 11.0,
+    "fibre": 0.0,
+    "sodium": 26
+   }
   },
   {
    "id": "creamed-rice",
@@ -1444,6 +1961,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "calcium": "med"
+   },
+   "nutrition": {
+    "serve": "1 tub (140g)",
+    "kj": 610,
+    "protein": 4.2,
+    "fat": 3.5,
+    "satFat": 2.2,
+    "carbs": 23.8,
+    "sugars": 12.6,
+    "fibre": 0.4,
+    "sodium": 84
    }
   },
   {
@@ -1473,6 +2001,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 bottle (600mL)",
+    "kj": 1820,
+    "protein": 20.4,
+    "fat": 15.0,
+    "satFat": 9.6,
+    "carbs": 54.0,
+    "sugars": 54.0,
+    "fibre": 0.0,
+    "sodium": 300
    }
   },
   {
@@ -1495,7 +2034,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 scoops (100g)",
+    "kj": 520,
+    "protein": 4.0,
+    "fat": 3.0,
+    "satFat": 2.0,
+    "carbs": 20.0,
+    "sugars": 18.0,
+    "fibre": 0.0,
+    "sodium": 60
+   }
   },
   {
    "id": "shredded-cheese",
@@ -1544,6 +2094,17 @@
    "nutrients": {
     "calcium": "high",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "half a cup (50g)",
+    "kj": 820,
+    "protein": 12.0,
+    "fat": 16.5,
+    "satFat": 10.6,
+    "carbs": 0.6,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 320
    }
   },
   {
@@ -1573,6 +2134,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 rashers, grilled",
+    "kj": 540,
+    "protein": 13.0,
+    "fat": 8.5,
+    "satFat": 3.3,
+    "carbs": 0.1,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 750
    }
   },
   {
@@ -1608,6 +2180,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "palm-sized cut (100g)",
+    "kj": 810,
+    "protein": 30.0,
+    "fat": 8.0,
+    "satFat": 3.2,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 65
    }
   },
   {
@@ -1634,7 +2217,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 tbsp (30g)",
+    "kj": 270,
+    "protein": 3.6,
+    "fat": 5.1,
+    "satFat": 1.8,
+    "carbs": 0.9,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 330
+   }
   },
   {
    "id": "cold-deli-meats",
@@ -1665,6 +2259,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "4 slices (50g)",
+    "kj": 720,
+    "protein": 9.0,
+    "fat": 15.0,
+    "satFat": 5.5,
+    "carbs": 1.0,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 850
    }
   },
   {
@@ -1693,6 +2298,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "a quarter chook (150g)",
+    "kj": 1360,
+    "protein": 40.5,
+    "fat": 18.0,
+    "satFat": 5.3,
+    "carbs": 0.5,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 600
    }
   },
   {
@@ -1722,6 +2338,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 chicken sandwich",
+    "kj": 1490,
+    "protein": 25.0,
+    "fat": 12.0,
+    "satFat": 3.0,
+    "carbs": 35.0,
+    "sugars": 4.0,
+    "fibre": 3.5,
+    "sodium": 900
    }
   },
   {
@@ -1775,6 +2402,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "3 slices (60g)",
+    "kj": 290,
+    "protein": 12.0,
+    "fat": 2.1,
+    "satFat": 0.8,
+    "carbs": 0.6,
+    "sugars": 0.6,
+    "fibre": 0.0,
+    "sodium": 720
    }
   },
   {
@@ -1810,6 +2448,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "3 slices, steaming hot",
+    "kj": 520,
+    "protein": 12.5,
+    "fat": 8.0,
+    "satFat": 3.2,
+    "carbs": 0.8,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 1000
    }
   },
   {
@@ -1839,6 +2488,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "a quarter chook (150g)",
+    "kj": 1360,
+    "protein": 40.5,
+    "fat": 18.0,
+    "satFat": 5.3,
+    "carbs": 0.5,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 600
    }
   },
   {
@@ -1881,6 +2541,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "small pack (30g)",
+    "kj": 320,
+    "protein": 9.9,
+    "fat": 2.4,
+    "satFat": 1.1,
+    "carbs": 3.6,
+    "sugars": 3.0,
+    "fibre": 0.0,
+    "sodium": 600
    }
   },
   {
@@ -1912,6 +2583,17 @@
     "folate": "high",
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "1 small slice (50g)",
+    "kj": 390,
+    "protein": 13.0,
+    "fat": 4.0,
+    "satFat": 1.4,
+    "carbs": 1.3,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 45
    }
   },
   {
@@ -1944,6 +2626,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "iron": "med"
+   },
+   "nutrition": {
+    "serve": "2 tbsp (30g)",
+    "kj": 410,
+    "protein": 3.6,
+    "fat": 9.0,
+    "satFat": 3.3,
+    "carbs": 0.8,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 210
    }
   },
   {
@@ -1975,6 +2668,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "3 thin slices (30g)",
+    "kj": 330,
+    "protein": 8.1,
+    "fat": 5.1,
+    "satFat": 1.8,
+    "carbs": 0.1,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 660
    }
   },
   {
@@ -2006,6 +2710,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "1 steak (200g)",
+    "kj": 1690,
+    "protein": 60.0,
+    "fat": 18.0,
+    "satFat": 7.4,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 120
    }
   },
   {
@@ -2038,6 +2753,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "entree serve (120g)",
+    "kj": 880,
+    "protein": 24.0,
+    "fat": 12.0,
+    "satFat": 5.0,
+    "carbs": 1.5,
+    "sugars": 0.8,
+    "fibre": 0.4,
+    "sodium": 400
    }
   },
   {
@@ -2069,6 +2795,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 snags",
+    "kj": 1530,
+    "protein": 19.5,
+    "fat": 28.6,
+    "satFat": 11.7,
+    "carbs": 7.8,
+    "sugars": 1.3,
+    "fibre": 0.7,
+    "sodium": 1040
    }
   },
   {
@@ -2100,6 +2837,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "1 steak (200g)",
+    "kj": 1650,
+    "protein": 62.0,
+    "fat": 16.0,
+    "satFat": 6.6,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 130
    }
   },
   {
@@ -2124,7 +2872,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 tbsp (30g)",
+    "kj": 250,
+    "protein": 1.5,
+    "fat": 4.8,
+    "satFat": 0.8,
+    "carbs": 2.4,
+    "sugars": 0.6,
+    "fibre": 0.9,
+    "sodium": 180
+   }
   },
   {
    "id": "mortadella-cold",
@@ -2148,7 +2907,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "3 slices (45g)",
+    "kj": 600,
+    "protein": 7.2,
+    "fat": 12.6,
+    "satFat": 4.5,
+    "carbs": 0.7,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 585
+   }
   },
   {
    "id": "pastrami-cold",
@@ -2174,6 +2944,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "4 slices (60g)",
+    "kj": 360,
+    "protein": 13.2,
+    "fat": 3.3,
+    "satFat": 1.2,
+    "carbs": 0.9,
+    "sugars": 0.6,
+    "fibre": 0.0,
+    "sodium": 780
    }
   },
   {
@@ -2196,7 +2977,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "8 slices (30g)",
+    "kj": 610,
+    "protein": 6.0,
+    "fat": 13.5,
+    "satFat": 5.1,
+    "carbs": 0.6,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 540
+   }
   },
   {
    "id": "chorizo",
@@ -2234,7 +3026,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 chorizo (60g)",
+    "kj": 1080,
+    "protein": 12.6,
+    "fat": 22.8,
+    "satFat": 8.4,
+    "carbs": 1.2,
+    "sugars": 0.6,
+    "fibre": 0.0,
+    "sodium": 900
+   }
   },
   {
    "id": "kabana",
@@ -2257,7 +3060,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 stick (50g)",
+    "kj": 750,
+    "protein": 8.5,
+    "fat": 16.0,
+    "satFat": 6.0,
+    "carbs": 1.0,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 700
+   }
   },
   {
    "id": "twiggy-sticks",
@@ -2279,7 +3093,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 twiggy sticks (40g)",
+    "kj": 670,
+    "protein": 10.0,
+    "fat": 13.2,
+    "satFat": 5.2,
+    "carbs": 0.8,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 800
+   }
   },
   {
    "id": "bresaola",
@@ -2305,6 +3130,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "5 thin slices (40g)",
+    "kj": 260,
+    "protein": 12.8,
+    "fat": 1.0,
+    "satFat": 0.4,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 640
    }
   },
   {
@@ -2325,7 +3161,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "small handful (40g)",
+    "kj": 580,
+    "protein": 8.0,
+    "fat": 12.0,
+    "satFat": 4.4,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 720
+   }
   },
   {
    "id": "pancetta",
@@ -2361,7 +3208,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "small handful (40g)",
+    "kj": 620,
+    "protein": 6.8,
+    "fat": 13.6,
+    "satFat": 5.0,
+    "carbs": 0.2,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 700
+   }
   },
   {
    "id": "devon-fritz-polony",
@@ -2386,7 +3244,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "3 slices (60g)",
+    "kj": 540,
+    "protein": 7.2,
+    "fat": 9.6,
+    "satFat": 3.6,
+    "carbs": 3.6,
+    "sugars": 0.9,
+    "fibre": 0.0,
+    "sodium": 600
+   }
   },
   {
    "id": "turkey",
@@ -2431,6 +3300,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "3 slices (60g)",
+    "kj": 360,
+    "protein": 17.4,
+    "fat": 1.5,
+    "satFat": 0.5,
+    "carbs": 0.6,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 300
    }
   },
   {
@@ -2464,6 +3344,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "1 schnitzel (180g)",
+    "kj": 2000,
+    "protein": 40.0,
+    "fat": 24.0,
+    "satFat": 5.0,
+    "carbs": 25.0,
+    "sugars": 1.5,
+    "fibre": 1.5,
+    "sodium": 700
    }
   },
   {
@@ -2491,6 +3382,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "2 rissoles",
+    "kj": 1430,
+    "protein": 28.0,
+    "fat": 22.0,
+    "satFat": 9.0,
+    "carbs": 8.0,
+    "sugars": 1.5,
+    "fibre": 1.0,
+    "sodium": 600
    }
   },
   {
@@ -2523,6 +3425,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "4 meatballs in sauce",
+    "kj": 1260,
+    "protein": 24.0,
+    "fat": 18.0,
+    "satFat": 7.0,
+    "carbs": 10.0,
+    "sugars": 5.0,
+    "fibre": 1.5,
+    "sodium": 700
    }
   },
   {
@@ -2550,6 +3463,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "1 cup (150g)",
+    "kj": 1320,
+    "protein": 33.0,
+    "fat": 15.0,
+    "satFat": 5.5,
+    "carbs": 12.0,
+    "sugars": 10.0,
+    "fibre": 0.5,
+    "sodium": 800
    }
   },
   {
@@ -2580,6 +3504,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "half a rack (250g)",
+    "kj": 2430,
+    "protein": 42.0,
+    "fat": 38.0,
+    "satFat": 14.0,
+    "carbs": 18.0,
+    "sugars": 16.0,
+    "fibre": 0.5,
+    "sodium": 1200
    }
   },
   {
@@ -2609,6 +3544,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "5 wings",
+    "kj": 1640,
+    "protein": 34.0,
+    "fat": 26.0,
+    "satFat": 7.5,
+    "carbs": 6.0,
+    "sugars": 4.0,
+    "fibre": 0.3,
+    "sodium": 900
    }
   },
   {
@@ -2637,6 +3583,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "2 thick slices (150g)",
+    "kj": 1580,
+    "protein": 39.0,
+    "fat": 24.0,
+    "satFat": 9.5,
+    "carbs": 2.0,
+    "sugars": 1.5,
+    "fibre": 0.0,
+    "sodium": 700
    }
   },
   {
@@ -2662,7 +3619,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 dimmies",
+    "kj": 1110,
+    "protein": 10.0,
+    "fat": 14.0,
+    "satFat": 5.0,
+    "carbs": 24.0,
+    "sugars": 2.0,
+    "fibre": 2.0,
+    "sodium": 700
+   }
   },
   {
    "id": "spring-rolls-hot",
@@ -2686,7 +3654,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 spring rolls",
+    "kj": 970,
+    "protein": 6.0,
+    "fat": 12.0,
+    "satFat": 3.5,
+    "carbs": 24.0,
+    "sugars": 3.0,
+    "fibre": 2.0,
+    "sodium": 500
+   }
   },
   {
    "id": "duck",
@@ -2729,6 +3708,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "quarter roast duck",
+    "kj": 1730,
+    "protein": 30.0,
+    "fat": 33.0,
+    "satFat": 11.0,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 300
    }
   },
   {
@@ -2761,6 +3751,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "palm-sized cut (120g)",
+    "kj": 850,
+    "protein": 39.6,
+    "fat": 4.8,
+    "satFat": 1.9,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 72
    }
   },
   {
@@ -2803,6 +3804,17 @@
    "nutrients": {
     "iron": "high",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "1 fillet (150g)",
+    "kj": 980,
+    "protein": 48.0,
+    "fat": 4.5,
+    "satFat": 1.8,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 90
    }
   },
   {
@@ -2828,6 +3840,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "2 slices with stuffing",
+    "kj": 1600,
+    "protein": 38.0,
+    "fat": 20.0,
+    "satFat": 6.5,
+    "carbs": 12.0,
+    "sugars": 2.0,
+    "fibre": 1.0,
+    "sodium": 800
    }
   },
   {
@@ -2860,6 +3883,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 pieces",
+    "kj": 1820,
+    "protein": 34.0,
+    "fat": 26.0,
+    "satFat": 6.5,
+    "carbs": 16.0,
+    "sugars": 0.5,
+    "fibre": 1.0,
+    "sodium": 1100
    }
   },
   {
@@ -2905,7 +3939,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 hot dog in a bun",
+    "kj": 1280,
+    "protein": 12.0,
+    "fat": 16.0,
+    "satFat": 6.0,
+    "carbs": 28.0,
+    "sugars": 6.0,
+    "fibre": 1.5,
+    "sodium": 1100
+   }
   },
   {
    "id": "corned-beef-silverside",
@@ -2947,6 +3992,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "3 slices (100g)",
+    "kj": 760,
+    "protein": 27.0,
+    "fat": 8.0,
+    "satFat": 3.2,
+    "carbs": 0.5,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 950
    }
   },
   {
@@ -2973,6 +4029,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "2 thick slices (180g)",
+    "kj": 1580,
+    "protein": 27.0,
+    "fat": 23.4,
+    "satFat": 9.0,
+    "carbs": 14.4,
+    "sugars": 3.6,
+    "fibre": 1.4,
+    "sodium": 900
    }
   },
   {
@@ -3004,6 +4071,17 @@
     "protein": "med",
     "omega3": "med",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "small tin (85g drained)",
+    "kj": 710,
+    "protein": 15.3,
+    "fat": 10.2,
+    "satFat": 1.8,
+    "carbs": 4.3,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 400
    }
   },
   {
@@ -3037,6 +4115,17 @@
     "protein": "high",
     "omega3": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "small tin (95g drained)",
+    "kj": 560,
+    "protein": 24.0,
+    "fat": 4.0,
+    "satFat": 1.2,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 300
    }
   },
   {
@@ -3065,6 +4154,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup (120g)",
+    "kj": 520,
+    "protein": 22.0,
+    "fat": 2.5,
+    "satFat": 0.6,
+    "carbs": 3.0,
+    "sugars": 1.8,
+    "fibre": 0.6,
+    "sodium": 250
    }
   },
   {
@@ -3095,6 +4195,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 shop serve",
+    "kj": 3550,
+    "protein": 38.0,
+    "fat": 45.0,
+    "satFat": 8.0,
+    "carbs": 70.0,
+    "sugars": 1.5,
+    "fibre": 6.0,
+    "sodium": 900
    }
   },
   {
@@ -3142,6 +4253,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 800,
+    "protein": 40.5,
+    "fat": 3.0,
+    "satFat": 0.8,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 160
    }
   },
   {
@@ -3178,6 +4300,17 @@
     "protein": "high",
     "omega3": "med",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 790,
+    "protein": 39.0,
+    "fat": 3.5,
+    "satFat": 1.0,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 120
    }
   },
   {
@@ -3212,6 +4345,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "150g cooked",
+    "kj": 700,
+    "protein": 33.0,
+    "fat": 3.0,
+    "satFat": 0.8,
+    "carbs": 1.5,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 600
    }
   },
   {
@@ -3246,6 +4390,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "6 piece roll",
+    "kj": 1010,
+    "protein": 8.0,
+    "fat": 4.0,
+    "satFat": 0.9,
+    "carbs": 42.0,
+    "sugars": 5.0,
+    "fibre": 2.0,
+    "sodium": 400
    }
   },
   {
@@ -3276,6 +4431,17 @@
     "iron": "med",
     "protein": "med",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "small tub (100g)",
+    "kj": 675,
+    "protein": 16.0,
+    "fat": 9.0,
+    "satFat": 1.6,
+    "carbs": 4.0,
+    "sugars": 2.5,
+    "fibre": 0.2,
+    "sodium": 500
    }
   },
   {
@@ -3305,6 +4471,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 730,
+    "protein": 33.0,
+    "fat": 4.5,
+    "satFat": 1.2,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 120
    }
   },
   {
@@ -3359,6 +4536,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "150g cooked prawns",
+    "kj": 635,
+    "protein": 33.0,
+    "fat": 2.0,
+    "satFat": 0.5,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 750
    }
   },
   {
@@ -3390,6 +4578,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "150g peeled prawns",
+    "kj": 610,
+    "protein": 32.0,
+    "fat": 1.8,
+    "satFat": 0.5,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 800
    }
   },
   {
@@ -3421,6 +4620,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "6 piece pack",
+    "kj": 1120,
+    "protein": 9.0,
+    "fat": 5.0,
+    "satFat": 1.1,
+    "carbs": 45.0,
+    "sugars": 6.0,
+    "fibre": 2.0,
+    "sodium": 500
    }
   },
   {
@@ -3452,6 +4662,17 @@
     "iron": "med",
     "protein": "med",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "6 oysters",
+    "kj": 220,
+    "protein": 6.5,
+    "fat": 1.5,
+    "satFat": 0.4,
+    "carbs": 3.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 190
    }
   },
   {
@@ -3505,6 +4726,17 @@
     "protein": "high",
     "omega3": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 1360,
+    "protein": 37.5,
+    "fat": 19.5,
+    "satFat": 4.2,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 100
    }
   },
   {
@@ -3539,6 +4771,17 @@
     "protein": "high",
     "omega3": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "6 pieces",
+    "kj": 490,
+    "protein": 18.0,
+    "fat": 5.0,
+    "satFat": 1.2,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 60
    }
   },
   {
@@ -3572,6 +4815,17 @@
     "protein": "high",
     "omega3": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "60g slices",
+    "kj": 380,
+    "protein": 14.4,
+    "fat": 3.6,
+    "satFat": 0.8,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 720
    }
   },
   {
@@ -3599,6 +4853,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 735,
+    "protein": 39.0,
+    "fat": 2.0,
+    "satFat": 0.5,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 130
    }
   },
   {
@@ -3628,6 +4893,17 @@
     "protein": "high",
     "omega3": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 780,
+    "protein": 37.5,
+    "fat": 3.8,
+    "satFat": 0.9,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 140
    }
   },
   {
@@ -3658,6 +4934,17 @@
    "nutrients": {
     "protein": "med",
     "omega3": "low"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 760,
+    "protein": 31.5,
+    "fat": 6.0,
+    "satFat": 2.0,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 120
    }
   },
   {
@@ -3685,6 +4972,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 705,
+    "protein": 36.0,
+    "fat": 2.5,
+    "satFat": 0.6,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 130
    }
   },
   {
@@ -3713,6 +5011,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 820,
+    "protein": 37.5,
+    "fat": 5.0,
+    "satFat": 1.4,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 130
    }
   },
   {
@@ -3739,6 +5048,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 815,
+    "protein": 36.0,
+    "fat": 5.5,
+    "satFat": 1.3,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 150
    }
   },
   {
@@ -3766,6 +5086,17 @@
     "protein": "high",
     "omega3": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 860,
+    "protein": 37.5,
+    "fat": 6.0,
+    "satFat": 1.7,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 140
    }
   },
   {
@@ -3793,6 +5124,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 720,
+    "protein": 39.0,
+    "fat": 1.5,
+    "satFat": 0.4,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 180
    }
   },
   {
@@ -3835,6 +5177,17 @@
     "protein": "high",
     "omega3": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 915,
+    "protein": 37.5,
+    "fat": 7.5,
+    "satFat": 2.0,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 130
    }
   },
   {
@@ -3880,6 +5233,17 @@
     "protein": "high",
     "omega3": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g steak",
+    "kj": 875,
+    "protein": 45.0,
+    "fat": 3.0,
+    "satFat": 0.8,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 120
    }
   },
   {
@@ -3910,6 +5274,17 @@
     "protein": "high",
     "omega3": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g fillet",
+    "kj": 1025,
+    "protein": 37.5,
+    "fat": 10.5,
+    "satFat": 2.4,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 110
    }
   },
   {
@@ -3938,6 +5313,17 @@
     "iron": "med",
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g grilled",
+    "kj": 920,
+    "protein": 36.0,
+    "fat": 7.0,
+    "satFat": 1.3,
+    "carbs": 3.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 550
    }
   },
   {
@@ -3965,6 +5351,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "2 bug tails",
+    "kj": 715,
+    "protein": 22.0,
+    "fat": 9.0,
+    "satFat": 5.0,
+    "carbs": 0.5,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 500
    }
   },
   {
@@ -3995,6 +5392,17 @@
     "iron": "high",
     "protein": "med",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "150g shelled meat",
+    "kj": 850,
+    "protein": 36.0,
+    "fat": 3.0,
+    "satFat": 0.6,
+    "carbs": 7.5,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 1000
    }
   },
   {
@@ -4026,6 +5434,17 @@
     "iron": "med",
     "protein": "med",
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "6 oysters",
+    "kj": 520,
+    "protein": 9.0,
+    "fat": 8.0,
+    "satFat": 3.5,
+    "carbs": 4.0,
+    "sugars": 1.5,
+    "fibre": 0.2,
+    "sodium": 480
    }
   },
   {
@@ -4057,6 +5476,17 @@
     "protein": "high",
     "omega3": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "small tin (95g drained)",
+    "kj": 765,
+    "protein": 20.0,
+    "fat": 11.5,
+    "satFat": 3.0,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 400
    }
   },
   {
@@ -4088,6 +5518,17 @@
    "nutrients": {
     "omega3": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 tbsp (15g)",
+    "kj": 175,
+    "protein": 3.8,
+    "fat": 2.7,
+    "satFat": 0.6,
+    "carbs": 0.6,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 240
    }
   },
   {
@@ -4117,6 +5558,17 @@
    "nutrients": {
     "protein": "med",
     "omega3": "low"
+   },
+   "nutrition": {
+    "serve": "100g sticks",
+    "kj": 485,
+    "protein": 12.0,
+    "fat": 1.0,
+    "satFat": 0.3,
+    "carbs": 14.0,
+    "sugars": 5.0,
+    "fibre": 0.5,
+    "sodium": 800
    }
   },
   {
@@ -4145,6 +5597,17 @@
     "protein": "high",
     "omega3": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "100g fried",
+    "kj": 1000,
+    "protein": 16.0,
+    "fat": 15.0,
+    "satFat": 3.0,
+    "carbs": 10.0,
+    "sugars": 0.5,
+    "fibre": 0.5,
+    "sodium": 350
    }
   },
   {
@@ -4173,6 +5636,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "4 fish cakes",
+    "kj": 1075,
+    "protein": 18.0,
+    "fat": 14.0,
+    "satFat": 4.0,
+    "carbs": 14.0,
+    "sugars": 4.0,
+    "fibre": 1.5,
+    "sodium": 700
    }
   },
   {
@@ -4201,6 +5675,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup (300g)",
+    "kj": 1650,
+    "protein": 26.0,
+    "fat": 16.0,
+    "satFat": 8.0,
+    "carbs": 35.0,
+    "sugars": 6.0,
+    "fibre": 2.5,
+    "sodium": 750
    }
   },
   {
@@ -4228,6 +5713,17 @@
    "nutrients": {
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "150g cooked mix",
+    "kj": 725,
+    "protein": 30.0,
+    "fat": 4.0,
+    "satFat": 1.0,
+    "carbs": 4.0,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 700
    }
   },
   {
@@ -4256,6 +5752,17 @@
     "calcium": "med",
     "protein": "med",
     "omega3": "med"
+   },
+   "nutrition": {
+    "serve": "2 patties",
+    "kj": 1215,
+    "protein": 20.0,
+    "fat": 14.0,
+    "satFat": 3.5,
+    "carbs": 20.0,
+    "sugars": 1.5,
+    "fibre": 2.0,
+    "sodium": 600
    }
   },
   {
@@ -4286,7 +5793,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 slice or 2 bikkies",
+    "kj": 1165,
+    "protein": 4.0,
+    "fat": 12.0,
+    "satFat": 5.5,
+    "carbs": 38.0,
+    "sugars": 22.0,
+    "fibre": 1.0,
+    "sodium": 200
+   }
   },
   {
    "id": "chocolate-mousse",
@@ -4312,7 +5830,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 pot (100g)",
+    "kj": 1050,
+    "protein": 4.5,
+    "fat": 15.0,
+    "satFat": 9.0,
+    "carbs": 24.0,
+    "sugars": 22.0,
+    "fibre": 1.0,
+    "sodium": 55
+   }
   },
   {
    "id": "eggnog",
@@ -4340,6 +5869,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "calcium": "med"
+   },
+   "nutrition": {
+    "serve": "1 glass (250ml)",
+    "kj": 960,
+    "protein": 11.5,
+    "fat": 10.5,
+    "satFat": 6.3,
+    "carbs": 22.0,
+    "sugars": 21.0,
+    "fibre": 0.0,
+    "sodium": 140
    }
   },
   {
@@ -4400,6 +5940,17 @@
     "folate": "med",
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "2 eggs",
+    "kj": 590,
+    "protein": 12.5,
+    "fat": 10.0,
+    "satFat": 3.0,
+    "carbs": 0.5,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 130
    }
   },
   {
@@ -4436,6 +5987,17 @@
     "folate": "med",
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "2 eggs",
+    "kj": 630,
+    "protein": 12.5,
+    "fat": 11.0,
+    "satFat": 3.4,
+    "carbs": 0.5,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 160
    }
   },
   {
@@ -4462,7 +6024,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 egg",
+    "kj": 295,
+    "protein": 6.3,
+    "fat": 5.0,
+    "satFat": 1.5,
+    "carbs": 0.3,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 65
+   }
   },
   {
    "id": "hollandaise",
@@ -4489,7 +6062,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 tbsp (40g)",
+    "kj": 700,
+    "protein": 1.5,
+    "fat": 18.0,
+    "satFat": 11.0,
+    "carbs": 0.6,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 220
+   }
   },
   {
    "id": "mayonnaise-homemade",
@@ -4517,7 +6101,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 tbsp (20g)",
+    "kj": 565,
+    "protein": 0.3,
+    "fat": 15.0,
+    "satFat": 2.2,
+    "carbs": 0.3,
+    "sugars": 0.2,
+    "fibre": 0.0,
+    "sodium": 100
+   }
   },
   {
    "id": "mayonnaise-jar",
@@ -4548,7 +6143,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 tbsp (20g)",
+    "kj": 535,
+    "protein": 0.3,
+    "fat": 14.0,
+    "satFat": 2.0,
+    "carbs": 0.6,
+    "sugars": 0.5,
+    "fibre": 0.0,
+    "sodium": 120
+   }
   },
   {
    "id": "cake-batter-raw",
@@ -4574,7 +6180,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 spoon of batter",
+    "kj": 335,
+    "protein": 1.0,
+    "fat": 3.0,
+    "satFat": 1.5,
+    "carbs": 12.0,
+    "sugars": 8.0,
+    "fibre": 0.3,
+    "sodium": 60
+   }
   },
   {
    "id": "mayonnaise",
@@ -4624,7 +6241,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 tbsp (20g)",
+    "kj": 550,
+    "protein": 0.3,
+    "fat": 14.5,
+    "satFat": 2.1,
+    "carbs": 0.5,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 115
+   }
   },
   {
    "id": "pavlova",
@@ -4652,7 +6280,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 slice with cream",
+    "kj": 1270,
+    "protein": 3.0,
+    "fat": 12.0,
+    "satFat": 8.0,
+    "carbs": 45.0,
+    "sugars": 43.0,
+    "fibre": 1.0,
+    "sodium": 60
+   }
   },
   {
    "id": "quiche",
@@ -4681,6 +6320,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 large slice",
+    "kj": 1440,
+    "protein": 14.0,
+    "fat": 22.0,
+    "satFat": 11.0,
+    "carbs": 22.0,
+    "sugars": 3.0,
+    "fibre": 1.5,
+    "sodium": 550
    }
   },
   {
@@ -4708,7 +6358,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 main serve",
+    "kj": 1900,
+    "protein": 30.0,
+    "fat": 30.0,
+    "satFat": 8.0,
+    "carbs": 15.0,
+    "sugars": 3.0,
+    "fibre": 3.0,
+    "sodium": 1100
+   }
   },
   {
    "id": "eggs-runny",
@@ -4744,6 +6405,17 @@
     "folate": "med",
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "2 poached eggs",
+    "kj": 575,
+    "protein": 12.5,
+    "fat": 9.5,
+    "satFat": 3.0,
+    "carbs": 0.5,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 140
    }
   },
   {
@@ -4770,7 +6442,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 slice (120g)",
+    "kj": 1270,
+    "protein": 5.0,
+    "fat": 18.0,
+    "satFat": 11.0,
+    "carbs": 30.0,
+    "sugars": 24.0,
+    "fibre": 0.8,
+    "sodium": 90
+   }
   },
   {
    "id": "shakshuka",
@@ -4813,6 +6496,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 bowl with 2 eggs",
+    "kj": 1190,
+    "protein": 17.0,
+    "fat": 18.0,
+    "satFat": 5.0,
+    "carbs": 12.0,
+    "sugars": 8.0,
+    "fibre": 4.0,
+    "sodium": 700
    }
   },
   {
@@ -4854,6 +6548,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 plate (350g)",
+    "kj": 3120,
+    "protein": 30.0,
+    "fat": 35.0,
+    "satFat": 15.0,
+    "carbs": 75.0,
+    "sugars": 4.0,
+    "fibre": 5.0,
+    "sodium": 1200
    }
   },
   {
@@ -4877,7 +6582,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 ramekin (120g)",
+    "kj": 1435,
+    "protein": 5.0,
+    "fat": 25.0,
+    "satFat": 15.0,
+    "carbs": 25.0,
+    "sugars": 24.0,
+    "fibre": 0.0,
+    "sodium": 50
+   }
   },
   {
    "id": "creme-caramel-flan",
@@ -4905,6 +6621,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 ramekin (120g)",
+    "kj": 830,
+    "protein": 5.5,
+    "fat": 7.0,
+    "satFat": 4.0,
+    "carbs": 28.0,
+    "sugars": 27.0,
+    "fibre": 0.0,
+    "sodium": 90
    }
   },
   {
@@ -4929,7 +6656,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tbsp (20g)",
+    "kj": 340,
+    "protein": 0.5,
+    "fat": 3.5,
+    "satFat": 2.0,
+    "carbs": 12.0,
+    "sugars": 11.5,
+    "fibre": 0.0,
+    "sodium": 20
+   }
   },
   {
    "id": "macarons",
@@ -4955,7 +6693,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 macarons",
+    "kj": 685,
+    "protein": 2.5,
+    "fat": 7.0,
+    "satFat": 2.0,
+    "carbs": 22.0,
+    "sugars": 20.0,
+    "fibre": 1.0,
+    "sodium": 25
+   }
   },
   {
    "id": "royal-icing",
@@ -4992,7 +6741,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 tbsp (30g)",
+    "kj": 470,
+    "protein": 0.5,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 27.0,
+    "sugars": 27.0,
+    "fibre": 0.0,
+    "sodium": 10
+   }
   },
   {
    "id": "quail-eggs",
@@ -5033,6 +6793,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "4 quail eggs",
+    "kj": 230,
+    "protein": 4.7,
+    "fat": 4.0,
+    "satFat": 1.3,
+    "carbs": 0.2,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 50
    }
   },
   {
@@ -5075,6 +6846,17 @@
     "folate": "med",
     "protein": "high",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 duck egg",
+    "kj": 515,
+    "protein": 9.0,
+    "fat": 9.5,
+    "satFat": 2.6,
+    "carbs": 0.7,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 100
    }
   },
   {
@@ -5118,6 +6900,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "4 halves",
+    "kj": 605,
+    "protein": 8.0,
+    "fat": 12.0,
+    "satFat": 3.0,
+    "carbs": 1.5,
+    "sugars": 0.8,
+    "fibre": 0.2,
+    "sodium": 300
    }
   },
   {
@@ -5157,6 +6950,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 scotch egg",
+    "kj": 1205,
+    "protein": 15.0,
+    "fat": 20.0,
+    "satFat": 6.5,
+    "carbs": 12.0,
+    "sugars": 1.0,
+    "fibre": 1.0,
+    "sodium": 600
    }
   },
   {
@@ -5200,6 +7004,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 sandwich",
+    "kj": 1585,
+    "protein": 16.0,
+    "fat": 20.0,
+    "satFat": 4.5,
+    "carbs": 32.0,
+    "sugars": 3.0,
+    "fibre": 3.5,
+    "sodium": 700
    }
   },
   {
@@ -5233,6 +7048,17 @@
    "nutrients": {
     "folate": "high",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "Half a medium avo",
+    "kj": 650,
+    "protein": 1.9,
+    "fat": 14.7,
+    "satFat": 3.2,
+    "carbs": 0.4,
+    "sugars": 0.3,
+    "fibre": 3.5,
+    "sodium": 5
    }
   },
   {
@@ -5260,7 +7086,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 regular smoothie cup",
+    "kj": 1300,
+    "protein": 8.0,
+    "fat": 4.0,
+    "satFat": 2.3,
+    "carbs": 55.0,
+    "sugars": 48.0,
+    "fibre": 4.0,
+    "sodium": 90
+   }
   },
   {
    "id": "canned-dried-fruit",
@@ -5292,6 +7129,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1/4 cup dried fruit",
+    "kj": 500,
+    "protein": 1.2,
+    "fat": 0.2,
+    "satFat": 0.1,
+    "carbs": 28.0,
+    "sugars": 27.0,
+    "fibre": 2.0,
+    "sodium": 12
    }
   },
   {
@@ -5323,6 +7171,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1/2 cup, drained",
+    "kj": 220,
+    "protein": 2.0,
+    "fat": 0.5,
+    "satFat": 0.1,
+    "carbs": 8.5,
+    "sugars": 2.5,
+    "fibre": 2.6,
+    "sodium": 160
    }
   },
   {
@@ -5351,7 +7210,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 cup, cooked",
+    "kj": 200,
+    "protein": 3.0,
+    "fat": 2.5,
+    "satFat": 0.4,
+    "carbs": 1.0,
+    "sugars": 0.8,
+    "fibre": 2.2,
+    "sodium": 15
+   }
   },
   {
    "id": "cooked-vegetables",
@@ -5386,6 +7256,17 @@
    "nutrients": {
     "folate": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup mixed, cooked",
+    "kj": 230,
+    "protein": 3.5,
+    "fat": 0.6,
+    "satFat": 0.1,
+    "carbs": 8.0,
+    "sugars": 5.0,
+    "fibre": 5.0,
+    "sodium": 30
    }
   },
   {
@@ -5411,7 +7292,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 small bundle, cooked",
+    "kj": 80,
+    "protein": 1.3,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 3.0,
+    "sugars": 0.1,
+    "fibre": 1.4,
+    "sodium": 2
+   }
   },
   {
    "id": "fresh-fruit",
@@ -5445,6 +7337,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 medium piece of fruit",
+    "kj": 320,
+    "protein": 0.6,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 17.0,
+    "sugars": 15.5,
+    "fibre": 2.6,
+    "sodium": 3
    }
   },
   {
@@ -5473,7 +7376,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 tbsp, chopped",
+    "kj": 10,
+    "protein": 0.2,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 0.2,
+    "sugars": 0.1,
+    "fibre": 0.2,
+    "sodium": 2
+   }
   },
   {
    "id": "frozen-fruit",
@@ -5516,6 +7430,17 @@
    },
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup frozen berries",
+    "kj": 260,
+    "protein": 1.4,
+    "fat": 0.5,
+    "satFat": 0.0,
+    "carbs": 11.0,
+    "sugars": 9.5,
+    "fibre": 5.0,
+    "sodium": 3
    }
   },
   {
@@ -5548,6 +7473,17 @@
    "nutrients": {
     "folate": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup, cooked from frozen",
+    "kj": 320,
+    "protein": 5.0,
+    "fat": 0.6,
+    "satFat": 0.1,
+    "carbs": 11.0,
+    "sugars": 4.0,
+    "fibre": 6.0,
+    "sodium": 25
    }
   },
   {
@@ -5578,6 +7514,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup, chopped",
+    "kj": 280,
+    "protein": 1.0,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 14.0,
+    "sugars": 13.0,
+    "fibre": 2.2,
+    "sodium": 5
    }
   },
   {
@@ -5607,6 +7554,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 large glass (400ml)",
+    "kj": 900,
+    "protein": 5.0,
+    "fat": 3.0,
+    "satFat": 1.7,
+    "carbs": 38.0,
+    "sugars": 33.0,
+    "fibre": 4.5,
+    "sodium": 60
    }
   },
   {
@@ -5655,7 +7613,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 cup, sliced and cooked",
+    "kj": 140,
+    "protein": 3.5,
+    "fat": 0.6,
+    "satFat": 0.1,
+    "carbs": 1.8,
+    "sugars": 1.2,
+    "fibre": 2.4,
+    "sodium": 8
+   }
   },
   {
    "id": "potatoes",
@@ -5687,6 +7656,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 medium potato, baked",
+    "kj": 600,
+    "protein": 4.0,
+    "fat": 0.2,
+    "satFat": 0.1,
+    "carbs": 30.0,
+    "sugars": 1.5,
+    "fibre": 3.5,
+    "sodium": 10
    }
   },
   {
@@ -5719,7 +7699,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1/2 cup, cooked",
+    "kj": 50,
+    "protein": 1.2,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 1.5,
+    "sugars": 1.0,
+    "fibre": 0.8,
+    "sodium": 3
+   }
   },
   {
    "id": "rockmelon",
@@ -5761,6 +7752,17 @@
       "source": "nswfa"
      }
     ]
+   },
+   "nutrition": {
+    "serve": "1 cup, diced",
+    "kj": 230,
+    "protein": 1.3,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 12.0,
+    "sugars": 11.5,
+    "fibre": 1.4,
+    "sodium": 25
    }
   },
   {
@@ -5790,7 +7792,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 side bowl",
+    "kj": 350,
+    "protein": 2.5,
+    "fat": 6.0,
+    "satFat": 0.9,
+    "carbs": 6.0,
+    "sugars": 4.5,
+    "fibre": 2.5,
+    "sodium": 220
+   }
   },
   {
    "id": "home-salad",
@@ -5824,6 +7837,17 @@
    "nutrients": {
     "folate": "high",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 side bowl, dressed",
+    "kj": 300,
+    "protein": 1.8,
+    "fat": 5.5,
+    "satFat": 0.8,
+    "carbs": 4.0,
+    "sugars": 3.0,
+    "fibre": 2.2,
+    "sodium": 60
    }
   },
   {
@@ -5848,7 +7872,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 tub (200g)",
+    "kj": 380,
+    "protein": 1.4,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 19.0,
+    "sugars": 18.0,
+    "fibre": 3.0,
+    "sodium": 12
+   }
   },
   {
    "id": "pre-cut-fruit",
@@ -5875,7 +7910,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 cup, pre-cut",
+    "kj": 260,
+    "protein": 1.0,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 13.0,
+    "sugars": 12.5,
+    "fibre": 2.0,
+    "sodium": 12
+   }
   },
   {
    "id": "watermelon-honeydew",
@@ -5901,7 +7947,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 cup, diced",
+    "kj": 200,
+    "protein": 1.0,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 11.0,
+    "sugars": 10.5,
+    "fibre": 0.6,
+    "sodium": 3
+   }
   },
   {
    "id": "strawberries",
@@ -5929,6 +7986,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup, halved",
+    "kj": 190,
+    "protein": 1.0,
+    "fat": 0.3,
+    "satFat": 0.0,
+    "carbs": 8.0,
+    "sugars": 7.5,
+    "fibre": 3.0,
+    "sodium": 3
    }
   },
   {
@@ -5960,6 +8028,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "fibre": "high"
+   },
+   "nutrition": {
+    "serve": "1 punnet (125g)",
+    "kj": 300,
+    "protein": 0.9,
+    "fat": 0.3,
+    "satFat": 0.0,
+    "carbs": 13.5,
+    "sugars": 12.5,
+    "fibre": 3.5,
+    "sodium": 3
    }
   },
   {
@@ -5989,6 +8068,17 @@
    "nutrients": {
     "folate": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup, diced",
+    "kj": 420,
+    "protein": 1.2,
+    "fat": 0.4,
+    "satFat": 0.1,
+    "carbs": 22.0,
+    "sugars": 21.0,
+    "fibre": 2.8,
+    "sodium": 3
    }
   },
   {
@@ -6016,7 +8106,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 cup, washed",
+    "kj": 430,
+    "protein": 0.9,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 24.0,
+    "sugars": 23.0,
+    "fibre": 1.4,
+    "sodium": 3
+   }
   },
   {
    "id": "kiwifruit",
@@ -6044,6 +8145,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "2 medium kiwifruit",
+    "kj": 340,
+    "protein": 1.7,
+    "fat": 0.7,
+    "satFat": 0.1,
+    "carbs": 15.0,
+    "sugars": 13.5,
+    "fibre": 4.5,
+    "sodium": 5
    }
   },
   {
@@ -6074,6 +8186,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 medium apple or pear",
+    "kj": 340,
+    "protein": 0.5,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 18.0,
+    "sugars": 16.5,
+    "fibre": 3.2,
+    "sodium": 3
    }
   },
   {
@@ -6109,6 +8232,17 @@
    "nutrients": {
     "folate": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 medium orange",
+    "kj": 250,
+    "protein": 1.3,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 12.0,
+    "sugars": 11.5,
+    "fibre": 3.0,
+    "sodium": 3
    }
   },
   {
@@ -6138,6 +8272,17 @@
    "nutrients": {
     "folate": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup, diced",
+    "kj": 245,
+    "protein": 0.7,
+    "fat": 0.2,
+    "satFat": 0.1,
+    "carbs": 12.0,
+    "sugars": 11.0,
+    "fibre": 2.2,
+    "sodium": 12
    }
   },
   {
@@ -6164,6 +8309,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1/2 cup arils",
+    "kj": 300,
+    "protein": 1.5,
+    "fat": 1.0,
+    "satFat": 0.1,
+    "carbs": 13.0,
+    "sugars": 12.5,
+    "fibre": 3.5,
+    "sodium": 3
    }
   },
   {
@@ -6190,6 +8346,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "2 medium figs",
+    "kj": 300,
+    "protein": 0.8,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 15.5,
+    "sugars": 15.0,
+    "fibre": 2.0,
+    "sodium": 2
    }
   },
   {
@@ -6219,7 +8386,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 medium peach or plum",
+    "kj": 200,
+    "protein": 1.0,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 9.5,
+    "sugars": 9.0,
+    "fibre": 1.8,
+    "sodium": 2
+   }
   },
   {
    "id": "bagged-salad-leaves",
@@ -6248,7 +8426,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 cups leaves",
+    "kj": 50,
+    "protein": 1.2,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 1.0,
+    "sugars": 0.8,
+    "fibre": 1.2,
+    "sodium": 15
+   }
   },
   {
    "id": "spinach",
@@ -6301,6 +8490,17 @@
     "folate": "high",
     "iron": "low",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup, cooked",
+    "kj": 180,
+    "protein": 5.0,
+    "fat": 0.5,
+    "satFat": 0.1,
+    "carbs": 1.5,
+    "sugars": 0.8,
+    "fibre": 4.0,
+    "sodium": 80
    }
   },
   {
@@ -6346,6 +8546,17 @@
     "folate": "high",
     "calcium": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 cup, cooked",
+    "kj": 190,
+    "protein": 3.5,
+    "fat": 0.8,
+    "satFat": 0.1,
+    "carbs": 5.0,
+    "sugars": 1.5,
+    "fibre": 3.5,
+    "sodium": 30
    }
   },
   {
@@ -6379,6 +8590,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "folate": "med"
+   },
+   "nutrition": {
+    "serve": "2 cups, torn leaves",
+    "kj": 40,
+    "protein": 0.9,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 1.0,
+    "sugars": 0.9,
+    "fibre": 1.0,
+    "sodium": 8
    }
   },
   {
@@ -6407,7 +8629,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 cup, undressed",
+    "kj": 110,
+    "protein": 1.2,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 4.5,
+    "sugars": 3.5,
+    "fibre": 2.0,
+    "sodium": 20
+   }
   },
   {
    "id": "kimchi",
@@ -6451,7 +8684,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1/3 cup (50g)",
+    "kj": 55,
+    "protein": 1.0,
+    "fat": 0.3,
+    "satFat": 0.1,
+    "carbs": 1.2,
+    "sugars": 0.9,
+    "fibre": 1.2,
+    "sodium": 350
+   }
   },
   {
    "id": "sauerkraut",
@@ -6490,7 +8734,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1/3 cup (50g)",
+    "kj": 40,
+    "protein": 0.7,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 1.0,
+    "sugars": 0.9,
+    "fibre": 1.4,
+    "sodium": 330
+   }
   },
   {
    "id": "olives-jar",
@@ -6517,7 +8772,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "6 olives",
+    "kj": 180,
+    "protein": 0.3,
+    "fat": 4.5,
+    "satFat": 0.7,
+    "carbs": 0.4,
+    "sugars": 0.1,
+    "fibre": 1.0,
+    "sodium": 450
+   }
   },
   {
    "id": "olive-bar-antipasto",
@@ -6544,7 +8810,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 small deli tub (80g)",
+    "kj": 600,
+    "protein": 1.5,
+    "fat": 13.0,
+    "satFat": 1.9,
+    "carbs": 4.0,
+    "sugars": 2.5,
+    "fibre": 2.0,
+    "sodium": 700
+   }
   },
   {
    "id": "sun-dried-tomatoes",
@@ -6583,7 +8860,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "4 pieces in oil (25g)",
+    "kj": 220,
+    "protein": 0.9,
+    "fat": 3.5,
+    "satFat": 0.5,
+    "carbs": 5.0,
+    "sugars": 4.0,
+    "fibre": 1.5,
+    "sodium": 180
+   }
   },
   {
    "id": "microgreens",
@@ -6607,7 +8895,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "small handful (15g)",
+    "kj": 15,
+    "protein": 0.4,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 0.3,
+    "sugars": 0.2,
+    "fibre": 0.3,
+    "sodium": 2
+   }
   },
   {
    "id": "wheatgrass-shots",
@@ -6630,7 +8929,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 shot glass (30ml)",
+    "kj": 40,
+    "protein": 0.6,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 1.5,
+    "sugars": 0.6,
+    "fibre": 0.2,
+    "sodium": 5
+   }
   },
   {
    "id": "garlic-ginger",
@@ -6656,7 +8966,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 cloves or 1 tsp grated",
+    "kj": 45,
+    "protein": 0.5,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 2.2,
+    "sugars": 0.1,
+    "fibre": 0.2,
+    "sodium": 2
+   }
   },
   {
    "id": "zero-alcohol-drinks",
@@ -6700,6 +9021,17 @@
       "says": "A drink labelled 0.0 can still legally hold up to 0.5% alcohol in Australia. Plenty of people are comfortable with that, which is why this is a midwife chat rather than a hard no."
      }
     ]
+   },
+   "nutrition": {
+    "serve": "1 stubbie (330ml)",
+    "kj": 130,
+    "protein": 0.7,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 7.0,
+    "sugars": 3.0,
+    "fibre": 0.0,
+    "sodium": 15
    }
   },
   {
@@ -6731,7 +9063,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 standard drink",
+    "kj": 500,
+    "protein": 0.2,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 1.5,
+    "sugars": 1.0,
+    "fibre": 0.0,
+    "sodium": 8
+   }
   },
   {
    "id": "artificial-sweeteners",
@@ -6761,7 +9104,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 sweetener sachet",
+    "kj": 15,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 0.9,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 1
+   }
   },
   {
    "id": "coffee",
@@ -6792,7 +9146,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 regular flat white",
+    "kj": 600,
+    "protein": 6.8,
+    "fat": 7.0,
+    "satFat": 4.5,
+    "carbs": 9.5,
+    "sugars": 9.5,
+    "fibre": 0.0,
+    "sodium": 90
+   }
   },
   {
    "id": "cola",
@@ -6820,7 +9185,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 can (375ml)",
+    "kj": 640,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 39.5,
+    "sugars": 39.5,
+    "fibre": 0.0,
+    "sodium": 30
+   }
   },
   {
    "id": "decaf-coffee",
@@ -6848,7 +9224,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 regular decaf flat white",
+    "kj": 600,
+    "protein": 6.8,
+    "fat": 7.0,
+    "satFat": 4.5,
+    "carbs": 9.5,
+    "sugars": 9.5,
+    "fibre": 0.0,
+    "sodium": 90
+   }
   },
   {
    "id": "energy-drinks",
@@ -6876,7 +9263,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 can (250ml)",
+    "kj": 480,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 27.5,
+    "sugars": 27.0,
+    "fibre": 0.0,
+    "sodium": 105
+   }
   },
   {
    "id": "herbal-tea",
@@ -6916,6 +9314,17 @@
       "says": "Yellow. Everyday flavours in sensible amounts look fine, but medicinal and slimming blends are untested territory, so those go to your midwife first."
      }
     ]
+   },
+   "nutrition": {
+    "serve": "1 mug, no milk",
+    "kj": 5,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 0.3,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 3
    }
   },
   {
@@ -6948,6 +9357,17 @@
    "nutrients": {
     "calcium": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 large glass (400ml)",
+    "kj": 1200,
+    "protein": 12.0,
+    "fat": 6.0,
+    "satFat": 3.6,
+    "carbs": 42.0,
+    "sugars": 38.0,
+    "fibre": 3.0,
+    "sodium": 130
    }
   },
   {
@@ -6980,6 +9400,17 @@
    "nutrients": {
     "calcium": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular takeaway cup",
+    "kj": 850,
+    "protein": 8.5,
+    "fat": 8.0,
+    "satFat": 5.0,
+    "carbs": 24.0,
+    "sugars": 23.0,
+    "fibre": 1.0,
+    "sodium": 120
    }
   },
   {
@@ -7009,7 +9440,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 bottle (330ml)",
+    "kj": 220,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 13.0,
+    "sugars": 12.0,
+    "fibre": 0.0,
+    "sodium": 20
+   }
   },
   {
    "id": "juice-pasteurised",
@@ -7039,7 +9481,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 glass (250ml)",
+    "kj": 400,
+    "protein": 1.5,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 21.0,
+    "sugars": 20.5,
+    "fibre": 0.5,
+    "sodium": 8
+   }
   },
   {
    "id": "raw-milk-drink",
@@ -7066,7 +9519,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 glass (250ml)",
+    "kj": 690,
+    "protein": 8.2,
+    "fat": 9.0,
+    "satFat": 5.7,
+    "carbs": 12.0,
+    "sugars": 12.0,
+    "fibre": 0.0,
+    "sodium": 110
+   }
   },
   {
    "id": "soft-drinks",
@@ -7096,7 +9560,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 can (375ml)",
+    "kj": 570,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 35.0,
+    "sugars": 35.0,
+    "fibre": 0.0,
+    "sodium": 25
+   }
   },
   {
    "id": "tea",
@@ -7127,7 +9602,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 mug with milk",
+    "kj": 90,
+    "protein": 1.2,
+    "fat": 1.2,
+    "satFat": 0.8,
+    "carbs": 1.8,
+    "sugars": 1.7,
+    "fibre": 0.0,
+    "sodium": 15
+   }
   },
   {
    "id": "water",
@@ -7156,7 +9642,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 glass (250ml)",
+    "kj": 0,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 0
+   }
   },
   {
    "id": "iced-latte",
@@ -7185,6 +9682,17 @@
    "nutrients": {
     "calcium": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular iced latte",
+    "kj": 700,
+    "protein": 8.5,
+    "fat": 8.5,
+    "satFat": 5.4,
+    "carbs": 12.0,
+    "sugars": 12.0,
+    "fibre": 0.0,
+    "sodium": 110
    }
   },
   {
@@ -7208,7 +9716,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 scoop with a shot",
+    "kj": 480,
+    "protein": 2.2,
+    "fat": 5.5,
+    "satFat": 3.6,
+    "carbs": 12.5,
+    "sugars": 11.5,
+    "fibre": 0.2,
+    "sodium": 40
+   }
   },
   {
    "id": "babycino",
@@ -7230,7 +9749,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 babycino cup",
+    "kj": 220,
+    "protein": 2.6,
+    "fat": 2.7,
+    "satFat": 1.7,
+    "carbs": 3.8,
+    "sugars": 3.8,
+    "fibre": 0.0,
+    "sodium": 35
+   }
   },
   {
    "id": "matcha",
@@ -7255,7 +9785,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 regular matcha latte",
+    "kj": 750,
+    "protein": 8.0,
+    "fat": 8.0,
+    "satFat": 5.1,
+    "carbs": 18.0,
+    "sugars": 17.0,
+    "fibre": 0.5,
+    "sodium": 105
+   }
   },
   {
    "id": "bubble-tea",
@@ -7283,7 +9824,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 regular cup (500ml)",
+    "kj": 1400,
+    "protein": 3.5,
+    "fat": 5.0,
+    "satFat": 3.5,
+    "carbs": 70.0,
+    "sugars": 45.0,
+    "fibre": 1.0,
+    "sodium": 90
+   }
   },
   {
    "id": "iced-tea-bottled",
@@ -7308,7 +9860,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 bottle (500ml)",
+    "kj": 480,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 29.0,
+    "sugars": 28.5,
+    "fibre": 0.0,
+    "sodium": 30
+   }
   },
   {
    "id": "iced-chocolate",
@@ -7334,6 +9897,17 @@
    "nutrients": {
     "calcium": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular glass (400ml)",
+    "kj": 1500,
+    "protein": 10.0,
+    "fat": 18.0,
+    "satFat": 12.0,
+    "carbs": 44.0,
+    "sugars": 42.0,
+    "fibre": 1.0,
+    "sodium": 160
    }
   },
   {
@@ -7365,6 +9939,17 @@
    "nutrients": {
     "calcium": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 bottle (500ml)",
+    "kj": 1465,
+    "protein": 16.5,
+    "fat": 13.0,
+    "satFat": 8.6,
+    "carbs": 52.0,
+    "sugars": 50.0,
+    "fibre": 0.0,
+    "sodium": 250
    }
   },
   {
@@ -7388,7 +9973,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 mug, no milk",
+    "kj": 5,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 0.3,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 3
+   }
   },
   {
    "id": "raspberry-leaf-tea",
@@ -7410,7 +10006,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 mug, brewed",
+    "kj": 5,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 0.3,
+    "sugars": 0.1,
+    "fibre": 0.0,
+    "sodium": 2
+   }
   },
   {
    "id": "liquorice-tea",
@@ -7432,7 +10039,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 mug, brewed",
+    "kj": 8,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 0.5,
+    "sugars": 0.3,
+    "fibre": 0.0,
+    "sodium": 4
+   }
   },
   {
    "id": "slushies",
@@ -7470,6 +10088,17 @@
       "says": "Red. The machine rule is about the machine, not the milk, and there is no way to check the barrel. A sealed icy pole gets you the same hit without the question mark."
      }
     ]
+   },
+   "nutrition": {
+    "serve": "1 regular cup (300ml)",
+    "kj": 400,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 25.0,
+    "sugars": 24.0,
+    "fibre": 0.0,
+    "sodium": 20
    }
   },
   {
@@ -7495,7 +10124,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 icy pole",
+    "kj": 180,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 11.0,
+    "sugars": 10.5,
+    "fibre": 0.0,
+    "sodium": 10
+   }
   },
   {
    "id": "coconut-fresh",
@@ -7519,7 +10159,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 young coconut",
+    "kj": 240,
+    "protein": 1.5,
+    "fat": 0.6,
+    "satFat": 0.5,
+    "carbs": 11.0,
+    "sugars": 10.0,
+    "fibre": 0.0,
+    "sodium": 90
+   }
   },
   {
    "id": "coconut-water-bottled",
@@ -7556,7 +10207,18 @@
      "makeItGreen": "Swap to a carton or bottle with pasteurised on the label; most of the big brands are.",
      "swap": "Chilled pasteurised coconut water, or icy soda water with a squeeze of lime."
     }
-   ]
+   ],
+   "nutrition": {
+    "serve": "1 bottle (330ml)",
+    "kj": 260,
+    "protein": 1.3,
+    "fat": 0.3,
+    "satFat": 0.3,
+    "carbs": 12.5,
+    "sugars": 11.5,
+    "fibre": 0.0,
+    "sodium": 90
+   }
   },
   {
    "id": "sports-drinks",
@@ -7582,7 +10244,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 bottle (600ml)",
+    "kj": 660,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 38.0,
+    "sugars": 38.0,
+    "fibre": 0.0,
+    "sodium": 300
+   }
   },
   {
    "id": "mocktails",
@@ -7620,7 +10293,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tall glass (300ml)",
+    "kj": 550,
+    "protein": 0.5,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 31.0,
+    "sugars": 30.0,
+    "fibre": 0.3,
+    "sodium": 20
+   }
   },
   {
    "id": "lemon-lime-bitters",
@@ -7643,7 +10327,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tall glass (300ml)",
+    "kj": 520,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 30.0,
+    "sugars": 29.5,
+    "fibre": 0.0,
+    "sodium": 25
+   }
   },
   {
    "id": "turmeric-latte",
@@ -7669,6 +10364,17 @@
    "nutrients": {
     "calcium": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular takeaway cup",
+    "kj": 750,
+    "protein": 8.0,
+    "fat": 8.0,
+    "satFat": 5.1,
+    "carbs": 18.0,
+    "sugars": 17.5,
+    "fibre": 0.5,
+    "sodium": 105
    }
   },
   {
@@ -7709,6 +10415,17 @@
    "nutrients": {
     "calcium": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular milkshake",
+    "kj": 1900,
+    "protein": 14.0,
+    "fat": 17.0,
+    "satFat": 11.0,
+    "carbs": 62.0,
+    "sugars": 58.0,
+    "fibre": 0.5,
+    "sodium": 250
    }
   },
   {
@@ -7736,6 +10453,17 @@
    "nutrients": {
     "calcium": "low",
     "protein": "low"
+   },
+   "nutrition": {
+    "serve": "1 mug (250ml)",
+    "kj": 150,
+    "protein": 7.0,
+    "fat": 0.8,
+    "satFat": 0.3,
+    "carbs": 0.8,
+    "sugars": 0.4,
+    "fibre": 0.0,
+    "sodium": 480
    }
   },
   {
@@ -7772,6 +10500,17 @@
     "iron": "med",
     "iodine": "med",
     "fibre": "high"
+   },
+   "nutrition": {
+    "serve": "2 slices wholemeal toast",
+    "kj": 800,
+    "protein": 8.0,
+    "fat": 2.0,
+    "satFat": 0.4,
+    "carbs": 30.0,
+    "sugars": 2.0,
+    "fibre": 4.5,
+    "sodium": 350
    }
   },
   {
@@ -7800,7 +10539,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "half a tin baked beans",
+    "kj": 600,
+    "protein": 9.0,
+    "fat": 0.8,
+    "satFat": 0.2,
+    "carbs": 22.0,
+    "sugars": 9.0,
+    "fibre": 6.5,
+    "sodium": 480
+   }
   },
   {
    "id": "chocolate",
@@ -7828,7 +10578,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "4 squares (25g)",
+    "kj": 550,
+    "protein": 1.8,
+    "fat": 7.5,
+    "satFat": 4.6,
+    "carbs": 14.5,
+    "sugars": 13.8,
+    "fibre": 0.6,
+    "sodium": 20
+   }
   },
   {
    "id": "dips-with-soft-cheese",
@@ -7854,7 +10615,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 tbsp baked feta dip",
+    "kj": 500,
+    "protein": 4.5,
+    "fat": 9.5,
+    "satFat": 5.5,
+    "carbs": 2.5,
+    "sugars": 1.8,
+    "fibre": 0.4,
+    "sodium": 380
+   }
   },
   {
    "id": "honey",
@@ -7893,6 +10665,17 @@
       "says": "Green. Nothing in any source flags it for pregnancy, and calling it anything else would be inventing a worry."
      }
     ]
+   },
+   "nutrition": {
+    "serve": "1 tbsp",
+    "kj": 280,
+    "protein": 0.1,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 16.4,
+    "sugars": 16.3,
+    "fibre": 0.0,
+    "sodium": 2
    }
   },
   {
@@ -7927,6 +10710,17 @@
     "folate": "med",
     "protein": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "2 tbsp",
+    "kj": 430,
+    "protein": 3.0,
+    "fat": 6.5,
+    "satFat": 0.9,
+    "carbs": 7.0,
+    "sugars": 0.5,
+    "fibre": 3.0,
+    "sodium": 220
    }
   },
   {
@@ -7957,7 +10751,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 tbsp tomato sauce",
+    "kj": 90,
+    "protein": 0.2,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 5.0,
+    "sugars": 4.6,
+    "fibre": 0.2,
+    "sodium": 220
+   }
   },
   {
    "id": "lollies",
@@ -7985,7 +10790,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "small handful",
+    "kj": 570,
+    "protein": 1.5,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 32.0,
+    "sugars": 25.0,
+    "fibre": 0.0,
+    "sodium": 30
+   }
   },
   {
    "id": "nuts-and-seeds",
@@ -8020,6 +10836,17 @@
     "iron": "med",
     "protein": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "small handful (30g)",
+    "kj": 780,
+    "protein": 6.0,
+    "fat": 16.5,
+    "satFat": 1.6,
+    "carbs": 4.0,
+    "sugars": 1.3,
+    "fibre": 2.7,
+    "sodium": 3
    }
   },
   {
@@ -8052,6 +10879,17 @@
    "nutrients": {
     "protein": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 tbsp peanut butter",
+    "kj": 510,
+    "protein": 5.0,
+    "fat": 10.0,
+    "satFat": 2.0,
+    "carbs": 3.0,
+    "sugars": 1.2,
+    "fibre": 1.5,
+    "sodium": 90
    }
   },
   {
@@ -8078,7 +10916,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 slices fresh pineapple",
+    "kj": 310,
+    "protein": 0.6,
+    "fat": 0.2,
+    "satFat": 0.0,
+    "carbs": 16.0,
+    "sugars": 15.5,
+    "fibre": 1.8,
+    "sodium": 3
+   }
   },
   {
    "id": "popcorn",
@@ -8107,6 +10956,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 small bowl",
+    "kj": 510,
+    "protein": 2.5,
+    "fat": 6.0,
+    "satFat": 1.0,
+    "carbs": 13.5,
+    "sugars": 0.3,
+    "fibre": 2.8,
+    "sodium": 210
    }
   },
   {
@@ -8133,7 +10993,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "2 baked cookies",
+    "kj": 790,
+    "protein": 2.2,
+    "fat": 8.5,
+    "satFat": 5.0,
+    "carbs": 25.0,
+    "sugars": 14.0,
+    "fibre": 0.8,
+    "sodium": 130
+   }
   },
   {
    "id": "rice-and-pasta",
@@ -8168,7 +11039,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 cup cooked pasta",
+    "kj": 900,
+    "protein": 7.5,
+    "fat": 1.2,
+    "satFat": 0.2,
+    "carbs": 42.0,
+    "sugars": 1.2,
+    "fibre": 3.0,
+    "sodium": 5
+   }
   },
   {
    "id": "sesame-heat-treated",
@@ -8194,7 +11076,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 tsp sesame oil",
+    "kj": 185,
+    "protein": 0.0,
+    "fat": 5.0,
+    "satFat": 0.7,
+    "carbs": 0.0,
+    "sugars": 0.0,
+    "fibre": 0.0,
+    "sodium": 0
+   }
   },
   {
    "id": "spicy-food",
@@ -8222,7 +11115,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 cup of curry",
+    "kj": 1100,
+    "protein": 24.0,
+    "fat": 14.0,
+    "satFat": 5.0,
+    "carbs": 8.0,
+    "sugars": 4.0,
+    "fibre": 2.0,
+    "sodium": 700
+   }
   },
   {
    "id": "tahini-halva",
@@ -8253,6 +11157,17 @@
    "nutrients": {
     "iron": "med",
     "calcium": "med"
+   },
+   "nutrition": {
+    "serve": "1 tbsp tahini",
+    "kj": 500,
+    "protein": 3.4,
+    "fat": 10.7,
+    "satFat": 1.5,
+    "carbs": 2.0,
+    "sugars": 0.1,
+    "fibre": 1.8,
+    "sodium": 7
    }
   },
   {
@@ -8288,6 +11203,17 @@
     "iron": "med",
     "calcium": "med",
     "protein": "high"
+   },
+   "nutrition": {
+    "serve": "100g firm tofu",
+    "kj": 550,
+    "protein": 12.0,
+    "fat": 7.5,
+    "satFat": 1.1,
+    "carbs": 2.0,
+    "sugars": 0.6,
+    "fibre": 1.0,
+    "sodium": 15
    }
   },
   {
@@ -8330,6 +11256,17 @@
    },
    "nutrients": {
     "folate": "high"
+   },
+   "nutrition": {
+    "serve": "1 tsp",
+    "kj": 40,
+    "protein": 1.2,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 1.1,
+    "sugars": 0.6,
+    "fibre": 0.2,
+    "sodium": 165
    }
   },
   {
@@ -8353,7 +11290,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tbsp",
+    "kj": 230,
+    "protein": 0.0,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 13.5,
+    "sugars": 12.5,
+    "fibre": 0.0,
+    "sodium": 2
+   }
   },
   {
    "id": "golden-syrup",
@@ -8375,7 +11323,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tbsp",
+    "kj": 265,
+    "protein": 0.1,
+    "fat": 0.0,
+    "satFat": 0.0,
+    "carbs": 15.5,
+    "sugars": 15.0,
+    "fibre": 0.0,
+    "sodium": 15
+   }
   },
   {
    "id": "choc-hazelnut-spread",
@@ -8399,7 +11358,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tbsp",
+    "kj": 440,
+    "protein": 1.3,
+    "fat": 6.2,
+    "satFat": 2.1,
+    "carbs": 11.5,
+    "sugars": 11.3,
+    "fibre": 0.6,
+    "sodium": 8
+   }
   },
   {
    "id": "liquorice",
@@ -8424,7 +11394,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "3 pieces",
+    "kj": 580,
+    "protein": 1.2,
+    "fat": 0.6,
+    "satFat": 0.3,
+    "carbs": 32.0,
+    "sugars": 20.0,
+    "fibre": 0.8,
+    "sodium": 60
+   }
   },
   {
    "id": "rum-balls",
@@ -8447,7 +11428,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 rum balls",
+    "kj": 900,
+    "protein": 3.0,
+    "fat": 9.0,
+    "satFat": 5.5,
+    "carbs": 28.0,
+    "sugars": 22.0,
+    "fibre": 1.5,
+    "sodium": 90
+   }
   },
   {
    "id": "trifle",
@@ -8484,7 +11476,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 cup",
+    "kj": 1000,
+    "protein": 4.5,
+    "fat": 10.0,
+    "satFat": 6.5,
+    "carbs": 32.0,
+    "sugars": 25.0,
+    "fibre": 0.8,
+    "sodium": 110
+   }
   },
   {
    "id": "baked-cheesecake",
@@ -8507,7 +11510,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 slice",
+    "kj": 1500,
+    "protein": 7.0,
+    "fat": 22.0,
+    "satFat": 12.5,
+    "carbs": 32.0,
+    "sugars": 24.0,
+    "fibre": 0.6,
+    "sodium": 260
+   }
   },
   {
    "id": "no-bake-cheesecake",
@@ -8543,7 +11557,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 slice",
+    "kj": 1550,
+    "protein": 5.5,
+    "fat": 24.0,
+    "satFat": 15.0,
+    "carbs": 32.0,
+    "sugars": 25.0,
+    "fibre": 0.7,
+    "sodium": 220
+   }
   },
   {
    "id": "panna-cotta",
@@ -8565,7 +11590,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 small pot",
+    "kj": 1000,
+    "protein": 3.5,
+    "fat": 18.0,
+    "satFat": 11.5,
+    "carbs": 15.0,
+    "sugars": 14.5,
+    "fibre": 0.0,
+    "sodium": 45
+   }
   },
   {
    "id": "vanilla-slice",
@@ -8589,7 +11625,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 slice",
+    "kj": 1500,
+    "protein": 5.5,
+    "fat": 17.0,
+    "satFat": 10.0,
+    "carbs": 46.0,
+    "sugars": 26.0,
+    "fibre": 0.9,
+    "sodium": 210
+   }
   },
   {
    "id": "custard-doughnuts",
@@ -8615,7 +11662,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 doughnut",
+    "kj": 1250,
+    "protein": 5.0,
+    "fat": 15.0,
+    "satFat": 7.0,
+    "carbs": 36.0,
+    "sugars": 15.0,
+    "fibre": 1.5,
+    "sodium": 250
+   }
   },
   {
    "id": "lamingtons",
@@ -8638,7 +11696,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 lamington",
+    "kj": 1050,
+    "protein": 3.0,
+    "fat": 10.0,
+    "satFat": 6.5,
+    "carbs": 37.0,
+    "sugars": 25.0,
+    "fibre": 1.5,
+    "sodium": 180
+   }
   },
   {
    "id": "anzac-biscuits",
@@ -8660,7 +11729,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 biscuits",
+    "kj": 780,
+    "protein": 2.2,
+    "fat": 8.0,
+    "satFat": 5.0,
+    "carbs": 26.0,
+    "sugars": 15.0,
+    "fibre": 1.3,
+    "sodium": 100
+   }
   },
   {
    "id": "fruit-cake",
@@ -8697,7 +11777,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 slice",
+    "kj": 1100,
+    "protein": 3.0,
+    "fat": 8.0,
+    "satFat": 3.5,
+    "carbs": 43.0,
+    "sugars": 32.0,
+    "fibre": 2.2,
+    "sodium": 130
+   }
   },
   {
    "id": "gingerbread",
@@ -8723,7 +11814,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 gingerbread men",
+    "kj": 730,
+    "protein": 2.2,
+    "fat": 5.0,
+    "satFat": 3.0,
+    "carbs": 30.0,
+    "sugars": 16.0,
+    "fibre": 0.9,
+    "sodium": 130
+   }
   },
   {
    "id": "pancakes-waffles-crepes",
@@ -8751,7 +11853,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 pancakes with syrup",
+    "kj": 1450,
+    "protein": 8.0,
+    "fat": 10.0,
+    "satFat": 4.5,
+    "carbs": 55.0,
+    "sugars": 22.0,
+    "fibre": 2.0,
+    "sodium": 500
+   }
   },
   {
    "id": "oyster-fish-sauce",
@@ -8776,7 +11889,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tbsp oyster sauce",
+    "kj": 95,
+    "protein": 0.4,
+    "fat": 0.1,
+    "satFat": 0.0,
+    "carbs": 5.0,
+    "sugars": 3.5,
+    "fibre": 0.1,
+    "sodium": 570
+   }
   },
   {
    "id": "wasabi-pickled-ginger",
@@ -8799,7 +11923,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 tsp wasabi paste",
+    "kj": 50,
+    "protein": 0.2,
+    "fat": 0.5,
+    "satFat": 0.1,
+    "carbs": 1.5,
+    "sugars": 1.0,
+    "fibre": 0.3,
+    "sodium": 60
+   }
   },
   {
    "id": "seaweed-nori",
@@ -8844,6 +11979,17 @@
    ],
    "nutrients": {
     "iodine": "high"
+   },
+   "nutrition": {
+    "serve": "1 pack seaweed snacks",
+    "kj": 90,
+    "protein": 1.0,
+    "fat": 1.5,
+    "satFat": 0.3,
+    "carbs": 0.6,
+    "sugars": 0.1,
+    "fibre": 0.9,
+    "sodium": 75
    }
   },
   {
@@ -8886,6 +12032,17 @@
    "nutrients": {
     "protein": "low",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "2 bliss balls",
+    "kj": 700,
+    "protein": 4.5,
+    "fat": 8.0,
+    "satFat": 2.5,
+    "carbs": 18.0,
+    "sugars": 13.0,
+    "fibre": 3.0,
+    "sodium": 40
    }
   },
   {
@@ -8913,7 +12070,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 packet",
+    "kj": 1750,
+    "protein": 8.0,
+    "fat": 17.0,
+    "satFat": 8.0,
+    "carbs": 55.0,
+    "sugars": 4.0,
+    "fibre": 2.5,
+    "sodium": 1400
+   }
   },
   {
    "id": "stock-cubes",
@@ -8939,7 +12107,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 cube in 250mL",
+    "kj": 78,
+    "protein": 0.6,
+    "fat": 0.7,
+    "satFat": 0.3,
+    "carbs": 2.5,
+    "sugars": 0.4,
+    "fibre": 0.1,
+    "sodium": 900
+   }
   },
   {
    "id": "fairy-bread",
@@ -8961,7 +12140,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "2 slices",
+    "kj": 1120,
+    "protein": 5.5,
+    "fat": 9.5,
+    "satFat": 5.5,
+    "carbs": 40.0,
+    "sugars": 12.0,
+    "fibre": 1.8,
+    "sodium": 350
+   }
   },
   {
    "id": "scones-jam-cream",
@@ -8986,7 +12176,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 scone, jam and cream",
+    "kj": 1400,
+    "protein": 6.0,
+    "fat": 16.0,
+    "satFat": 10.0,
+    "carbs": 42.0,
+    "sugars": 18.0,
+    "fibre": 1.8,
+    "sodium": 380
+   }
   },
   {
    "id": "sticky-date-pudding",
@@ -9009,7 +12210,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 serve with sauce",
+    "kj": 2200,
+    "protein": 5.0,
+    "fat": 24.0,
+    "satFat": 15.0,
+    "carbs": 72.0,
+    "sugars": 55.0,
+    "fibre": 2.5,
+    "sodium": 380
+   }
   },
   {
    "id": "burgers",
@@ -9044,6 +12256,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular burger",
+    "kj": 2200,
+    "protein": 27.0,
+    "fat": 26.0,
+    "satFat": 10.0,
+    "carbs": 40.0,
+    "sugars": 8.0,
+    "fibre": 3.0,
+    "sodium": 950
    }
   },
   {
@@ -9074,6 +12297,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 pub parma, no chips",
+    "kj": 2950,
+    "protein": 55.0,
+    "fat": 32.0,
+    "satFat": 12.0,
+    "carbs": 45.0,
+    "sugars": 8.0,
+    "fibre": 3.5,
+    "sodium": 1800
    }
   },
   {
@@ -9106,6 +12340,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 serve, eggs cooked firm",
+    "kj": 1600,
+    "protein": 26.0,
+    "fat": 17.0,
+    "satFat": 5.5,
+    "carbs": 30.0,
+    "sugars": 3.0,
+    "fibre": 2.5,
+    "sodium": 1100
    }
   },
   {
@@ -9134,7 +12379,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "small serve of chips",
+    "kj": 1550,
+    "protein": 5.0,
+    "fat": 17.0,
+    "satFat": 3.5,
+    "carbs": 45.0,
+    "sugars": 0.6,
+    "fibre": 5.0,
+    "sodium": 550
+   }
   },
   {
    "id": "kebab",
@@ -9170,6 +12426,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular kebab",
+    "kj": 2900,
+    "protein": 40.0,
+    "fat": 30.0,
+    "satFat": 10.0,
+    "carbs": 60.0,
+    "sugars": 6.0,
+    "fibre": 5.0,
+    "sodium": 1700
    }
   },
   {
@@ -9198,7 +12465,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 soft serve cone",
+    "kj": 650,
+    "protein": 4.5,
+    "fat": 4.5,
+    "satFat": 3.0,
+    "carbs": 24.0,
+    "sugars": 20.0,
+    "fibre": 0.4,
+    "sodium": 85
+   }
   },
   {
    "id": "meat-pie",
@@ -9232,6 +12510,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 meat pie",
+    "kj": 1900,
+    "protein": 16.0,
+    "fat": 25.0,
+    "satFat": 12.0,
+    "carbs": 38.0,
+    "sugars": 3.0,
+    "fibre": 2.5,
+    "sodium": 900
    }
   },
   {
@@ -9265,6 +12554,17 @@
    "reviewed": "2026-07",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 takeaway pad thai",
+    "kj": 3000,
+    "protein": 30.0,
+    "fat": 24.0,
+    "satFat": 5.0,
+    "carbs": 90.0,
+    "sugars": 18.0,
+    "fibre": 5.0,
+    "sodium": 1900
    }
   },
   {
@@ -9317,6 +12617,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 large bowl",
+    "kj": 2100,
+    "protein": 35.0,
+    "fat": 8.0,
+    "satFat": 3.0,
+    "carbs": 70.0,
+    "sugars": 6.0,
+    "fibre": 3.0,
+    "sodium": 2000
    }
   },
   {
@@ -9351,6 +12662,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "2 slices",
+    "kj": 2250,
+    "protein": 24.0,
+    "fat": 22.0,
+    "satFat": 9.5,
+    "carbs": 58.0,
+    "sugars": 6.0,
+    "fibre": 3.5,
+    "sodium": 1300
    }
   },
   {
@@ -9381,7 +12703,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 sandwich",
+    "kj": 1500,
+    "protein": 20.0,
+    "fat": 12.0,
+    "satFat": 5.0,
+    "carbs": 40.0,
+    "sugars": 5.0,
+    "fibre": 3.5,
+    "sodium": 900
+   }
   },
   {
    "id": "stuffing-in-bird",
@@ -9410,7 +12743,18 @@
    ],
    "flags": [],
    "popularity": 1,
-   "reviewed": "2026-07"
+   "reviewed": "2026-07",
+   "nutrition": {
+    "serve": "1 scoop of stuffing",
+    "kj": 750,
+    "protein": 4.5,
+    "fat": 8.5,
+    "satFat": 3.5,
+    "carbs": 20.0,
+    "sugars": 2.5,
+    "fibre": 1.8,
+    "sodium": 550
+   }
   },
   {
    "id": "sushi",
@@ -9464,6 +12808,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "2 sushi rolls",
+    "kj": 1600,
+    "protein": 14.0,
+    "fat": 8.0,
+    "satFat": 1.5,
+    "carbs": 60.0,
+    "sugars": 6.0,
+    "fibre": 3.0,
+    "sodium": 900
    }
   },
   {
@@ -9515,6 +12870,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "4 plates",
+    "kj": 2250,
+    "protein": 22.0,
+    "fat": 14.0,
+    "satFat": 3.0,
+    "carbs": 78.0,
+    "sugars": 10.0,
+    "fibre": 4.0,
+    "sodium": 1300
    }
   },
   {
@@ -9549,6 +12915,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 toastie",
+    "kj": 1550,
+    "protein": 20.0,
+    "fat": 17.0,
+    "satFat": 9.0,
+    "carbs": 34.0,
+    "sugars": 4.0,
+    "fibre": 2.5,
+    "sodium": 1200
    }
   },
   {
@@ -9577,6 +12954,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 grilled pork banh mi",
+    "kj": 2050,
+    "protein": 25.0,
+    "fat": 15.0,
+    "satFat": 4.5,
+    "carbs": 62.0,
+    "sugars": 10.0,
+    "fibre": 4.0,
+    "sodium": 1500
    }
   },
   {
@@ -9605,6 +12993,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 bowl of laksa",
+    "kj": 2900,
+    "protein": 30.0,
+    "fat": 38.0,
+    "satFat": 24.0,
+    "carbs": 65.0,
+    "sugars": 8.0,
+    "fibre": 5.0,
+    "sodium": 2200
    }
   },
   {
@@ -9648,6 +13047,17 @@
     "iron": "med",
     "protein": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 bowl of bibimbap",
+    "kj": 2600,
+    "protein": 28.0,
+    "fat": 18.0,
+    "satFat": 5.0,
+    "carbs": 85.0,
+    "sugars": 9.0,
+    "fibre": 6.0,
+    "sodium": 1500
    }
   },
   {
@@ -9691,6 +13101,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 bowl of ramen",
+    "kj": 2950,
+    "protein": 35.0,
+    "fat": 28.0,
+    "satFat": 10.0,
+    "carbs": 80.0,
+    "sugars": 6.0,
+    "fibre": 5.0,
+    "sodium": 2500
    }
   },
   {
@@ -9726,6 +13147,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "6 steamed dumplings",
+    "kj": 1250,
+    "protein": 14.0,
+    "fat": 10.0,
+    "satFat": 3.5,
+    "carbs": 34.0,
+    "sugars": 2.0,
+    "fibre": 2.0,
+    "sodium": 900
    }
   },
   {
@@ -9768,7 +13200,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "5 pieces off the trolley",
+    "kj": 2300,
+    "protein": 24.0,
+    "fat": 22.0,
+    "satFat": 8.0,
+    "carbs": 62.0,
+    "sugars": 8.0,
+    "fibre": 3.5,
+    "sodium": 1800
+   }
   },
   {
    "id": "fried-rice-hot",
@@ -9793,7 +13236,18 @@
    ],
    "flags": [],
    "popularity": 3,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 takeaway serve",
+    "kj": 3000,
+    "protein": 30.0,
+    "fat": 25.0,
+    "satFat": 6.0,
+    "carbs": 95.0,
+    "sugars": 5.0,
+    "fibre": 4.0,
+    "sodium": 1900
+   }
   },
   {
    "id": "risotto-hot",
@@ -9818,7 +13272,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 bowl of risotto",
+    "kj": 2550,
+    "protein": 20.0,
+    "fat": 24.0,
+    "satFat": 12.0,
+    "carbs": 75.0,
+    "sugars": 4.0,
+    "fibre": 3.0,
+    "sodium": 1300
+   }
   },
   {
    "id": "paella",
@@ -9846,6 +13311,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 plate of paella",
+    "kj": 2600,
+    "protein": 32.0,
+    "fat": 18.0,
+    "satFat": 4.5,
+    "carbs": 80.0,
+    "sugars": 5.0,
+    "fibre": 4.0,
+    "sodium": 1500
    }
   },
   {
@@ -9877,6 +13353,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 serve with rice",
+    "kj": 3500,
+    "protein": 40.0,
+    "fat": 38.0,
+    "satFat": 18.0,
+    "carbs": 90.0,
+    "sugars": 12.0,
+    "fibre": 5.0,
+    "sodium": 1600
    }
   },
   {
@@ -9904,7 +13391,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "3 rolls",
+    "kj": 900,
+    "protein": 12.0,
+    "fat": 4.0,
+    "satFat": 0.8,
+    "carbs": 32.0,
+    "sugars": 4.0,
+    "fibre": 2.5,
+    "sodium": 500
+   }
   },
   {
    "id": "poke-bowl-cooked",
@@ -9954,6 +13452,17 @@
    "nutrients": {
     "protein": "med",
     "fibre": "med"
+   },
+   "nutrition": {
+    "serve": "1 poke bowl",
+    "kj": 2650,
+    "protein": 32.0,
+    "fat": 22.0,
+    "satFat": 4.0,
+    "carbs": 75.0,
+    "sugars": 12.0,
+    "fibre": 7.0,
+    "sodium": 1300
    }
   },
   {
@@ -9991,6 +13500,17 @@
     "iron": "med",
     "protein": "med",
     "fibre": "high"
+   },
+   "nutrition": {
+    "serve": "1 large burrito",
+    "kj": 3550,
+    "protein": 40.0,
+    "fat": 32.0,
+    "satFat": 12.0,
+    "carbs": 100.0,
+    "sugars": 6.0,
+    "fibre": 12.0,
+    "sodium": 1900
    }
   },
   {
@@ -10019,6 +13539,17 @@
     "protein": "med",
     "omega3": "low",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 fish burger",
+    "kj": 1650,
+    "protein": 17.0,
+    "fat": 18.0,
+    "satFat": 4.0,
+    "carbs": 38.0,
+    "sugars": 5.0,
+    "fibre": 2.5,
+    "sodium": 750
    }
   },
   {
@@ -10043,7 +13574,18 @@
    ],
    "flags": [],
    "popularity": 2,
-   "reviewed": "2026-08"
+   "reviewed": "2026-08",
+   "nutrition": {
+    "serve": "1 bakery pastie",
+    "kj": 2000,
+    "protein": 12.0,
+    "fat": 27.0,
+    "satFat": 13.0,
+    "carbs": 45.0,
+    "sugars": 4.0,
+    "fibre": 3.5,
+    "sodium": 900
+   }
   },
   {
    "id": "larb",
@@ -10072,6 +13614,17 @@
    "nutrients": {
     "iron": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 serve of larb",
+    "kj": 1200,
+    "protein": 28.0,
+    "fat": 16.0,
+    "satFat": 5.0,
+    "carbs": 8.0,
+    "sugars": 5.0,
+    "fibre": 3.0,
+    "sodium": 1300
    }
   },
   {
@@ -10100,6 +13653,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "3 lettuce cups",
+    "kj": 1250,
+    "protein": 24.0,
+    "fat": 16.0,
+    "satFat": 5.0,
+    "carbs": 14.0,
+    "sugars": 7.0,
+    "fibre": 3.0,
+    "sodium": 1100
    }
   },
   {
@@ -10129,6 +13693,17 @@
    "nutrients": {
     "protein": "med",
     "iodine": "med"
+   },
+   "nutrition": {
+    "serve": "1 bowl of tom yum",
+    "kj": 880,
+    "protein": 20.0,
+    "fat": 8.0,
+    "satFat": 4.0,
+    "carbs": 12.0,
+    "sugars": 6.0,
+    "fibre": 2.0,
+    "sodium": 2000
    }
   },
   {
@@ -10159,6 +13734,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 serve with rice",
+    "kj": 3350,
+    "protein": 32.0,
+    "fat": 38.0,
+    "satFat": 24.0,
+    "carbs": 85.0,
+    "sugars": 10.0,
+    "fibre": 5.0,
+    "sodium": 1800
    }
   },
   {
@@ -10187,6 +13773,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 chicken katsu curry",
+    "kj": 3550,
+    "protein": 38.0,
+    "fat": 32.0,
+    "satFat": 9.0,
+    "carbs": 105.0,
+    "sugars": 12.0,
+    "fibre": 6.0,
+    "sodium": 1700
    }
   },
   {
@@ -10214,6 +13811,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 teriyaki chicken don",
+    "kj": 2950,
+    "protein": 38.0,
+    "fat": 18.0,
+    "satFat": 4.5,
+    "carbs": 95.0,
+    "sugars": 22.0,
+    "fibre": 3.5,
+    "sodium": 1800
    }
   },
   {
@@ -10240,6 +13848,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 serve with rice",
+    "kj": 3350,
+    "protein": 30.0,
+    "fat": 30.0,
+    "satFat": 8.0,
+    "carbs": 105.0,
+    "sugars": 35.0,
+    "fibre": 4.0,
+    "sodium": 1500
    }
   },
   {
@@ -10266,6 +13885,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 serve with rice",
+    "kj": 3450,
+    "protein": 32.0,
+    "fat": 30.0,
+    "satFat": 7.0,
+    "carbs": 110.0,
+    "sugars": 40.0,
+    "fibre": 3.5,
+    "sodium": 1400
    }
   },
   {
@@ -10293,6 +13923,17 @@
    "nutrients": {
     "calcium": "med",
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "1 regular serve",
+    "kj": 1850,
+    "protein": 22.0,
+    "fat": 30.0,
+    "satFat": 4.5,
+    "carbs": 18.0,
+    "sugars": 2.0,
+    "fibre": 3.0,
+    "sodium": 1400
    }
   },
   {
@@ -10320,6 +13961,17 @@
    "reviewed": "2026-08",
    "nutrients": {
     "protein": "med"
+   },
+   "nutrition": {
+    "serve": "4 satay skewers",
+    "kj": 1600,
+    "protein": 32.0,
+    "fat": 22.0,
+    "satFat": 7.0,
+    "carbs": 12.0,
+    "sugars": 8.0,
+    "fibre": 2.0,
+    "sodium": 900
    }
   }
  ]
