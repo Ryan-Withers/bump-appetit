@@ -231,6 +231,9 @@ export const STRINGS = Object.freeze({
     choose: 'Choose from Photos',
     groupCount: '{title} ({n})',
     basicCaption: 'Basic mode: caught keywords only, so double-check.',
+    // Shown when a menu was too long to read in one answer, so the list is
+    // short on purpose. She is told rather than left to assume it is the lot.
+    partialNote: 'That is a big menu, so this is as far as the read got. Search anything you cannot see here.',
     basicNote: 'Basic reading happens on your phone and catches keywords only. It downloads its reader the first time, so it needs a little internet too.',
     found: '{n} dishes read',
   },

@@ -187,7 +187,7 @@ export function createScanView(ctx = {}) {
   let state = 'idle';
   let photo = null;          // { file, url }
   let errorKind = 'failed';
-  let result = null;         // { mode, groups, count }
+  let result = null;         // { mode, groups, count, partial }
   let mode = hasSmartScanner() ? 'smart' : 'basic';
   let controller = null;
   let runId = 0;
@@ -291,6 +291,7 @@ export function createScanView(ctx = {}) {
         mode: out.mode || mode,
         groups: groupDishes(out.dishes),
         count: out.dishes.length,
+        partial: Boolean(out.partial),
       };
       state = 'results';
     } catch (err) {
@@ -514,6 +515,19 @@ export function createScanView(ctx = {}) {
 
     const actions = el('div', { class: 'stack' });
     actions.appendChild(button(str('ui.buttons.retake', 'Retake'), { primary: true, onClick: retake }));
+
+    // A menu longer than one answer comes back cut short. Saying so is the
+    // whole point: she can scroll a short list happily, as long as she knows to
+    // search the dishes that are missing from it.
+    if (result && result.partial) {
+      actions.appendChild(el('p', {
+        class: 'caption',
+        text: str(
+          'scan.partialNote',
+          'That is a big menu, so this is as far as the read got. Search anything you cannot see here.'
+        ),
+      }));
+    }
 
     // Basic reading is worth offering after any smart-scanner failure, but only
     // with the truth attached: its reader downloads once, so it needs a little

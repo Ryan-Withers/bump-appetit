@@ -16,10 +16,12 @@
 const DAILY_LIMIT = 100;
 
 // Base64 grows a JPEG by about a third, so this is roughly a 6MB photo. The app
-// resizes to 1280px long edge before upload, which lands well under it.
+// resizes each view to 1568px long edge before upload, well under it.
 const MAX_IMAGE_CHARS = 8_000_000;
 
-const MAX_DISHES = 40;
+// A big bistro menu runs past 50 dishes. The old cap of 40 quietly dropped the
+// tail, which on a menu sorted by course meant losing the desserts.
+const MAX_DISHES = 60;
 const MAX_WHY = 160;
 const MAX_DISH_NAME = 120;
 
@@ -40,7 +42,9 @@ const COUNTER_TTL_S = 172800;
 // Deliberately under CONFIG.scanner.timeoutMs on the client. If the model is
 // having a slow day we want to answer with a clean "unreadable" she can act on,
 // rather than let the phone give up first while this keeps burning the call.
-const MODEL_TIMEOUT_MS = 25000;
+// Raised with the extra views: reading three pictures of a menu is honest work,
+// and timing out at the old limit would throw away a call already paid for.
+const MODEL_TIMEOUT_MS = 38000;
 
 // Rebuilt after the first live scan: the build-spec 9.3 prompt was a closed
 // list matcher that defaulted unknown foods to green. This one makes unsure
@@ -53,7 +57,12 @@ const MODEL_TIMEOUT_MS = 25000;
 const SYSTEM_PROMPT = `You are a pregnancy food-safety checker for an Australian user, applying Australian
 guidelines (Royal Women's Hospital 2026, NSW Food Authority, FSANZ).
 
-INPUT: a photo of a menu. TASK: identify each distinct dish or drink and classify it.
+INPUT: one or more photos of the SAME menu. When several are supplied, the first is
+the whole menu and the rest are overlapping close-ups of parts of it, sent because
+the small print is hard to read at full-page size. Read the close-ups for wording the
+wide view cannot resolve, treat them as one menu, and list each dish exactly once.
+
+TASK: identify each distinct dish or drink and classify it.
 
 HOW TO JUDGE:
 - Judge the classic Australian build of the dish, including parts the menu does not
@@ -298,7 +307,29 @@ async function modelFailed(provider, res) {
 }
 
 /** Anthropic Messages API. Image block first, then the instruction. */
-async function callAnthropic(env, prompt, image) {
+async function callAnthropic(env, prompt, images) {
+  // Each view gets a line naming it, because an unlabelled pile of pictures
+  // reads as several different menus, and the same dish then comes back twice.
+  const content = [];
+  images.forEach((image, index) => {
+    content.push({
+      type: 'text',
+      text: index === 0
+        ? 'View 1: the whole menu.'
+        : `View ${index + 1}: a close-up of part of the SAME menu, overlapping the others.`,
+    });
+    content.push({
+      type: 'image',
+      source: { type: 'base64', media_type: image.mediaType, data: image.data },
+    });
+  });
+  content.push({
+    type: 'text',
+    text: images.length > 1
+      ? 'These are views of one menu. Read the close-ups for the small print, and list each dish once. JSON only.'
+      : 'Read this menu and classify every dish. JSON only.',
+  });
+
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -308,20 +339,15 @@ async function callAnthropic(env, prompt, image) {
     },
     body: JSON.stringify({
       model: modelId(env),
-      max_tokens: 2048,
+      // Every dish costs roughly 45 tokens of JSON, so a 50-dish pub menu needs
+      // thousands. At the old 2048 the reply was cut off mid-object, the parse
+      // failed, and a perfectly sharp photo came back "unreadable": the denser
+      // and clearer the menu, the more certain the failure.
+      max_tokens: 8192,
       // Zero, because a food-safety verdict is not a place for flair.
       temperature: 0,
       system: prompt,
-      messages: [{
-        role: 'user',
-        content: [
-          {
-            type: 'image',
-            source: { type: 'base64', media_type: image.mediaType, data: image.data },
-          },
-          { type: 'text', text: 'Read this menu and classify every dish. JSON only.' },
-        ],
-      }],
+      messages: [{ role: 'user', content }],
     }),
     signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
   });
@@ -335,8 +361,21 @@ async function callAnthropic(env, prompt, image) {
 }
 
 /** Google Gemini, kept live rather than commented out so it stays swappable. */
-async function callGemini(env, prompt, image) {
+async function callGemini(env, prompt, images) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId(env)}:generateContent`;
+
+  const parts = [];
+  images.forEach((image, index) => {
+    parts.push({
+      text: index === 0
+        ? 'View 1: the whole menu.'
+        : `View ${index + 1}: a close-up of part of the SAME menu, overlapping the others.`,
+    });
+    parts.push({ inline_data: { mime_type: image.mediaType, data: image.data } });
+  });
+  if (images.length > 1) {
+    parts.push({ text: 'These are views of one menu. Read the close-ups for the small print, and list each dish once.' });
+  }
 
   const res = await fetch(url, {
     method: 'POST',
@@ -346,14 +385,11 @@ async function callGemini(env, prompt, image) {
     },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: prompt }] },
-      contents: [{
-        role: 'user',
-        parts: [{ inline_data: { mime_type: image.mediaType, data: image.data } }],
-      }],
+      contents: [{ role: 'user', parts }],
       generationConfig: {
         temperature: 0,
         responseMimeType: 'application/json',
-        maxOutputTokens: 2048,
+        maxOutputTokens: 8192,
       },
     }),
     signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
@@ -362,20 +398,20 @@ async function callGemini(env, prompt, image) {
   if (!res.ok) return modelFailed('gemini', res);
 
   const body = await res.json();
-  const parts = (body
+  const answer = (body
     && Array.isArray(body.candidates)
     && body.candidates[0]
     && body.candidates[0].content
     && body.candidates[0].content.parts) || [];
 
-  return parts.map((part) => (part && typeof part.text === 'string' ? part.text : '')).join('');
+  return answer.map((part) => (part && typeof part.text === 'string' ? part.text : '')).join('');
 }
 
 /** Everything model-shaped goes through here, and returns plain text either way. */
-function callVisionModel(env, prompt, image) {
+function callVisionModel(env, prompt, images) {
   return providerFor(env) === 'gemini'
-    ? callGemini(env, prompt, image)
-    : callAnthropic(env, prompt, image);
+    ? callGemini(env, prompt, images)
+    : callAnthropic(env, prompt, images);
 }
 
 /* ---------------------------------------------------------------- parsing */
@@ -412,6 +448,37 @@ function readImage(body) {
   return { data, mediaType };
 }
 
+/**
+ * The client sends the whole menu, and when the photo has detail to spare, two
+ * overlapping halves of it as well, so the description lines arrive at a size
+ * the model can actually read. They are views of ONE menu and travel in one
+ * request, so a scan stays one model call and one tick of the daily limit.
+ *
+ * Capped, because past a few views the tiles stop adding detail and only add
+ * cost. Falls back to the single `image` field, which is what a client
+ * deployed before the tiles existed still sends.
+ */
+const MAX_IMAGES = 3;
+
+function readImages(body) {
+  const list = body && Array.isArray(body.images) ? body.images : null;
+  const raw = list && list.length
+    ? list
+    : [body && typeof body.image === 'string' ? body.image : ''];
+
+  const images = [];
+  for (const entry of raw.slice(0, MAX_IMAGES)) {
+    if (typeof entry !== 'string') return null;
+    const image = readImage({ image: entry });
+    // A malformed view fails the whole request rather than being dropped
+    // quietly: a scan that silently read half the menu is the worst answer of
+    // the three, because it looks complete.
+    if (!image) return null;
+    images.push(image);
+  }
+  return images.length ? images : null;
+}
+
 function tidy(value, max) {
   if (typeof value !== 'string') return '';
   const text = value.replace(/\s+/g, ' ').trim();
@@ -424,6 +491,47 @@ function tidy(value, max) {
  * validated: a malformed answer becomes "unreadable" and the app shows its
  * kind retake screen.
  */
+/**
+ * Rescues the complete dish objects out of a reply that stopped mid-flight.
+ * Walks the string tracking brace depth and string state, so a brace inside a
+ * dish name cannot fool it, and keeps every object that closed.
+ */
+function salvageDishes(text) {
+  const dishes = [];
+  let depth = 0;
+  let start = -1;
+  let inString = false;
+  let escaped = false;
+
+  for (let i = text.indexOf('"dishes"'); i >= 0 && i < text.length; i += 1) {
+    const ch = text[i];
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') { inString = true; continue; }
+    if (ch === '{') {
+      if (depth === 0) start = i;
+      depth += 1;
+    } else if (ch === '}') {
+      depth -= 1;
+      if (depth === 0 && start >= 0) {
+        try {
+          dishes.push(JSON.parse(text.slice(start, i + 1)));
+        } catch {
+          // Not a dish object after all. Skip it and keep walking.
+        }
+        start = -1;
+      }
+      if (depth < 0) depth = 0;
+    }
+  }
+
+  return dishes.length ? { dishes } : null;
+}
+
 function safeParseVerdicts(raw) {
   if (typeof raw !== 'string' || !raw.trim()) return null;
 
@@ -438,10 +546,18 @@ function safeParseVerdicts(raw) {
   if (start < 0 || end <= start) return null;
 
   let parsed;
+  let truncated = false;
   try {
     parsed = JSON.parse(text.slice(start, end + 1));
   } catch {
-    return null;
+    // A menu longer than the reply budget gets cut off mid-object. Throwing the
+    // whole thing away means she gets nothing from a menu the model actually
+    // read, so the complete dish objects are salvaged and the half-written one
+    // at the end is dropped. The caller is told it is partial: a short list she
+    // knows is short beats a short list she thinks is the whole menu.
+    parsed = salvageDishes(text);
+    if (!parsed) return null;
+    truncated = true;
   }
 
   if (!parsed || typeof parsed !== 'object') return null;
@@ -471,7 +587,9 @@ function safeParseVerdicts(raw) {
 
   // An empty menu is not a result, it is a photo that did not work.
   if (!dishes.length) return null;
-  return { dishes };
+  // `partial` travels with the result so the app can say the list is short,
+  // rather than letting a cut-off menu pass for the whole one.
+  return truncated ? { dishes, partial: true } : { dishes };
 }
 
 /* -------------------------------------------------------------------- main */
@@ -515,7 +633,7 @@ export default {
       return json({ error: 'bad-image' }, 400, cors);
     }
 
-    const image = readImage(body);
+    const image = readImages(body);
     if (!image) {
       return json({ error: 'bad-image' }, 400, cors);
     }

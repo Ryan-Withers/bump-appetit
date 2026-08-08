@@ -15,7 +15,9 @@ import { STRINGS } from './strings.js';
 import { getData } from './data.js';
 import { normalise } from './util.js';
 
-const MAX_DISHES = 40;
+// Matches the Worker. A pub menu with starters, mains, sides and desserts runs
+// past fifty, and a cap that bites is a cap that hides food from her.
+const MAX_DISHES = 60;
 const MAX_WHY = 160;
 const MAX_NAME = 120;
 
@@ -156,20 +158,124 @@ async function decode(blob) {
   return decodeViaImg(blob);
 }
 
-function drawResized(source, maxEdge) {
-  const width = source.width || source.naturalWidth || 0;
-  const height = source.height || source.naturalHeight || 0;
-  if (!width || !height) throw scanError('unreadable', 'The photo has no dimensions.');
+/**
+ * Downscales by halving repeatedly before the final step, with smoothing set
+ * to high the whole way.
+ *
+ * A phone photo is around 4000px and the upload is 1568px, and asking the
+ * canvas for that in one jump samples so sparsely that thin strokes fall
+ * between the samples. Menu descriptions are the first thing to go, which is
+ * exactly where "poached", "house made" and "prosciutto" live. Halving keeps
+ * every pixel contributing, so the small print survives the trip.
+ *
+ * The source rectangle arguments let a tile be cut straight out of the full
+ * resolution photo, rather than out of an already shrunken copy.
+ */
+function drawResized(source, maxEdge, rect) {
+  const fullW = source.width || source.naturalWidth || 0;
+  const fullH = source.height || source.naturalHeight || 0;
+  if (!fullW || !fullH) throw scanError('unreadable', 'The photo has no dimensions.');
 
-  const scale = Math.min(1, maxEdge / Math.max(width, height));
-  const canvas = document.createElement('canvas');
-  canvas.width = Math.max(1, Math.round(width * scale));
-  canvas.height = Math.max(1, Math.round(height * scale));
+  const sx = rect ? Math.max(0, Math.round(rect.x)) : 0;
+  const sy = rect ? Math.max(0, Math.round(rect.y)) : 0;
+  const sw = rect ? Math.min(fullW - sx, Math.round(rect.width)) : fullW;
+  const sh = rect ? Math.min(fullH - sy, Math.round(rect.height)) : fullH;
+  if (sw < 1 || sh < 1) throw scanError('unreadable', 'The crop is empty.');
 
-  const context = canvas.getContext('2d');
+  const scale = Math.min(1, maxEdge / Math.max(sw, sh));
+  const targetW = Math.max(1, Math.round(sw * scale));
+  const targetH = Math.max(1, Math.round(sh * scale));
+
+  let canvas = document.createElement('canvas');
+  canvas.width = sw;
+  canvas.height = sh;
+  let context = canvas.getContext('2d');
   if (!context) throw scanError('failed', 'No 2d canvas context.');
-  context.drawImage(source, 0, 0, canvas.width, canvas.height);
-  if (typeof source.close === 'function') source.close();
+  context.imageSmoothingEnabled = true;
+  context.imageSmoothingQuality = 'high';
+  context.drawImage(source, sx, sy, sw, sh, 0, 0, sw, sh);
+
+  let w = sw;
+  let h = sh;
+  while (w > targetW * 2) {
+    w = Math.max(targetW, Math.round(w / 2));
+    h = Math.max(targetH, Math.round(h / 2));
+    const step = document.createElement('canvas');
+    step.width = w;
+    step.height = h;
+    const stepContext = step.getContext('2d');
+    if (!stepContext) break;
+    stepContext.imageSmoothingEnabled = true;
+    stepContext.imageSmoothingQuality = 'high';
+    stepContext.drawImage(canvas, 0, 0, w, h);
+    canvas = step;
+  }
+
+  if (w !== targetW || h !== targetH) {
+    const last = document.createElement('canvas');
+    last.width = targetW;
+    last.height = targetH;
+    const lastContext = last.getContext('2d');
+    if (lastContext) {
+      lastContext.imageSmoothingEnabled = true;
+      lastContext.imageSmoothingQuality = 'high';
+      lastContext.drawImage(canvas, 0, 0, targetW, targetH);
+      canvas = last;
+    }
+  }
+
+  return canvas;
+}
+
+/**
+ * A gentle levels stretch on the whole pixel, so paper goes white and ink goes
+ * black without the hue shifting. Cafes are dim and warm, and a photo that
+ * looks perfectly clear to her can sit in a narrow band of greys that costs
+ * the model the small print.
+ *
+ * Half a percent is clipped off each end so one glare spot or one dark corner
+ * cannot set the range, and a photo that is already contrasty is left alone.
+ */
+function autoLevels(canvas) {
+  const context = canvas.getContext('2d');
+  if (!context) return canvas;
+
+  let image;
+  try {
+    image = context.getImageData(0, 0, canvas.width, canvas.height);
+  } catch {
+    return canvas;   // tainted canvas, so ship the photo as it is
+  }
+
+  const px = image.data;
+  const histogram = new Uint32Array(256);
+  for (let i = 0; i < px.length; i += 4) {
+    histogram[(px[i] * 0.299 + px[i + 1] * 0.587 + px[i + 2] * 0.114) | 0] += 1;
+  }
+
+  const clip = (px.length / 4) * 0.005;
+  let low = 0;
+  let high = 255;
+  for (let value = 0, seen = 0; value < 256; value += 1) {
+    seen += histogram[value];
+    if (seen > clip) { low = value; break; }
+  }
+  for (let value = 255, seen = 0; value >= 0; value -= 1) {
+    seen += histogram[value];
+    if (seen > clip) { high = value; break; }
+  }
+
+  // Already using most of the range, or so flat that stretching would only
+  // amplify noise. Either way, leave it be.
+  if (high - low < 40 || high - low > 235) return canvas;
+
+  const scale = 255 / (high - low);
+  for (let i = 0; i < px.length; i += 4) {
+    px[i] = Math.min(255, Math.max(0, (px[i] - low) * scale));
+    px[i + 1] = Math.min(255, Math.max(0, (px[i + 1] - low) * scale));
+    px[i + 2] = Math.min(255, Math.max(0, (px[i + 2] - low) * scale));
+  }
+  context.putImageData(image, 0, 0);
   return canvas;
 }
 
@@ -178,16 +284,62 @@ function drawResized(source, maxEdge) {
  * never has to think about: the new JPEG carries no EXIF, so the GPS fix, the
  * timestamp and the phone model in the original never leave the device.
  */
-async function encodeForUpload(blob) {
-  const scanner = (CONFIG && CONFIG.scanner) || {};
-  const maxEdge = Number(scanner.maxEdgePx) || 1280;
-  const quality = Number(scanner.jpegQuality) || 0.8;
-
-  const canvas = drawResized(await decode(blob), maxEdge);
+function toJpeg(canvas, quality) {
   const dataUrl = canvas.toDataURL('image/jpeg', quality);
   const comma = dataUrl.indexOf(',');
   if (comma < 0) throw scanError('unreadable', 'The photo could not be re-encoded.');
   return dataUrl.slice(comma + 1);
+}
+
+/**
+ * Builds what gets uploaded: the whole menu, plus overlapping halves when the
+ * photo has detail to spare.
+ *
+ * One frame has to fit the model's window whatever the menu's size, so a big
+ * menu arrives with its description lines shrunk into mush. Cutting the photo
+ * in half and sending each half at full budget doubles the pixels on that
+ * small print, and the halves overlap so a line sitting on the seam is still
+ * whole somewhere. They travel as extra images on the same request, so a scan
+ * is still one model call and still one tick against the daily limit.
+ *
+ * The whole frame goes first regardless: it is what keeps the layout, the
+ * section headings and the prices tied together.
+ */
+async function encodeForUpload(blob) {
+  const scanner = (CONFIG && CONFIG.scanner) || {};
+  const maxEdge = Number(scanner.maxEdgePx) || 1568;
+  const quality = Number(scanner.jpegQuality) || 0.9;
+  const tilesOn = scanner.tiles !== false;
+
+  const source = await decode(blob);
+  const width = source.width || source.naturalWidth || 0;
+  const height = source.height || source.naturalHeight || 0;
+
+  const images = [toJpeg(autoLevels(drawResized(source, maxEdge)), quality)];
+
+  // Only worth it when the full frame is being shrunk enough to lose strokes.
+  // Below that the tiles would carry the same detail twice, for nothing.
+  const longest = Math.max(width, height);
+  if (tilesOn && longest >= maxEdge * 1.5) {
+    const tall = height >= width;
+    const span = tall ? height : width;
+    const overlap = Math.round(span * 0.12);
+    for (let index = 0; index < 2; index += 1) {
+      const start = index === 0 ? 0 : Math.max(0, Math.round(span / 2) - overlap);
+      const length = index === 0 ? Math.round(span / 2) + overlap : span - start;
+      const rect = tall
+        ? { x: 0, y: start, width, height: length }
+        : { x: start, y: 0, width: length, height };
+      try {
+        images.push(toJpeg(autoLevels(drawResized(source, maxEdge, rect)), quality));
+      } catch {
+        // A tile is an optimisation. Losing one is not worth losing the scan.
+      }
+    }
+  }
+
+  if (typeof source.close === 'function') source.close();
+  return images;
 }
 
 /**
@@ -268,8 +420,8 @@ export async function scanWithWorker(blob, { signal } = {}) {
   if (!hasSmartScanner()) throw scanError('no-endpoint', 'CONFIG.scanner.endpoint is empty.');
   if (offline()) throw scanError('offline', 'The device reports no network.');
 
-  const image = await encodeForUpload(blob);
-  const link = linkAbort(signal, Number(scanner.timeoutMs) || 30000);
+  const images = await encodeForUpload(blob);
+  const link = linkAbort(signal, Number(scanner.timeoutMs) || 45000);
 
   try {
     const res = await fetch(String(scanner.endpoint).trim(), {
@@ -278,7 +430,10 @@ export async function scanWithWorker(blob, { signal } = {}) {
         'content-type': 'application/json',
         'x-bump-pass': String(scanner.pass || ''),
       },
-      body: JSON.stringify({ image }),
+      // `image` carries the whole frame and `images` carries the tiles too.
+      // Sending both means a Worker deployed before the tiles existed still
+      // gets exactly what it used to, so the two can be rolled out in any order.
+      body: JSON.stringify({ image: images[0], images }),
       signal: link.signal,
     });
 
@@ -302,7 +457,9 @@ export async function scanWithWorker(blob, { signal } = {}) {
     const dishes = shapeDishes(body && body.dishes);
     // An empty menu is not a result, it is a photo that did not work.
     if (!dishes.length) throw scanError('unreadable', 'No dishes came back.');
-    return { mode: 'smart', dishes };
+    // A menu too long for one answer comes back cut short. She is told, because
+    // a list that looks complete and is not is the one result worth refusing.
+    return { mode: 'smart', dishes, partial: Boolean(body && body.partial) };
   } catch (cause) {
     // Anything already carrying a kind is a verdict reached on purpose above.
     if (cause && cause.kind) throw cause;

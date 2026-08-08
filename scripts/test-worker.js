@@ -95,6 +95,21 @@ const GOOD = JSON.stringify({
 
 const IMAGE = 'x'.repeat(2000);
 
+/**
+ * The image blocks out of a captured request, whichever provider shape it is.
+ * Views arrive labelled, so the pictures are no longer at a fixed index and
+ * asking for content[0] would only be testing the label.
+ */
+function imageBlocks(call) {
+  const body = JSON.parse(call.init.body);
+  if (body.contents) {
+    return (body.contents[0].parts || [])
+      .filter((part) => part && part.inline_data)
+      .map((part) => ({ source: { data: part.inline_data.data, media_type: part.inline_data.mime_type } }));
+  }
+  return (body.messages[0].content || []).filter((block) => block && block.type === 'image');
+}
+
 (async () => {
   /* ----------------------------------------------------------------- CORS */
 
@@ -191,13 +206,21 @@ const IMAGE = 'x'.repeat(2000);
       JSON.stringify({ effort: body.effort, thinking: body.thinking }));
 
     const content = (body.messages && body.messages[0] && body.messages[0].content) || [];
-    check('the image goes first, as a base64 block',
-      content[0] && content[0].type === 'image'
-      && content[0].source.type === 'base64'
-      && content[0].source.media_type === 'image/jpeg'
-      && content[0].source.data === IMAGE,
-      JSON.stringify(content[0] && content[0].source && content[0].source.type));
-    check('and the instruction follows it', content[1] && content[1].type === 'text');
+    check('the photo is sent as a base64 block',
+      content[1] && content[1].type === 'image'
+      && content[1].source.type === 'base64'
+      && content[1].source.media_type === 'image/jpeg'
+      && content[1].source.data === IMAGE,
+      JSON.stringify(content[1] && content[1].source && content[1].source.type));
+    // Each picture is introduced, so several views of one menu cannot read as
+    // several different menus and duplicate every dish.
+    check('each view is labelled before its picture',
+      content[0] && content[0].type === 'text' && /view 1/i.test(content[0].text),
+      content[0] && content[0].text);
+    check('and the instruction comes last',
+      content[content.length - 1].type === 'text'
+      && /json only/i.test(content[content.length - 1].text),
+      content[content.length - 1].text);
   });
 
   await withModel(GOOD, async (sent) => {
@@ -227,7 +250,7 @@ const IMAGE = 'x'.repeat(2000);
 
   await withModel(GOOD, async (sent) => {
     const res = await worker.fetch(post({ image: `data:image/png;base64,${IMAGE}` }), env());
-    const source = JSON.parse(sent[0].init.body).messages[0].content[0].source;
+    const source = imageBlocks(sent[0])[0].source;
     check('a data URL prefix is stripped off', source.data === IMAGE, source.data.slice(0, 24));
     check('and its declared media type is carried through, not assumed JPEG',
       source.media_type === 'image/png', source.media_type);
@@ -238,6 +261,84 @@ const IMAGE = 'x'.repeat(2000);
     const res = await worker.fetch(post({ image: 'not base64 at all !!! <script>' }), env());
     check('junk in the image field is refused before the model is called',
       res.status === 400 && sent.length === 0, `status ${res.status}, ${sent.length} calls`);
+  });
+
+  /* ------------------------------------------------- the menu that was too big */
+
+  // The real-world failure this was written for: a 50-dish bistro menu whose
+  // reply ran past the token budget and stopped mid-object. Before, the parse
+  // threw and a perfectly sharp photo came back "unreadable". Now the complete
+  // dishes are kept and the answer admits it is short.
+  const TRUNCATED = '{"dishes":['
+    + Array.from({ length: 12 }, (_, i) =>
+      `{"dish":"Dish ${i}","tier":"green","why":"Cooked through.","makeItGreen":""}`).join(',')
+    + ',{"dish":"Half writ';
+
+  await withModel(TRUNCATED, async () => {
+    const res = await worker.fetch(post({ image: IMAGE }), env());
+    const body = await res.json();
+    check('a reply cut off mid-dish still yields the dishes that survived',
+      res.status === 200 && body.dishes.length === 12, `status ${res.status}, ${(body.dishes || []).length} dishes`);
+    check('the half-written dish at the cut is dropped, not half-shown',
+      (body.dishes || []).every((d) => d.dish !== 'Half writ'), JSON.stringify((body.dishes || []).slice(-1)));
+    check('and the answer says it is partial, so a short list is never mistaken for the menu',
+      body.partial === true, JSON.stringify(body.partial));
+  });
+
+  await withModel(GOOD, async () => {
+    const body = await (await worker.fetch(post({ image: IMAGE }), env())).json();
+    check('a complete reply is never flagged partial', body.partial === undefined, JSON.stringify(body.partial));
+  });
+
+  await withModel('{"dishes":[{"dish":"Only half writ', async () => {
+    const res = await worker.fetch(post({ image: IMAGE }), env());
+    check('a reply with no whole dish in it is still unreadable, not empty success',
+      res.status === 502, `status ${res.status}`);
+  });
+
+  /* ------------------------------------------------------- the extra views */
+
+  // A big menu is sent as the whole frame plus overlapping halves, so the
+  // description lines arrive readable. All of it has to ride in ONE call: the
+  // daily limit counts calls, and three calls per scan would cut her budget by
+  // two thirds without telling her.
+  const TILES = ['a'.repeat(2000), 'b'.repeat(2000), 'c'.repeat(2000)];
+
+  await withModel(GOOD, async (sent) => {
+    const res = await worker.fetch(post({ image: TILES[0], images: TILES }), env());
+    check('every view reaches the model', imageBlocks(sent[0]).length === 3,
+      `${imageBlocks(sent[0]).length} images`);
+    check('and they all go in a single call, so one scan is still one call',
+      sent.length === 1, `${sent.length} calls`);
+    check('the whole frame leads, with the close-ups after it',
+      imageBlocks(sent[0]).map((b) => b.source.data[0]).join('') === 'abc',
+      imageBlocks(sent[0]).map((b) => b.source.data[0]).join(''));
+    check('the scan succeeds with views', res.status === 200);
+  });
+
+  await withModel(GOOD, async (sent) => {
+    await worker.fetch(post({ image: TILES[0], images: TILES }), env({ MODEL: 'gemini-2.0-flash' }));
+    check('the Google path carries every view too', imageBlocks(sent[0]).length === 3,
+      `${imageBlocks(sent[0]).length} images`);
+  });
+
+  await withModel(GOOD, async (sent) => {
+    await worker.fetch(post({ image: TILES[0], images: TILES.concat(TILES) }), env());
+    check('more views than the cap are trimmed rather than paid for',
+      imageBlocks(sent[0]).length === 3, `${imageBlocks(sent[0]).length} images`);
+  });
+
+  await withModel(GOOD, async (sent) => {
+    const res = await worker.fetch(post({ image: TILES[0], images: [TILES[0], 'junk !!!'] }), env());
+    check('one bad view fails the scan rather than quietly reading half the menu',
+      res.status === 400 && sent.length === 0, `status ${res.status}, ${sent.length} calls`);
+  });
+
+  await withModel(GOOD, async (sent) => {
+    const res = await worker.fetch(post({ image: IMAGE }), env());
+    check('a client that sends no views still works, so rollout order is free',
+      res.status === 200 && imageBlocks(sent[0]).length === 1,
+      `status ${res.status}, ${imageBlocks(sent[0]).length} images`);
   });
 
   // The invariant that matters: nothing outside the allowlist ever reaches the
@@ -261,7 +362,7 @@ const IMAGE = 'x'.repeat(2000);
   ]) {
     await withModel(GOOD, async (sent) => {
       const res = await worker.fetch(post({ image: `data:${declared};base64,${IMAGE}` }), env());
-      const source = JSON.parse(sent[0].init.body).messages[0].content[0].source;
+      const source = imageBlocks(sent[0])[0].source;
       check(`${declared} goes through as ${expected}`,
         res.status === 200 && source.media_type === expected, `status ${res.status} type=${source && source.media_type}`);
     });
@@ -328,7 +429,8 @@ const IMAGE = 'x'.repeat(2000);
     dishes: Array.from({ length: 80 }, (_, i) => ({ dish: `Dish ${i}`, tier: 'green', why: 'ok' })),
   }), async () => {
     const body = await (await worker.fetch(post({ image: IMAGE }), env())).json();
-    check('the dish list is capped at 40', body.dishes.length === 40, `${body.dishes.length} dishes`);
+    check('the dish list is capped at 60, which covers a full pub menu',
+      body.dishes.length === 60, `${body.dishes.length} dishes`);
   });
 
   await withModel(JSON.stringify({

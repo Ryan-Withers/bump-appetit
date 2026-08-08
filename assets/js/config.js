@@ -31,13 +31,24 @@ export const CONFIG = Object.freeze({
 
     // How long to wait before giving up on a scan, in milliseconds. Keep this
     // above the Worker's own model timeout, so a slow scan comes back as a
-    // proper answer rather than the phone quietly giving up first.
-    timeoutMs: 30000,
+    // proper answer rather than the phone quietly giving up first. Reading
+    // several views of one menu takes longer than reading one.
+    timeoutMs: 45000,
 
-    // Longest edge of the uploaded photo, in pixels. Big enough for menu text,
-    // small enough for cafe wifi.
-    maxEdgePx: 1280,
-    jpegQuality: 0.8,
+    // Longest edge of each uploaded view, in pixels. 1568 is what the model
+    // works to, so anything larger is thrown away at the other end and
+    // anything smaller is detail given up for nothing.
+    maxEdgePx: 1568,
+
+    // 0.9 rather than 0.8: JPEG spends its errors on hard edges, which on a
+    // menu means the small print. The extra few KB buys the words that decide
+    // the verdict.
+    jpegQuality: 0.9,
+
+    // Send overlapping halves of a big menu alongside the whole frame, so the
+    // description lines arrive at a readable size. Still one model call, so it
+    // costs no extra quota. Set false to send the single frame only.
+    tiles: true,
   }),
 
   helplines: Object.freeze([
