@@ -43,6 +43,7 @@ assets/
     router.js                  view switching and History API wiring
     verdict.js                 the food verdict sheet
     trackers.js                caffeine and fish tracker logic plus sheets
+    nutrients.js               the seven pregnancy nutrients, shared by sheet and browse
     scanner.js                 Path B worker client and Path A OCR fallback
     app.js                     bootstrap
     views/
@@ -52,7 +53,7 @@ data/
 worker/
   scan-worker.js  wrangler.toml
 scripts/
-  build-icons.js  validate.js  test-search.js
+  build-icons.js  validate.js  test-search.js  test-nutrients.js
 .github/workflows/
   ci.yml  deploy-worker.yml
 SOURCES.md  README.md  docs/ARCHITECTURE.md
@@ -194,6 +195,34 @@ boundaries. `cookedSignals` raise confidence but never override a red term.
 
 Every module is a native ES module. `index.html` loads exactly one script:
 `<script type="module" src="assets/js/app.js">`.
+
+### nutrients.js and the nutrient browse
+
+`NUTRIENTS` is the one list of the seven pregnancy nutrients, in fixed order,
+imported by both the verdict sheet and the Search screen so the chips in the two
+places can never drift apart. Display labels live here rather than in
+strings.js: `check-strings` walks literal `str()` paths, and a lookup built from
+a loop would be invisible to it.
+
+`BROWSABLE_LEVELS` is `['high', 'med']` and the omission of `low` is the rule
+the whole feature rests on. A `low` chip is a myth-buster, not a source:
+spinach is marked low on iron precisely because everyone believes otherwise, so
+listing it under iron would repeat the exact lie the chip was written to
+correct. `scripts/test-nutrients.js` runs the real index over the real
+foods.json and fails the build if a low chip ever leaks into a list.
+
+`data.js` exports `indexNutrients(foods)` (pure, so Node can test it without a
+fetch), plus `foodsByNutrient(key)` and `nutrientCounts()`. Lists are ordered
+green, depends, yellow, red, then popularity, then name. Reds are present and
+last, never hidden: a red food's craving fix is one tap away, and dropping it
+would silently narrow the answer.
+
+The list opens as a sheet, like group browsing, so the back button, focus trap
+and close affordance come for free. A nutrient chip on a verdict sheet opens it
+by swapping sheets rather than closing first, since `closeSheet()` queues a
+`history.back()` that would otherwise land after the new sheet opened and shut
+it again. `verdict.js` reaches the Search screen through
+`setNutrientBrowser()`, wired in `app.js`, so the sheet never imports a view.
 
 ### util.js
 
@@ -345,6 +374,7 @@ Sheet: `.sheet-backdrop`, `.sheet`, `.sheet.is-open`, `.sheet__handle`,
 Verdict: `.verdict__emoji`, `.verdict__name`, `.verdict__why`, `.callout`,
 `.callout--green`, `.callout__icon`, `.swap`, `.split`, `.split__note`,
 `.nutrients`, `.nutrients__title`, `.nutrients__row`, `.nutrient`, `.nutrient--high`, `.nutrient--med`,
+`.nutrient--tap`, `.chip--nutrient`, `.chips--filter`,
 `.nutrition`, `.nutrition__head`, `.nutrition__title`, `.nutrition__serve`, `.nutrition__grid`,
 `.nutrition__note`, `.ntile`, `.ntile--hero`, `.ntile__value`, `.ntile__unit`, `.ntile__label`,
 `.ntile__sub`,

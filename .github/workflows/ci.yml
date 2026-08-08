@@ -46,6 +46,12 @@ jobs:
       - name: Run the golden search queries
         run: node scripts/test-search.js
 
+      # Guards the one rule the nutrient browse lives or dies on: a food marked
+      # low on a nutrient is a myth-buster, so it must never turn up in that
+      # nutrient's list. Spinach and iron is the case worth remembering.
+      - name: Test the nutrient browse index
+        run: node scripts/test-nutrients.js
+
       # The Worker is tested against a fake model, so this needs no Cloudflare
       # account and no API key: it guards the auth, quota and the validator that
       # stands between a hallucinating model and a verdict she reads.

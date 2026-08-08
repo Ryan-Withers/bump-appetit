@@ -82,6 +82,15 @@ export const STRINGS = Object.freeze({
     softLabel: 'Closest match',
     softNote: 'Not a confident match, so read it as a hint rather than an answer.',
     browseTitle: 'Or have a browse',
+    // The nutrient browse chips under the group tiles, and the list they open.
+    // "The good stuff" deliberately echoes the heading on the verdict sheet,
+    // so the chip she taps there and the list she lands in feel like one idea.
+    goodStuffTitle: 'Find the good stuff',
+    nutrientChipLabel: 'Foods with {nutrient}',
+    nutrientTitle: 'Where to find {nutrient}',
+    nutrientHigh: 'Packed with it',
+    nutrientMed: 'A decent hit',
+    nutrientEmpty: 'Nothing in this corner with that filter on. Try All.',
     browseCount: '{n} foods',
     filtersLabel: 'Filter by verdict',
     filters: {

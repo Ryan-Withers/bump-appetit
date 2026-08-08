@@ -7,7 +7,8 @@ import { STRINGS } from '../strings.js';
 import { $, el, pick, prefersReducedMotion, store, todayKey } from '../util.js';
 import { icon } from '../icons.js';
 import { search, browseGroup } from '../search.js';
-import { groups } from '../data.js';
+import { groups, foodsByNutrient, nutrientCounts } from '../data.js';
+import { nutrientLabel } from '../nutrients.js';
 import { stickerHtml } from '../sticker.js';
 
 const VIEW_ID = 'search';
@@ -125,6 +126,15 @@ function hourBucket(date = new Date()) {
 function safeGroups() {
   try {
     return groups() || [];
+  } catch {
+    return [];
+  }
+}
+
+/** Same guard for the nutrient chips: no data yet simply means no chips yet. */
+function safeNutrients() {
+  try {
+    return nutrientCounts() || [];
   } catch {
     return [];
   }
@@ -294,6 +304,148 @@ export function createSearchView(ctx = {}) {
     }
   }
 
+  /**
+   * The nutrient browse list: every food that is a genuine source of one
+   * nutrient, safest first.
+   *
+   * It opens as a sheet for the same reason group browsing does: the sheet
+   * already owns the back button, the focus trap and the close affordance, so
+   * a list that behaves exactly like every other list costs nothing.
+   *
+   * The verdict filter along the top is what turns this into the thing she
+   * actually asked for. "Protein" then "Yes" is, in two taps, every
+   * pregnancy-safe food worth eating for its protein.
+   */
+  function openNutrientSheet(key, fromEl) {
+    if (typeof ctx.openSheet !== 'function') return;
+
+    const label = nutrientLabel(key);
+    // Held outside build() so the choice survives a re-render of the list.
+    let tier = 'all';
+
+    ctx.openSheet({
+      id: `nutrient-${slug(key)}`,
+      label,
+      fromEl,
+      build: (content) => {
+        content.appendChild(el('h2', { class: 'group-title', text: fill(
+          str('search.nutrientTitle', 'Where to find {nutrient}'),
+          { nutrient: label.toLowerCase() },
+        ) }));
+
+        const list = el('div', { class: 'stack' });
+
+        const paint = () => {
+          list.replaceChildren();
+          const buckets = foodsByNutrient(key);
+          let shown = 0;
+
+          for (const [level, headingKey, fallback] of [
+            ['high', 'search.nutrientHigh', 'Packed with it'],
+            ['med', 'search.nutrientMed', 'A decent hit'],
+          ]) {
+            const foods = buckets[level]
+              .filter((food) => tier === 'all' || food.tier === tier);
+            if (!foods.length) continue;
+
+            shown += foods.length;
+            list.appendChild(el('h3', { class: 'caption', text: str(headingKey, fallback) }));
+            const rows = el('div', { class: 'results' });
+            for (const food of foods) rows.appendChild(foodRow(food));
+            list.appendChild(rows);
+          }
+
+          if (!shown) {
+            list.appendChild(el('p', {
+              class: 'caption',
+              text: str('search.nutrientEmpty', 'Nothing in this corner with that filter on. Try All.'),
+            }));
+          }
+        };
+
+        content.appendChild(tierFilterRow(label, (next) => { tier = next; paint(); }));
+        paint();
+        content.appendChild(list);
+      },
+    });
+  }
+
+  /**
+   * All / Yes / Limit / Not now. The strings have been sitting in strings.js
+   * since launch with nothing rendering them; this is what they were for.
+   */
+  function tierFilterRow(nutrientName, onPick) {
+    const options = [
+      ['all', str('search.filters.all', 'All')],
+      ['green', str('search.filters.green', 'Yes')],
+      ['yellow', str('search.filters.yellow', 'Limit')],
+      ['red', str('search.filters.red', 'Not now')],
+    ];
+
+    const wrap = el('div', {
+      class: 'chips chips--filter',
+      role: 'group',
+      aria: { label: str('search.filtersLabel', 'Filter by verdict') },
+    });
+
+    const buttons = [];
+    for (const [value, text] of options) {
+      const chip = el('button', {
+        class: `chip${value === 'all' ? ' is-on' : ''}`,
+        type: 'button',
+        text,
+        aria: {
+          pressed: value === 'all' ? 'true' : 'false',
+          label: `${text}, ${nutrientName.toLowerCase()}`,
+        },
+      });
+      chip.addEventListener('click', () => {
+        for (const other of buttons) {
+          const on = other === chip;
+          other.classList.toggle('is-on', on);
+          other.setAttribute('aria-pressed', String(on));
+        }
+        onPick(value);
+      });
+      buttons.push(chip);
+      wrap.appendChild(chip);
+    }
+    return wrap;
+  }
+
+  function goodStuffChips() {
+    const entries = safeNutrients();
+    if (!entries.length) return [];
+
+    const wrap = el('div', {
+      class: 'chips',
+      role: 'group',
+      aria: { label: str('search.goodStuffTitle', 'Find the good stuff') },
+    });
+
+    for (const entry of entries) {
+      const chip = el('button', {
+        class: 'chip chip--nutrient',
+        type: 'button',
+        text: entry.label,
+        aria: { label: fill(
+          str('search.nutrientChipLabel', 'Foods with {nutrient}'),
+          { nutrient: entry.label.toLowerCase() },
+        ) },
+      });
+      chip.addEventListener('click', () => openNutrientSheet(entry.key, chip));
+      wrap.appendChild(chip);
+    }
+
+    return [
+      el('h2', { class: 'caption', text: str('search.goodStuffTitle', 'Find the good stuff') }),
+      wrap,
+    ];
+  }
+
+  // Handed to app.js so a nutrient chip on a verdict sheet lands here.
+  ctx.browseNutrient = (key) => openNutrientSheet(key, null);
+
   function openGroupSheet(entry, fromEl) {
     if (typeof ctx.openSheet !== 'function') return;
     ctx.openSheet({
@@ -396,6 +548,10 @@ export function createSearchView(ctx = {}) {
     if (hasFocused) host.append(...recentRows());
     const chips = chipsRow();
     if (chips) host.appendChild(chips);
+    // Nutrient chips sit above the group tiles: "where do I get iron" is a
+    // more purposeful trip than an idle browse, so it should not be the thing
+    // she has to scroll past eight tiles to find.
+    host.append(...goodStuffChips());
     host.append(...browseTiles());
     return host;
   }

@@ -982,6 +982,44 @@ body:has(.sheet.is-open) .sheet-backdrop {
 .nutrient--high strong { color: var(--nut-high-ink); }
 .nutrient--med { background: var(--nut-med-bg); border-color: var(--nut-med-line); color: var(--nut-med-ink); }
 
+/* A chip that leads somewhere. Only high and med get this: a low chip is a
+   myth-buster with no list behind it, so it stays plain text. */
+.nutrient--tap {
+  cursor: pointer;
+  /* Visually 34px like its inert siblings, tappably the full 44px. */
+  position: relative;
+  min-height: 34px;
+}
+
+.nutrient--tap::after { content: ''; position: absolute; inset: -5px 0; }
+
+/* The nutrient browse chips on the Search screen wear the same berry family as
+   the chips on a verdict sheet, so tapping "Folate" in either place reads as
+   the same gesture. Nutrition never wears the traffic lights. */
+.chip--nutrient {
+  border-color: var(--nut-med-line);
+  background: var(--nut-med-bg);
+  color: var(--nut-high-ink);
+}
+
+/* The verdict filter inside a nutrient list. Scrolls sideways rather than
+   wrapping, so the list underneath keeps its place on screen. */
+.chips--filter {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: var(--s2);
+}
+
+.chips--filter::-webkit-scrollbar { display: none; }
+
+.chips--filter .chip.is-on {
+  border-color: var(--brand);
+  background: var(--go-bg);
+  color: var(--go-ink);
+  font-weight: 700;
+}
+
 /* The per-serve panel. Deliberately quieter than everything above it: this is
    reference material she can browse, not a verdict she has to act on, so it
    wears the recessed card rather than competing with the sticker. */

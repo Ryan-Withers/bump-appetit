@@ -7,6 +7,7 @@ import { STRINGS } from './strings.js';
 import { el, pick, prefersReducedMotion, store } from './util.js';
 import { icon } from './icons.js';
 import { openSheet, isSheetOpen } from './sheet.js';
+import { NUTRIENTS, NUTRIENT_LEVELS, BROWSABLE_LEVELS } from './nutrients.js';
 import { foodById, sourceLabel } from './data.js';
 import { TIERS, stickerHtml, playStamp } from './sticker.js';
 
@@ -40,6 +41,16 @@ const EASE_OUT = 'cubic-bezier(.22,1,.36,1)';
 const SPRING = 'cubic-bezier(.34,1.56,.64,1)';
 
 let uid = 0;
+
+// Set by app.js at boot. The verdict sheet knows a nutrient chip was tapped;
+// it deliberately does not know that the Search screen is what answers, so the
+// sheet never has to import a view and the two stay independently testable.
+let onBrowseNutrient = null;
+
+/** Wires the "what else has this?" jump. Passing a non-function unwires it. */
+export function setNutrientBrowser(handler) {
+  onBrowseNutrient = typeof handler === 'function' ? handler : null;
+}
 
 /* ------------------------------------------------------------------ strings */
 
@@ -235,29 +246,37 @@ function swapEl(message) {
  * always written in the chip: the berry colour reinforces, it never carries
  * the meaning alone.
  */
-const NUTRIENTS = Object.freeze([
-  ['folate', 'Folate'],
-  ['iron', 'Iron'],
-  ['calcium', 'Calcium'],
-  ['protein', 'Protein'],
-  ['omega3', 'Omega-3'],
-  ['iodine', 'Iodine'],
-  ['fibre', 'Fibre'],
-]);
 
-const NUTRIENT_LEVELS = Object.freeze({ high: 'high', med: 'medium', low: 'low' });
 
 function nutrientsEl(nutrients) {
   if (!nutrients || typeof nutrients !== 'object') return null;
 
   const chips = [];
-  for (const [key, label] of NUTRIENTS) {
-    const level = NUTRIENT_LEVELS[nutrients[key]];
+  for (const { key, label } of NUTRIENTS) {
+    const raw = nutrients[key];
+    const level = NUTRIENT_LEVELS[raw];
     if (!level) continue;
-    chips.push(el('span', { class: `nutrient nutrient--${nutrients[key]}` }, [
-      el('strong', {}, label),
-      ` ${level}`,
-    ]));
+
+    const body = [el('strong', {}, label), ` ${level}`];
+
+    // A high or med chip is a doorway: tapping it asks "what else has this?".
+    // A low chip is a myth-buster with no list behind it, so it stays inert
+    // text rather than a button that leads somewhere disappointing.
+    if (BROWSABLE_LEVELS.includes(raw) && typeof onBrowseNutrient === 'function') {
+      const chip = el('button', {
+        class: `nutrient nutrient--${raw} nutrient--tap`,
+        type: 'button',
+        aria: { label: `Show all foods with ${level} ${label.toLowerCase()}` },
+      }, body);
+      // Straight to the list, without closing first. sheet.js swaps one sheet
+      // for another with a crossfade and keeps the history entry balanced;
+      // closing first would queue a history.back() that lands after the new
+      // sheet opens and shuts it again.
+      chip.addEventListener('click', () => onBrowseNutrient(key));
+      chips.push(chip);
+    } else {
+      chips.push(el('span', { class: `nutrient nutrient--${raw}` }, body));
+    }
   }
   if (!chips.length) return null;
 

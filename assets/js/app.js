@@ -14,7 +14,7 @@ import { loadData } from './data.js';
 import { initSearch } from './search.js';
 import { initRouter, go } from './router.js';
 import { openSheet } from './sheet.js';
-import { openFoodSheet, openHowWeDecideSheet } from './verdict.js';
+import { openFoodSheet, openHowWeDecideSheet, setNutrientBrowser } from './verdict.js';
 import { createSearchView } from './views/search.js';
 // Scan, Bites and More are imported on demand further down. Search is the only
 // view that has to exist to paint the first screen, and dragging the scanner
@@ -539,7 +539,17 @@ async function boot() {
     go,
     openSheet,
     openFoodSheet,
+    // Filled in once the Search view is built, since it owns the list.
+    browseNutrient: null,
   };
+
+  // Tapping "Folate high" on a verdict sheet asks "what else has this?", and
+  // the Search screen is what answers. Routed through ctx so the sheet never
+  // has to reach into a view, and so a nutrient jump also switches tab.
+  setNutrientBrowser((key) => {
+    go('search');
+    if (typeof ctx.browseNutrient === 'function') ctx.browseNutrient(key);
+  });
 
   /**
    * A stand-in for a view whose module has not loaded yet. It hands the router

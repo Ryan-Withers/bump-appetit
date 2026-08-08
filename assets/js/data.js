@@ -2,6 +2,8 @@
 // Every index is built here, at load, so no interaction ever pays to build one:
 // search, the verdict sheet and the browse tiles all read from memory.
 
+import { NUTRIENTS, BROWSABLE_LEVELS } from './nutrients.js';
+
 const DATA_FILES = Object.freeze({
   foods: 'foods.json',
   meals: 'meals.json',
@@ -41,6 +43,7 @@ let bundle = null;
 let loading = null;
 let byId = null;
 let byGroup = null;
+let byNutrient = null;
 
 // Resolved against this module rather than the page, so the app still finds
 // data/ when it is served from a GitHub Pages project subpath.
@@ -79,6 +82,7 @@ function optionalArray(value) {
 function buildIndexes(foods) {
   byId = new Map();
   byGroup = new Map(GROUP_ORDER.map((group) => [group, []]));
+  byNutrient = indexNutrients(foods);
 
   for (const food of foods) {
     if (!food || typeof food.id !== 'string') continue;
@@ -88,6 +92,52 @@ function buildIndexes(foods) {
     const list = byGroup.get(food.group);
     if (list) list.push(food);
   }
+}
+
+/**
+ * Buckets every food by the nutrients it is a genuine source of.
+ *
+ * Pure and exported so the test harness can run it straight off the JSON,
+ * the same way test-search.js drives the real search module.
+ *
+ * Two rules are load-bearing:
+ *  - only high and med are indexed, because a `low` chip means "people think
+ *    this is a source and it is not", so listing it would repeat the myth.
+ *  - the order within a level is fixed (safest tier first, then popularity,
+ *    then name), so the same list never comes back in a different order.
+ */
+export function indexNutrients(foods) {
+  const index = new Map(NUTRIENTS.map((entry) => [entry.key, { high: [], med: [] }]));
+
+  for (const food of Array.isArray(foods) ? foods : []) {
+    if (!food || typeof food.id !== 'string') continue;
+    const levels = food.nutrients;
+    if (!levels || typeof levels !== 'object') continue;
+
+    for (const { key } of NUTRIENTS) {
+      const level = levels[key];
+      if (!BROWSABLE_LEVELS.includes(level)) continue;
+      index.get(key)[level].push(food);
+    }
+  }
+
+  for (const buckets of index.values()) {
+    for (const level of BROWSABLE_LEVELS) buckets[level].sort(compareForBrowse);
+  }
+  return index;
+}
+
+// Green first, then the honest maybes, then the limits, and the benched ones
+// last. A red food still belongs in the list: its craving fix is one tap away,
+// and hiding it would quietly narrow the answer she asked for.
+const BROWSE_TIER_RANK = Object.freeze({ green: 0, depends: 1, yellow: 2, red: 3 });
+
+function compareForBrowse(a, b) {
+  const tier = (BROWSE_TIER_RANK[a.tier] ?? 9) - (BROWSE_TIER_RANK[b.tier] ?? 9);
+  if (tier) return tier;
+  const popularity = (b.popularity || 0) - (a.popularity || 0);
+  if (popularity) return popularity;
+  return String(a.name || '').localeCompare(String(b.name || ''));
 }
 
 async function build() {
@@ -166,6 +216,25 @@ export function groups() {
     emoji: GROUP_EMOJI[group] || '',
     count: (byGroup.get(group) || []).length,
   }));
+}
+
+/**
+ * { high: [], med: [] } for one nutrient, ready to render. Always returns the
+ * shape, so a caller never has to guard an unknown key.
+ */
+export function foodsByNutrient(key) {
+  ensureLoaded();
+  const buckets = byNutrient.get(String(key));
+  return buckets ? { high: buckets.high, med: buckets.med } : { high: [], med: [] };
+}
+
+/** [{ key, label, count }] for the browse chips, minus any nutrient with nothing behind it. */
+export function nutrientCounts() {
+  ensureLoaded();
+  return NUTRIENTS.map(({ key, label }) => {
+    const buckets = byNutrient.get(key) || { high: [], med: [] };
+    return { key, label, count: buckets.high.length + buckets.med.length };
+  }).filter((entry) => entry.count > 0);
 }
 
 /** Short label for a source chip. Falls back to the key so a chip never breaks. */
