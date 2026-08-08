@@ -1009,60 +1009,58 @@ body:has(.sheet.is-open) .sheet-backdrop {
 
 .nutrition__serve { font-size: var(--fs-caption); font-weight: 600; color: var(--ink-2); }
 
-/* Energy leads, because it is the number people actually look for. Calories
-   ride along in small type: the label standard here is kilojoules, but plenty
-   of us still think in calories. */
-.nutrition__energy {
-  display: flex;
-  align-items: baseline;
+/* Six tiles, two across. Numbers big enough to take in without reading, and
+   the two that belong inside a bigger number ride under their parent. */
+.nutrition__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--s2);
   margin-top: var(--s3);
-  padding-bottom: var(--s3);
-  border-bottom: 1px solid var(--line);
 }
 
-.nutrition__kj {
+.ntile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-chip);
+  background: var(--surface);
+}
+
+/* Energy is what most people reach for first, so it is marked by its recessed
+   ground rather than by size. Keeping every tile the same size holds the block
+   to three tidy rows, which is what lets the whole thing be taken in at once. */
+.ntile--hero { background: var(--surface-2); }
+
+.ntile__value {
   font-family: var(--font-display);
   font-size: var(--fs-heading);
   font-weight: 800;
+  line-height: 1.15;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 
-.nutrition__cal { font-size: var(--fs-caption); font-weight: 600; color: var(--ink-2); }
-
-.nutrition__rows { display: flex; flex-direction: column; }
-
-.nutrition__row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--s3);
-  padding: var(--s2) 0;
-  font-size: var(--fs-label);
-  border-bottom: 1px solid var(--line);
-}
-
-.nutrition__row:last-child { border-bottom: 0; }
-
-/* Saturated fat and sugars are part of the line above, so they are indented
-   and quieted rather than sitting as equals. Same as the back of a packet. */
-.nutrition__row--sub {
-  padding-left: var(--s4);
+/* The unit rides small and quiet next to the number it belongs to. */
+.ntile__unit {
+  margin-left: 2px;
+  font-family: var(--font-body);
   font-size: var(--fs-caption);
+  font-weight: 700;
   color: var(--ink-2);
 }
 
-.nutrition__row--sub .nutrition__value { font-weight: 600; }
-
-.nutrition__label { color: var(--ink-2); }
-.nutrition__row:not(.nutrition__row--sub) .nutrition__label { color: var(--ink); }
-
-.nutrition__value {
+.ntile__label {
+  font-size: var(--fs-caption);
   font-weight: 700;
   color: var(--ink);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+}
+
+.ntile__sub {
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--ink-2);
 }
 
 .nutrition__note {

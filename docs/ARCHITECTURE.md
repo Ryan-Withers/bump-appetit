@@ -345,9 +345,9 @@ Sheet: `.sheet-backdrop`, `.sheet`, `.sheet.is-open`, `.sheet__handle`,
 Verdict: `.verdict__emoji`, `.verdict__name`, `.verdict__why`, `.callout`,
 `.callout--green`, `.callout__icon`, `.swap`, `.split`, `.split__note`,
 `.nutrients`, `.nutrients__title`, `.nutrients__row`, `.nutrient`, `.nutrient--high`, `.nutrient--med`,
-`.nutrition`, `.nutrition__head`, `.nutrition__title`, `.nutrition__serve`, `.nutrition__energy`,
-`.nutrition__kj`, `.nutrition__cal`, `.nutrition__rows`, `.nutrition__row`, `.nutrition__row--sub`,
-`.nutrition__label`, `.nutrition__value`, `.nutrition__note`,
+`.nutrition`, `.nutrition__head`, `.nutrition__title`, `.nutrition__serve`, `.nutrition__grid`,
+`.nutrition__note`, `.ntile`, `.ntile--hero`, `.ntile__value`, `.ntile__unit`, `.ntile__label`,
+`.ntile__sub`,
 `.split__position`, `.split__who`, `.variants`, `.variant`,
 `.variant__label`, `.variant__why`, `.sources`, `.source-chip`, `.checked`.
 

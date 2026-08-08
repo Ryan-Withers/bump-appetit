@@ -276,38 +276,64 @@ function nutrientsEl(nutrients) {
  * Someone counting carbs for gestational diabetes needs to know this is a
  * guide rather than a label reading, and burying that would be a quiet lie.
  */
-const NUTRITION_ROWS = Object.freeze([
+/**
+ * Six tiles rather than a column of label rows.
+ *
+ * A nutrition panel is built to be audited line by line, which is the wrong
+ * shape for someone deciding in a cafe queue. The same numbers as tiles can be
+ * taken in at a glance, and the two that are part of a bigger number (saturated
+ * fat, sugars) ride inside their parent tile so nothing is lost and nothing
+ * pretends to be its own headline.
+ */
+const NUTRITION_TILES = Object.freeze([
+  { key: 'kj', label: 'Energy', unit: 'kJ', hero: true },
   { key: 'protein', label: 'Protein', unit: 'g' },
-  { key: 'fat', label: 'Fat, total', unit: 'g' },
-  { key: 'satFat', label: 'saturated', unit: 'g', sub: true },
-  { key: 'carbs', label: 'Carbohydrate', unit: 'g' },
-  { key: 'sugars', label: 'sugars', unit: 'g', sub: true },
+  { key: 'carbs', label: 'Carbs', unit: 'g', sub: { key: 'sugars', label: 'sugars' } },
+  { key: 'fat', label: 'Fat', unit: 'g', sub: { key: 'satFat', label: 'sat fat' } },
   { key: 'fibre', label: 'Fibre', unit: 'g' },
   { key: 'sodium', label: 'Sodium', unit: 'mg' },
 ]);
 
-/** Trims the trailing zero so 5.0g reads as 5g, the way a label prints it. */
-function amount(value, unit) {
+/** Drops the trailing zero so 5.0 reads as 5, and groups thousands in energy. */
+function amount(value) {
   if (typeof value !== 'number' || !Number.isFinite(value)) return null;
   const rounded = Math.round(value * 10) / 10;
-  return `${Number.isInteger(rounded) ? rounded : rounded.toFixed(1)}${unit}`;
+  const text = Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+  // 1,580 is read at a glance. 1580 has to be counted.
+  return text.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function nutritionEl(nutrition) {
   if (!nutrition || typeof nutrition !== 'object') return null;
-  const kj = amount(nutrition.kj, '');
-  if (kj === null) return null;
+  if (typeof nutrition.kj !== 'number' || !Number.isFinite(nutrition.kj)) return null;
 
-  const rows = [];
-  for (const row of NUTRITION_ROWS) {
-    const value = amount(nutrition[row.key], row.unit);
+  const tiles = [];
+  for (const tile of NUTRITION_TILES) {
+    const value = amount(nutrition[tile.key]);
     if (value === null) continue;
-    rows.push(el('div', { class: `nutrition__row${row.sub ? ' nutrition__row--sub' : ''}` }, [
-      el('span', { class: 'nutrition__label' }, row.label),
-      el('span', { class: 'nutrition__value' }, value),
-    ]));
+
+    const parts = [
+      el('span', { class: 'ntile__value' }, [
+        value,
+        el('span', { class: 'ntile__unit' }, tile.unit),
+      ]),
+      el('span', { class: 'ntile__label' }, tile.label),
+    ];
+
+    // Energy carries calories as its second line, because plenty of us still
+    // think in them even though the label standard here is kilojoules.
+    if (tile.hero) {
+      parts.push(el('span', { class: 'ntile__sub' }, `${amount(Math.round(nutrition.kj / 4.184))} Cal`));
+    } else if (tile.sub) {
+      const subValue = amount(nutrition[tile.sub.key]);
+      if (subValue !== null) {
+        parts.push(el('span', { class: 'ntile__sub' }, `${subValue}g ${tile.sub.label}`));
+      }
+    }
+
+    tiles.push(el('div', { class: `ntile${tile.hero ? ' ntile--hero' : ''}` }, parts));
   }
-  if (!rows.length) return null;
+  if (!tiles.length) return null;
 
   const serve = text(nutrition.serve);
 
@@ -319,11 +345,7 @@ function nutritionEl(nutrition) {
         { serve },
       )) : null,
     ].filter(Boolean)),
-    el('div', { class: 'nutrition__energy' }, [
-      el('span', { class: 'nutrition__kj' }, `${kj} kJ`),
-      el('span', { class: 'nutrition__cal' }, `${Math.round(nutrition.kj / 4.184)} Cal`),
-    ]),
-    el('div', { class: 'nutrition__rows' }, rows),
+    el('div', { class: 'nutrition__grid' }, tiles),
     el('p', { class: 'nutrition__note' }, str(
       'verdict.nutritionNote',
       'Typical serve, averaged from Australian food data. A guide for interest, not a label reading, so check the packet if you are counting closely.',
