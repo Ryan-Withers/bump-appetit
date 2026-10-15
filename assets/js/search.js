@@ -19,49 +19,49 @@ const FUSE_OPTIONS = {
 // Worse than this and the answer is presented as a near miss, not as the answer.
 const SOFT_SCORE = 0.5;
 
-let foods = [];
+let entries = [];
 let fuse = null;
 let nameIndex = new Map();
 let aliasIndex = new Map();
 let groupIndex = new Map();
 
-function popularity(food) {
-  return Number(food && food.popularity) || 0;
+function popularity(entry) {
+  return Number(entry && entry.popularity) || 0;
 }
 
 function byPopularityThenName(a, b) {
   return popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name), 'en-AU');
 }
 
-function addTo(index, key, food) {
+function addTo(index, key, entry) {
   if (!key) return;
   const list = index.get(key);
-  if (list) list.push(food);
-  else index.set(key, [food]);
+  if (list) list.push(entry);
+  else index.set(key, [entry]);
 }
 
 /**
- * Indexes the food list once. Fuse only ever sees normalised copies of name and
+ * Indexes the entry list once. Fuse only ever sees normalised copies of name and
  * aliases, and the query is folded the same way, so an accent or an apostrophe
- * can never cause a miss. The record keeps an index back to the real food.
+ * can never cause a miss. The record keeps an index back to the real entry.
  */
 export function initSearch(list) {
-  foods = Array.isArray(list) ? list.filter(Boolean) : [];
+  entries = Array.isArray(list) ? list.filter(Boolean) : [];
   nameIndex = new Map();
   aliasIndex = new Map();
   groupIndex = new Map();
 
-  const records = foods.map((food, i) => {
-    const name = normalise(food.name);
+  const records = entries.map((entry, i) => {
+    const name = normalise(entry.name);
     const aliases = [];
-    for (const alias of food.aliases || []) {
+    for (const alias of entry.aliases || []) {
       const folded = normalise(alias);
       if (!folded || aliases.includes(folded)) continue;
       aliases.push(folded);
-      addTo(aliasIndex, folded, food);
+      addTo(aliasIndex, folded, entry);
     }
-    addTo(nameIndex, name, food);
-    addTo(groupIndex, food.group, food);
+    addTo(nameIndex, name, entry);
+    addTo(groupIndex, entry.group, entry);
     return { i, name, aliases };
   });
 
@@ -74,18 +74,18 @@ function rank(query, cap) {
   const seen = new Set();
   const results = [];
 
-  const push = (food, score, kind) => {
-    if (!food || seen.has(food.id)) return;
-    seen.add(food.id);
-    results.push({ food, score, kind });
+  const push = (entry, score, kind) => {
+    if (!entry || seen.has(entry.id)) return;
+    seen.add(entry.id);
+    results.push({ entry, score, kind });
   };
 
   // Exact beats fuzzy, always: name first, then alias.
-  for (const food of (nameIndex.get(query) || []).slice().sort(byPopularityThenName)) {
-    push(food, 0, 'exact-name');
+  for (const entry of (nameIndex.get(query) || []).slice().sort(byPopularityThenName)) {
+    push(entry, 0, 'exact-name');
   }
-  for (const food of (aliasIndex.get(query) || []).slice().sort(byPopularityThenName)) {
-    push(food, 0, 'exact-alias');
+  for (const entry of (aliasIndex.get(query) || []).slice().sort(byPopularityThenName)) {
+    push(entry, 0, 'exact-alias');
   }
 
   if (results.length < cap && fuse) {
@@ -94,16 +94,16 @@ function rank(query, cap) {
     const hits = fuse.search(query, { limit: Math.max(cap * 4, 20) });
     const fuzzy = [];
     for (const hit of hits) {
-      const food = foods[hit.item.i];
-      if (food) fuzzy.push({ food, score: typeof hit.score === 'number' ? hit.score : 1 });
+      const entry = entries[hit.item.i];
+      if (entry) fuzzy.push({ entry, score: typeof hit.score === 'number' ? hit.score : 1 });
     }
     fuzzy.sort(
       (a, b) =>
         a.score - b.score ||
-        popularity(b.food) - popularity(a.food) ||
-        String(a.food.name).localeCompare(String(b.food.name), 'en-AU')
+        popularity(b.entry) - popularity(a.entry) ||
+        String(a.entry.name).localeCompare(String(b.entry.name), 'en-AU')
     );
-    for (const hit of fuzzy) push(hit.food, hit.score, 'fuzzy');
+    for (const hit of fuzzy) push(hit.entry, hit.score, 'fuzzy');
   }
 
   return results.slice(0, cap);
@@ -124,14 +124,14 @@ export function search(query, limit = 5) {
   }
 
   let results = rank(stripped, cap);
-  // Last resort: a food whose own name carries a filler word is still findable.
+  // Last resort: a entry whose own name carries a filler word is still findable.
   if (!results.length && plain && plain !== stripped) results = rank(plain, cap);
 
   const soft = results.length > 0 && results[0].score > SOFT_SCORE;
   return { query: raw, normalised: stripped, results, soft };
 }
 
-/** Every food in a group, popularity desc then name. Sorted once, at init. */
+/** Every entry in a group, popularity desc then name. Sorted once, at init. */
 export function browseGroup(group) {
   const list = groupIndex.get(group);
   return list ? list.slice() : [];

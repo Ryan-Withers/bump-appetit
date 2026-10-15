@@ -1,173 +1,93 @@
-// Bump Appetit menu scanner, Path B.
+// Bub Appetit: the Ask endpoint, and the two-phone sync.
 //
-// The static site cannot hold a model API key, so this Worker holds it instead.
-// It takes a base64 JPEG, asks a vision model to classify each dish against
-// Australian pregnancy guidelines, validates the answer hard, and hands back
-// JSON the app can trust. Everything it refuses to do is on purpose:
+// The static site cannot hold a model API key, so this Worker holds it. It does
+// exactly two things, and refuses a great deal on purpose.
 //
-// - no wildcard CORS, ever (the allowed origin comes from an env var)
-// - no request without the shared passphrase
-// - no more than DAILY_LIMIT model calls a day, counted in KV before the call
-//   is made, because what is being capped is spend and a failed call still bills
-// - no malformed model output reaching the app: bad JSON becomes "unreadable"
+// POST /ask   The phone has already searched its own notes and sends the
+//             question plus the handful of entries that matched. Those notes
+//             are the ONLY thing the model is allowed to answer from. It does
+//             not search the web, it does not answer from memory, and when the
+//             notes do not cover the question it says so and hands back a phone
+//             number. An app for frightened parents that invents a reassuring
+//             answer is worse than no app.
 //
-// Secrets: PASS and MODEL_KEY. See wrangler.toml for where to set them.
+// POST /sync  A shared key-value store for one household, merged per key by
+//             timestamp so two phones can both be offline, both tick things,
+//             and both survive. See assets/js/sync.js for the other half.
+//
+// Also, always: no wildcard CORS, no request without the shared passphrase, and
+// a hard daily cap counted in KV before the model is called, because what is
+// being capped is spend and a failed call still bills.
+//
+// Secrets: PASS and MODEL_KEY. Bindings: KV. See wrangler.toml.
 
-const DAILY_LIMIT = 100;
+const DAILY_LIMIT = 120;
 
-// Base64 grows a JPEG by about a third, so this is roughly a 6MB photo. The app
-// resizes each view to 1568px long edge before upload, well under it.
-const MAX_IMAGE_CHARS = 8_000_000;
+const MAX_QUESTION = 400;
+const MAX_NOTES = 8;
+const MAX_NOTE_CHARS = 900;
+const MAX_ANSWER = 700;
 
-// A big bistro menu runs past 50 dishes. The old cap of 40 quietly dropped the
-// tail, which on a menu sorted by course meant losing the desserts.
-const MAX_DISHES = 60;
-const MAX_WHY = 160;
-const MAX_DISH_NAME = 120;
+const MODEL_TIMEOUT_MS = 30000;
+const DEFAULT_MODEL = 'claude-sonnet-5-5';
 
-const VALID_TIERS = new Set(['green', 'yellow', 'red', 'unsure']);
+// One household document, one phone's worth of ticks and logs. Generous, and
+// still far under the KV value ceiling.
+const MAX_SYNC_KEYS = 4000;
+const MAX_SYNC_BYTES = 512_000;
+const HOUSEHOLD_RE = /^[a-z0-9][a-z0-9-]{2,63}$/;
 
-// The four both providers accept. The app only ever sends JPEG, but a data URL
-// from a share sheet or a paste can arrive as anything, and anything else is
-// refused outright rather than relabelled: a HEIC dressed up as image/jpeg is
-// a billed model call that can only end in "unreadable".
-const IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif', 'image/webp']);
+const WHO_VALUES = ['000', 'GP', 'MCH nurse', 'Nurse line', 'ABA helpline', 'Red Nose line'];
 
-// Sloppy-but-honest JPEG labels that mean image/jpeg and should keep working.
-const IMAGE_TYPE_ALIASES = { 'image/jpg': 'image/jpeg', 'image/pjpeg': 'image/jpeg' };
+/**
+ * The guard rails, written as instructions rather than hopes.
+ *
+ * The shape of the risk here is specific: a tired parent asks something in
+ * their own words at 3am, the notes do not quite cover it, and a helpful model
+ * fills the gap from general knowledge. That answer would look exactly as
+ * confident as a real one. So the refusal path is spelled out first, given an
+ * explicit output shape, and the app checks the shape before showing anything.
+ */
+const SYSTEM_PROMPT = `You answer questions for two new parents in Melbourne, Australia, inside an app
+called Bub Appetit. Their baby is a newborn. It is often the middle of the night.
 
-// KV keys expire after two days, so a day's counter cleans itself up.
-const COUNTER_TTL_S = 172800;
+YOU ANSWER ONLY FROM THE NOTES SUPPLIED IN THE USER MESSAGE.
+The notes are entries from this app, each already written from Raising Children
+Network, Red Nose, the Australian Breastfeeding Association or the Royal
+Children's Hospital. They are your entire world. You have no other knowledge for
+this task.
 
-// Deliberately under CONFIG.scanner.timeoutMs on the client. If the model is
-// having a slow day we want to answer with a clean "unreadable" she can act on,
-// rather than let the phone give up first while this keeps burning the call.
-// Raised with the extra views: reading three pictures of a menu is honest work,
-// and timing out at the old limit would throw away a call already paid for.
-const MODEL_TIMEOUT_MS = 38000;
+- Never add a medical fact that is not in the notes, however certain you are.
+- Never diagnose. Describe what the notes say and who to ring.
+- Never give a medication dose, amount, brand or product name. Not once, not
+  even if asked directly. Say it is a question for a pharmacist or GP.
+- If the notes do not actually answer what was asked, say so plainly and point
+  them at their nurse line. That is a good answer, not a failure.
+- Never contradict a note. If a note says ring someone, your answer says ring
+  someone, and it says it first.
 
-// Rebuilt after the first live scan: the build-spec 9.3 prompt was a closed
-// list matcher that defaulted unknown foods to green. This one makes unsure
-// the default, requires printed evidence for green, and pins the tiers where
-// data/foods.json is deliberately more relaxed than a model would guess.
-// Drafted three ways, judged from three lenses, red-teamed with 80+ menu
-// lines, hardened, then re-verified: 55 lines walked, zero unsafe.
-// The smoke test (scripts/smoke-scan.js) is the regression gate: run it
-// from the Actions tab after ANY change here.
-const SYSTEM_PROMPT = `You are a pregnancy food-safety checker for an Australian user, applying Australian
-guidelines (Royal Women's Hospital 2026, NSW Food Authority, FSANZ).
+THE OVERRIDE. If the question describes any of these, your answer must START
+with the instruction to ring 000, whatever the notes say:
+trouble breathing, long pauses in breathing, blue or grey lips or skin, a fit or
+convulsion, floppy or unrousable, a rash that does not fade when pressed, or a
+baby who has been injured. Also: any fever in a baby under 3 months old means
+being seen today, and after hours that means the emergency department.
 
-INPUT: one or more photos of the SAME menu. When several are supplied, the first is
-the whole menu and the rest are overlapping close-ups of parts of it, sent because
-the small print is hard to read at full-page size. Read the close-ups for wording the
-wide view cannot resolve, treat them as one menu, and list each dish exactly once.
+VOICE. Australian spelling. Second person. Warm, short, specific. Two to four
+sentences. No preamble, no "great question", no lecture, and absolutely no
+guilt. They are already doing their best. Humour is fine for a plainly normal
+thing and completely wrong anywhere near a phone number.
 
-TASK: identify each distinct dish or drink and classify it.
+OUTPUT. Reply with ONE JSON object and nothing else:
+{"answer":"...","used":["entry-id"],"ring":null,"grounded":true}
+- "answer": what they read. Plain text, no markdown, under 500 characters.
+- "used": the ids of the notes you actually used. Empty if none applied.
+- "ring": null, or one of "000", "GP", "MCH nurse", "Nurse line",
+  "ABA helpline", "Red Nose line" when they should pick up the phone.
+- "grounded": true if the notes answered it, false if you had to say you do not
+  have it. When false, "answer" says so and "used" is empty.`;
 
-HOW TO JUDGE:
-- Judge the classic Australian build of the dish, including parts the menu does not
-  print: caesar dressing and tiramisu mean raw egg, slaw means mayo dressing, a bistro
-  parfait means liver. Leaving the risky part unprinted does not remove it.
-- A detail counts only if the menu prints it. Never supply a favourable detail
-  yourself: "poached" is not firm, "cooked to your liking" is not well done, "made
-  fresh daily" is not made to order, "smoked" and "cured" mean flavour, not heat, and
-  "house made" confirms a raw-egg classic, it does not excuse it.
-- Heat belongs to ingredients, not dishes. A dish being cooked clears only the
-  ingredients that went through the heat with it. Ham, salami, pepperoni and cheese
-  are baked onto a pizza: cleared. Prosciutto, smoked salmon and burrata are draped
-  on after the oven: never heated, still red. A burger being cooked does not cook the
-  egg sitting on top of it, and surface heat is not centre heat: fried or chargrilled
-  does not make a yolk firm or a steak well done.
-- The dish takes its worst part. Worst to best: red, yellow, unsure, green. Name the
-  deciding part in "why".
-- THE DEFAULT IS UNSURE. Green needs positive evidence: a printed word, or a build you
-  positively recognise as safe. A dish you cannot place, or whose safety hangs on an
-  unprinted detail, is unsure, never green, with the settling question in "makeItGreen".
-
-THREE HAZARD SHAPES, each with its own proof:
-
-1. MUST BE SERVED HOT (listeria): soft cheese (brie, camembert, feta or fetta, goat,
-   blue, fresh mozzarella, burrata, ricotta), deli and cured meat (ham, prosciutto,
-   salami, pastrami), smoked salmon or trout, pre-cooked prawns. Cold or unstated:
-   red. Green only when the making of the dish necessarily cooks THAT ingredient
-   through (the ham inside a toastie, jaffle, ham and cheese croissant or parmigiana, fetta baked through
-   spanakopita, cheese melted on any pizza, oysters kilpatrick under the grill) or a
-   printed heat word sits on it (grilled, chargrilled, fried, baked, roasted, toasted,
-   melted, crisped, sizzling, steaming, piping hot, wood fired). Draped-on-after
-   toppings stay red, as above. Hard cheeses, haloumi, cream cheese, mascarpone:
-   green anywhere.
-
-2. THE CENTRE MUST BE COOKED (egg yolk, red meat):
-   - Egg with a runny word (poached, soft boiled, sunny side up, runny): red.
-   - Raw-egg classics (hollandaise, bearnaise, caesar dressing, tiramisu, mousse,
-     eggnog, fried ice cream), mayo or aioli printed house made, and mayo salads made
-     on site (coleslaw, potato salad): red; only a printed "egg free" lifts it. Bare
-     mayo, aioli, garlic sauce or tartare sauce: unsure, makeItGreen "Ask if it comes
-     from a commercial bottle." A sauce served with, on or beside a dish is part of
-     the dish: squid with lemon aioli takes the aioli's tier, however hot the fry.
-   - Egg cooked firm by the recipe itself (quiche, frittata, scrambled, omelette,
-     french toast, cakes, puddings, pavlova, baked meringue): green. A fried egg or
-     bare egg with no yolk state: unsure, makeItGreen "Ask for the yolk cooked firm."
-   - Steak, or any beef, lamb or duck cut that can come out pink: green only if the
-     menu prints well done or cooked through. Rare, medium rare, medium, blue or
-     pink: red. No doneness stated, or "cooked to your liking": unsure, makeItGreen
-     "Order it well done, cooked right through with no pink." A roast dinner or roast
-     of the day, braise, slow cooked or pulled meat, burgers, sausages, schnitzel,
-     pies, chicken and pork dishes: green, the build cooks them through.
-
-3. TIME AND MACHINES. Being cooked once does not help if it has sat since.
-   - Any cooked or smoked meat, chicken or seafood served cold, whatever the animal:
-     red. A salad or cold plate counts as cold.
-   - Anything pre-made and sitting (cabinet sandwiches, sushi rolls, fruit salad,
-     pre-cut fruit, salad bars): red; the sitting is the hazard, not the filling.
-   - Any drink or bowl blended or juiced in a cafe from fresh fruit (juice, smoothie,
-     acai): red; cut fruit plus hard-to-clean blenders.
-   - Soft serve, whippy, thickshakes, any machine ice cream: red, it is the machine.
-     Ice cream from a tub, including the scoop beside a dessert: green. Gelato or
-     sorbet from the counter: yellow, the shared scoop; makeItGreen "Ask for a fresh
-     scoop from a covered tub." Milkshake: unsure, makeItGreen "Ask if it is made
-     with tub ice cream, not the machine."
-
-ALWAYS RED: raw seafood or meat (sashimi, ceviche, raw oysters, carpaccio, and
-"tartare" naming the dish, like beef or tuna tartare), jerky, pate, liver parfait,
-terrine, rockmelon, hummus and tahini, raw sprouts served raw, raw enoki, kombucha,
-kefir, ginger beer, energy drinks, alcohol served as a drink.
-
-YELLOW, fine with a limit, put the limit in "why":
-- Anything with caffeine, cocoa included (coffee, tea, chai, cola, hot chocolate):
-  200mg a day, about 1 to 2 coffees. Herbal tea, peppermint included: a couple of
-  cups a day of the common flavours.
-- Flake IS shark: flake, shark, swordfish, marlin, one 150g serve a fortnight; orange
-  roughy or catfish, one serve a week; liver, 50g a week. The hot fry or grill is
-  fine, the species sets the tier. Battered fish of unstated species: green,
-  makeItGreen "Ask at the counter if the fish is flake."
-- Any drink labelled zero or low alcohol: can still legally hold up to 0.5%.
-- Bean sprouts tossed raw onto a hot dish (pad thai, laksa, banh mi): yellow,
-  makeItGreen "Ask for no bean sprouts, or sprouts cooked right through."
-
-WATCH:
-- Wine or beer cooked into a batter, braise, pie or sauce is not a drinking hazard.
-- "Tartare" as a sauce beside cooked fish is the mayo question above, not raw meat.
-- "Parmigiana" or "parmy" comes out of the oven hot: green. "Parma ham" is
-  prosciutto. A yoghurt and granola parfait is fine; the liver kind is red.
-- Sushi: green only when rolled fresh to order with cooked fillings; a menu rarely
-  proves that, so cabinet rolls or unstated: red.
-
-RULES:
-1. Never award green on a detail you supplied. Positive evidence is a printed word or
-   the dish's own cooked-by-nature build; if your "why" needs anything else, like an
-   unprinted "firm", "well done" or "pasteurised", the dish is at best unsure.
-2. "why" is one short kind sentence naming the deciding part, e.g. "Hollandaise is a
-   raw-egg sauce."
-3. Fill "makeItGreen" with the simple fix or settling question when one exists,
-   otherwise "".
-4. Only list items actually on the menu. Never invent dishes.
-5. If the image is not a readable menu, return {"error":"unreadable"}.
-
-OUTPUT: JSON only, no markdown, exactly:
-{"dishes":[{"dish":"","tier":"green|yellow|red|unsure","why":"","makeItGreen":""}]}`;
-
-/* -------------------------------------------------------------------- CORS */
+/* ------------------------------------------------- CORS, guards, plumbing */
 
 function allowedOrigins(env) {
   return String((env && env.ALLOWED_ORIGIN) || '')
@@ -176,12 +96,6 @@ function allowedOrigins(env) {
     .filter(Boolean);
 }
 
-/**
- * Default deny. With ALLOWED_ORIGIN unset no browser origin is echoed back, so
- * a misconfigured deploy fails closed instead of opening the Worker to the web.
- * A request with no Origin header (curl, a health check) is not a browser and
- * is left to the passphrase check.
- */
 function originAllowed(env, origin) {
   if (!origin) return true;
   return allowedOrigins(env).includes(origin);
@@ -195,10 +109,6 @@ function corsHeaders(env, origin) {
   return headers;
 }
 
-/**
- * The browser preflights every POST that carries x-bump-pass, so this has to
- * be a real responder, not an afterthought.
- */
 function preflight(env, req, origin) {
   if (!originAllowed(env, origin)) {
     return new Response(null, { status: 403 });
@@ -226,9 +136,6 @@ function json(body, status, headers) {
   });
 }
 
-/* ------------------------------------------------------------------ guards */
-
-/** Length-first, then a full sweep, so a wrong pass cannot be timed out of us. */
 function sameSecret(a, b) {
   const left = String(a || '');
   const right = String(b || '');
@@ -238,98 +145,71 @@ function sameSecret(a, b) {
   return diff === 0;
 }
 
+/* ------------------------------------------------------------------ quota */
+
 function todayKey() {
-  return `scans:${new Date().toISOString().slice(0, 10)}`;
+  return `asks:${new Date().toISOString().slice(0, 10)}`;
 }
 
 /**
- * KV reads are eventually consistent, so two scans landing in the same second
- * can both see the same count. That is fine: this is a quota guard against a
- * stranger with the URL, not a billing ledger.
+ * KV reads are eventually consistent, so two questions landing in the same
+ * second can both see the same count. That is fine: this is a guard against a
+ * stranger who found the URL, not a billing ledger.
  */
 async function readCount(env) {
-  if (!env || !env.KV) return null;   // no binding, no counter: see the note below
+  if (!env || !env.KV) return null;
   try {
-    return parseInt((await env.KV.get(todayKey())) || '0', 10) || 0;
+    const raw = await env.KV.get(todayKey());
+    const used = Number(raw);
+    return Number.isFinite(used) ? used : 0;
   } catch {
-    // null, not 0. Reading 0 from a failed read would let the next scan write
-    // "1" over a real count of 87 and hand back 86 slots, or un-spend a cap
-    // that had correctly stopped at 100. null means "cap off for this one
-    // request, and do not write", which loses nothing and destroys nothing.
+    // A failed read must never block a real question.
     return null;
   }
 }
 
 async function bumpCount(env, used) {
-  if (!env || !env.KV) return;
+  if (!env || !env.KV || used === null) return;
   try {
-    await env.KV.put(todayKey(), String(used + 1), { expirationTtl: COUNTER_TTL_S });
+    await env.KV.put(todayKey(), String(used + 1), { expirationTtl: 172800 });
   } catch {
-    // A failed write costs one uncounted scan. Failing the whole request over
-    // it would cost her the answer, which is the worse trade.
+    // Losing a tick of the counter is cheaper than losing the answer.
   }
 }
 
-/* ------------------------------------------------------------ model client */
-
-const DEFAULT_MODEL = 'claude-haiku-4-5';
+/* -------------------------------------------------------------- the model */
 
 function modelId(env) {
   return String((env && env.MODEL) || '').trim() || DEFAULT_MODEL;
 }
 
-/**
- * Claude unless told otherwise. MODEL_PROVIDER wins when it is set, and failing
- * that a gemini-* model id picks the Google path, so changing provider is one
- * dashboard variable rather than an edit in here.
- */
-function providerFor(env) {
-  const named = String((env && env.MODEL_PROVIDER) || '').toLowerCase().trim();
-  if (named === 'anthropic' || named === 'claude') return 'anthropic';
-  if (named === 'gemini' || named === 'google') return 'gemini';
-  return /^gemini/i.test(modelId(env)) ? 'gemini' : 'anthropic';
+function tidy(value, max) {
+  if (typeof value !== 'string') return '';
+  const text = value.replace(/\s+/g, ' ').trim();
+  return text.length > max ? `${text.slice(0, max - 1).trimEnd()}...` : text;
 }
 
 /**
- * Observability only. The app is never told which provider failed or why, but
- * "unreadable" with no trail behind it is impossible to diagnose, and the most
- * likely cause by far is a key that was pasted wrong.
+ * Renders the matched entries as the model's entire source material. Everything
+ * it is allowed to say has to be visible in here, which is why whoToCall and
+ * the tier come along rather than just the prose.
  */
-async function modelFailed(provider, res) {
-  let detail = '';
-  try {
-    detail = (await res.text()).slice(0, 300);
-  } catch {
-    // Nothing to add. The status alone still says most of it.
-  }
-  console.warn(`scan: ${provider} answered ${res.status}`, detail);
-  return '';
+function renderNotes(notes) {
+  return notes.map((note, i) => {
+    const bits = [`NOTE ${i + 1}`, `id: ${note.id}`, `topic: ${note.name}`, `verdict: ${note.tier}`];
+    if (note.why) bits.push(`what it says: ${note.why}`);
+    if (note.whatToDo) bits.push(`what to do: ${note.whatToDo}`);
+    if (note.whoToCall) bits.push(`who to ring: ${note.whoToCall}`);
+    if (Array.isArray(note.variants)) {
+      for (const v of note.variants) {
+        if (v && v.label) bits.push(`  - ${v.label} (${v.tier}): ${v.why || ''}`);
+      }
+    }
+    return tidy(bits.join('\n'), MAX_NOTE_CHARS);
+  }).join('\n\n');
 }
 
-/** Anthropic Messages API. Image block first, then the instruction. */
-async function callAnthropic(env, prompt, images) {
-  // Each view gets a line naming it, because an unlabelled pile of pictures
-  // reads as several different menus, and the same dish then comes back twice.
-  const content = [];
-  images.forEach((image, index) => {
-    content.push({
-      type: 'text',
-      text: index === 0
-        ? 'View 1: the whole menu.'
-        : `View ${index + 1}: a close-up of part of the SAME menu, overlapping the others.`,
-    });
-    content.push({
-      type: 'image',
-      source: { type: 'base64', media_type: image.mediaType, data: image.data },
-    });
-  });
-  content.push({
-    type: 'text',
-    text: images.length > 1
-      ? 'These are views of one menu. Read the close-ups for the small print, and list each dish once. JSON only.'
-      : 'Read this menu and classify every dish. JSON only.',
-  });
-
+async function callModel(env, question, notes) {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -339,20 +219,24 @@ async function callAnthropic(env, prompt, images) {
     },
     body: JSON.stringify({
       model: modelId(env),
-      // Every dish costs roughly 45 tokens of JSON, so a 50-dish pub menu needs
-      // thousands. At the old 2048 the reply was cut off mid-object, the parse
-      // failed, and a perfectly sharp photo came back "unreadable": the denser
-      // and clearer the menu, the more certain the failure.
-      max_tokens: 8192,
-      // Zero, because a food-safety verdict is not a place for flair.
+      max_tokens: 700,
+      // Zero. This is not a place for flair.
       temperature: 0,
-      system: prompt,
-      messages: [{ role: 'user', content }],
+      system: SYSTEM_PROMPT,
+      messages: [{
+        role: 'user',
+        content: `THE NOTES YOU MAY USE:\n\n${renderNotes(notes)}\n\nTHE QUESTION:\n${question}\n\nJSON only.`,
+      }],
     }),
     signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
   });
 
-  if (!res.ok) return modelFailed('anthropic', res);
+  if (!res.ok) {
+    let detail = '';
+    try { detail = (await res.text()).slice(0, 300); } catch { /* status says most of it */ }
+    console.warn(`ask: model answered ${res.status}`, detail);
+    return '';
+  }
 
   const body = await res.json();
   return (Array.isArray(body && body.content) ? body.content : [])
@@ -360,239 +244,147 @@ async function callAnthropic(env, prompt, images) {
     .join('');
 }
 
-/** Google Gemini, kept live rather than commented out so it stays swappable. */
-async function callGemini(env, prompt, images) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId(env)}:generateContent`;
-
-  const parts = [];
-  images.forEach((image, index) => {
-    parts.push({
-      text: index === 0
-        ? 'View 1: the whole menu.'
-        : `View ${index + 1}: a close-up of part of the SAME menu, overlapping the others.`,
-    });
-    parts.push({ inline_data: { mime_type: image.mediaType, data: image.data } });
-  });
-  if (images.length > 1) {
-    parts.push({ text: 'These are views of one menu. Read the close-ups for the small print, and list each dish once.' });
-  }
-
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-goog-api-key': String(env.MODEL_KEY || ''),
-    },
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: prompt }] },
-      contents: [{ role: 'user', parts }],
-      generationConfig: {
-        temperature: 0,
-        responseMimeType: 'application/json',
-        maxOutputTokens: 8192,
-      },
-    }),
-    signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
-  });
-
-  if (!res.ok) return modelFailed('gemini', res);
-
-  const body = await res.json();
-  const answer = (body
-    && Array.isArray(body.candidates)
-    && body.candidates[0]
-    && body.candidates[0].content
-    && body.candidates[0].content.parts) || [];
-
-  return answer.map((part) => (part && typeof part.text === 'string' ? part.text : '')).join('');
-}
-
-/** Everything model-shaped goes through here, and returns plain text either way. */
-function callVisionModel(env, prompt, images) {
-  return providerFor(env) === 'gemini'
-    ? callGemini(env, prompt, images)
-    : callAnthropic(env, prompt, images);
-}
-
-/* ---------------------------------------------------------------- parsing */
-
 /**
- * Pulls the base64 and its media type out of the request body, or null if there
- * is nothing usable there. The app sends bare base64 JPEG; a data URL prefix is
- * a cheap thing to survive, and its declared type is worth keeping rather than
- * assuming JPEG and handing the model a mislabelled PNG.
+ * Nothing the model says reaches the app unchecked. A malformed answer, an
+ * invented `ring` value or a `used` id that was never in the notes all collapse
+ * to the honest fallback rather than being shown.
  */
-function readImage(body) {
-  let raw = body && typeof body.image === 'string' ? body.image : '';
-  let mediaType = 'image/jpeg';
-
-  if (raw.startsWith('data:')) {
-    const comma = raw.indexOf(',');
-    if (comma < 0) return null;
-    const declared = raw.slice(5, comma).split(';')[0].toLowerCase().trim();
-    if (declared) {
-      const normalised = IMAGE_TYPE_ALIASES[declared] || declared;
-      // A type the model does not take is a free 400 here, not a billed call
-      // that was always going to come back unreadable.
-      if (!IMAGE_TYPES.has(normalised)) return null;
-      mediaType = normalised;
-    }
-    raw = raw.slice(comma + 1);
-  }
-
-  const data = raw.trim();
-  if (!data || data.length > MAX_IMAGE_CHARS) return null;
-  // Junk in the field is a bad request, not a model call worth paying for.
-  if (!/^[A-Za-z0-9+/=\s]+$/.test(data)) return null;
-
-  return { data, mediaType };
-}
-
-/**
- * The client sends the whole menu, and when the photo has detail to spare, two
- * overlapping halves of it as well, so the description lines arrive at a size
- * the model can actually read. They are views of ONE menu and travel in one
- * request, so a scan stays one model call and one tick of the daily limit.
- *
- * Capped, because past a few views the tiles stop adding detail and only add
- * cost. Falls back to the single `image` field, which is what a client
- * deployed before the tiles existed still sends.
- */
-const MAX_IMAGES = 3;
-
-function readImages(body) {
-  const list = body && Array.isArray(body.images) ? body.images : null;
-  const raw = list && list.length
-    ? list
-    : [body && typeof body.image === 'string' ? body.image : ''];
-
-  const images = [];
-  for (const entry of raw.slice(0, MAX_IMAGES)) {
-    if (typeof entry !== 'string') return null;
-    const image = readImage({ image: entry });
-    // A malformed view fails the whole request rather than being dropped
-    // quietly: a scan that silently read half the menu is the worst answer of
-    // the three, because it looks complete.
-    if (!image) return null;
-    images.push(image);
-  }
-  return images.length ? images : null;
-}
-
-function tidy(value, max) {
-  if (typeof value !== 'string') return '';
-  const text = value.replace(/\s+/g, ' ').trim();
-  return text.length > max ? `${text.slice(0, max - 1).trimEnd()}…` : text;
-}
-
-/**
- * Models like to wrap JSON in a code fence even when told not to, so the fence
- * is stripped rather than treated as a failure. Everything past that is
- * validated: a malformed answer becomes "unreadable" and the app shows its
- * kind retake screen.
- */
-/**
- * Rescues the complete dish objects out of a reply that stopped mid-flight.
- * Walks the string tracking brace depth and string state, so a brace inside a
- * dish name cannot fool it, and keeps every object that closed.
- */
-function salvageDishes(text) {
-  const dishes = [];
-  let depth = 0;
-  let start = -1;
-  let inString = false;
-  let escaped = false;
-
-  for (let i = text.indexOf('"dishes"'); i >= 0 && i < text.length; i += 1) {
-    const ch = text[i];
-    if (inString) {
-      if (escaped) escaped = false;
-      else if (ch === '\\') escaped = true;
-      else if (ch === '"') inString = false;
-      continue;
-    }
-    if (ch === '"') { inString = true; continue; }
-    if (ch === '{') {
-      if (depth === 0) start = i;
-      depth += 1;
-    } else if (ch === '}') {
-      depth -= 1;
-      if (depth === 0 && start >= 0) {
-        try {
-          dishes.push(JSON.parse(text.slice(start, i + 1)));
-        } catch {
-          // Not a dish object after all. Skip it and keep walking.
-        }
-        start = -1;
-      }
-      if (depth < 0) depth = 0;
-    }
-  }
-
-  return dishes.length ? { dishes } : null;
-}
-
-function safeParseVerdicts(raw) {
+function parseAnswer(raw, allowedIds) {
   if (typeof raw !== 'string' || !raw.trim()) return null;
 
   let text = raw.trim();
   if (text.startsWith('```')) {
     text = text.replace(/^```[a-z]*\s*/i, '').replace(/```\s*$/, '').trim();
   }
-
-  // Any prose the model added around the object gets trimmed off the ends.
   const start = text.indexOf('{');
   const end = text.lastIndexOf('}');
   if (start < 0 || end <= start) return null;
 
   let parsed;
-  let truncated = false;
   try {
     parsed = JSON.parse(text.slice(start, end + 1));
   } catch {
-    // A menu longer than the reply budget gets cut off mid-object. Throwing the
-    // whole thing away means she gets nothing from a menu the model actually
-    // read, so the complete dish objects are salvaged and the half-written one
-    // at the end is dropped. The caller is told it is partial: a short list she
-    // knows is short beats a short list she thinks is the whole menu.
-    parsed = salvageDishes(text);
-    if (!parsed) return null;
-    truncated = true;
+    return null;
   }
-
   if (!parsed || typeof parsed !== 'object') return null;
-  // The prompt tells the model to say so when the photo is not a menu.
-  if (typeof parsed.error === 'string') return null;
-  if (!Array.isArray(parsed.dishes)) return null;
 
-  const dishes = [];
-  for (const entry of parsed.dishes) {
-    if (!entry || typeof entry !== 'object') continue;
-    const dish = tidy(entry.dish, MAX_DISH_NAME);
-    if (!dish) continue;
+  const answer = tidy(parsed.answer, MAX_ANSWER);
+  if (!answer) return null;
 
-    const tier = String(entry.tier || '').toLowerCase().trim();
-    // An invented tier is never promoted to safe: unsure is the honest bucket.
-    const safeTier = VALID_TIERS.has(tier) ? tier : 'unsure';
+  const used = (Array.isArray(parsed.used) ? parsed.used : [])
+    .filter((id) => typeof id === 'string' && allowedIds.has(id))
+    .slice(0, MAX_NOTES);
 
-    dishes.push({
-      dish,
-      tier: safeTier,
-      why: tidy(entry.why, MAX_WHY),
-      makeItGreen: tidy(entry.makeItGreen, MAX_WHY),
-    });
+  // An invented phone target is dropped rather than shown. Sending someone to a
+  // service that was never in the notes is the one thing worse than no answer.
+  const ring = WHO_VALUES.includes(parsed.ring) ? parsed.ring : null;
 
-    if (dishes.length >= MAX_DISHES) break;
-  }
-
-  // An empty menu is not a result, it is a photo that did not work.
-  if (!dishes.length) return null;
-  // `partial` travels with the result so the app can say the list is short,
-  // rather than letting a cut-off menu pass for the whole one.
-  return truncated ? { dishes, partial: true } : { dishes };
+  return { answer, used, ring, grounded: parsed.grounded !== false && used.length > 0 };
 }
 
-/* -------------------------------------------------------------------- main */
+/* --------------------------------------------------------------- handlers */
+
+async function handleAsk(req, env, cors) {
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return json({ error: 'bad-request' }, 400, cors);
+  }
+
+  const question = tidy(body && body.question, MAX_QUESTION);
+  if (!question) return json({ error: 'bad-request' }, 400, cors);
+
+  const notes = (Array.isArray(body && body.notes) ? body.notes : [])
+    .filter((n) => n && typeof n.id === 'string' && typeof n.name === 'string')
+    .slice(0, MAX_NOTES);
+
+  // No notes means the phone's own search found nothing, and there is nothing
+  // to ground an answer in. Say so here rather than paying for a model call
+  // that is only allowed to say the same thing.
+  if (!notes.length) {
+    return json({ answer: '', used: [], ring: 'Nurse line', grounded: false }, 200, cors);
+  }
+
+  const used = await readCount(env);
+  if (used !== null && used >= DAILY_LIMIT) {
+    return json({ error: 'daily-limit' }, 429, cors);
+  }
+  await bumpCount(env, used);
+
+  const raw = await callModel(env, question, notes);
+  const parsed = parseAnswer(raw, new Set(notes.map((n) => n.id)));
+  if (!parsed) return json({ error: 'failed' }, 502, cors);
+
+  return json(parsed, 200, cors);
+}
+
+/**
+ * The shared household document. Merge is per key by timestamp, and it happens
+ * here rather than on the phone so two phones pushing at once converge on the
+ * same answer instead of each overwriting the other wholesale.
+ */
+async function handleSync(req, env, cors) {
+  if (!env || !env.KV) return json({ error: 'no-store' }, 503, cors);
+
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return json({ error: 'bad-request' }, 400, cors);
+  }
+
+  const household = String((body && body.household) || '').trim().toLowerCase();
+  if (!HOUSEHOLD_RE.test(household)) return json({ error: 'bad-household' }, 400, cors);
+
+  const changes = (body && body.changes) || {};
+  if (typeof changes !== 'object' || Array.isArray(changes)) {
+    return json({ error: 'bad-request' }, 400, cors);
+  }
+
+  const key = `hh:${household}`;
+  let state = {};
+  try {
+    const raw = await env.KV.get(key);
+    if (raw) state = JSON.parse(raw) || {};
+  } catch {
+    state = {};
+  }
+
+  const acked = [];
+  let dirty = false;
+  for (const [id, record] of Object.entries(changes)) {
+    if (!record || typeof record !== 'object' || !('v' in record)) continue;
+    const at = Number(record.at) || 0;
+    const mine = state[id];
+    // Acknowledge either way: if the stored copy is already newer, this phone's
+    // write is genuinely settled and should leave its outbox.
+    acked.push(id);
+    if (mine && Number(mine.at || 0) >= at) continue;
+    state[id] = { v: record.v, at, by: String(record.by || '').slice(0, 24) };
+    dirty = true;
+  }
+
+  if (Object.keys(state).length > MAX_SYNC_KEYS) {
+    return json({ error: 'too-big' }, 413, cors);
+  }
+
+  if (dirty) {
+    const payload = JSON.stringify(state);
+    if (payload.length > MAX_SYNC_BYTES) return json({ error: 'too-big' }, 413, cors);
+    try {
+      await env.KV.put(key, payload);
+    } catch {
+      // The write failed, so nothing is acknowledged and the phone keeps its
+      // outbox and tries again. Losing a tick silently is the thing to avoid.
+      return json({ state, acked: [] }, 200, cors);
+    }
+  }
+
+  return json({ state, acked }, 200, cors);
+}
+
+/* ------------------------------------------------------------------- main */
 
 export default {
   async fetch(req, env) {
@@ -600,66 +392,17 @@ export default {
     const cors = corsHeaders(env, origin);
 
     if (req.method === 'OPTIONS') return preflight(env, req, origin);
-
-    if (!originAllowed(env, origin)) {
-      return json({ error: 'forbidden' }, 403, cors);
-    }
-
+    if (!originAllowed(env, origin)) return json({ error: 'forbidden' }, 403, cors);
     if (req.method !== 'POST') {
-      return json({ error: 'method' }, 405, { ...cors, 'Allow': 'POST, OPTIONS' });
+      return json({ error: 'method' }, 405, { ...cors, Allow: 'POST, OPTIONS' });
+    }
+    if (!sameSecret(req.headers.get('x-bub-pass'), env && env.PASS)) {
+      return json({ error: 'unauthorised' }, 401, cors);
     }
 
-    // Fails closed: with no PASS secret set, nothing gets through.
-    if (!env || !env.PASS || !sameSecret(req.headers.get('x-bump-pass'), env.PASS)) {
-      return json({ error: 'bad-pass' }, 401, cors);
-    }
-
-    if (!env.MODEL_KEY) {
-      return json({ error: 'unreadable' }, 503, cors);
-    }
-
-    // null means there is no KV binding at all. The scan still runs, because a
-    // missing binding is a deploy mistake and blocking her is not the fix, but
-    // the daily guard is off until it is bound. See wrangler.toml.
-    const used = await readCount(env);
-    if (used !== null && used >= DAILY_LIMIT) {
-      return json({ error: 'daily-limit' }, 429, cors);
-    }
-
-    let body;
-    try {
-      body = await req.json();
-    } catch {
-      return json({ error: 'bad-image' }, 400, cors);
-    }
-
-    const image = readImages(body);
-    if (!image) {
-      return json({ error: 'bad-image' }, 400, cors);
-    }
-
-    // Counted BEFORE the call, not after it succeeds. What this cap exists to
-    // limit is spend, and a call that comes back unreadable was billed exactly
-    // like one that worked. Counting only successes meant a stranger with the
-    // passphrase could loop photos of a brick wall forever: the model obeys
-    // rule 6, answers "unreadable", the validator rejects it, and the counter
-    // never moved. The ceiling was Cloudflare's 100k requests a day, not this.
-    // The cost of counting first is that one of her own bad photos does use a
-    // slot, which is honest: it cost the same money.
-    if (used !== null) await bumpCount(env, used);
-
-    let raw = '';
-    try {
-      raw = await callVisionModel(env, SYSTEM_PROMPT, image);
-    } catch {
-      // A timeout or a provider outage. The app says so kindly and offers the
-      // on-device fallback, so there is nothing useful to leak here.
-      return json({ error: 'unreadable' }, 502, cors);
-    }
-
-    const parsed = safeParseVerdicts(raw);
-    if (!parsed) return json({ error: 'unreadable' }, 502, cors);
-
-    return json(parsed, 200, cors);
+    const path = new URL(req.url).pathname.replace(/\/+$/, '');
+    if (path.endsWith('/ask')) return handleAsk(req, env, cors);
+    if (path.endsWith('/sync')) return handleSync(req, env, cors);
+    return json({ error: 'not-found' }, 404, cors);
   },
 };
