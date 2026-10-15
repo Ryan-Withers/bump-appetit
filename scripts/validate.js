@@ -377,6 +377,84 @@ for (const [rel, bundle] of [
   ['data/cheatsheets.json', sheetsBundle], ['data/buylist.json', buyBundle],
 ]) if (bundle) scanTree(rel, bundle, '');
 
+/* ------------------------------------------------------- who to ring, really
+
+   The enum above only proves an entry names a SERVICE. It does not prove the
+   app can turn that service into a number, and the gap between those two is a
+   CALL SOMEONE answer with an unringable phone button on it.
+
+   That happened: "ABA helpline" and "Red Nose line" both mapped to contact ids
+   that did not exist in config, so the one entry that sends you to the
+   breastfeeding helpline rendered a dead button with the number sitting in the
+   paragraph underneath as plain text. This is the check that would have caught
+   it, so it exists now.
+
+   Both files are parsed as text rather than imported: validate.js is CommonJS
+   and runs before anything else, and a broken config should fail here with a
+   clear message rather than throw on import. */
+function checkContacts() {
+  const file = 'assets/js/config.js';
+  const configSrc = fs.readFileSync(path.join(ROOT, 'assets/js/config.js'), 'utf8');
+  const answerSrc = fs.readFileSync(path.join(ROOT, 'assets/js/answer.js'), 'utf8');
+
+  // id comes before number inside every contact block, so non-greedy pairs up.
+  const contacts = new Map();
+  const contactRe = /id:\s*'([^']+)'[\s\S]*?number:\s*'([^']*)'/g;
+  let m = contactRe.exec(configSrc);
+  while (m) {
+    contacts.set(m[1], m[2].trim());
+    m = contactRe.exec(configSrc);
+  }
+  if (contacts.size === 0) {
+    fail(file, 'contacts', 'no contacts could be read out of this file at all. Has the shape changed?');
+    return { contacts, unfilled: [] };
+  }
+
+  const mapBlock = /const CONTACT_FOR = Object\.freeze\(\{([\s\S]*?)\}\);/.exec(answerSrc);
+  if (!mapBlock) {
+    fail('assets/js/answer.js', 'CONTACT_FOR', 'could not be found. The validator cross-checks it against config, so keep the shape.');
+    return { contacts, unfilled: [] };
+  }
+
+  const mapped = new Map();
+  const rowRe = /'([^']+)':\s*\[([^\]]*)\]/g;
+  let row = rowRe.exec(mapBlock[1]);
+  while (row) {
+    const ids = row[2].split(',').map((x) => x.trim().replace(/^'|'$/g, '')).filter(Boolean);
+    mapped.set(row[1], ids);
+    row = rowRe.exec(mapBlock[1]);
+  }
+
+  // Every service an entry may name has to be in the map, or the phone button
+  // renders with no number on it.
+  for (const who of WHO) {
+    if (who === '000') continue;
+    if (!mapped.has(who)) {
+      fail('assets/js/answer.js', `CONTACT_FOR[${JSON.stringify(who)}]`,
+        'is missing, so an entry naming it gets a call button with no number. Add it, or take the service out of WHO.');
+    }
+  }
+
+  // Every id the map points at has to exist. An empty number is fine: that is
+  // Ryan filling in his own GP later. A missing id is not.
+  const unfilled = [];
+  for (const [who, ids] of mapped) {
+    if (who === '000') continue;
+    for (const id of ids) {
+      if (!contacts.has(id)) {
+        fail('assets/js/answer.js', `CONTACT_FOR[${JSON.stringify(who)}]`,
+          `points at contact "${id}", which does not exist in config.js. That is a CALL SOMEONE answer with a dead phone button.`);
+      }
+    }
+    const live = ids.some((id) => contacts.get(id));
+    if (!live) unfilled.push(who);
+  }
+
+  return { contacts, unfilled };
+}
+
+const contactCheck = checkContacts();
+
 const scanned = scanRepo();
 
 if (problems.length) {
@@ -405,4 +483,9 @@ console.log(`  how-tos       ${howtoIds.size}`);
 console.log(`  cheat sheets  ${rows} rows`);
 console.log(`  buy list      ${buy.count} items, day one $${buy.mustLow} to $${buy.mustHigh}`);
 console.log(`  sources       ${sourceKeys.size} registered`);
+console.log(`  contacts      ${contactCheck.contacts.size} in config, every whoToCall resolves`);
 console.log(`  em dashes     0 across ${scanned} scanned files`);
+if (contactCheck.unfilled.length) {
+  console.log('');
+  console.log(`  Still to fill in: ${contactCheck.unfilled.join(', ')}. The service name shows, the number does not.`);
+}

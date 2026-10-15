@@ -1648,6 +1648,23 @@ body:has(.sheet.is-open) .sheet-backdrop {
 }
 .callwrap__note { font-size: var(--fs-caption); color: var(--ink-2); }
 
+/* A number named inside a sentence. Two dozen answers do this, because "ring
+   the ABA helpline on 1800 686 268" is how a person would say it. Underlined
+   and in the display face so it reads as tappable without shouting, and with a
+   44px tap target via the padding, which matters more than the look of it when
+   the other hand is holding a baby. */
+.telnum {
+  color: var(--ring-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  padding: 2px 1px;
+  white-space: nowrap;
+}
+.telnum:active { background: var(--ring-bg); border-radius: 4px; }
+
 /* Said in the search field, not found in an entry: this jumps the queue. */
 .urgent {
   display: flex;

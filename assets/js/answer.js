@@ -115,6 +115,76 @@ function contactFor(who) {
   return null;
 }
 
+/* --------------------------------------------------------------- the prose
+
+   Two dozen answers name a helpline inside the sentence, because that is where
+   it belongs: "ring the ABA helpline on 1800 686 268" reads the way a person
+   would say it. But a number rendered as flat text is a number you have to
+   remember, retype and get wrong at 3am while a baby screams.
+
+   So every number the app already holds in CONFIG.contacts becomes a dial link
+   wherever it appears in the copy. Exact string match on the display form only:
+   no number is invented, no digits are reformatted, and a number we do not hold
+   is left exactly as written rather than half-linked. */
+
+let dialPattern = null;
+let dialIndex = null;
+
+function buildDialIndex() {
+  if (dialPattern !== null) return;
+  const list = ((CONFIG && CONFIG.contacts) || [])
+    .filter((c) => String(c.display || '').trim() && String(c.number || '').trim())
+    // 000 is named in 65 answers and held by no contact, because it needs no
+    // configuring. It is the one number that must always be one tap away.
+    .concat([{ id: '000', label: 'Triple Zero', display: '000', number: '000' }])
+    // Longest first, so "13 11 14" can never be matched inside a longer number.
+    .sort((a, b) => b.display.length - a.display.length);
+
+  dialIndex = new Map(list.map((c) => [c.display, c]));
+  dialPattern = list.length
+    ? new RegExp(list.map((c) => c.display.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g')
+    : null;
+}
+
+/**
+ * Turns a sentence into nodes, with any known phone number as a tel: link.
+ * Returns an array so it drops straight into el() children.
+ */
+export function prose(message) {
+  const value = String(message || '');
+  buildDialIndex();
+  if (!dialPattern || !value) return [value];
+
+  const out = [];
+  let last = 0;
+  dialPattern.lastIndex = 0;
+  let match = dialPattern.exec(value);
+  while (match) {
+    const contact = dialIndex.get(match[0]);
+    // Guard against a bare 000 inside a figure, so a future "$3,000" in the
+    // copy can never become a call to emergency services. Checked in code
+    // rather than with a lookbehind, which older iOS Safari does not have.
+    const before = match.index > 0 ? value[match.index - 1] : '';
+    const after = value[match.index + match[0].length] || '';
+    if (/[\d,$.]/.test(before) || /\d/.test(after)) {
+      out.push(value.slice(last, match.index + match[0].length));
+      last = match.index + match[0].length;
+      match = dialPattern.exec(value);
+      continue;
+    }
+    if (match.index > last) out.push(value.slice(last, match.index));
+    out.push(el('a', {
+      class: 'telnum',
+      href: `tel:${contact.number}`,
+      aria: { label: `Ring ${contact.label || match[0]} on ${match[0]}` },
+    }, match[0]));
+    last = match.index + match[0].length;
+    match = dialPattern.exec(value);
+  }
+  if (last < value.length) out.push(value.slice(last));
+  return out;
+}
+
 function callEl(who) {
   const contact = contactFor(who);
   const label = contact ? (contact.label || who) : who;
@@ -147,18 +217,18 @@ function callEl(who) {
 function whyEl(entry, key) {
   const why = text(entry.why);
   // A CALL SOMEONE answer gets no opener. The fact goes first.
-  if (key === 'call') return el('p', { class: 'answer__why' }, why);
+  if (key === 'call') return el('p', { class: 'answer__why' }, prose(why));
 
   const openers = strList(`openers.${key}`);
   const opener = pick(openers, entry.id) || '';
-  if (!opener || /:$/.test(why)) return el('p', { class: 'answer__why' }, why);
-  return el('p', { class: 'answer__why' }, [el('strong', {}, `${opener} `), why]);
+  if (!opener || /:$/.test(why)) return el('p', { class: 'answer__why' }, prose(why));
+  return el('p', { class: 'answer__why' }, [el('strong', {}, `${opener} `), prose(why)]);
 }
 
 function doEl(message) {
   return el('div', { class: 'callout callout--do' }, [
     el('span', { html: icon('sparkles', { size: 20, cls: 'callout__icon' }) }),
-    el('p', {}, [el('strong', {}, `${str('answer.whatToDo', 'What to do')}: `), message]),
+    el('p', {}, [el('strong', {}, `${str('answer.whatToDo', 'What to do')}: `), prose(message)]),
   ]);
 }
 
@@ -168,7 +238,7 @@ function variantsEl(variants) {
     if (!variant || !text(variant.label)) continue;
     const key = tierKeyOf(variant.tier);
     const panel = el('div', { class: 'variant__panel', hidden: true }, [
-      el('p', {}, text(variant.why)),
+      el('p', {}, prose(text(variant.why))),
       text(variant.whatToDo) ? doEl(text(variant.whatToDo)) : null,
     ].filter(Boolean));
 
