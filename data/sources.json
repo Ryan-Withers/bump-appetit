@@ -31,6 +31,13 @@
       "url": "https://www.rch.org.au/kidsinfo",
       "role": "Health and illness. Fever, rashes, reflux, jaundice, and when to see a doctor.",
       "approved": "2026-10-15"
+    },
+    "health": {
+      "label": "Immunisation Program",
+      "name": "Australian Government, National Immunisation Program",
+      "url": "https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/national-immunisation-program-schedule",
+      "role": "The immunisation schedule. What is due and when, never a dose or a brand.",
+      "approved": "2026-10-15"
     }
   }
 }

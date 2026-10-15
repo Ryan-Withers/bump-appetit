@@ -1,0 +1,811 @@
+{
+  "weeks": [
+    {
+      "week": -6,
+      "title": "Six weeks out: the three jobs that matter",
+      "headline": "You do not have to be ready for everything, only for the first week. Start with the car seat.",
+      "expect": {
+        "feeds": "Not yet. From day one, 8 to 12 feeds in 24 hours",
+        "sleep": "Yours matters now. Bank early nights while you can",
+        "tummyTime": null,
+        "nappies": null,
+        "newThisWeek": "Baby is practising sucking and swallowing in there"
+      },
+      "focuses": [
+        "Book the car seat fitting, or install it and get it checked",
+        "Do the hospital tour and find out where to park at 2am",
+        "Start the leave paperwork: employer, Centrelink, Medicare"
+      ],
+      "learn": [
+        "car-seat"
+      ],
+      "heads_up": "Cot setup and the Red Nose rules come next week. Buy nothing until you have read them.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/pregnancy",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": -5,
+      "title": "Set the cot up to Red Nose rules",
+      "headline": "A safe sleep space is the one thing you cannot improvise at 3am, so build it now.",
+      "expect": {
+        "feeds": "Not yet. Decide now who does which night feeds",
+        "sleep": "Newborns sleep 14 to 17 hours a day, never all at once",
+        "tummyTime": null,
+        "nappies": "Stock up. Newborns go through 8 to 12 nappies a day",
+        "newThisWeek": "Baby can hear both your voices clearly now, so talk away"
+      },
+      "focuses": [
+        "Firm flat mattress, no pillows, bumpers, doonas or cot toys",
+        "Baby sleeps on the back, in your room, for the first 6 to 12 months",
+        "Clear hanging cords and blind chains away from the cot"
+      ],
+      "learn": [
+        "dressing-for-sleep"
+      ],
+      "heads_up": "Swaddling has rules too, and the hips are the bit people get wrong. Week minus 3.",
+      "sources": [
+        "rednose"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": -4,
+      "title": "Feeding kit and the freezer",
+      "headline": "Future you, standing in the kitchen at midnight, is the person you are shopping for.",
+      "expect": {
+        "feeds": "Breast, bottle or both. All three are a real plan",
+        "sleep": "Expect to sleep in 2 to 4 hour blocks for a while",
+        "tummyTime": null,
+        "nappies": null,
+        "newThisWeek": "Baby is putting on roughly 200g a week from here"
+      },
+      "focuses": [
+        "Batch cook 8 to 10 one-handed dinners and freeze them in portions",
+        "Set up a feeding spot: water, snacks, charger, lamp, muslins",
+        "If bottles are part of the plan, learn sterilising before you need it"
+      ],
+      "learn": [
+        "bottle-prep",
+        "attachment"
+      ],
+      "heads_up": "An antenatal breastfeeding session now beats learning it cold on day two.",
+      "sources": [
+        "rcn",
+        "aba"
+      ],
+      "link": "https://www.breastfeeding.asn.au",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": -3,
+      "title": "Pack the bag and learn to swaddle",
+      "headline": "Learning a swaddle today takes ten minutes. Learning it on no sleep takes a week.",
+      "expect": {
+        "feeds": "Colostrum first, drops at a time, and that is plenty",
+        "sleep": "Nap when you can. The sleep debt starts soon",
+        "tummyTime": null,
+        "nappies": "The first nappies are black and sticky. That is meconium",
+        "newThisWeek": "Baby is laying down fat and getting ready to breathe air"
+      },
+      "focuses": [
+        "Pack the hospital bag, and a separate going-home bag for the car",
+        "Practise swaddling on a teddy: firm at the chest, loose at the hips",
+        "Put your numbers on the fridge: MCH nurse, GP, 13 HEALTH, 000"
+      ],
+      "learn": [
+        "swaddling"
+      ],
+      "heads_up": "Swaddling stops at the first sign of rolling, usually around 4 to 6 months.",
+      "sources": [
+        "rednose",
+        "rcn"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": -2,
+      "title": "Who does what, and when",
+      "headline": "The night plan you agree while you are calm is the one that holds up at 3am.",
+      "expect": {
+        "feeds": "Plan around 8 to 12 feeds a day, around the clock",
+        "sleep": "Agree shifts now: one of you on, one of you asleep",
+        "tummyTime": null,
+        "nappies": "Expect 8 to 12 nappy changes a day, so stock two sizes",
+        "newThisWeek": "Baby is settling head down and gaining fat for warmth"
+      },
+      "focuses": [
+        "Agree the night split out loud, including who does the 3am feed",
+        "Line up two people you would actually let hold the baby, and ask them",
+        "Fit the car seat and do a dry run of the drive home"
+      ],
+      "learn": [
+        "night-feed",
+        "settling"
+      ],
+      "heads_up": "A midwife or MCH nurse visits you at home in the first 1 to 5 days. Keep that week clear.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/pregnancy",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": -1,
+      "title": "Any day now",
+      "headline": "Nothing left on the list beats rest. You are as ready as anyone actually gets.",
+      "expect": {
+        "feeds": "First feed often happens in the hour after birth",
+        "sleep": "Sleep now, in daylight, with your phone face down",
+        "tummyTime": null,
+        "nappies": "One wet nappy on day one is normal, then more each day",
+        "newThisWeek": "Full term is anywhere from 37 to 42 weeks, so this is normal"
+      },
+      "focuses": [
+        "Charge everything, fuel the car, keep the bag by the door",
+        "Know your signs to ring the hospital, and who drives",
+        "Freeze one more dinner, then stop organising and rest"
+      ],
+      "learn": [
+        "attachment",
+        "swaddling"
+      ],
+      "heads_up": "Week one is feeding, nappies and almost no routine. That is the whole job.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/pregnancy",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 0,
+      "title": "The first week",
+      "headline": "Nobody has a routine this week. Feed, change, hold, repeat, and let people help.",
+      "expect": {
+        "feeds": "8 to 12 feeds in 24 hours, day and night, no pattern",
+        "sleep": "14 to 17 hours total, in stretches of 2 to 4 hours",
+        "tummyTime": "1 to 2 minutes, once or twice a day. Chest to chest counts",
+        "nappies": "Day 1: one wet nappy. By day 5: five or more heavy wets",
+        "newThisWeek": "Nappies go black, then green, then yellow once milk is in"
+      },
+      "focuses": [
+        "Feed on their cues, not the clock, at least 8 times in 24 hours",
+        "Back to sleep, in your room, firm flat mattress, every single sleep",
+        "Say yes to the midwife or MCH home visit in the first 1 to 5 days",
+        "Keep the cord stump dry and the nappy folded below it"
+      ],
+      "learn": [
+        "nappy-change",
+        "cord-care"
+      ],
+      "heads_up": "Losing up to 10% of birth weight is normal, and it is usually back by 2 weeks.",
+      "sources": [
+        "rcn",
+        "rednose"
+      ],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 1,
+      "title": "Feeding finds its feet",
+      "headline": "This week is mostly feeding. If the nappies are right, the feeding is working.",
+      "expect": {
+        "feeds": "8 to 12 feeds, often every 2 to 3 hours",
+        "sleep": "14 to 17 hours, longest stretch 2 to 4 hours",
+        "tummyTime": "1 to 3 minutes, two or three times a day",
+        "nappies": "5 or more heavy wet nappies and 3 or more soft poos",
+        "newThisWeek": "Birth weight is usually back by the end of next week"
+      },
+      "focuses": [
+        "Count heavy wet nappies, not millilitres, to see feeding is on track",
+        "Get attachment checked by the midwife or an ABA counsellor",
+        "Burp after every feed, upright against your shoulder",
+        "Sleep when they sleep, even at 11am, even badly"
+      ],
+      "learn": [
+        "attachment",
+        "burping"
+      ],
+      "heads_up": "A growth spurt lands around week 3. Feeding goes up, nothing has gone wrong.",
+      "sources": [
+        "rcn",
+        "aba"
+      ],
+      "link": "https://www.breastfeeding.asn.au",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 2,
+      "title": "The two week check",
+      "headline": "You are two weeks in, which is longer than it feels. Small things first.",
+      "expect": {
+        "feeds": "8 to 12 feeds, with an evening cluster most nights",
+        "sleep": "14 to 17 hours, still waking every 2 to 4 hours",
+        "tummyTime": "2 to 3 minutes, around three times a day",
+        "nappies": "5 or 6 heavy wets, and a poo after most feeds",
+        "newThisWeek": "The cord stump has usually dropped off by now"
+      },
+      "focuses": [
+        "Weigh-in and a catch-up with the MCH nurse around now",
+        "A bath is optional. Top and tail two or three times a week",
+        "Add vitamin D or any supplement only if your nurse or GP says to",
+        "Get outside for 15 minutes with the pram, both of you"
+      ],
+      "learn": [
+        "top-and-tail",
+        "first-bath"
+      ],
+      "heads_up": "Cluster feeding and a fussier baby around week 3. Stock the freezer.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 3,
+      "title": "Growth spurt and cluster feeding",
+      "headline": "Feeding on and off all evening is a growth spurt, not a sign your supply is failing.",
+      "expect": {
+        "feeds": "More than last week, sometimes hourly for a run",
+        "sleep": "14 to 17 hours, and more restless in the evening",
+        "tummyTime": "3 minutes, three times a day",
+        "nappies": "Still 5 or more heavy wets a day, poos vary",
+        "newThisWeek": "Crying is picking up, often worst in the late afternoon"
+      },
+      "focuses": [
+        "Feed as often as they ask. Cluster feeding is how supply builds",
+        "Set up before the evening run starts: drink, snack, something to watch",
+        "Swap jobs. The parent not feeding does nappies and settling"
+      ],
+      "learn": [
+        "expressing",
+        "night-feed"
+      ],
+      "heads_up": "Crying peaks around 6 to 8 weeks, then eases. It is a phase, not a flaw.",
+      "sources": [
+        "rcn",
+        "aba"
+      ],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 4,
+      "title": "One month in",
+      "headline": "A month old. Nothing is sorted, and yet here you both are, doing it.",
+      "expect": {
+        "feeds": "8 to 12 feeds, starting to find a loose shape",
+        "sleep": "14 to 17 hours, some babies give one 4 to 5 hour stretch",
+        "tummyTime": "3 to 5 minutes, three times a day",
+        "nappies": "5 or more heavy wets, poos may space out a little",
+        "newThisWeek": "Focusing on your face at about 20 to 30cm away"
+      },
+      "focuses": [
+        "Book the 6 to 8 week immunisations and the GP check now",
+        "Pick one settling routine and give it a week before you judge it",
+        "Swaddle for sleep if it helps: arms in, hips free, face clear"
+      ],
+      "learn": [
+        "settling",
+        "swaddling"
+      ],
+      "heads_up": "Smiles turn up around 6 weeks, and they are worth the wait.",
+      "sources": [
+        "rcn",
+        "rednose"
+      ],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 5,
+      "title": "Louder, and nearly smiling",
+      "headline": "The crying is climbing. That is normal, it peaks soon, and then it goes.",
+      "expect": {
+        "feeds": "8 to 12 feeds, evening clusters are common",
+        "sleep": "14 to 17 hours, longest stretch 3 to 5 hours",
+        "tummyTime": "3 to 5 minutes, three or four times a day",
+        "nappies": "5 or more heavy wets a day, poos every day or two",
+        "newThisWeek": "Cooing, gurgling, and the first almost-smiles"
+      },
+      "focuses": [
+        "Hold, rock, walk. You cannot spoil a newborn by comforting them",
+        "Hand the baby over when you are past it. That is a plan, not failing",
+        "Check in on each other: how are you both actually sleeping"
+      ],
+      "learn": [
+        "settling",
+        "night-feed"
+      ],
+      "heads_up": "The 6 to 8 week immunisations are due next week or not long after.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 6,
+      "title": "Smiles, needles and a growth spurt",
+      "headline": "The hardest week often holds the first real smile. Both of those are true at once.",
+      "expect": {
+        "feeds": "8 to 12 feeds, with a cluster-feeding run most evenings",
+        "sleep": "14 to 17 hours total, longest stretch 4 to 5 hours",
+        "tummyTime": "5 minutes, three or four times a day",
+        "nappies": "5 or more heavy wets, poos may drop to one a day",
+        "newThisWeek": "First proper smiles, aimed right at you"
+      },
+      "focuses": [
+        "Get the 6 to 8 week immunisations done, with the GP check alongside",
+        "Expect an unsettled day after needles. Extra feeds and cuddles help",
+        "Ride out the growth spurt by feeding more often, not less",
+        "Book your own 6 week check, both of you if you can"
+      ],
+      "learn": [
+        "tummy-time",
+        "settling"
+      ],
+      "heads_up": "Crying peaks over the next fortnight, then eases off. You are near the top.",
+      "sources": [
+        "rcn",
+        "health"
+      ],
+      "link": "https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/national-immunisation-program-schedule",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 7,
+      "title": "Peak crying",
+      "headline": "If today felt like the worst yet, that fits. This is the top of the hill.",
+      "expect": {
+        "feeds": "8 to 12 feeds, still clustered in the evening",
+        "sleep": "14 to 17 hours, longest stretch 4 to 6 hours",
+        "tummyTime": "5 to 8 minutes, three times a day",
+        "nappies": "5 or more heavy wets, poo daily to every few days",
+        "newThisWeek": "Up to 2 or 3 hours of crying a day is still normal"
+      },
+      "focuses": [
+        "If you are rattled, put baby down somewhere safe and breathe for 5 minutes",
+        "Ring the MCH nurse or GP if the crying sounds different or they seem unwell",
+        "Put PANDA 1300 726 306 in both your phones, for either of you"
+      ],
+      "learn": [
+        "settling"
+      ],
+      "heads_up": "Most babies settle noticeably between 9 and 12 weeks. It really does ease.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 8,
+      "title": "Two months, and a shape appears",
+      "headline": "The days start to have a shape. Not a schedule, but something you can see.",
+      "expect": {
+        "feeds": "8 to 12 breastfeeds, or 5 to 7 bottles, in 24 hours",
+        "sleep": "14 to 17 hours, 3 to 5 naps plus a longer night block",
+        "tummyTime": "8 to 10 minutes a day, split into short bursts",
+        "nappies": "5 or more heavy wets, poos every 1 to 3 days",
+        "newThisWeek": "Holding their head up for a few seconds on their tummy"
+      },
+      "focuses": [
+        "If the immunisations have not happened yet, book them this week",
+        "Start a simple wind-down: dim light, feed, sleeping bag, cot",
+        "Every sleep on the back, in your room, nothing loose in the cot"
+      ],
+      "learn": [
+        "bottle-prep",
+        "dressing-for-sleep"
+      ],
+      "heads_up": "Around 12 weeks a lot of babies stretch their night sleep noticeably.",
+      "sources": [
+        "rcn",
+        "rednose"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 9,
+      "title": "The fog starts lifting",
+      "headline": "More awake time, more smiling, a little less mystery. Things are changing.",
+      "expect": {
+        "feeds": "8 to 12 feeds, evening clusters easing off",
+        "sleep": "14 to 17 hours, longest stretch 4 to 6 hours",
+        "tummyTime": "10 minutes a day, across two or three goes",
+        "nappies": "5 or more heavy wets, poo daily to every few days",
+        "newThisWeek": "Crying starts easing off from about now"
+      },
+      "focuses": [
+        "Build tummy time to 10 minutes a day, while they are happy and awake",
+        "Talk and sing through nappy changes. This is their language lesson",
+        "Get one proper block of sleep each, on different nights if you must"
+      ],
+      "learn": [
+        "tummy-time"
+      ],
+      "heads_up": "A GP or nurse check sits around 3 months. Write your questions down now.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 10,
+      "title": "Awake, alert and watching you",
+      "headline": "They are properly interested in you now, and it makes the days easier.",
+      "expect": {
+        "feeds": "8 to 12 feeds, bigger and a bit further apart",
+        "sleep": "14 to 17 hours, longest stretch 5 to 6 hours for some",
+        "tummyTime": "10 to 15 minutes a day, in short bursts",
+        "nappies": "5 or more heavy wets, poos every 1 to 3 days",
+        "newThisWeek": "Following you across the room with their eyes"
+      },
+      "focuses": [
+        "Check the car seat harness height. They outgrow a setting fast",
+        "Put them down awake once a day and see what happens",
+        "Get out daily: pram, park, coffee, anything with daylight in it"
+      ],
+      "learn": [
+        "car-seat",
+        "settling"
+      ],
+      "heads_up": "Rolling can start from around 4 months, and swaddling stops when it does.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 11,
+      "title": "Hands, noise and splashing",
+      "headline": "Hands have been discovered. Nothing is safe, and all of it goes in the mouth.",
+      "expect": {
+        "feeds": "8 to 12 feeds, some babies drop a night feed",
+        "sleep": "14 to 17 hours, often one 5 to 6 hour night stretch",
+        "tummyTime": "15 minutes a day, broken into bursts",
+        "nappies": "5 or more heavy wets a day, poos settling into a pattern",
+        "newThisWeek": "Finding their hands, and chewing on them constantly"
+      },
+      "focuses": [
+        "Make bath time part of the wind-down if they enjoy it",
+        "Lay them on a mat with one or two things to reach for",
+        "Dress for the room, not the forecast: about one layer more than you"
+      ],
+      "learn": [
+        "first-bath",
+        "dressing-for-sleep"
+      ],
+      "heads_up": "Dribbling and chewing is not always teeth. Teeth usually start around 6 months.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 12,
+      "title": "Three months: longer nights",
+      "headline": "Plenty of babies stretch their night sleep around now. Plenty do not yet. Both are fine.",
+      "expect": {
+        "feeds": "6 to 10 feeds, bigger and further apart",
+        "sleep": "14 to 16 hours, longest stretch 5 to 7 hours for some",
+        "tummyTime": "15 to 20 minutes a day, in short bursts",
+        "nappies": "5 or more heavy wets, poo daily to every few days",
+        "newThisWeek": "Pushing up on forearms and holding their head steady"
+      },
+      "focuses": [
+        "Expect a growth spurt: more feeds for a few days, then back to normal",
+        "Move the wind-down earlier if the evenings are falling apart",
+        "Watch for rolling signs, and stop swaddling at the first one",
+        "Book the 4 month immunisations and check now"
+      ],
+      "learn": [
+        "dressing-for-sleep",
+        "settling"
+      ],
+      "heads_up": "The 4 month sleep change is coming: more waking for a few weeks, then better.",
+      "sources": [
+        "rcn",
+        "rednose"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 13,
+      "title": "A rhythm you can plan around",
+      "headline": "You can roughly guess how the day will go now. That is the first real win.",
+      "expect": {
+        "feeds": "6 to 10 feeds in 24 hours",
+        "sleep": "14 to 16 hours, 3 or 4 naps and a longer night",
+        "tummyTime": "20 minutes a day, in short happy bursts",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Laughing out loud, and grabbing at what they want"
+      },
+      "focuses": [
+        "Keep the 4 month immunisations in the diary",
+        "Clear the floor space. Rolling is coming, and it arrives suddenly",
+        "Take one photo of them, and one of all three of you"
+      ],
+      "learn": [
+        "tummy-time"
+      ],
+      "heads_up": "Around 4 months sleep often gets worse before it gets better. That is normal.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 17,
+      "title": "Four months: rolling and waking",
+      "headline": "Sleep going backwards at 4 months is a development leap, not a mistake you made.",
+      "expect": {
+        "feeds": "5 to 8 feeds or bottles in 24 hours",
+        "sleep": "12 to 16 hours, 3 naps, night waking often increases",
+        "tummyTime": "20 to 30 minutes a day, mostly rolling practice now",
+        "nappies": "5 or more heavy wets, poo daily to every few days",
+        "newThisWeek": "Rolling, or very close to it. Hands to mouth with purpose"
+      },
+      "focuses": [
+        "Stop swaddling now. Move to a safe sleeping bag with no hood",
+        "Never leave them on a change table or bed, not for a second",
+        "Get the 4 month immunisations done if you have not already",
+        "Ride the sleep change out: same wind-down, no new tricks for 2 weeks"
+      ],
+      "learn": [
+        "swaddling",
+        "dressing-for-sleep"
+      ],
+      "heads_up": "Solids start around 6 months, once they can sit supported and grab at food.",
+      "sources": [
+        "rednose",
+        "rcn"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 21,
+      "title": "Nearly ready for food",
+      "headline": "Watch for the signs, not the calendar. Food is weeks away yet, not days.",
+      "expect": {
+        "feeds": "5 to 8 milk feeds a day, still the main event",
+        "sleep": "12 to 16 hours, usually 2 or 3 naps",
+        "tummyTime": "Floor play most of the day, 30 minutes plus in bursts",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Sitting with support, and reaching for your plate"
+      },
+      "focuses": [
+        "Watch for the solids signs: head steady, sits supported, grabs food",
+        "Buy a high chair with a harness and set it up early",
+        "Offer water from a cup when you start food. No juice"
+      ],
+      "learn": [
+        "tummy-time"
+      ],
+      "heads_up": "First foods are iron-rich ones: iron-fortified cereal, meat, legumes, tofu.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 25,
+      "title": "Six months: first tastes",
+      "headline": "Food starts now, milk still does the heavy lifting. Mess is part of the method.",
+      "expect": {
+        "feeds": "5 to 7 milk feeds plus 1 or 2 small solid meals",
+        "sleep": "12 to 16 hours, 2 or 3 naps, longer blocks overnight",
+        "tummyTime": "Sitting and rolling. Floor play whenever they are awake",
+        "nappies": "5 or more heavy wets. Poo changes colour and smell",
+        "newThisWeek": "Sitting on their own, and mouthing everything in reach"
+      },
+      "focuses": [
+        "Start with iron-rich foods once or twice a day, after a milk feed",
+        "Offer one new food at a time and watch how they go with it",
+        "Get the 6 month immunisations done",
+        "Move the cot mattress to its lowest setting. They can push up now"
+      ],
+      "learn": [
+        "bottle-prep"
+      ],
+      "heads_up": "Teeth often arrive now. Most babies cope with chewing and a cold teether.",
+      "sources": [
+        "rcn",
+        "health"
+      ],
+      "link": "https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/national-immunisation-program-schedule",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 29,
+      "title": "Two meals and sitting solid",
+      "headline": "Food is becoming a routine. Sit together at the table and let them copy you.",
+      "expect": {
+        "feeds": "4 to 6 milk feeds plus 2 small meals a day",
+        "sleep": "12 to 15 hours, usually 2 or 3 naps",
+        "tummyTime": "Rolling, sitting, pivoting. Floor time all day",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Passing things hand to hand, and babbling in strings"
+      },
+      "focuses": [
+        "Build up to 2 meals a day across a range of textures and tastes",
+        "Offer soft finger foods they can hold, like steamed vegetables",
+        "Baby-proof low down: power points, cords, stairs, cleaning cupboard"
+      ],
+      "learn": [],
+      "heads_up": "Crawling and pulling up turn the house into a different place. Look down a lot.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 33,
+      "title": "On the move",
+      "headline": "Crawling, shuffling or commando rolling. However they do it, they are off.",
+      "expect": {
+        "feeds": "4 or 5 milk feeds plus 2 or 3 meals a day",
+        "sleep": "12 to 15 hours, usually 2 naps",
+        "tummyTime": "They pick their own floor time now, and plenty of it",
+        "nappies": "5 or more heavy wets, poos firmer now solids are in",
+        "newThisWeek": "Crawling or shuffling, and the pincer grip starting"
+      },
+      "focuses": [
+        "Finish the baby-proofing: gates, latches, cords, hot drinks up high",
+        "Three meals a day is the aim by around 9 months",
+        "Keep the cot empty: no bumpers, pillows, toys or loose bedding"
+      ],
+      "learn": [],
+      "heads_up": "Separation anxiety often shows up from 8 months. Short goodbyes help.",
+      "sources": [
+        "rcn",
+        "rednose"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 37,
+      "title": "Standing up and missing you",
+      "headline": "Clinginess now is a sign of how attached they are, not a step backwards.",
+      "expect": {
+        "feeds": "4 or 5 milk feeds plus 3 meals and a snack",
+        "sleep": "12 to 15 hours, 2 naps, night waking can come back",
+        "tummyTime": "Pulling up on furniture, and cruising along it",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Pulling to stand, waving, and copying your sounds"
+      },
+      "focuses": [
+        "Lower the cot base to its lowest setting before they stand up in it",
+        "Keep goodbyes short, cheerful and the same every time",
+        "Recheck the car seat. They may be ready for the next stage"
+      ],
+      "learn": [
+        "car-seat"
+      ],
+      "heads_up": "First steps land anywhere from 9 to 18 months. There is no late here.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 41,
+      "title": "Cruising the furniture",
+      "headline": "Everything is a handrail now. Expect bumps, and expect them to be fine.",
+      "expect": {
+        "feeds": "3 or 4 milk feeds plus 3 meals and snacks",
+        "sleep": "12 to 15 hours, 2 naps, 11 to 12 hours overnight",
+        "tummyTime": "Standing, cruising, and climbing anything that holds still",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Pointing at what they want, and starting to understand no"
+      },
+      "focuses": [
+        "Offer water in an open or free-flow cup with meals",
+        "Family food, cut small, with no added salt or sugar",
+        "Read the same book every night. The repetition is the point"
+      ],
+      "learn": [],
+      "heads_up": "Cow's milk as a main drink waits until 12 months. In their food it is fine now.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 45,
+      "title": "Words and big opinions",
+      "headline": "A first word may turn up this month, and so will the first proper protest.",
+      "expect": {
+        "feeds": "3 or 4 milk feeds plus 3 meals and 2 snacks",
+        "sleep": "12 to 15 hours, moving toward 1 or 2 naps",
+        "tummyTime": "Walking with help, and climbing the lounge",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Maybe a first word, and a lot of pointing and showing"
+      },
+      "focuses": [
+        "Name whatever they point at. That is how words arrive",
+        "Let them feed themselves with a spoon, mess and all",
+        "Book the 12 month immunisations and check for around their birthday"
+      ],
+      "learn": [],
+      "heads_up": "Fussy eating is common from about 1 year. Keep offering, and do not push.",
+      "sources": [
+        "rcn"
+      ],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 49,
+      "title": "Almost one",
+      "headline": "They understand far more than they can say yet, which explains quite a lot.",
+      "expect": {
+        "feeds": "3 milk feeds plus 3 meals and 2 snacks",
+        "sleep": "12 to 15 hours, 1 or 2 naps",
+        "tummyTime": "Standing alone for a moment, and maybe a step",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Standing unaided, and following simple requests"
+      },
+      "focuses": [
+        "Keep the 12 month immunisations in the diary",
+        "Plan the party small. One year olds do not need a crowd",
+        "The cot stays, with a sleeping bag, until they can climb out"
+      ],
+      "learn": [],
+      "heads_up": "From 12 months, full cream cow's milk can become their main drink.",
+      "sources": [
+        "rcn",
+        "rednose"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
+    },
+    {
+      "week": 52,
+      "title": "One year old",
+      "headline": "A year ago none of you had done this before. Look at the three of you now.",
+      "expect": {
+        "feeds": "3 meals, 2 snacks, and milk alongside, not instead",
+        "sleep": "11 to 14 hours, 1 or 2 naps",
+        "tummyTime": "Walking or nearly, and into absolutely everything",
+        "nappies": "5 or more heavy wets a day, poo daily to every few days",
+        "newThisWeek": "Walking, or getting there. Anywhere from 9 to 18 months"
+      },
+      "focuses": [
+        "Get the 12 month immunisations and the health check done",
+        "Switch to full cream cow's milk as the main drink when you are ready",
+        "Check the car seat stage and the cot height one more time",
+        "Write down three things from this year before you forget them"
+      ],
+      "learn": [
+        "car-seat"
+      ],
+      "heads_up": "The 18 month immunisations are next. Toddler rules from here on.",
+      "sources": [
+        "rcn",
+        "health"
+      ],
+      "link": "https://www.health.gov.au/topics/immunisation/when-to-get-vaccinated/national-immunisation-program-schedule",
+      "reviewed": "2026-10"
+    }
+  ]
+}

@@ -1,0 +1,705 @@
+{
+  "stages": [
+    {
+      "id": "first-week",
+      "name": "The first week",
+      "emoji": "🌟",
+      "fromDay": 0,
+      "toDay": 7,
+      "headline": "Survival week. Feed, nappy, sleep, repeat, and nobody knows what day it is.",
+      "whatsHappening": [
+        "Sleep: 14 to 17 hours a day in 2 to 3 hour chunks, and 8 to 12 wakes around the clock.",
+        "Feeds: 8 to 12 a day, every 2 to 3 hours, roughly 20 to 40 minutes, day and night alike.",
+        "Tummy time: 1 or 2 minutes, a few times a day. Lying on your bare chest counts.",
+        "Nights look exactly like days to them. Your job is to make yours different: dim, quiet, no chat.",
+        "Weight dips by up to 10 per cent, then climbs back to birth weight by about 2 weeks.",
+        "They grip, root, startle, focus about 20 to 30cm away, and already know your voice and smell."
+      ],
+      "checklist": [
+        {
+          "id": "car-seat-check",
+          "text": "Get the car seat checked by a fitting station before the drive home",
+          "detail": "Rear facing, correct recline, straps flat and firm. Most councils and some baby shops have an authorised fitter.",
+          "howto": "car-seat"
+        },
+        {
+          "id": "cot-red-nose",
+          "text": "Set the cot up to Red Nose rules before the first night",
+          "detail": "Firm flat mattress, no pillows, bumpers, toys or loose bedding. On the back, feet to the bottom end, face uncovered.",
+          "howto": null
+        },
+        {
+          "id": "attachment-every-feed",
+          "text": "Check attachment at every feed: chin in, nose free, wide mouth",
+          "detail": "Toe curling pain means a shallow latch. Unlatch and start again. If it still hurts, ring the ABA helpline, that is what it is for.",
+          "howto": "attachment"
+        },
+        {
+          "id": "nappy-every-feed",
+          "text": "Change the nappy at every feed, and straight away after a poo",
+          "detail": "Barrier cream at every change, girls wipe front to back, and keep a hand on them the whole time.",
+          "howto": "nappy-change"
+        },
+        {
+          "id": "burp-every-feed",
+          "text": "Burp after every feed, upright on your shoulder for 5 minutes",
+          "detail": "No burp after 5 minutes is fine, put them down anyway. Not every feed makes wind.",
+          "howto": "burping"
+        },
+        {
+          "id": "tummy-time-start",
+          "text": "Tummy time, 2 or 3 minutes after each nappy change",
+          "detail": "Always awake and always watched. Your chest or your lap counts just as much as the floor.",
+          "howto": "tummy-time"
+        },
+        {
+          "id": "wrap-for-sleep",
+          "text": "Wrap for sleep, firm across the chest but loose around the hips",
+          "detail": "Red Nose: light cotton or muslin, arms in, hips and legs free to bend up and out. Never over the face.",
+          "howto": "swaddling"
+        },
+        {
+          "id": "cord-care",
+          "text": "Keep the cord stump dry and the nappy folded below it",
+          "detail": "It drops off between day 5 and day 15. Redness spreading onto the belly, pus or a smell means ring the nurse today.",
+          "howto": "cord-care"
+        },
+        {
+          "id": "top-and-tail",
+          "text": "Top and tail every day, and skip the full bath this week",
+          "detail": "Warm water, cotton wool or a soft cloth, no soap. Face, hands, neck folds, then the bottom last.",
+          "howto": "top-and-tail"
+        },
+        {
+          "id": "feed-sleep-log",
+          "text": "Start a feed, sleep and nappy log on paper or in your phone",
+          "detail": "Time, which side or how many mL, and every wet and dirty nappy. Expect 5 or 6 heavy wet nappies a day by day 5.",
+          "howto": null
+        },
+        {
+          "id": "register-birth-medicare",
+          "text": "Register the birth, and enrol the baby in Medicare",
+          "detail": "Registration is free and due within 60 days at your state or territory registry. The hospital gives you both forms, or use myGov.",
+          "howto": null
+        },
+        {
+          "id": "shower-handover",
+          "text": "Hand the baby to someone else and have a shower",
+          "detail": "Twenty minutes is not neglect. If nobody is around, the bassinet or bouncer on the bathroom floor is fine.",
+          "howto": null
+        }
+      ],
+      "appointments": [
+        {
+          "what": "Midwife or MCH nurse home visit",
+          "when": "Day 1 to 5 after you get home",
+          "note": "They weigh the baby, check feeding and the cord, and check on you. Have your feed and nappy log handy."
+        },
+        {
+          "what": "Newborn screening and hearing check",
+          "when": "Before you leave hospital, or in the first few days",
+          "note": "The heel prick blood spot test and a hearing screen. Ask for the results if nobody mentions them."
+        },
+        {
+          "what": "Birth point on the National Immunisation Program",
+          "when": "At birth, usually in hospital before you go home",
+          "note": "Offered in the first hours or days and recorded on the immunisation register. Ask your midwife if it was missed."
+        },
+        {
+          "what": "Book the first Maternal and Child Health centre visit",
+          "when": "In the first 2 weeks",
+          "note": "Called MCH in Victoria, child and family health in other states. The home visit nurse usually books it with you."
+        }
+      ],
+      "comingNext": "Weeks 2 to 6: still no rhythm, but feeding settles, crying climbs toward its 6 week peak, and the first real smile is close.",
+      "sources": ["rcn", "rednose"],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "id": "settling-in",
+      "name": "Settling in",
+      "emoji": "🍼",
+      "fromDay": 8,
+      "toDay": 42,
+      "headline": "Weeks 2 to 6. No routine yet, more crying than you expected, and a first smile.",
+      "whatsHappening": [
+        "Sleep: still 14 to 17 hours a day, but the longest stretch grows to 3 or 4 hours by week 6.",
+        "Feeds: 8 to 12 a day, 20 to 40 minutes, plus an evening cluster that can run for hours.",
+        "Tummy time: 3 to 5 minutes after each nappy change, building toward 10 to 15 minutes a day.",
+        "Nights: feed, change only if soiled, straight back down. Dim light, no games, no conversation.",
+        "Crying peaks around week 6, usually late afternoon and evening. It is normal and it does pass.",
+        "New: they hold your gaze, lift their head briefly on their tummy, and smile for real near week 6."
+      ],
+      "checklist": [
+        {
+          "id": "mch-two-week",
+          "text": "Go to the 2 week MCH visit, and book the 4 and 8 week ones",
+          "detail": "Take the baby health record book every time. Write your questions in your phone the night before, you will forget them.",
+          "howto": null
+        },
+        {
+          "id": "book-six-week-check",
+          "text": "Book your own 6 week postnatal check with the GP now",
+          "detail": "It is for the mother: healing, bleeding, mood, contraception, pelvic floor. Book the baby's 6 week check in the same trip.",
+          "howto": null
+        },
+        {
+          "id": "book-immunisation",
+          "text": "Book the 6 to 8 week immunisation appointment",
+          "detail": "GP or council clinic, free on the National Immunisation Program. Book early, the slots fill up.",
+          "howto": null
+        },
+        {
+          "id": "centrelink-claim",
+          "text": "Lodge the Centrelink claim for Parental Leave Pay and family payments",
+          "detail": "One claim in myGov covers Parental Leave Pay, Family Tax Benefit and the newborn payments. Claim within 52 weeks of the birth.",
+          "howto": null
+        },
+        {
+          "id": "first-bath",
+          "text": "Give the first proper bath once the cord stump has come away",
+          "detail": "Twice a week is plenty. Elbow test the water, 5cm deep, towel open before you start, and never let go or step away.",
+          "howto": "first-bath"
+        },
+        {
+          "id": "bottle-prep",
+          "text": "If you are bottle feeding, sterilise and make bottles one at a time",
+          "detail": "Boiled water cooled, powder measured level, never the other way round. Sterilise everything until 12 months.",
+          "howto": "bottle-prep"
+        },
+        {
+          "id": "express-one-feed",
+          "text": "Express one feed so somebody else can do a bottle",
+          "detail": "Label it with the date. Fridge up to 3 days, freezer longer. One bottle given by someone else is one block of sleep for you.",
+          "howto": "expressing"
+        },
+        {
+          "id": "settling-ladder",
+          "text": "Use the same settling steps every time: wrap, hold, shush, pat, down",
+          "detail": "Same order, every sleep, both of you. They learn the sequence long before they learn to self settle.",
+          "howto": "settling"
+        },
+        {
+          "id": "dress-for-room",
+          "text": "Dress for the room, and check the back of the neck, not the hands",
+          "detail": "Cool hands and feet are normal. Aim for a room you would sleep in comfortably, no hats indoors, no electric blankets.",
+          "howto": "dressing-for-sleep"
+        },
+        {
+          "id": "weekly-photo",
+          "text": "Take a photo every week, same spot, same day",
+          "detail": "Same chair, same blanket, Sunday morning. In six months it will be your only honest record of how fast this went.",
+          "howto": null
+        },
+        {
+          "id": "daily-shower",
+          "text": "Hand the baby over and have a shower, every single day",
+          "detail": "Then eat something that is not toast. Swap who gets the first shower, so it does not quietly become one person's job.",
+          "howto": null
+        },
+        {
+          "id": "crying-plan",
+          "text": "Agree now what you both do when the crying will not stop",
+          "detail": "Swap every 10 minutes. If you are past it, put them safely in the cot and step outside. Then ring the MCH nurse. Never shake a baby.",
+          "howto": null
+        }
+      ],
+      "appointments": [
+        {
+          "what": "MCH nurse centre visits",
+          "when": "At about 2 weeks, 4 weeks and 8 weeks",
+          "note": "Weight, length, head measurement, feeding and development. Victoria calls these Key Ages and Stages, other states use their own names."
+        },
+        {
+          "what": "Your 6 week postnatal check",
+          "when": "Between 6 and 8 weeks after the birth",
+          "note": "With your GP or obstetrician. Bleeding, healing, pain, mood, contraception and pelvic floor. Go even if you feel fine."
+        },
+        {
+          "what": "Baby's 6 week health check",
+          "when": "At about 6 weeks",
+          "note": "The GP checks hips, eyes, heart, head growth and weight. Often booked alongside the immunisation visit."
+        },
+        {
+          "what": "6 to 8 week point on the National Immunisation Program",
+          "when": "From 6 weeks, due by 8 weeks",
+          "note": "The first scheduled visit after the birth point. Free. Expect a grumpy, sleepy baby for a day afterwards."
+        },
+        {
+          "what": "Mood check for both of you",
+          "when": "At the MCH visits and your 6 week check",
+          "note": "They ask a short set of questions. Answer them honestly, not bravely. PANDA is on 1300 726 306 if you want to talk sooner."
+        }
+      ],
+      "comingNext": "Weeks 6 to 12: the crying eases off, feeds get faster, and the longest sleep of the day moves to the start of the night.",
+      "sources": ["rcn", "rednose", "aba"],
+      "link": "https://raisingchildren.net.au/newborns",
+      "reviewed": "2026-10"
+    },
+    {
+      "id": "six-to-twelve-weeks",
+      "name": "Six to twelve weeks",
+      "emoji": "😊",
+      "fromDay": 43,
+      "toDay": 84,
+      "headline": "The fog lifts a little. Smiles, longer nights, and feeds that take half the time.",
+      "whatsHappening": [
+        "Sleep: 14 to 16 hours a day. The longest stretch grows to 4 to 6 hours, with about 2 night wakes.",
+        "Naps settle to 3 or 4 a day, and the body clock kicks in, so dark nights and bright days start to help.",
+        "Feeds: 6 to 8 a day, 15 to 30 minutes. Bottles land around 120 to 150mL, 5 or 6 times a day.",
+        "Tummy time: 10 to 15 minutes a day in 3 to 5 minute goes. They push up on their forearms now.",
+        "Nights: the longest sleep moves to the front of the night, so an earlier bedtime starts to pay off.",
+        "New: real social smiles, cooing, hands to the mouth, steadier head, and eyes tracking you across a room."
+      ],
+      "checklist": [
+        {
+          "id": "night-feed-script",
+          "text": "Run every night feed the same boring way",
+          "detail": "Dim light, no talking, feed, burp, change only if soiled, straight back to the cot. Save the chatting for daytime feeds.",
+          "howto": "night-feed"
+        },
+        {
+          "id": "immunisation-six-week",
+          "text": "Get the 6 to 8 week immunisation done if it has not happened",
+          "detail": "Free on the National Immunisation Program. Check it appears on the immunisation register afterwards.",
+          "howto": null
+        },
+        {
+          "id": "mch-eight-week",
+          "text": "Go to the 8 week MCH visit, and book the 4 month one",
+          "detail": "Weight, length, head, feeding, and a hearing and vision chat. Ask about anything that has worried you at 3am.",
+          "howto": null
+        },
+        {
+          "id": "bedtime-anchor",
+          "text": "Pick a bedtime between 6.30 and 8pm and start the same wind down",
+          "detail": "Wash or bath, feed, wrap, dark quiet room, same order every night. It is a signal, not a schedule, so late nights will not ruin it.",
+          "howto": null
+        },
+        {
+          "id": "daylight-walk",
+          "text": "Get outside with them in daylight once a day",
+          "detail": "Morning light helps the body clock settle. It also gets you out of the house, which honestly matters more right now.",
+          "howto": null
+        },
+        {
+          "id": "watch-for-rolling",
+          "text": "Keep wrapping, but watch for the first sign of rolling",
+          "detail": "Red Nose: the moment they show any sign of rolling, stop wrapping the arms in and move to a safe infant sleeping bag.",
+          "howto": "swaddling"
+        },
+        {
+          "id": "tummy-time-build",
+          "text": "Build tummy time to 10 to 15 minutes a day, broken up",
+          "detail": "Roll a towel under the chest if they hate it, and get down on the floor at their eye level. They do it for your face, not the mat.",
+          "howto": "tummy-time"
+        },
+        {
+          "id": "cot-recheck",
+          "text": "Re-check the cot against Red Nose: firm, flat, nothing loose",
+          "detail": "No pillows, doonas, bumpers, positioners or toys. On the back every sleep, in a sleeping bag or a firmly tucked sheet.",
+          "howto": null
+        },
+        {
+          "id": "drowsy-not-asleep",
+          "text": "Try putting them down drowsy rather than fully asleep",
+          "detail": "Some nights it works and some nights it does not. Both are completely fine at this age, so do not turn it into a project.",
+          "howto": "settling"
+        },
+        {
+          "id": "split-the-night",
+          "text": "Split the night into two shifts so each of you gets one long block",
+          "detail": "One of you is on until 2am, the other after. An expressed bottle makes it possible. Four unbroken hours changes everything.",
+          "howto": null
+        },
+        {
+          "id": "log-taper",
+          "text": "Taper the log down to feeds and the overnight pattern",
+          "detail": "You do not need to write down everything any more. Keep enough to answer the nurse and to spot a real change.",
+          "howto": null
+        },
+        {
+          "id": "six-week-check-catchup",
+          "text": "If you skipped your own 6 week check, go this week",
+          "detail": "Mood, bleeding, pain, pelvic floor, contraception. Three months of broken sleep is not a reason to put yourself last.",
+          "howto": null
+        }
+      ],
+      "appointments": [
+        {
+          "what": "6 to 8 week point on the National Immunisation Program",
+          "when": "From 6 weeks, due by 8 weeks",
+          "note": "Free. If you are past 8 weeks it is not too late, ring the clinic and catch it up."
+        },
+        {
+          "what": "MCH nurse visit",
+          "when": "At about 8 weeks",
+          "note": "Growth measurements, feeding, development, hearing and vision questions, and a mood check for both parents."
+        },
+        {
+          "what": "Your 6 week postnatal check, if not done",
+          "when": "By 8 weeks after the birth",
+          "note": "GP or obstetrician. Worth going late rather than not at all."
+        },
+        {
+          "what": "4 month point on the National Immunisation Program",
+          "when": "At 4 months",
+          "note": "The next scheduled visit. Book it now rather than waiting for a reminder letter, and book the 4 month MCH visit too."
+        }
+      ],
+      "comingNext": "Three to six months: rolling, laughing, longer nights, a sleep wobble around 4 months, and solids on the horizon at 6 months.",
+      "sources": ["rcn", "rednose"],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "id": "three-to-six-months",
+      "name": "Three to six months",
+      "emoji": "🤸",
+      "fromDay": 85,
+      "toDay": 182,
+      "headline": "Rolling, laughing, grabbing. Sleep gets better, then wobbles at 4 months.",
+      "whatsHappening": [
+        "Sleep: 12 to 15 hours a day, with 9 to 11 hours overnight and 1 or 2 wakes on a typical night.",
+        "Naps drop from 4 to about 3, then 2 by six months, each 30 minutes to 2 hours long.",
+        "Feeds: 5 or 6 milk feeds a day, 15 to 25 minutes. Milk only until around 6 months.",
+        "Tummy time: 20 to 30 minutes a day spread out. Rolling usually turns up between 4 and 6 months.",
+        "Nights: expect a wobble around 16 to 18 weeks when sleep gets lighter. That is development, not a setback.",
+        "New: rolls over, grabs and mouths everything, laughs out loud, babbles, steady head, sits propped up."
+      ],
+      "checklist": [
+        {
+          "id": "stop-wrapping-arms",
+          "text": "Stop wrapping the arms the day you see any sign of rolling",
+          "detail": "Red Nose rule, no exceptions and no waiting for a full roll. Move to a safe sleeping bag with armholes and a fitted neck.",
+          "howto": "swaddling"
+        },
+        {
+          "id": "clear-the-cot",
+          "text": "Clear the cot again now they can roll and shuffle",
+          "detail": "Nothing loose, no bumpers, no toys, no positioners. Always start them on the back, then let them find their own position.",
+          "howto": null
+        },
+        {
+          "id": "immunisation-four-month",
+          "text": "Get the 4 month immunisation done",
+          "detail": "Free on the National Immunisation Program. Book the 6 month one before you leave the clinic, while you are already there.",
+          "howto": null
+        },
+        {
+          "id": "mch-four-month",
+          "text": "Go to the 4 month MCH visit",
+          "detail": "Growth, rolling, hearing, vision and feeding. Bring the list of questions you have been meaning to ask since week 3.",
+          "howto": null
+        },
+        {
+          "id": "floor-time",
+          "text": "Put them on a rug on the floor instead of a bouncer or seat",
+          "detail": "Twenty minutes of free floor time beats any toy. Rolling, reaching and pushing up all have to happen down there.",
+          "howto": "tummy-time"
+        },
+        {
+          "id": "roll-proof-room",
+          "text": "Roll proof the room: nothing in reach, no cords, no gaps",
+          "detail": "Change them on the floor rather than a change table once they can roll. It only takes one second of looking away.",
+          "howto": null
+        },
+        {
+          "id": "four-month-hold-steady",
+          "text": "When sleep goes backwards at 4 months, change nothing for two weeks",
+          "detail": "Same wind down, same cot, same boring nights. It settles. Starting a brand new method mid wobble usually drags it out.",
+          "howto": "settling"
+        },
+        {
+          "id": "night-feed-shorter",
+          "text": "If they feed twice a night, try keeping the second one short",
+          "detail": "Same dim, silent routine. Plenty of babies drop a night feed on their own somewhere in here, so do not push it.",
+          "howto": "night-feed"
+        },
+        {
+          "id": "solids-signs",
+          "text": "Watch for the three solids signs, around but not before 6 months",
+          "detail": "Head steady and sits with support, reaches for your food, opens the mouth for a spoon. Around 6 months, never before 4.",
+          "howto": null
+        },
+        {
+          "id": "solids-kit",
+          "text": "Buy the solids kit before you need it: high chair, bibs, soft spoons",
+          "detail": "A high chair that straps in and wipes clean. Check it carries the Australian standard label, and that the feet are supported.",
+          "howto": null
+        },
+        {
+          "id": "teething-plan",
+          "text": "Have a teething plan ready: cold teether, clean finger, extra bibs",
+          "detail": "Drool, chewing and one red cheek are normal. A fever, a rash or refused feeds is not teething, so ring the nurse instead.",
+          "howto": null
+        },
+        {
+          "id": "one-evening-off",
+          "text": "Book one evening where somebody else does the bedtime",
+          "detail": "An hour out of the house with your phone on. You are also a couple, and that part has been on hold since April.",
+          "howto": null
+        }
+      ],
+      "appointments": [
+        {
+          "what": "4 month point on the National Immunisation Program",
+          "when": "At 4 months",
+          "note": "Free. Grumpy, sleepy and off their feeds for a day afterwards is expected. Extra cuddles and feeds on demand."
+        },
+        {
+          "what": "MCH nurse visit",
+          "when": "At about 4 months",
+          "note": "Weight, length, head, rolling and head control, plus hearing and vision questions. Book the next visit before you leave."
+        },
+        {
+          "what": "6 month point on the National Immunisation Program",
+          "when": "At 6 months",
+          "note": "The next scheduled visit, free. Ask at the 4 month appointment what else is recommended for their age."
+        },
+        {
+          "what": "GP visit for feeding or growth worries",
+          "when": "Any time between the scheduled visits",
+          "note": "Slow weight gain, reflux that stops feeds, or a baby who is not rolling by 6 months is worth a proper look."
+        }
+      ],
+      "comingNext": "Six to nine months: sitting alone, first foods, two solid naps, and a baby who crosses the room the moment you blink.",
+      "sources": ["rcn", "rednose"],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "id": "six-to-nine-months",
+      "name": "Six to nine months",
+      "emoji": "🥣",
+      "fromDay": 183,
+      "toDay": 273,
+      "headline": "First foods, sitting up, and a baby who is suddenly mobile.",
+      "whatsHappening": [
+        "Sleep: 11 to 14 hours a day. About 10 to 11 overnight, with 0 or 1 wakes on a good night.",
+        "Naps settle to 2 a day, 1 to 2 hours each, usually mid morning and early afternoon.",
+        "Feeds: milk is still the main event at 4 or 5 feeds, plus solids going from 1 meal to 3 by 9 months.",
+        "Tummy time becomes floor time: 30 to 60 minutes a day of rolling, sitting, crawling and reaching.",
+        "Nights: around 8 months they wake because they miss you, not because they are hungry. Short, dim, boring reassurance.",
+        "New: sits unaided, crawls or commandos, first teeth, picks things up, turns to their name, babbles ba-ba and da-da."
+      ],
+      "checklist": [
+        {
+          "id": "start-solids",
+          "text": "Start solids with iron rich food once a day, after a milk feed",
+          "detail": "Iron fortified cereal, pureed meat, lentils or tofu. Smooth first, then lumpier within a few weeks. Milk still comes first.",
+          "howto": null
+        },
+        {
+          "id": "allergy-foods",
+          "text": "Introduce the common allergy foods one at a time, before 12 months",
+          "detail": "Egg, peanut, dairy, wheat, fish, sesame, soy and tree nuts, as smooth paste or butter. At home, in the morning. Never whole nuts.",
+          "howto": null
+        },
+        {
+          "id": "water-in-a-cup",
+          "text": "Offer water in an open or free flowing cup with meals",
+          "detail": "No juice, no cordial, no sweet drinks, no tea. Cooled boiled water until about 12 months if you want to be careful.",
+          "howto": null
+        },
+        {
+          "id": "lower-cot-base",
+          "text": "Drop the cot mattress to the lowest setting now they can sit",
+          "detail": "Red Nose: nothing in the cot they can climb on or get tangled in, so take out mobiles, cot toys and any hanging cords.",
+          "howto": null
+        },
+        {
+          "id": "immunisation-six-month",
+          "text": "Get the 6 month immunisation done",
+          "detail": "Free on the National Immunisation Program. Ask at the same visit what else is recommended for their age.",
+          "howto": null
+        },
+        {
+          "id": "mch-eight-month",
+          "text": "Go to the 6 or 8 month MCH visit",
+          "detail": "Sitting, crawling, hearing, vision, teeth and how solids are going. States run this at slightly different ages, so check yours.",
+          "howto": null
+        },
+        {
+          "id": "baby-proof-floor",
+          "text": "Baby proof at floor level: latches, gates, cords, power points",
+          "detail": "Get on your knees and look. Anything that fits inside a toilet roll is a choking risk. Button batteries out of the house entirely.",
+          "howto": null
+        },
+        {
+          "id": "high-chair-meals",
+          "text": "Eat at the same time, with them strapped into the high chair",
+          "detail": "Straps done up, feet supported, never on a bench or table. Mess is how they learn, so put an old sheet underneath.",
+          "howto": null
+        },
+        {
+          "id": "two-nap-rhythm",
+          "text": "Settle into 2 naps a day at roughly the same times",
+          "detail": "About 2.5 to 3 hours of awake time between sleeps at this age. Watch the baby more than the clock, but keep the order the same.",
+          "howto": "settling"
+        },
+        {
+          "id": "night-wake-script",
+          "text": "Agree one script for the 8 month night wakes and both use it",
+          "detail": "In, hand on the chest, a few quiet words, out. No lights, no lifting unless you have to. The same every time, from both of you.",
+          "howto": "night-feed"
+        },
+        {
+          "id": "first-brush",
+          "text": "Start brushing as soon as the first tooth comes through",
+          "detail": "A soft baby brush and plain water, twice a day. No toothpaste yet unless your dentist or MCH nurse tells you otherwise.",
+          "howto": null
+        },
+        {
+          "id": "car-seat-recheck",
+          "text": "Check the car seat still fits: shoulder height markers, not age",
+          "detail": "Keep them rear facing for as long as the markers allow. Get it re-checked by a fitter whenever you change the setting.",
+          "howto": "car-seat"
+        }
+      ],
+      "appointments": [
+        {
+          "what": "6 month point on the National Immunisation Program",
+          "when": "At 6 months",
+          "note": "Free. Book the 12 month one before you leave, because nothing routine falls due in between to remind you."
+        },
+        {
+          "what": "MCH nurse visit",
+          "when": "At about 6 or 8 months, depending on your state",
+          "note": "Growth, sitting and crawling, hearing, vision, teeth and solids. Victoria runs a 6 month and an 8 month visit."
+        },
+        {
+          "what": "Hearing and development check",
+          "when": "At the MCH visit around 8 months",
+          "note": "They watch how the baby responds to sound and to their name. Raise it sooner if they never startle or turn to a voice."
+        },
+        {
+          "what": "12 month point on the National Immunisation Program",
+          "when": "At 12 months",
+          "note": "The next scheduled visit after 6 months. Nothing routine is due in between unless your GP says otherwise."
+        }
+      ],
+      "comingNext": "Nine to twelve months: pulling up, cruising the furniture, first words, three meals a day, and the 12 month immunisation and check.",
+      "sources": ["rcn", "rednose"],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    },
+    {
+      "id": "nine-to-twelve-months",
+      "name": "Nine to twelve months",
+      "emoji": "🎂",
+      "fromDay": 274,
+      "toDay": 365,
+      "headline": "Pulling up, first words, three meals a day, and a first birthday in sight.",
+      "whatsHappening": [
+        "Sleep: 11 to 14 hours a day. Usually 10 to 12 overnight, and most babies no longer need a night feed.",
+        "Naps: 2 a day, sometimes shortening toward 1 longer one near the first birthday.",
+        "Feeds: 3 meals and 2 snacks, plus 3 or 4 milk feeds. Finger food at every single meal.",
+        "Floor time has replaced tummy time: pulling to stand, cruising the furniture, and crawling at real speed.",
+        "Nights: they can stand up in the cot now. Lowest mattress setting, sleeping bag rather than blankets, no bumpers.",
+        "New: pulls to stand, cruises, points, waves, says a word or two with meaning, and may take a first step."
+      ],
+      "checklist": [
+        {
+          "id": "immunisation-twelve-month",
+          "text": "Get the 12 month immunisation done",
+          "detail": "Free on the National Immunisation Program. Book it near their birthday so it does not quietly slide into month 14.",
+          "howto": null
+        },
+        {
+          "id": "mch-twelve-month",
+          "text": "Go to the 12 month MCH visit",
+          "detail": "Growth, walking, words, teeth, eating and your own wellbeing. It is the last routine visit before 18 months.",
+          "howto": null
+        },
+        {
+          "id": "first-dental-check",
+          "text": "Book a first dental check by their first birthday",
+          "detail": "Or within six months of the first tooth, whichever comes first. Many public dental services see babies at no cost.",
+          "howto": null
+        },
+        {
+          "id": "cot-lowest-setting",
+          "text": "Cot base at the lowest setting, nothing they can stand on",
+          "detail": "Red Nose: no bumpers, no cot toys, no pillows. A fitted sleeping bag beats blankets once they stand up and move around.",
+          "howto": "dressing-for-sleep"
+        },
+        {
+          "id": "cup-over-bottle",
+          "text": "Move daytime milk from a bottle to a cup",
+          "detail": "Aim to be off bottles around 12 months. Swap one feed at a time into an open or free flowing cup, starting with the easiest.",
+          "howto": null
+        },
+        {
+          "id": "cows-milk-at-twelve",
+          "text": "Hold off on cow's milk as a drink until 12 months",
+          "detail": "Dairy in food is already fine. Full cream cow's milk as a drink from 12 months, and no reduced fat milk before 2 years.",
+          "howto": null
+        },
+        {
+          "id": "family-meals",
+          "text": "Sit down and eat the same meal together, three times a day",
+          "detail": "They copy you, not a spoon. Soft finger food cut long and thin, and never leave them eating on their own.",
+          "howto": null
+        },
+        {
+          "id": "choking-course",
+          "text": "Do an infant first aid and choking course, both of you",
+          "detail": "Three hours on one Saturday and you will never have to wonder again. Book it before they are properly mobile.",
+          "howto": null
+        },
+        {
+          "id": "shorten-night-feed",
+          "text": "If they still feed overnight, shorten it rather than cut it",
+          "detail": "Most babies this age wake from habit or teeth, not hunger. Same dim, quiet script, a little shorter each night.",
+          "howto": "night-feed"
+        },
+        {
+          "id": "cruise-barefoot",
+          "text": "Let them pull up and cruise barefoot on a clear floor",
+          "detail": "No shoes needed indoors, bare feet grip better. Clear a loop of steady furniture and move anything that tips or slides.",
+          "howto": null
+        },
+        {
+          "id": "name-everything",
+          "text": "Name everything out loud, and read the same book every night",
+          "detail": "Point, wait, then repeat back whatever sound they make. Twenty minutes of talking to them beats any screen or app.",
+          "howto": null
+        },
+        {
+          "id": "first-year-album",
+          "text": "Pull the weekly photos into one album before the birthday",
+          "detail": "Fifty two photos, one a page. It is the best present the two of you will give yourselves this year.",
+          "howto": null
+        }
+      ],
+      "appointments": [
+        {
+          "what": "12 month point on the National Immunisation Program",
+          "when": "At 12 months",
+          "note": "Free. Check afterwards that it has gone onto the immunisation register, because childcare and some payments rely on it."
+        },
+        {
+          "what": "MCH nurse visit",
+          "when": "At about 12 months",
+          "note": "Growth, development, eating, teeth, home safety and a mood check for both parents. Bring the health record book."
+        },
+        {
+          "what": "First dental check",
+          "when": "By the first birthday, or 6 months after the first tooth",
+          "note": "A quick look, a clean and advice on brushing. Public dental services cover babies in most states."
+        },
+        {
+          "what": "18 month immunisation and MCH visit",
+          "when": "At 18 months",
+          "note": "The next scheduled points after the first birthday. Nothing routine is due between 12 and 18 months."
+        }
+      ],
+      "comingNext": "After 12 months: one nap, cow's milk in a cup, walking, and the next immunisation and MCH visit waiting at 18 months.",
+      "sources": ["rcn", "rednose"],
+      "link": "https://raisingchildren.net.au/babies",
+      "reviewed": "2026-10"
+    }
+  ]
+}
