@@ -1,4 +1,4 @@
-// Bump Appetit service worker.
+// Bub Appetit service worker.
 //
 // What this buys her: after the first visit the app opens instantly and works
 // completely in flight mode, in a basement restaurant, in a hospital lift. The
@@ -14,7 +14,7 @@ const DATA_CACHE = `${VERSION}-data`;
 const KEEP = [SHELL_CACHE, DATA_CACHE];
 
 // Derived from the registration rather than assumed to be '/', because GitHub
-// Pages serves this from a project subpath like /bump-appetit/.
+// Pages serves this from a project subpath like /bub-appetit/.
 const SCOPE = (self.registration && self.registration.scope) || self.location.href;
 const ROOT = new URL('./', SCOPE);
 
@@ -34,18 +34,20 @@ const SHELL = [
   'assets/js/data.js',
   'assets/js/icons.js',
   'assets/js/router.js',
-  'assets/js/scanner.js',
   'assets/js/search.js',
   'assets/js/sheet.js',
   'assets/js/sticker.js',
   'assets/js/strings.js',
-  'assets/js/trackers.js',
+  'assets/js/views/track.js',
   'assets/js/util.js',
-  'assets/js/verdict.js',
-  'assets/js/views/bites.js',
+  'assets/js/answer.js',
+  'assets/js/views/week.js',
   'assets/js/views/more.js',
-  'assets/js/views/scan.js',
   'assets/js/views/search.js',
+  'assets/js/ask.js',
+  'assets/js/sync.js',
+  'assets/js/notify.js',
+  'assets/js/timeline.js',
 
   'assets/vendor/fuse.basic.min.mjs',
 
@@ -61,12 +63,13 @@ const SHELL = [
 // Stale-while-revalidate, so a corrected verdict reaches her on the next open
 // without her ever waiting on a network for an answer she already has.
 const DATA = [
-  'data/caffeine.json',
+  'data/howtos.json',
   'data/cheatsheets.json',
-  'data/foods.json',
-  'data/lexicon.json',
-  'data/meals.json',
+  'data/entries.json',
+  'data/stages.json',
+  'data/weeks.json',
   'data/sources.json',
+  'data/buylist.json',
 ].map(at);
 
 const SHELL_SET = new Set(SHELL);

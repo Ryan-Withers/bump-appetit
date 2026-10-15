@@ -8,6 +8,7 @@ const DATA_FILES = Object.freeze({
   stages: 'stages.json',
   howtos: 'howtos.json',
   cheatsheets: 'cheatsheets.json',
+  buylist: 'buylist.json',
   sources: 'sources.json',
 });
 
@@ -78,12 +79,13 @@ function buildIndexes(entries, howtos) {
 }
 
 async function build() {
-  const [entries, weeks, stages, howtos, cheatsheets, sources] = await Promise.all([
+  const [entries, weeks, stages, howtos, cheatsheets, buylist, sources] = await Promise.all([
     fetchJson(DATA_FILES.entries),
     fetchJson(DATA_FILES.weeks),
     fetchJson(DATA_FILES.stages),
     fetchJson(DATA_FILES.howtos),
     fetchJson(DATA_FILES.cheatsheets),
+    fetchJson(DATA_FILES.buylist),
     fetchJson(DATA_FILES.sources),
   ]);
 
@@ -98,6 +100,7 @@ async function build() {
     stages: requireArray(stages && stages.stages, 'stages.json', 'stages'),
     howtos: requireArray(howtos && howtos.howtos, 'howtos.json', 'howtos'),
     sheets: requireArray(cheatsheets && cheatsheets.sheets, 'cheatsheets.json', 'sheets'),
+    buylist: requireArray(buylist && buylist.buylist, 'buylist.json', 'buylist'),
     sources: sourceMap,
   };
 

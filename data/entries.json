@@ -1264,7 +1264,11 @@
    "aliases": [
     "what is a dream feed",
     "should i do a dream feed",
-    "late evening top up before bed"
+    "late evening top up before bed",
+    "dream feed",
+    "feeding baby while asleep",
+    "does a dream feed help",
+    "late night top up feed"
    ],
    "group": "Sleep",
    "tier": "normal",
@@ -1480,7 +1484,10 @@
     "posseting",
     "spilling milk after feeds",
     "is that spit up or vomit",
-    "how much spit up is normal"
+    "how much spit up is normal",
+    "spitting up after feeds",
+    "is it posseting or vomiting",
+    "bringing up milk"
    ],
    "group": "Feeding",
    "tier": "depends",
@@ -1850,30 +1857,6 @@
     "rcn"
    ],
    "link": "https://raisingchildren.net.au/babies/breastfeeding-bottle-feeding-solids",
-   "flags": [],
-   "popularity": 2,
-   "reviewed": "2026-10"
-  },
-  {
-   "id": "dream-feeds",
-   "name": "Dream feeds",
-   "emoji": "😌",
-   "aliases": [
-    "dream feed",
-    "feeding baby while asleep",
-    "does a dream feed help",
-    "late night top up feed"
-   ],
-   "group": "Feeding",
-   "tier": "normal",
-   "why": "A dream feed is a late feed given while your baby is still drowsy, in the hope of buying a longer stretch. It helps some babies and does nothing at all for others.",
-   "whatToDo": "If you want to try it, feed just before you go to bed and keep it calm and dark. If it only wakes everyone up properly, drop it. Nobody is marking you on this.",
-   "whoToCall": null,
-   "variants": null,
-   "sources": [
-    "rcn"
-   ],
-   "link": "https://raisingchildren.net.au/newborns/breastfeeding-bottle-feeding",
    "flags": [],
    "popularity": 2,
    "reviewed": "2026-10"
@@ -3160,7 +3143,10 @@
    "aliases": [
     "red smelly cord",
     "infected cord stump",
-    "cord weeping pus"
+    "cord weeping pus",
+    "belly button red and smelly",
+    "pus around the cord",
+    "cord stump infection"
    ],
    "group": "Nappies",
    "tier": "call",
@@ -3876,30 +3862,6 @@
    "reviewed": "2026-10"
   },
   {
-   "id": "cord-infection",
-   "name": "An infected cord stump",
-   "emoji": "🚩",
-   "aliases": [
-    "belly button red and smelly",
-    "pus around the cord",
-    "cord stump infection"
-   ],
-   "group": "Skin & body",
-   "tier": "call",
-   "why": "Redness spreading onto the tummy around the stump, yellow or green pus, a bad smell, bleeding that keeps going, or a baby off their feeds means infection, and newborns need that treated fast.",
-   "whatToDo": "Ring your GP today, or the emergency department after hours. If there is a fever as well, and any fever under 3 months counts, go straight to the emergency department.",
-   "whoToCall": "GP",
-   "variants": null,
-   "sources": [
-    "rch",
-    "rcn"
-   ],
-   "link": "https://www.rch.org.au/kidsinfo/",
-   "flags": [],
-   "popularity": 2,
-   "reviewed": "2026-10"
-  },
-  {
    "id": "baby-acne",
    "name": "Baby acne",
    "emoji": "🫧",
@@ -4301,7 +4263,8 @@
     "bright red rash in the creases",
     "thrush on bottom",
     "thrush nappy rash",
-    "spots around the rash"
+    "spots around the rash",
+    "nappy thrush"
    ],
    "group": "Skin & body",
    "tier": "call",
@@ -4699,48 +4662,6 @@
     "rch"
    ],
    "link": "https://www.rch.org.au/kidsinfo/fact_sheets/Jaundice_in_newborn_babies/",
-   "flags": [],
-   "popularity": 3,
-   "reviewed": "2026-10"
-  },
-  {
-   "id": "posseting-or-vomiting",
-   "name": "Posseting or vomiting",
-   "emoji": "🍼",
-   "aliases": [
-    "spitting up after feeds",
-    "is it posseting or vomiting",
-    "bringing up milk"
-   ],
-   "group": "Illness",
-   "tier": "depends",
-   "why": "Posseting is a small, easy dribble of milk after a feed, from a baby who is otherwise happy and gaining. Vomiting comes with force and volume, and usually with a baby who minds.",
-   "whatToDo": null,
-   "whoToCall": null,
-   "variants": [
-    {
-     "label": "Small spill after a feed",
-     "tier": "normal",
-     "why": "Most babies posset. A tablespoon looks like a flood on a muslin. If they are feeding, weeing and gaining, this is laundry, not illness.",
-     "whatToDo": "Burp them, hold them upright for a while after feeds, and buy more muslins than you think you need."
-    },
-    {
-     "label": "Vomiting with a cold or gastro",
-     "tier": "watch",
-     "why": "Babies often vomit with a virus. The thing to track is fluid going in and wee coming out, not the vomit itself.",
-     "whatToDo": "Offer small, frequent feeds. Ring your GP today if they are under 3 months, vomiting every feed, or nappies are drying up."
-    },
-    {
-     "label": "Forceful, green or bloody, or a swollen tummy",
-     "tier": "call",
-     "why": "Projectile vomiting, green or bloody vomit, or a tight swollen tummy can mean a blockage, and that needs seeing straight away.",
-     "whatToDo": "Ring 000, or go to the emergency department now."
-    }
-   ],
-   "sources": [
-    "rch"
-   ],
-   "link": "https://www.rch.org.au/kidsinfo/fact_sheets/Gastroenteritis/",
    "flags": [],
    "popularity": 3,
    "reviewed": "2026-10"

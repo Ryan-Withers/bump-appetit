@@ -1609,3 +1609,225 @@ body:has(.sheet.is-open) .sheet-backdrop {
     transition: opacity 150ms linear;
   }
 }
+
+/* ------------------------------------------------- 14. Bub Appetit screens */
+/* Everything added when the app became a newborn app rather than a food one.
+   The two load-bearing pieces are the call button, which has to be findable by
+   a frightened person without reading, and the week card, which is what the
+   whole Week tab is made of. */
+
+/* The phone. Big, green, unmistakably a button, and never more than one tap
+   from the top of a CALL SOMEONE answer. */
+.callwrap { display: flex; flex-direction: column; gap: var(--s2); }
+
+.callbtn {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s4);
+  border: 1px solid var(--ok-line);
+  border-radius: var(--r-btn);
+  background: var(--ok-bg);
+  color: var(--ok-ink);
+  text-decoration: none;
+  min-height: 64px;
+}
+
+.callbtn--plain { opacity: .85; }
+.callbtn__icon { flex: none; display: grid; place-items: center; }
+
+/* Stacked, not inline: "Maternal & Child Health Line" and "13 22 29" are two
+   different facts and ran together when they shared a line. */
+.callbtn__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.callbtn__who { font-size: var(--fs-label); font-weight: 700; }
+.callbtn__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-heading);
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+.callwrap__note { font-size: var(--fs-caption); color: var(--ink-2); }
+
+/* Said in the search field, not found in an entry: this jumps the queue. */
+.urgent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s4);
+  border: 1px solid var(--ring-line);
+  border-radius: var(--r-card);
+  background: var(--ring-bg);
+}
+.urgent__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-heading);
+  font-weight: 800;
+  color: var(--ring-ink);
+}
+
+/* ------------------------------------------------------------- week + cards */
+
+.weekhead { display: flex; flex-direction: column; gap: var(--s1); }
+.weekhead__eyebrow {
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.weekhead__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 800;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.weekhead__meta { font-size: var(--fs-caption); color: var(--ink-2); }
+.weekhead__line { font-size: var(--fs-body); line-height: 1.5; text-wrap: pretty; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+}
+
+.card__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 700;
+}
+
+.pill {
+  flex: none;
+  padding: 2px var(--s2);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+}
+
+/* What to expect: the numbers Ryan asked for, as a two column read. */
+.expect { display: flex; flex-direction: column; }
+.expect__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s4);
+  padding: var(--s2) 0;
+  border-bottom: 1px solid var(--line);
+}
+.expect__row:last-child { border-bottom: 0; }
+.expect__label { flex: none; font-size: var(--fs-caption); font-weight: 700; color: var(--ink-2); }
+.expect__value { text-align: right; font-size: var(--fs-label); }
+.expect__new { font-size: var(--fs-label); color: var(--ink); }
+
+/* -------------------------------------------------------------- the tracker */
+
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s2); }
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+}
+.stat__label { font-size: var(--fs-caption); font-weight: 700; color: var(--ink-2); }
+.stat__value {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.stat__note { font-size: var(--fs-caption); color: var(--ink-2); }
+
+/* One handed, in the dark, holding a baby. Big targets, evenly split. */
+.actions { display: flex; gap: var(--s2); }
+.actions .btn { flex: 1 1 0; min-height: 52px; }
+
+.row--static { cursor: default; }
+.row--call { border-color: var(--ring-line); background: var(--ring-bg); }
+.row--call .row__label strong { color: var(--ring-ink); }
+.row__call, .row__x {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+}
+.row__call { color: var(--ok-ink); }
+
+/* ------------------------------------------------------------- settings bits */
+
+.field { display: flex; flex-direction: column; gap: var(--s1); }
+.field__label { font-size: var(--fs-caption); font-weight: 700; color: var(--ink-2); }
+.field__input {
+  padding: var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-btn);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-body);
+}
+.field__input.is-bad { border-color: var(--ring-line); background: var(--ring-bg); }
+.field__hint { font-size: var(--fs-caption); color: var(--ink-2); line-height: 1.45; }
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  min-height: 44px;
+}
+.toggle__dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.toggle.is-on {
+  border-color: var(--ok-line);
+  background: var(--ok-bg);
+  color: var(--ok-ink);
+}
+.toggle.is-on .toggle__dot { background: var(--ok-ink); }
+
+/* ------------------------------------------------------------------- ask */
+
+.askrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  padding: var(--s4);
+  border: 1px dashed var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface-2);
+  text-align: left;
+}
+.askrow__icon { flex: none; color: var(--brand); }
+.askrow__text { display: flex; flex-direction: column; gap: 2px; }
+.askrow__label { font-size: var(--fs-label); font-weight: 700; color: var(--ink); }
+.askrow__note { font-size: var(--fs-caption); color: var(--ink-2); }
+
+.stack--tight { gap: var(--s2); }

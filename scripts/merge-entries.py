@@ -32,6 +32,19 @@ SUPERSEDED = {
     # Same advice twice over.
     'white-noise-for-crying':         'white-noise',
     'teething-and-crying':            'teething',
+    # Two entries, same name, different groups. Spit up is a feeding question.
+    'posseting-or-vomiting':          'posseting-vs-vomiting',
+    # Same name, two groups. A dream feed is a sleep tactic more than a feed.
+    'dream-feeds':                    'dream-feed',
+    # Both call, same advice. The stump one sits beside cord-stump-care.
+    'cord-infection':                 'cord-stump-infection',
+}
+
+# An entry that cannot be found by its own obvious name is not in the app. The
+# golden search tests caught "nappy thrush" losing to plain nappy rash, which
+# is a call entry losing to a watch one.
+ALIAS_ADD = {
+    'nappy-thrush': ['nappy thrush'],
 }
 
 entries, log = [], []
@@ -59,6 +72,9 @@ for path in sorted(glob.glob(os.path.join(SP, 'entries-*.json'))):
         seen_ids.add(e['id'])
         entries.append(e)
     log.append(f'{name}: {len(batch)} read')
+
+for target_id, extra in ALIAS_ADD.items():
+    moved_aliases.setdefault(target_id, []).extend(extra)
 
 for winner, extra in moved_aliases.items():
     target = next((e for e in entries if e['id'] == winner), None)

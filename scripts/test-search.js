@@ -6,7 +6,7 @@
 // loads them, so nothing here can drift from what Emma actually types into.
 //
 // data.js is skipped on purpose: it fetches over HTTP, which does not exist in
-// Node. The harness reads data/foods.json off disk and calls initSearch(foods)
+// Node. The harness reads data/entries.json off disk and calls initSearch(entries)
 // directly, which is the same input data.js would have handed it.
 //
 // Run with: node scripts/test-search.js
@@ -19,174 +19,52 @@ const { pathToFileURL } = require('node:url');
 const ROOT = path.resolve(__dirname, '..');
 
 /**
- * [query, expectedId, expectedTier]. The expected food must come back as the
+ * [query, expectedId, expectedTier]. The expected entry must come back as the
  * TOP result, not merely somewhere in the list: on a phone in a cafe queue,
  * result two might as well not exist.
  */
 const GOLDEN = [
-  // 1. The seed set from build spec 8.5.
-  ['runny egg', 'eggs-runny', 'red'],
-  ['maccas soft serve', 'soft-serve', 'red'],
-  ['flake', 'flake', 'yellow'],
-  ['proscuitto', 'prosciutto', 'red'],
-  ['pav', 'pavlova', 'green'],
-  ['can i eat brie', 'brie', 'red'],
-  ['salmon', 'salmon', 'depends'],
-  ['hommus', 'hummus', 'red'],
-  ['jar mayo', 'mayonnaise-jar', 'green'],
-  ['chrissy prawns', 'prawns-precooked-cold', 'red'],
+  // 1. The things typed at 3am, in the words a frightened person uses.
+  ['cluster feeding', 'cluster-feeding', 'normal'],
+  ['hiccups', 'hiccups', 'normal'],
+  ['cradle cap', 'cradle-cap', 'normal'],
+  ['baby acne', 'baby-acne', 'normal'],
+  ['first smile', 'first-smile', 'normal'],
+  ['witching hour', 'witching-hour', 'normal'],
+  ['resettling', 'resettling', 'normal'],
+  ['wet nappy count', 'wet-nappy-count', 'normal'],
+  ['cord stump care', 'cord-stump-care', 'normal'],
 
-  // 2. Australian vernacular. She will not type "chicken parmigiana".
-  ['parmy', 'chicken-parmigiana', 'green'],
-  ['schnitty', 'schnitzel-cooked', 'green'],
-  ['chook', 'bbq-chicken-hot', 'green'],
-  ['cold chook', 'bbq-chicken-cold', 'red'],
-  ['avo', 'avocado', 'green'],
-  ['smashed avo', 'avocado', 'green'],
-  ['maccas', 'burgers', 'green'],
-  ['snag', 'sausages-cooked', 'green'],
-  ['brekkie eggs', 'eggs', 'depends'],
-  ['choccy', 'chocolate', 'green'],
-  ['hsp', 'kebab', 'yellow'],
-  ['cuppa', 'tea', 'yellow'],
-  ['bikkies', 'baked-cakes-biscuits', 'green'],
-  ['toastie', 'toasted-ham-cheese', 'green'],
-  ['jaffle', 'toasted-ham-cheese', 'green'],
-  ['devon', 'cold-deli-meats', 'red'],
-  ['barra', 'cooked-fish', 'green'],
-  ['servo sanga', 'packaged-sandwiches', 'red'],
-  ['chrissy stuffing', 'stuffing-in-bird', 'red'],
-  ['milo', 'hot-chocolate', 'yellow'],
-  ['lambs fry', 'liver', 'yellow'],
-  ['bath milk', 'raw-milk-and-cheese', 'red'],
+  // 2. The ones that must land on KEEP AN EYE, not on reassurance.
+  ['colic', 'colic', 'watch'],
+  ['reflux', 'reflux', 'watch'],
+  ['silent reflux', 'silent-reflux', 'watch'],
+  ['nappy rash', 'nappy-rash', 'watch'],
+  ['constipation', 'constipation', 'watch'],
+  ['rolling over', 'rolling-over', 'watch'],
+  ['attachment and latch', 'attachment-and-latch', 'watch'],
+  ['oversupply', 'oversupply', 'watch'],
+  ['nipple thrush', 'nipple-thrush', 'watch'],
 
-  // 3. Misspellings. Typed one-handed, at 3am, on a phone keyboard.
-  ['cambembert', 'brie', 'red'],
-  ['camenbert', 'brie', 'red'],
-  ['prosciuto', 'prosciutto', 'red'],
-  ['humous', 'hummus', 'red'],
-  ['flat wite', 'coffee', 'yellow'],
-  ['mayonaise', 'mayonnaise', 'depends'],
-  ['mushroon', 'mushrooms', 'depends'],
-  ['sammon', 'salmon', 'depends'],
-  ['canteloupe', 'rockmelon', 'red'],
-  ['avacado', 'avocado', 'green'],
-  ['susi', 'sushi', 'depends'],
-  ['chese', 'cheese', 'depends'],
-  ['holandaise', 'hollandaise', 'red'],
-  ['eggs benidict', 'eggs-benedict', 'red'],
-  ['chocolate moose', 'chocolate-mousse', 'red'],
-  ['orange ruffy', 'orange-roughy-catfish', 'yellow'],
-  ['seviche', 'ceviche', 'red'],
+  // 3. CALL SOMEONE. Getting one of these wrong is the whole risk, so every
+  // one of them is pinned by id AND by tier.
+  ['mastitis', 'mastitis', 'call'],
+  ['fewer wet nappies', 'fewer-wet-nappies', 'call'],
+  ['projectile vomiting', 'projectile-vomiting', 'call'],
+  ['cord stump infection', 'cord-stump-infection', 'call'],
+  ['blood in a nappy', 'blood-in-a-nappy', 'call'],
+  ['inconsolable crying', 'inconsolable-crying', 'call'],
+  ['breathing oddly in sleep', 'breathing-oddly-in-sleep', 'call'],
+  ['nappy thrush', 'nappy-thrush', 'call'],
+  ['jaundice and feeding', 'jaundice-and-feeding', 'call'],
 
-  // 4. Full questions. The filler stripper has to peel these back to the food.
-  ['is sushi safe while pregnant', 'sushi', 'depends'],
-  ['are runny eggs ok', 'eggs-runny', 'red'],
-  ['can i eat pate', 'pate-refrigerated', 'red'],
-  ['is feta ok when pregnant', 'feta-and-ricotta', 'red'],
-  ['can i have coffee while pregnant', 'coffee', 'yellow'],
-  ['can i eat prawns', 'prawns', 'depends'],
-  ['is smoked salmon safe', 'smoked-salmon', 'red'],
-  ['can i eat soft serve', 'soft-serve', 'red'],
-  ['is hummus safe', 'hummus', 'red'],
-  ['can i eat rockmelon while pregnant', 'rockmelon', 'red'],
-  ['is it ok to eat sashimi', 'sashimi', 'red'],
-  ['can i eat salami', 'cold-deli-meats', 'red'],
-  ['are oysters safe while pregnant', 'oysters-raw', 'red'],
-  ['is milk ok', 'milk', 'depends'],
-
-  // 5. Every ambiguous food answers "depends" and shows the split. A single
-  // wrong tier on one of these is the failure that costs all trust.
-  ['cheese', 'cheese', 'depends'],
-  ['milk', 'milk', 'depends'],
-  ['ham', 'ham', 'depends'],
-  ['prawns', 'prawns', 'depends'],
-  ['eggs', 'eggs', 'depends'],
-  ['mayonnaise', 'mayonnaise', 'depends'],
-  ['mushrooms', 'mushrooms', 'depends'],
-  ['pho', 'pho', 'depends'],
-  ['sushi', 'sushi', 'depends'],
-  ['sushi train', 'sushi-train', 'depends'],
-  ['salmon fillet', 'salmon', 'depends'],
-
-  // 6. The highest-stakes reds. Getting one of these wrong is the whole risk.
-  ['soft serve', 'soft-serve', 'red'],
-  ['hollandaise', 'hollandaise', 'red'],
-  ['cold deli meat', 'cold-deli-meats', 'red'],
-  ['smoked salmon', 'smoked-salmon', 'red'],
-  ['pate', 'pate-refrigerated', 'red'],
-  ['raw sprouts', 'raw-sprouts', 'red'],
-  ['rockmelon', 'rockmelon', 'red'],
-  ['hummus', 'hummus', 'red'],
-  ['blue cheese', 'blue-cheese', 'red'],
-  ['oysters', 'oysters-raw', 'red'],
-  ['sashimi', 'sashimi', 'red'],
-  ['tiramisu', 'tiramisu', 'red'],
-  ['caesar salad', 'caesar-salad', 'red'],
-  ['cookie dough', 'cookie-dough', 'red'],
-  ['alcohol', 'alcohol', 'red'],
-  ['energy drinks', 'energy-drinks', 'red'],
-  ['enoki', 'enoki-mushrooms', 'red'],
-  ['bocconcini', 'fresh-mozzarella', 'red'],
-  ['goats cheese', 'goat-cheese', 'red'],
-  ['fetta', 'feta-and-ricotta', 'red'],
-  ['leg ham', 'cold-deli-meats', 'red'],
-  ['supermarket sushi', 'sushi-store-bought', 'red'],
-  ['pre packaged salad', 'salad-bars-packaged', 'red'],
-  ['juice bar smoothie', 'cafe-juice-smoothie', 'red'],
-  ['rare steak', 'steak-rare', 'red'],
-  ['jerky', 'jerky-biltong', 'red'],
-  ['eggs benedict', 'eggs-benedict', 'red'],
-  ['veggie pate', 'pate-veggie', 'red'],
-  ['kibbeh', 'raw-mince-dishes', 'red'],
-  ['marinated mussels', 'marinated-mussels', 'red'],
-  ['prawn cocktail', 'prawns-precooked-cold', 'red'],
-
-  // 7. The yeses and the limits, because the app is not a wall of no.
-  ['pizza', 'pizza', 'green'],
-  ['meat pie', 'meat-pie', 'green'],
-  ['hot chips', 'hot-chips', 'green'],
-  ['fish and chips', 'fish-and-chips', 'green'],
-  ['vegemite', 'vegemite', 'green'],
-  ['honey', 'honey', 'green'],
-  ['decaf', 'decaf-coffee', 'green'],
-  ['water', 'water', 'green'],
-  ['yoghurt', 'yoghurt', 'green'],
-  ['haloumi', 'haloumi', 'green'],
-  ['bacon', 'bacon-hot', 'green'],
-  ['peanuts', 'peanuts', 'green'],
-  ['frozen berries', 'frozen-fruit', 'green'],
-  ['canned tuna', 'canned-fish', 'green'],
-  ['weet bix', 'bread-cereal-oats', 'green'],
-  ['quiche', 'quiche', 'green'],
-  ['kebab', 'kebab', 'yellow'],
-  ['liver', 'liver', 'yellow'],
-  ['gelato', 'gelato-scooped', 'yellow'],
-  ['coke', 'cola', 'yellow'],
-  ['raspberry leaf tea', 'raspberry-leaf-tea', 'red'],
-  ['zero beer', 'zero-alcohol-drinks', 'yellow'],
-  ['pad thai', 'pad-thai-stir-fry', 'yellow'],
-  ['stevia', 'artificial-sweeteners', 'yellow'],
-
-  // 8. The expansion audit round. Every row here is a search steal or wrong
-  // tier the August audit caught: a dedicated card whose bare word still
-  // pointed at an older, more permissive entry.
-  ['pepperoni', 'pepperoni-cold', 'red'],
-  ['baby spinach', 'spinach', 'depends'],
-  ['dory', 'basa', 'yellow'],
-  ['schnitzel', 'schnitzel-cooked', 'green'],
-  ['poke bowl', 'poke-bowl-cooked', 'depends'],
-  ['reuben', 'deli-meat-heated', 'green'],
-  ['rooibos', 'rooibos-tea', 'yellow'],
-  ['slushie', 'slushies', 'red'],
-  ['risotto', 'risotto-hot', 'yellow'],
-  ['coconut water', 'coconut-water-bottled', 'depends'],
-  ['kingfish', 'kingfish-cooked', 'depends'],
-  ['fish burger', 'fish-burger', 'yellow'],
-  ['raclette', 'raclette', 'depends'],
-  ['wakame', 'seaweed-nori', 'depends'],
-  ['spag bol', 'rice-and-pasta', 'green'],
-  ['teriyaki', 'teriyaki-chicken', 'yellow'],
+  // 4. The genuine two-answer ones.
+  ['swaddling', 'swaddling', 'depends'],
+  ['bed sharing', 'bed-sharing', 'depends'],
+  ['dummy for sleep', 'dummy-for-sleep', 'depends'],
+  ['newborn jaundice', 'newborn-jaundice', 'depends'],
+  ['posseting', 'posseting-vs-vomiting', 'depends'],
+  ['low supply', 'low-supply-worry', 'depends'],
 ];
 
 const VALID_KINDS = new Set(['exact-name', 'exact-alias', 'fuzzy']);
@@ -202,25 +80,25 @@ function moduleUrl(rel) {
 }
 
 function loadFoods() {
-  const abs = path.join(ROOT, 'data/foods.json');
+  const abs = path.join(ROOT, 'data/entries.json');
   const bundle = JSON.parse(fs.readFileSync(abs, 'utf8'));
-  if (!Array.isArray(bundle.foods) || bundle.foods.length === 0) {
-    throw new Error('data/foods.json has no foods array. Run node scripts/validate.js first.');
+  if (!Array.isArray(bundle.entries) || bundle.entries.length === 0) {
+    throw new Error('data/entries.json has no entries array. Run node scripts/validate.js first.');
   }
-  return bundle.foods;
+  return bundle.entries;
 }
 
 function describe(result) {
   if (!result) return 'nothing';
-  return `${result.food.id} (${result.food.tier}, ${result.kind}, score ${Number(result.score).toFixed(2)})`;
+  return `${result.entry.id} (${result.entry.tier}, ${result.kind}, score ${Number(result.score).toFixed(2)})`;
 }
 
 /**
  * Catches fixture rot before it looks like a search bug: a renamed id or a
- * retiered food should read as "the fixture is stale", not "search broke".
+ * retiered entry should read as "the fixture is stale", not "search broke".
  */
-function checkFixtureAgainstData(foods) {
-  const byId = new Map(foods.map((food) => [food.id, food]));
+function checkFixtureAgainstData(entries) {
+  const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const seenQueries = new Set();
 
   for (const [query, expectedId, expectedTier] of GOLDEN) {
@@ -229,18 +107,18 @@ function checkFixtureAgainstData(foods) {
     }
     seenQueries.add(query);
 
-    const food = byId.get(expectedId);
-    if (!food) {
+    const entry = byId.get(expectedId);
+    if (!entry) {
       fail(
         `Unknown id in fixture: ${JSON.stringify(expectedId)} (query ${JSON.stringify(query)})`,
-        'No food in data/foods.json has that id. Ids are stable by contract, so either the fixture is stale or an id was renamed.'
+        'No entry in data/entries.json has that id. Ids are stable by contract, so either the fixture is stale or an id was renamed.'
       );
       continue;
     }
-    if (food.tier !== expectedTier) {
+    if (entry.tier !== expectedTier) {
       fail(
         `Stale tier in fixture: ${expectedId} (query ${JSON.stringify(query)})`,
-        `The fixture expects "${expectedTier}" but data/foods.json now says "${food.tier}". If the retier is deliberate, update this row.`
+        `The fixture expects "${expectedTier}" but data/entries.json now says "${entry.tier}". If the retier is deliberate, update this row.`
       );
     }
   }
@@ -261,19 +139,19 @@ function runGolden(search) {
       continue;
     }
 
-    if (top.food.id !== expectedId) {
-      const runners = outcome.results.slice(1, 4).map((r) => r.food.id).join(', ') || 'none';
+    if (top.entry.id !== expectedId) {
+      const runners = outcome.results.slice(1, 4).map((r) => r.entry.id).join(', ') || 'none';
       fail(
-        `${JSON.stringify(query)} matched the wrong food`,
+        `${JSON.stringify(query)} matched the wrong entry`,
         `expected ${expectedId} (${expectedTier}), got ${describe(top)}. Runners up: ${runners}.`
       );
       continue;
     }
 
-    if (top.food.tier !== expectedTier) {
+    if (top.entry.tier !== expectedTier) {
       fail(
         `${JSON.stringify(query)} matched ${expectedId} with the wrong tier`,
-        `expected ${expectedTier}, got ${top.food.tier}`
+        `expected ${expectedTier}, got ${top.entry.tier}`
       );
       continue;
     }
@@ -293,10 +171,10 @@ function runGolden(search) {
 }
 
 /** Cheap invariants that would otherwise only show up as odd UI behaviour. */
-function runPipelineChecks(search, browseGroup, foods) {
+function runPipelineChecks(search, browseGroup, entries) {
   const blank = search('   ');
   if (blank.results.length !== 0 || blank.soft !== false) {
-    fail('An empty query returned results', 'A blank search box must show the browse tiles, not a list of foods.');
+    fail('An empty query returned results', 'A blank search box must show the browse tiles, not a list of entries.');
   }
 
   const gibberish = search('zzqqxwv');
@@ -312,9 +190,9 @@ function runPipelineChecks(search, browseGroup, foods) {
     fail('The result limit was ignored', `search("cheese", 3) returned ${capped.results.length} results.`);
   }
 
-  const group = 'Fish & seafood';
+  const group = 'Fish & seaentry';
   const rows = browseGroup(group);
-  const expected = foods.filter((food) => food.group === group).length;
+  const expected = entries.filter((entry) => entry.group === group).length;
   if (rows.length !== expected) {
     fail(`browseGroup("${group}") returned the wrong count`, `expected ${expected}, got ${rows.length}`);
   }
@@ -338,18 +216,18 @@ function report() {
     console.error(`    ${item.detail}`);
   }
   console.error('');
-  console.error('A wrong top result is a wrong verdict. Fix the aliases in data/foods.json, or fix the fixture if the food genuinely changed.');
+  console.error('A wrong top result is a wrong verdict. Fix the aliases in data/entries.json, or fix the fixture if the entry genuinely changed.');
   console.error('');
 }
 
 async function main() {
   const { initSearch, search, browseGroup } = await import(moduleUrl('assets/js/search.js'));
-  const foods = loadFoods();
+  const entries = loadFoods();
 
-  checkFixtureAgainstData(foods);
-  initSearch(foods);
+  checkFixtureAgainstData(entries);
+  initSearch(entries);
   const passed = runGolden(search);
-  runPipelineChecks(search, browseGroup, foods);
+  runPipelineChecks(search, browseGroup, entries);
 
   if (failures.length > 0) {
     report();
@@ -357,13 +235,13 @@ async function main() {
   }
 
   const depends = new Set(GOLDEN.filter((row) => row[2] === 'depends').map((row) => row[1]));
-  const reds = new Set(GOLDEN.filter((row) => row[2] === 'red').map((row) => row[1]));
+  const calls = new Set(GOLDEN.filter((row) => row[2] === 'call').map((row) => row[1]));
   console.log('');
-  console.log(`Search is honest: ${passed} of ${GOLDEN.length} golden queries returned the right food, first result.`);
+  console.log(`Search is honest: ${passed} of ${GOLDEN.length} golden queries returned the right entry, first result.`);
   console.log('');
-  console.log(`  indexed       ${foods.length} foods`);
-  console.log(`  depends       ${depends.size} ambiguous foods answered "depends"`);
-  console.log(`  reds          ${reds.size} high-stakes reds landed on the right entry`);
+  console.log(`  indexed       ${entries.length} entries`);
+  console.log(`  depends       ${depends.size} ambiguous entries answered "depends"`);
+  console.log(`  calls         ${calls.size} call-someone answers landed on the right entry`);
   console.log('');
 }
 

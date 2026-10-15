@@ -46,16 +46,15 @@ jobs:
       - name: Run the golden search queries
         run: node scripts/test-search.js
 
-      # Guards the one rule the nutrient browse lives or dies on: a food marked
-      # low on a nutrient is a myth-buster, so it must never turn up in that
-      # nutrient's list. Spinach and iron is the case worth remembering.
-      - name: Test the nutrient browse index
-        run: node scripts/test-nutrients.js
+      # One date drives every screen, so the week maths gets its own gate.
+      - name: Test the week timeline
+        run: node scripts/test-timeline.js
 
-      # The Worker is tested against a fake model, so this needs no Cloudflare
-      # account and no API key: it guards the auth, quota and the validator that
-      # stands between a hallucinating model and a verdict she reads.
-      - name: Test the scanner Worker
+      # The Worker runs against a fake model and a fake KV, so this needs no
+      # Cloudflare account and no API key. It guards the auth, the spend cap,
+      # the refusals that stop an invented answer reaching a frightened parent,
+      # and the two-phone merge.
+      - name: Test the Ask Worker
         run: node scripts/test-worker.js
 
   deploy:

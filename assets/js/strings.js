@@ -271,7 +271,14 @@ export const STRINGS = Object.freeze({
     },
   },
 
+  // The generic bottom sheet reads these directly.
+  sheet: {
+    close: 'Close',
+    label: 'Details',
+  },
+
   a11y: {
+    tabs: 'Bub Appetit sections',
     clearSearch: 'Clear search',
     starters: 'Try one of these',
     tabsLabel: 'Bub Appetit sections',
