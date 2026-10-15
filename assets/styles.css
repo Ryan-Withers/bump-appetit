@@ -44,11 +44,11 @@
   --nut-high-bg: #ECE0F6; --nut-high-line: #D2BBE9; --nut-high-ink: #5A3789;
   --nut-med-bg: #F2ECF8;  --nut-med-line: #E0D4EE; --nut-med-ink: #6E5698;
 
-  --go-bg: #DFF0E3;  --go-line: #B9DCC4;  --go-ink: #1D6A41;
+  --ok-bg: #DFF0E3;  --ok-line: #B9DCC4;  --ok-ink: #1D6A41;
   /* Tier: EASY (amber / limit) */
-  --easy-bg: #FBF0D3; --easy-line: #EDD79E; --easy-ink: #7A5800;
+  --watch-bg: #FBF0D3; --watch-line: #EDD79E; --watch-ink: #7A5800;
   /* Tier: HOLD (rose / not now) */
-  --hold-bg: #FAE3E1; --hold-line: #EFC2BD; --hold-ink: #A33F35;
+  --ring-bg: #FAE3E1; --ring-line: #EFC2BD; --ring-ink: #A33F35;
 
   /* Radius */
   --r-chip: 12px; --r-btn: 16px; --r-card: 20px; --r-sheet: 28px; --r-pill: 999px;
@@ -77,9 +77,9 @@
     --brand: #58B380; --butter: #E3B63E;
     --nut-high-bg: #2C2140; --nut-high-line: #4C3A70; --nut-high-ink: #CDB3F2;
     --nut-med-bg: #241E31;  --nut-med-line: #3A3153; --nut-med-ink: #AFA0D4;
-    --go-bg: #17301F;  --go-line: #295C3D;  --go-ink: #7FD3A0;
-    --easy-bg: #322A12; --easy-line: #5D4E1E; --easy-ink: #E4BC5A;
-    --hold-bg: #331D1B; --hold-line: #5E3531; --hold-ink: #EE9C8F;
+    --ok-bg: #17301F;  --ok-line: #295C3D;  --ok-ink: #7FD3A0;
+    --watch-bg: #322A12; --watch-line: #5D4E1E; --watch-ink: #E4BC5A;
+    --ring-bg: #331D1B; --ring-line: #5E3531; --ring-ink: #EE9C8F;
     --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
     --shadow-md: 0 6px 24px rgba(0,0,0,.5);
   }
@@ -445,9 +445,9 @@ button { cursor: pointer; }
 
 .sticker .icon { width: 20px; height: 20px; }
 
-.sticker--go { background: var(--go-bg); border-color: var(--go-line); color: var(--go-ink); }
-.sticker--easy { background: var(--easy-bg); border-color: var(--easy-line); color: var(--easy-ink); }
-.sticker--hold { background: var(--hold-bg); border-color: var(--hold-line); color: var(--hold-ink); }
+.sticker--ok { background: var(--ok-bg); border-color: var(--ok-line); color: var(--ok-ink); }
+.sticker--watch { background: var(--watch-bg); border-color: var(--watch-line); color: var(--watch-ink); }
+.sticker--ring { background: var(--ring-bg); border-color: var(--ring-line); color: var(--ring-ink); }
 
 /* Neutral on purpose: a dashed edge reads as "not decided yet". */
 .sticker--depends {
@@ -494,9 +494,9 @@ button { cursor: pointer; }
 }
 
 /* Colours are set here so a bit without inline styles still looks right. */
-.confetti__bit:nth-child(3n+1) { background: var(--go-ink); }
+.confetti__bit:nth-child(3n+1) { background: var(--ok-ink); }
 .confetti__bit:nth-child(3n+2) { background: var(--butter); }
-.confetti__bit:nth-child(3n)   { background: var(--surface); box-shadow: 0 0 0 1px var(--go-line); }
+.confetti__bit:nth-child(3n)   { background: var(--surface); box-shadow: 0 0 0 1px var(--ok-line); }
 
 @keyframes confetti-fly {
   0% {
@@ -878,9 +878,9 @@ body:has(.sheet.is-open) .sheet-backdrop {
 }
 
 .sheet__fav[aria-pressed='true'] {
-  border-color: var(--hold-line);
-  background: var(--hold-bg);
-  color: var(--hold-ink);
+  border-color: var(--ring-line);
+  background: var(--ring-bg);
+  color: var(--ring-ink);
 }
 
 /* Fill only. The pop belongs to the moment she taps the heart, so verdict.js
@@ -921,9 +921,9 @@ body:has(.sheet.is-open) .sheet-backdrop {
 }
 
 .callout--green {
-  border-color: var(--go-line);
-  background: var(--go-bg);
-  color: var(--go-ink);
+  border-color: var(--ok-line);
+  background: var(--ok-bg);
+  color: var(--ok-ink);
   /* Kindness arrives a beat after the verdict, never at the same time. */
   animation: fade-in var(--dur-2) var(--ease-out) 100ms backwards;
 }
@@ -1015,8 +1015,8 @@ body:has(.sheet.is-open) .sheet-backdrop {
 
 .chips--filter .chip.is-on {
   border-color: var(--brand);
-  background: var(--go-bg);
-  color: var(--go-ink);
+  background: var(--ok-bg);
+  color: var(--ok-ink);
   font-weight: 700;
 }
 
@@ -1346,7 +1346,7 @@ body:has(.sheet.is-open) .sheet-backdrop {
 
 /* Ticked is signalled three ways: fill, strike-through and aria-pressed. */
 .ingredient.is-done { color: var(--ink-2); text-decoration: line-through; }
-.ingredient.is-done::before { border-color: var(--go-ink); background: var(--go-ink); }
+.ingredient.is-done::before { border-color: var(--ok-ink); background: var(--ok-ink); }
 
 .steps {
   display: flex;
@@ -1446,10 +1446,10 @@ body:has(.sheet.is-open) .sheet-backdrop {
   width: 100%;
   min-height: 56px;
   padding: var(--s3) var(--s4);
-  border: 1px solid var(--go-line);
+  border: 1px solid var(--ok-line);
   border-radius: var(--r-btn);
-  background: var(--go-bg);
-  color: var(--go-ink);
+  background: var(--ok-bg);
+  color: var(--ok-ink);
   font-size: var(--fs-label);
   font-weight: 700;
   text-align: center;
@@ -1478,11 +1478,11 @@ body:has(.sheet.is-open) .sheet-backdrop {
 .bar__seg {
   flex: 1 1 auto;
   min-width: 2px;
-  background: var(--easy-line);
+  background: var(--watch-line);
   box-shadow: inset -1px 0 0 var(--surface);
 }
 
-/* The at-limit state (segments to --easy-ink, one 3 degree wobble) is owned by
+/* The at-limit state (segments to --watch-ink, one 3 degree wobble) is owned by
    trackers.js, which paints the segments inline and runs the wobble through the
    Web Animations API so it can fire exactly once, on the crossing, rather than
    on every repaint. It checks prefers-reduced-motion itself, since a scripted

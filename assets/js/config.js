@@ -2,57 +2,125 @@
 // Everything here is safe to change from a phone via github.dev.
 
 export const CONFIG = Object.freeze({
-  // Who the app greets. Used in the time-aware greeting on the Search screen.
+  // Who the app greets at 3am. Whoever is holding the phone.
   name: 'Emma',
 
-  // The date shown on every verdict card, as "Checked {reviewedLabel}".
-  // Bump this after each quarterly source re-check, and bump the "reviewed"
-  // field on the entries you actually re-checked in data/foods.json.
-  reviewedLabel: 'Jul 2026',
+  // Bub's name, once you have picked one. Null until then, and the app just
+  // says "bub", which is what you will be calling them anyway.
+  babyName: null,
 
-  // "Ask Ryan to add it" on the no-results screen opens this.
-  // A pre-filled GitHub issue, so a request lands as a to-do list item.
-  suggestUrl:
-    'https://github.com/Ryan-Withers/bump-appetit/issues/new?labels=food-request&title=Please%20add%3A%20&body=Food%20I%20searched%20for%3A%0A%0AWhere%20I%20saw%20it%3A%0A',
+  // THE IMPORTANT ONE. Everything in the Week tab hangs off this: which week
+  // you are in, what to expect, what to focus on, when the appointments fall.
+  //
+  // Before the birth it counts down. Set `birthDate` the day bub arrives and
+  // the whole app switches to counting their actual age instead, which matters
+  // because almost nobody arrives on their due date.
+  dueDate: '2027-04-15',
+  birthDate: null,
 
-  scanner: Object.freeze({
-    // Your deployed Cloudflare Worker URL, for example
-    // 'https://bump-scan.your-subdomain.workers.dev'.
-    // Leave it empty and the Scan screen politely offers basic on-device
-    // reading instead of pretending the smart scanner exists.
-    endpoint: 'https://bump-scan.ryan-96e.workers.dev',
+  // The date shown on every card, as "Checked {reviewedLabel}".
+  // Bump it after each time you re-read the sources.
+  reviewedLabel: 'Oct 2026',
 
-    // Shared passphrase, sent as the x-bump-pass header. Must match the PASS
-    // secret set on the Worker. This is not a security boundary, it just stops
-    // a stranger who finds the URL from burning the daily quota. It ships to
-    // the browser, so treat it as public: the thing that actually caps the
-    // damage is the Worker's 100 model calls a day.
-    pass: 'cedar-nectar-fennel-9349',
+  /* ------------------------------------------------------------- your people
+     CONFIRM THESE BEFORE YOU NEED THEM. A wrong number at 2am is worse than no
+     number, so each one below is marked with where it came from. Ring them once
+     in daylight, fix anything that is off, and set `confirmed` to true. The app
+     shows an unconfirmed number with a quiet "worth checking" note. */
+  contacts: Object.freeze([
+    Object.freeze({
+      id: 'hospital',
+      label: 'St Vincent\'s Private, Fitzroy',
+      who: 'Maternity, 24 hours',
+      number: '0394117634',
+      display: '(03) 9411 7634',
+      note: 'Birth suite and maternity ward. 59 Victoria Parade, Fitzroy.',
+      source: 'svph.org.au maternity page',
+      confirmed: false,
+    }),
+    Object.freeze({
+      id: 'hospital-switch',
+      label: 'St Vincent\'s switchboard',
+      who: 'If the maternity line does not pick up',
+      number: '0394117111',
+      display: '(03) 9411 7111',
+      note: null,
+      source: 'svph.org.au',
+      confirmed: false,
+    }),
+    Object.freeze({
+      id: 'ob',
+      label: 'Dr Kenneth Leong',
+      who: 'Your OB, consulting rooms',
+      number: '0394287572',
+      display: '(03) 9428 7572',
+      note: 'Business hours. After hours, ring the hospital instead.',
+      source: 'Monash IVF listing',
+      confirmed: false,
+    }),
+    Object.freeze({
+      id: 'mch-line',
+      label: 'Maternal & Child Health Line',
+      who: 'Victoria, 24 hours, free',
+      number: '132229',
+      display: '13 22 29',
+      note: 'Nurses, any hour, for feeding, sleep and "is this normal".',
+      source: 'Victorian Government MCH Line',
+      confirmed: false,
+    }),
+    Object.freeze({
+      id: 'nurse-on-call',
+      label: 'NURSE-ON-CALL',
+      who: 'Victoria, 24 hours',
+      number: '1300606024',
+      display: '1300 60 60 24',
+      note: 'Registered nurse, any health question, any hour.',
+      source: 'Victorian Government',
+      confirmed: false,
+    }),
+    // Fill these two in when you have them.
+    Object.freeze({
+      id: 'mch-nurse',
+      label: 'Your MCH nurse',
+      who: 'Your local council centre',
+      number: '',
+      display: '',
+      note: 'Add the direct number once your first visit is booked.',
+      source: null,
+      confirmed: false,
+    }),
+    Object.freeze({
+      id: 'gp',
+      label: 'Your GP',
+      who: 'Clinic',
+      number: '',
+      display: '',
+      note: 'Worth adding the after-hours line too, if they have one.',
+      source: null,
+      confirmed: false,
+    }),
+  ]),
 
-    // How long to wait before giving up on a scan, in milliseconds. Keep this
-    // above the Worker's own model timeout, so a slow scan comes back as a
-    // proper answer rather than the phone quietly giving up first. Reading
-    // several views of one menu takes longer than reading one.
+  /* ------------------------------------------------------------------- ask
+     Lets Emma ask a question in her own words and get an answer built ONLY
+     from the entries in this app, each one already summarised from Raising
+     Children, Red Nose, the Breastfeeding Association or the RCH. It never
+     searches the open web and it never answers from memory: if the app does
+     not hold the answer, it says so and gives her a number instead. */
+  ask: Object.freeze({
+    // The deployed Cloudflare Worker URL. Leave it empty and the Ask button
+    // simply does not appear, rather than failing when she taps it.
+    endpoint: '',
+
+    // Shared passphrase, sent as the x-bub-pass header. Must match the PASS
+    // secret on the Worker. It ships to the browser, so treat it as public:
+    // what actually caps the damage is the Worker's own daily limit.
+    pass: '',
+
     timeoutMs: 45000,
-
-    // Longest edge of each uploaded view, in pixels. 1568 is what the model
-    // works to, so anything larger is thrown away at the other end and
-    // anything smaller is detail given up for nothing.
-    maxEdgePx: 1568,
-
-    // 0.9 rather than 0.8: JPEG spends its errors on hard edges, which on a
-    // menu means the small print. The extra few KB buys the words that decide
-    // the verdict.
-    jpegQuality: 0.9,
-
-    // Send overlapping halves of a big menu alongside the whole frame, so the
-    // description lines arrive at a readable size. Still one model call, so it
-    // costs no extra quota. Set false to send the single frame only.
-    tiles: true,
   }),
 
-  helplines: Object.freeze([
-    { name: 'Pregnancy, Birth & Baby', number: '1800882436', display: '1800 882 436' },
-    { name: 'NURSE-ON-CALL (Vic)', number: '1300606024', display: '1300 60 60 24' },
-  ]),
+  // "Ask Ryan to add it" on the no-results screen opens this.
+  suggestUrl:
+    'https://github.com/Ryan-Withers/bump-appetit/issues/new?labels=entry-request&title=Please%20add%3A%20&body=What%20I%20searched%20for%3A%0A%0AWhat%20was%20happening%3A%0A',
 });

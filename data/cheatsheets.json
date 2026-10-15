@@ -1,302 +1,599 @@
 {
   "sheets": [
     {
-      "id": "cafe-brunch",
-      "name": "Cafe brunch",
-      "emoji": "🥑",
-      "intro": "Brunch is almost all green once the yolks are firm. Here is the benny trap and everything around it, on one screen.",
+      "id": "ring-now",
+      "name": "Ring now",
+      "emoji": "🚨",
+      "intro": "Ring 000 for any of the first six. You will never be told off for ringing. Trust what you are seeing.",
       "rows": [
         {
-          "tier": "red",
-          "text": "Eggs benedict is the trap: the poached yolk runs and hollandaise is a raw-egg sauce. Ask for the eggs firm and the hollandaise left off, then add smashed avo or a hot grilled tomato."
+          "label": "Ring 000: not breathing, or fighting to breathe",
+          "value": "Gasping, grunting with every breath, ribs sucking in, head bobbing, or long pauses. Ring 000 now.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "Cafe-made mayo and aioli are raw egg. Jar mayo and commercial aioli are pasteurised, so just ask which one lands on the plate."
+          "label": "Ring 000: blue or grey lips, tongue or face",
+          "value": "Any blue or grey around the mouth or on the tongue, or skin gone grey or mottled. Ring 000 now.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "Smoked salmon is cold-smoked and never actually cooked. Canned salmon with cream cheese on a toasted bagel scratches the same itch."
+          "label": "Ring 000: a fit or convulsion",
+          "value": "Jerking, stiffening, or staring and unresponsive. Lay them on their side and ring 000.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "Cold ham, prosciutto or salami on the board carries listeria. Ask for it crisped hot in the pan and it is back on."
+          "label": "Ring 000: unresponsive, floppy or will not wake",
+          "value": "Limp like a rag doll, or you cannot rouse them properly. Ring 000 now.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "Brie, feta, ricotta and goat cheese on the toast only count once they are cooked and bubbling hot. Cold and crumbled is a no, baked is a yes."
+          "label": "Ring 000: a rash that does not fade when pressed",
+          "value": "Press a clear glass on it. Red or purple spots that stay put can be meningococcal. Ring 000 now.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "The cold-press juice and the smoothie bar use pre-cut fruit and machines that are hard to clean. A bottled pasteurised juice or a blender at home is the fix."
+          "label": "Ring 000: choking, a bad fall, or a head knock",
+          "value": "Also any drowning, burn, or a swallowed object, medicine or chemical. Ring 000 now.",
+          "tier": "call"
         },
         {
-          "tier": "yellow",
-          "text": "Coffee is absolutely on: keep the whole day under 200mg of caffeine, which is about 1 to 2 espresso coffees. Decaf takes over after that."
+          "label": "Any fever under 3 months old",
+          "value": "38C or over, measured under the arm, is an emergency department trip now. Do not wait it out.",
+          "tier": "call"
         },
         {
-          "tier": "green",
-          "text": "The big brekky is all clear: firm-yolk eggs, hot bacon, grilled mushrooms, hash browns, smashed avo and toast."
+          "label": "Cold, pale or mottled, or shivering",
+          "value": "A newborn who has gone cold and pale can be as unwell as a hot one. Be seen today.",
+          "tier": "call"
+        },
+        {
+          "label": "Signs of dehydration",
+          "value": "Fewer wet nappies, dry mouth, no tears, a sunken soft spot, or sleepy and hard to feed. Be seen today.",
+          "tier": "call"
+        },
+        {
+          "label": "A cry that sounds wrong",
+          "value": "High pitched, moaning, weak, or hours of inconsolable screaming that is not their normal. Ring today.",
+          "tier": "call"
+        },
+        {
+          "label": "Refusing feeds, or vomiting every feed",
+          "value": "Two or three feeds refused or thrown straight back up, or green or bloody vomit. Be seen today.",
+          "tier": "call"
+        },
+        {
+          "label": "Yellow skin on day one, or deepening jaundice",
+          "value": "Yellow in the first 24 hours, or spreading to the tummy, legs or whites of the eyes. Ring today.",
+          "tier": "call"
+        },
+        {
+          "label": "A bulging or sunken soft spot",
+          "value": "The fontanelle should sit flat and soft. Tight and bulging, or dipped in, needs seeing today.",
+          "tier": "call"
+        },
+        {
+          "label": "Blood in the nappy, or a swollen hard tummy",
+          "value": "Blood in poo or vomit, a tight tummy, or no poo at all with vomiting. Be seen today.",
+          "tier": "call"
+        },
+        {
+          "label": "You just know something is wrong",
+          "value": "Your gut is a real symptom. Ring your nurse line, MCH or GP, or go in. Say what has changed.",
+          "tier": "call"
         }
       ],
       "asks": [
-        "Can I get the eggs cooked firm, please?",
-        "Is the mayo or aioli from a jar?",
-        "Can that come without the hollandaise?"
-      ]
+        "Say the age in weeks first: under three months changes everything.",
+        "Tell them the temperature, how many wet nappies, and when the last feed was.",
+        "Ask what would make you need to come straight back.",
+        "Ask them to watch you feed before you leave."
+      ],
+      "sources": [
+        "rch",
+        "rcn"
+      ],
+      "link": "https://www.rch.org.au/kidsinfo",
+      "reviewed": "2026-10"
     },
     {
-      "id": "pub",
-      "name": "Pub",
-      "emoji": "🍺",
-      "intro": "Parmy yes, steak well done, wine list on pause. The pub menu is friendlier than it looks.",
+      "id": "safe-sleep",
+      "name": "Safe sleep setup",
+      "emoji": "🛌",
+      "intro": "Red Nose has the final say on sleep. Run this list every time you put them down, awake or asleep.",
       "rows": [
         {
-          "tier": "red",
-          "text": "Rare and medium-rare steak is a toxoplasmosis risk. Ordered well done with no pink left, steak is back on the table."
+          "label": "On the back, every sleep",
+          "value": "Back for every nap and every night, from day one. Not the side, not the tummy.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "There is no safe amount of alcohol, so the wine and the espresso martini both sit this one out. Soda, lime and frozen berries in a proper glass still feels like a night out."
+          "label": "Face uncovered",
+          "value": "No hats indoors, no hoods, no bibs, no dummy chains, nothing over the head or face.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Pâté, parfait and terrine on the starters are chilled meat spreads: listeria plus a lot of vitamin A. A shelf-stable jar pâté at home is the safe version."
+          "label": "Their own safe cot",
+          "value": "A cot that meets the Australian standard. Not a couch, a beanbag, a pram or your bed.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Caesar salad dressing is traditionally raw egg, and the cured meat on top is cold. Ask for a bottled dressing and hot grilled chicken."
+          "label": "In your room for 6 to 12 months",
+          "value": "Same room as you, their own cot, for the first six to twelve months. It is the easy win.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Oysters natural and the cold prawn plate are ready-to-eat seafood. Kilpatrick and hot garlic prawns are the same craving, cooked."
+          "label": "Firm, flat, clean mattress",
+          "value": "Firm and flat, snug to the cot sides, no gaps a hand can fit in. No tilts or wedges.",
+          "tier": "normal"
         },
         {
-          "tier": "yellow",
-          "text": "Flake in the beer batter is shark: one 150g serve a fortnight, and no other fish in that fortnight. Ask what the fish of the day actually is."
+          "label": "Feet to the foot of the cot",
+          "value": "Slide them down so their feet touch the end, then tuck bedding in no higher than the chest.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "The parmy is a legend and completely fine: chicken cooked through, ham grilled hot under bubbling cheese."
+          "label": "Nothing loose in the cot",
+          "value": "No pillows, doonas, bumpers, positioners, toys or soft cot liners. Flat and boring is safest.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Well-done burgers, schnitzels, hot pies, chips and a roast dinner are all green when they arrive hot."
+          "label": "Smoke free, before and after birth",
+          "value": "No smoking or vaping in the house, the car or near them. This one matters more than most.",
+          "tier": "normal"
+        },
+        {
+          "label": "Not too hot",
+          "value": "Dress them for the room, roughly what you need plus one light layer. Check the chest or back of the neck.",
+          "tier": "normal"
+        },
+        {
+          "label": "Safe wrap or a fitted sleeping bag",
+          "value": "Arms free once they stir at night. Stop wrapping the moment they show any sign of rolling.",
+          "tier": "watch"
+        },
+        {
+          "label": "Never sleep on a couch or chair with them",
+          "value": "Couch or armchair sleep is the highest risk setup there is. Move to the bed or the cot.",
+          "tier": "call"
+        },
+        {
+          "label": "If they fall asleep on you",
+          "value": "Pop them in the cot on their back when you can. If you are drowsy, hand them over first.",
+          "tier": "watch"
         }
       ],
       "asks": [
-        "Can I get the steak well done, please?",
-        "Is the fish of the day flake?",
-        "Is the salad dressing made here or out of a bottle?"
-      ]
+        "Ring the Red Nose line on 1300 998 698 to talk through your actual room and cot.",
+        "Ask your MCH nurse to check the cot setup at the home visit.",
+        "Ask what to change the day they start rolling."
+      ],
+      "sources": [
+        "rednose"
+      ],
+      "link": "https://rednose.org.au/section/safe-sleeping",
+      "reviewed": "2026-10"
     },
     {
-      "id": "sushi-train",
-      "name": "Sushi train",
-      "emoji": "🍣",
-      "intro": "Fresh plus cooked wins every time. It is raw fish and sitting time that get benched, not sushi itself.",
+      "id": "night-shift",
+      "name": "The 2am run",
+      "emoji": "🌙",
+      "intro": "Same order every time. Boring and dark is the whole trick: you are teaching night from day.",
       "rows": [
         {
-          "tier": "red",
-          "text": "Sashimi, nigiri and anything raw is off for now. Ask the kitchen for a fresh roll with cooked chicken, cooked egg or veg instead."
+          "label": "1. Lights stay low",
+          "value": "One dim lamp or a warm nightlight. No overheads, no phone screen in their face.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Smoked salmon rolls count as raw too, because cold-smoked fish is never cooked. A teriyaki chicken roll is the swap."
+          "label": "2. Barely talk",
+          "value": "Whisper or stay quiet. No chat, no games, no eye contact games. Night is not fun time.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Plates that have been circling a while are out even with cooked fillings, because sitting time is the listeria risk. Order off the menu so it is made fresh."
+          "label": "3. Offer the feed first",
+          "value": "Hungry is the usual answer. Feed before you unwrap or change, unless the nappy has leaked.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Pre-packed sushi from a supermarket or servo fridge is the same problem: made hours ago and kept cold. Made in front of you is the green version."
+          "label": "4. Change only if you need to",
+          "value": "Poo, a leak or sore skin means change. A plain wet nappy overnight can often wait.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Cold cooked prawn on top of a plate counts as pre-cooked cold seafood. Hot prawn tempura, straight from the fryer, is all clear."
+          "label": "5. Burp and rewrap",
+          "value": "Upright on your shoulder for a minute or two, then wrap or zip them back up, arms as before.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Made to order with cooked fillings and eaten straight away is the green lane: teriyaki chicken, cooked egg, avo, cucumber, tinned tuna with jar mayo."
+          "label": "6. Back in the cot, on the back",
+          "value": "Down drowsy if you can, on the back, feet to the foot of the cot, face clear.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Anything hot from the kitchen is easy: karaage chicken, gyoza, katsu curry, miso soup and edamame."
+          "label": "7. Hand on the chest, then out",
+          "value": "Steady hand, a shhh, then leave. Give them a few minutes to grumble themselves down.",
+          "tier": "normal"
+        },
+        {
+          "label": "8. Still unsettled after a while",
+          "value": "Try again: nappy, wind, too hot or cold, suck, or a quiet cuddle. Then reset and repeat.",
+          "tier": "normal"
+        },
+        {
+          "label": "9. Hand over and write it down",
+          "value": "Note the time and side or amount, say it out loud to the other one, then swap shifts.",
+          "tier": "normal"
+        },
+        {
+          "label": "10. Swap so each of you gets one long block",
+          "value": "Split the night into halves rather than both waking. Four hours unbroken beats eight broken.",
+          "tier": "normal"
+        },
+        {
+          "label": "If you feel yourself losing it",
+          "value": "Put them safely in the cot, shut the door and breathe for a few minutes. That is the safe choice.",
+          "tier": "watch"
+        },
+        {
+          "label": "Never bring them to a couch to feed when tired",
+          "value": "If you might doze off, feed sitting up in bed with the bedding clear, or wake the other one.",
+          "tier": "call"
         }
       ],
       "asks": [
-        "Can you make that one fresh for me with cooked fillings?",
-        "Is there any raw or smoked fish in this roll?",
-        "How long has that plate been on the belt?"
-      ]
+        "Ask your MCH nurse to watch a feed and check the latch if nights are getting worse.",
+        "Ask the ABA helpline about night feeds and supply on 1800 686 268.",
+        "Ask your GP about sleep and mood at the six week check."
+      ],
+      "sources": [
+        "rcn",
+        "rednose"
+      ],
+      "link": "https://raisingchildren.net.au",
+      "reviewed": "2026-10"
     },
     {
-      "id": "pizza",
-      "name": "Pizza",
-      "emoji": "🍕",
-      "intro": "The easiest menu in the game. A screaming hot oven fixes nearly everything, including the ham and the salami.",
+      "id": "is-this-normal",
+      "name": "Yes, that is normal",
+      "emoji": "✅",
+      "intro": "Newborns are loud, twitchy and leaky. Here is the stuff that looks alarming and is not.",
       "rows": [
         {
-          "tier": "red",
-          "text": "Prosciutto draped on after the oven stays cold and cured. Ask for it baked on so it crisps up, and it is a green light."
+          "label": "Hiccups, constantly",
+          "value": "A few times a day is normal and does not bother them. No treatment, they grow out of it.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Fresh mozzarella, bocconcini or burrata scattered on at the end never gets hot. Melted through under the heat, it is fine."
+          "label": "Sneezing a lot",
+          "value": "Clearing out fluff and dust from tiny nostrils. Sneezing on its own is not a cold.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "A cold feta or ricotta crumble added after baking misses the oven. Ask for the soft cheese cooked on instead."
+          "label": "Snuffly, rattly breathing",
+          "value": "Narrow noses make noise. Fine if they are feeding well and the chest is not working hard.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "House-made aioli or garlic dip on the side can be raw egg. Stick to a commercial bottle, or go with the tomato sugo."
+          "label": "Startling with arms flung out",
+          "value": "The startle reflex. A snug wrap with the hips free settles it. It fades over a few months.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Ham, salami, pepperoni and bacon baked onto the pizza are all clear. The oven does the work that heating deli meat at home would do."
+          "label": "Grunting, groaning and straining",
+          "value": "They grunt in their sleep and strain to poo. Soft poo when it arrives means all is well.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Melted mozzarella, mushrooms, olives, capsicum and pineapple are green. Pineapple will not start labour either, promise."
+          "label": "Irregular breathing while asleep",
+          "value": "Fast, then slow, then a pause of a few seconds. Even colour and easy breaths mean it is fine.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Leftover slices are fine the next day: back through a hot oven until they are steaming, not straight from the fridge."
+          "label": "Posseting after feeds",
+          "value": "A small milky spill with a burp, most feeds. Weight gain and happy baby means no action.",
+          "tier": "normal"
+        },
+        {
+          "label": "Mustard yellow, seedy poo",
+          "value": "From about day five on breastmilk. Can be green, lumpy or explosive and still be normal.",
+          "tier": "normal"
+        },
+        {
+          "label": "Cluster feeding, usually at night",
+          "value": "Feed, doze, feed again for hours, often early evening. It builds your supply, it is not failure.",
+          "tier": "normal"
+        },
+        {
+          "label": "Crying peaking at 6 to 8 weeks",
+          "value": "Crying climbs to a peak around six to eight weeks, then eases. Nothing you did caused it.",
+          "tier": "normal"
+        },
+        {
+          "label": "Spots, blotches and peeling skin",
+          "value": "Milia, baby acne and flaky skin in the first weeks all pass on their own. Leave them alone.",
+          "tier": "normal"
+        },
+        {
+          "label": "Weight dip in the first week",
+          "value": "Losing some birth weight then gaining it back by about two weeks is expected.",
+          "tier": "normal"
+        },
+        {
+          "label": "When any of this changes the answer",
+          "value": "Fever, hard work to breathe, a rash that will not fade, projectile or green vomit, fewer wet nappies.",
+          "tier": "call"
         }
       ],
       "asks": [
-        "Can you cook the prosciutto on the pizza rather than adding it after?",
-        "Is the mozzarella baked on, or added fresh at the end?",
-        "Is the garlic dip out of a bottle?"
-      ]
+        "Ask your MCH nurse to weigh them if you are unsure about feeding.",
+        "Ask your GP whether reflux is worth looking at if they spill and are miserable.",
+        "Ask what your nearest after hours option is, before you need it."
+      ],
+      "sources": [
+        "rcn",
+        "rch"
+      ],
+      "link": "https://raisingchildren.net.au",
+      "reviewed": "2026-10"
     },
     {
-      "id": "fish-and-chips",
-      "name": "Fish and chips",
-      "emoji": "🍟",
-      "intro": "Straight out of the fryer is a green light. The only real question at the counter is what the fish actually is.",
+      "id": "wet-nappies",
+      "name": "Wet nappy count",
+      "emoji": "💧",
+      "intro": "Wet nappies are the best proof they are getting enough. Count them, do not guess.",
       "rows": [
         {
-          "tier": "red",
-          "text": "Prawn cocktail and the chilled prawns in the cabinet are pre-cooked cold seafood. Ask for them hot in a garlic prawn dish instead."
+          "label": "Day 1",
+          "value": "1 or more wet nappy. Poo is black, sticky meconium. Colostrum comes in tiny amounts, and that is right.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Raw oysters off the ice are out, but oysters Kilpatrick straight off the grill are very much in."
+          "label": "Day 2",
+          "value": "2 or more wet nappies. Still meconium. Feed often, at least eight to twelve times in 24 hours.",
+          "tier": "normal"
         },
         {
-          "tier": "yellow",
-          "text": "Flake IS shark. One 150g serve a fortnight, and no other fish in that fortnight. Snapper, whiting or flathead comes with no cap."
+          "label": "Day 3",
+          "value": "3 or more wet nappies. Poo turning greenish brown as your milk comes in.",
+          "tier": "normal"
         },
         {
-          "tier": "yellow",
-          "text": "Swordfish, broadbill and marlin sit under the same fortnight rule as flake."
+          "label": "Day 4",
+          "value": "4 or more wet nappies, getting heavier. Poo going yellow and looser.",
+          "tier": "normal"
         },
         {
-          "tier": "yellow",
-          "text": "Orange roughy, sold as sea perch, and catfish are once a week with no other fish that week."
+          "label": "Day 5 onwards",
+          "value": "5 or more heavy wet nappies every 24 hours, pale wee, and 3 or more soft yellow poos a day.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Battered or grilled snapper, whiting, flathead and barra, hot from the fryer, are the good news: 1 to 3 serves of fish a week is encouraged."
+          "label": "How heavy is heavy enough",
+          "value": "A wet disposable has real weight to it. Tip three tablespoons of water into a dry one to learn the feel.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Hot chips, potato cakes, calamari and dim sims are all green when they land hot. Chicken salt included."
+          "label": "After about 6 weeks, fewer poos",
+          "value": "Breastfed babies can go days between poos and still be fine, as long as wet nappies hold up.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Tartare sauce from a commercial bottle or a squeeze pack is pasteurised and fine."
+          "label": "Pink or orange brick dust in the nappy",
+          "value": "Common in the first days. If it is still showing after day three, ring your nurse or GP.",
+          "tier": "watch"
+        },
+        {
+          "label": "4 or fewer heavy wet nappies after day 5",
+          "value": "Ring your MCH nurse, GP or your state nurse line today. Keep offering feeds while you wait.",
+          "tier": "call"
+        },
+        {
+          "label": "No wet nappy at all for 6 hours",
+          "value": "Ring today. With a dry mouth, a sunken soft spot or a sleepy baby, go to the emergency department.",
+          "tier": "call"
+        },
+        {
+          "label": "Dark, strong smelling wee, or dry nappies",
+          "value": "Dark concentrated wee means not enough fluid in. Ring your nurse line or GP today.",
+          "tier": "call"
+        },
+        {
+          "label": "No poo at all by day 3, or blood in poo",
+          "value": "Also white or chalky poo, or poo still black after day four. Be seen today.",
+          "tier": "call"
         }
       ],
       "asks": [
-        "Is the fish of the day flake?",
-        "What fish is in the battered fillet today?",
-        "Is the tartare sauce out of a bottle?"
-      ]
+        "Ask the ABA helpline on 1800 686 268 if you are worried about supply.",
+        "Ask your MCH nurse for a weigh in and a feed assessment.",
+        "Ask whether your baby needs reviewing if weight gain has stalled."
+      ],
+      "sources": [
+        "aba",
+        "rcn"
+      ],
+      "link": "https://www.breastfeeding.asn.au",
+      "reviewed": "2026-10"
     },
     {
-      "id": "maccas",
-      "name": "Maccas",
-      "emoji": "🍔",
-      "intro": "Drive-through, sorted. The burgers are fine, it is the ice cream machine that gets benched.",
+      "id": "first-48-hours",
+      "name": "First 48 hours home",
+      "emoji": "🏡",
+      "intro": "You will not remember any of this, so here is the order. Nothing on this list is optional or hard.",
       "rows": [
         {
-          "tier": "red",
-          "text": "Soft serve cones, sundaes, McFlurry and thickshakes all come out of the dispenser machine, which is hard to clean right through. A choc top or a scoop from a tub is the fix."
+          "label": "1. Car seat in, then straight inside",
+          "value": "Take them out of the capsule as soon as you are in. Capsules are for travel, not for sleeping in.",
+          "tier": "normal"
         },
         {
-          "tier": "red",
-          "text": "Pre-packaged sandwiches, wraps and salads from a fridge cabinet, the servo next door included, are made ahead and kept cold. Anything hot off the grill beats them."
+          "label": "2. Set the cot up now",
+          "value": "Firm flat mattress, nothing loose, in your room. Do it before you are too tired to think.",
+          "tier": "normal"
         },
         {
-          "tier": "yellow",
-          "text": "Fancier burger joints often use a house-made aioli, which is raw egg. The big chains use commercial sauces, so ask if you are anywhere boutique."
+          "label": "3. Lock the phone numbers in",
+          "value": "000, your nurse line, MCH, GP and the hospital, saved in both phones before the first night.",
+          "tier": "normal"
         },
         {
-          "tier": "yellow",
-          "text": "The McCafe latte draws on the same 200mg daily caffeine budget as any other coffee."
+          "label": "4. Feed on demand, day and night",
+          "value": "Eight to twelve feeds in 24 hours, whenever they cue. Wake them to feed if four hours have passed.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Burgers, cheeseburgers and quarter pounders are all clear. Fast-food patties get cooked hard and fast, so there is no pink left."
+          "label": "5. Start the nappy and feed tally",
+          "value": "Scrappy notes on paper or your phone. Times, sides or amounts, wets and poos. It saves phone calls.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Nuggets, fries and a hot apple pie are green, straight from the fryer to the bag."
+          "label": "6. Keep the cord stump dry",
+          "value": "Nappy folded below it, clean with water only if it is dirty, let air at it. It drops off in one to three weeks.",
+          "tier": "normal"
         },
         {
-          "tier": "green",
-          "text": "Still craving the cone? A tub ice cream sundae at home, or a frozen banana blitzed with a splash of milk, does the job."
+          "label": "7. Skip the bath",
+          "value": "Top and tail with warm water instead. A real bath can wait days, and twice a week is plenty.",
+          "tier": "normal"
+        },
+        {
+          "label": "8. Expect the midwife or MCH visit",
+          "value": "Usually day one to five after you get home. Write your questions on the fridge as they occur to you.",
+          "tier": "normal"
+        },
+        {
+          "label": "9. Sleep when they sleep, properly",
+          "value": "One of you lies down while the other holds the baby. Visitors and tidying come well after this.",
+          "tier": "normal"
+        },
+        {
+          "label": "10. Eat, drink, and keep water where you feed",
+          "value": "A bottle of water and one handed food at every feeding spot. Feeding is thirsty work.",
+          "tier": "normal"
+        },
+        {
+          "label": "11. Watch for yellow skin",
+          "value": "Jaundice often shows on day two to four. Press a finger on the nose or chest and look as it refills.",
+          "tier": "watch"
+        },
+        {
+          "label": "12. Book the first GP check",
+          "value": "Around one to two weeks, plus the six to eight week check and immunisations. Book it now.",
+          "tier": "normal"
+        },
+        {
+          "label": "Anything on the Ring now sheet",
+          "value": "Breathing trouble, blue or grey, a fit, a fever, a non fading rash, floppy. Ring 000 or go in.",
+          "tier": "call"
         }
       ],
       "asks": [
-        "Is that sauce a commercial one from a bottle?",
-        "Can I get this one hot and fresh, please?"
-      ]
+        "Ask who to ring overnight in your area, and write the number down.",
+        "Ask the nurse to watch a full feed and check the latch.",
+        "Ask what weight gain they want to see by the next visit."
+      ],
+      "sources": [
+        "rcn",
+        "rch"
+      ],
+      "link": "https://raisingchildren.net.au",
+      "reviewed": "2026-10"
     },
     {
-      "id": "thai-chinese",
-      "name": "Thai and Chinese",
-      "emoji": "🥡",
-      "intro": "Hot, fresh and straight from the wok is exactly what we want. Sprouts are the one regular thing to ask about.",
+      "id": "who-to-ring",
+      "name": "Who to ring",
+      "emoji": "📞",
+      "intro": "Save these in both phones tonight. None of them mind being rung, and none of them judge.",
       "rows": [
         {
-          "tier": "red",
-          "text": "Raw bean sprouts piled on the pad thai or the pho are a listeria carrier. Ask for them cooked right through or left out, and the dish is green."
+          "label": "000",
+          "value": "Ambulance, police, fire. Breathing trouble, blue or grey, a fit, floppy, a rash that will not fade.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "Rare beef in pho only gets flashed by the broth. Ask for the beef well done, or order the chicken one."
+          "label": "Poisons Information 13 11 26",
+          "value": "24 hours, Australia wide. Swallowed medicine, a cleaning product, a plant, or a double dose.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "Enoki mushrooms in a hotpot often go in at the last second. Give them a proper simmer until they are cooked through and they are fine."
+          "label": "healthdirect 1800 022 222",
+          "value": "24 hour nurse line for most of Australia. Should we be seen, and where should we go.",
+          "tier": "call"
         },
         {
-          "tier": "red",
-          "text": "Fried ice cream has an egg batter that often does not cook through. A scoop from a tub with a hot sauce over it is the safe version."
+          "label": "13 HEALTH 13 43 25 84 (QLD)",
+          "value": "Queensland's 24 hour nurse and health advice line. Same job as healthdirect.",
+          "tier": "call"
         },
         {
-          "tier": "yellow",
-          "text": "Chinese tea and Thai iced tea count toward the 200mg daily caffeine budget."
+          "label": "Nurse on Call 1300 60 60 24 (VIC)",
+          "value": "Victoria's 24 hour registered nurse line for health advice when the GP is shut.",
+          "tier": "call"
         },
         {
-          "tier": "green",
-          "text": "Stir-fries, curries, steamed rice, dumplings, san choy bow and soups are the green lane whenever they arrive steaming hot."
+          "label": "Maternal and Child Health Line 13 22 29 (VIC)",
+          "value": "24 hours, for feeding, sleep, crying and settling. Your first call for anything not urgent.",
+          "tier": "call"
         },
         {
-          "tier": "green",
-          "text": "Fried rice is fine made fresh with the egg cooked firm. Leftovers get cooled fast, reheated once, and eaten within a day."
+          "label": "Your MCH or child health nurse",
+          "value": "The free, local, non urgent one. Weights, feeding, sleep, your own head. Book or drop in.",
+          "tier": "normal"
+        },
+        {
+          "label": "Your GP",
+          "value": "Fevers, rashes, reflux, jaundice, the one to two week and six to eight week checks, immunisations.",
+          "tier": "normal"
+        },
+        {
+          "label": "ABA Breastfeeding Helpline 1800 686 268",
+          "value": "24 hours, staffed by trained counsellors. Latch, supply, blocked ducts, pain, weaning, bottles.",
+          "tier": "normal"
+        },
+        {
+          "label": "Pregnancy, Birth and Baby 1800 882 436",
+          "value": "7am to midnight, 7 days. Maternal child health nurses for any question about the first year.",
+          "tier": "normal"
+        },
+        {
+          "label": "Red Nose 1300 998 698",
+          "value": "Safe sleep advice, and bereavement support. Ring them about your actual cot and room setup.",
+          "tier": "normal"
+        },
+        {
+          "label": "PANDA 1300 726 306",
+          "value": "Perinatal anxiety and depression, for both of you. Mon to Fri, and Saturdays. Ring early, not late.",
+          "tier": "normal"
+        },
+        {
+          "label": "Lifeline 13 11 14",
+          "value": "24 hours. If you are in crisis, cannot cope, or have thoughts of harming yourself or the baby.",
+          "tier": "call"
+        },
+        {
+          "label": "13YARN 13 92 76",
+          "value": "24 hours, for Aboriginal and Torres Strait Islander people who need to talk to a mob who get it.",
+          "tier": "normal"
+        },
+        {
+          "label": "1800RESPECT 1800 737 732",
+          "value": "24 hours, family violence and sexual assault support. If home does not feel safe, ring them.",
+          "tier": "call"
         }
       ],
       "asks": [
-        "Can I get the sprouts cooked right through, or left out?",
-        "Is the beef in the pho cooked well done?",
-        "Can that come out fresh from the wok rather than the bain-marie?"
-      ]
+        "Ask your hospital for its after hours maternity or newborn number before discharge.",
+        "Ask your MCH nurse which local service covers nights and weekends.",
+        "Ask your GP practice what to do when they are closed."
+      ],
+      "sources": [
+        "rcn",
+        "rch",
+        "aba",
+        "rednose"
+      ],
+      "link": "https://raisingchildren.net.au",
+      "reviewed": "2026-10"
     }
   ]
 }

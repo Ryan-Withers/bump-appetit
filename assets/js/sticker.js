@@ -7,10 +7,13 @@ import { STRINGS } from './strings.js';
 import { icon } from './icons.js';
 import { prefersReducedMotion } from './util.js';
 
+// The four answers. `call` is the one that changed the app's whole shape: in a
+// food app red meant "do not", here it means "ring someone, now", so it carries
+// a phone icon and the sheet puts the number under it.
 export const TIERS = Object.freeze({
-  green: Object.freeze({ word: 'YES!', icon: 'circle-check', cls: 'go' }),
-  yellow: Object.freeze({ word: 'LIMIT', icon: 'circle-alert', cls: 'easy' }),
-  red: Object.freeze({ word: 'NOT NOW', icon: 'circle-x', cls: 'hold' }),
+  normal: Object.freeze({ word: 'ALL NORMAL', icon: 'circle-check', cls: 'ok' }),
+  watch: Object.freeze({ word: 'KEEP AN EYE', icon: 'circle-alert', cls: 'watch' }),
+  call: Object.freeze({ word: 'CALL SOMEONE', icon: 'phone', cls: 'ring' }),
   depends: Object.freeze({ word: 'DEPENDS', icon: 'circle-alert', cls: 'depends' }),
 });
 
@@ -34,7 +37,7 @@ const BIT_SPIN_DEG = 120;
 
 // The confetti colours are read straight off the token block so a theme change
 // carries through, including in dark mode.
-const BIT_COLOURS = ['var(--go-ink)', 'var(--butter)', 'var(--surface)'];
+const BIT_COLOURS = ['var(--ok-ink)', 'var(--butter)', 'var(--surface)'];
 
 // Mirrors --ease-out in the token block. Inlined rather than read back from
 // the stylesheet: the value is fixed by the spec and this runs mid-animation.
@@ -171,7 +174,7 @@ export function playStamp(stickerEl, tier) {
   void stickerEl.offsetWidth;
   stickerEl.classList.add('reveal');
 
-  if (tierKey(tier) !== 'green') return;
+  if (tierKey(tier) !== 'normal') return;
   if (prefersReducedMotion()) return;
   if (Date.now() - lastConfettiAt < CONFETTI_GAP_MS) return;
 
